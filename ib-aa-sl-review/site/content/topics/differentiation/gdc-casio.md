@@ -25,8 +25,8 @@ Key sequences are for the **fx-9860GII / fx-9860GIII**. The numerical derivative
 |---|---|---|
 | Numerical derivative | RUN-MAT | [[OPTN]] → [[F4]] CALC → [[F2]] d/dx |
 | Show $\dfrac{\mathrm{d}y}{\mathrm{d}x}$ while tracing | GRAPH | [[SHIFT]] [[MENU]] SET UP → Derivative: On |
-| Max / min | graph screen | [[SHIFT]] [[F5]] G-SOLV → [[F2]] MAX / [[F3]] MIN |
-| Trace | graph screen | [[SHIFT]] [[F1]] TRCE |
+| Max / min | graph screen | [[F5]] G-SOLV → [[F2]] MAX / [[F3]] MIN |
+| Trace | graph screen | [[F1]] TRACE |
 
 ## Step by step
 

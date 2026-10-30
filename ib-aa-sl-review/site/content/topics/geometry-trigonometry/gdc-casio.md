@@ -27,7 +27,7 @@ Key sequences are for the **fx-9860GII / fx-9860GIII**. Items marked {{unverifie
 | Inverse trig | RUN-MAT | [[SHIFT]] [[sin]] (and cos, tan) |
 | $\pi$ | any | [[SHIFT]] [[EXP]] |
 | Degree / radian symbols | RUN-MAT | [[OPTN]] → [[F6]] → ANGL {{unverified}} |
-| Intersection | GRAPH | [[SHIFT]] [[F5]] G-SOLV → [[F5]] ISCT |
+| Intersection | GRAPH | [[F5]] G-SOLV → [[F5]] ISCT |
 
 ## Step by step
 

@@ -5,8 +5,12 @@
  * Lessons live in content/gdc/<topic-id>.json. Each step is one of:
  *   { do, keys: [...], screen }          press these keys in order
  *   { do, select: "GRAPH", screen }      pick an icon in the main menu (arrows + EXE)
+ *   { do, scroll: 5, screen }            move the highlighted line (▲ ▼) to line 5
  *   { ask, options: [...], answer, why } multiple-choice question about the result
  * A step's `screen` is what the calculator shows once the step is done.
+ * `entry: { line, prefix, add }` shows the line being typed; `add[i]` overrides what key i types.
+ * Text screens: `lines`, `hl` (inverted line), `right` (right-aligned lines), `fkeys`.
+ * Graph screens: `win`, `fns`, `pt`, `label`, `read`; with nothing else they show the graph F-key menu.
  */
 (function () {
   "use strict";
@@ -37,7 +41,10 @@
   [FKEYS, ...CTRL, ...FUNC, ...NUM].forEach((row) => row.forEach((k) => (LABEL[k[0]] = k[1])));
 
   // What a key adds to the line being typed.
-  const TYPED = { XT: "X", SQR: "²", POW: "^", LP: "(", RP: ")", COMMA: ",", MUL: "×", DIV: "÷", ADD: "+", SUB: "-", NEG: "-", DOT: "." };
+  const TYPED = {
+    XT: "X", SQR: "²", POW: "^", LP: "(", RP: ")", COMMA: ",", MUL: "×", DIV: "÷", ADD: "+", SUB: "-", NEG: "-", DOT: ".",
+    LOG: "log ", LN: "ln ", SIN: "sin ", COS: "cos ", TAN: "tan "
+  };
   const typedText = (id) => TYPED[id] || (/^\d$/.test(id) ? id : "");
 
   // Physical keyboard shortcuts.
@@ -45,6 +52,9 @@
     Enter: "EXE", Escape: "EXIT", Backspace: "DEL", ArrowUp: "UP", ArrowDown: "DOWN", ArrowLeft: "LEFT", ArrowRight: "RIGHT",
     "+": "ADD", "-": "SUB", "*": "MUL", "/": "DIV", "(": "LP", ")": "RP", ".": "DOT", "^": "POW", x: "XT", X: "XT"
   };
+
+  // F-key menu along the bottom of a drawn graph (no SHIFT needed).
+  const GRAPH_FKEYS = ["TRACE", "ZOOM", "V-WIN", "SKETCH", "G-SOLV", "G↔T"];
 
   // Main menu icons, four per row.
   const MENU = ["RUN•MAT", "STAT", "e•ACT", "S•SHT", "GRAPH", "DYNA", "TABLE", "RECUR", "CONICS", "EQUA", "PRGM", "TVM", "LINK", "MEMORY", "SYSTEM"];
@@ -74,8 +84,9 @@
       : "").join("");
   }
 
-  function textScreen(scr, entry) {
+  function textScreen(scr, entry, hl) {
     const lines = (scr.lines || []).slice();
+    const right = scr.right || [];
     let entryRow = -1;
     if (entry) {
       entryRow = entry.line != null ? entry.line : 6;
@@ -84,10 +95,12 @@
     let out = "";
     lines.forEach((line, i) => {
       const y = 7 + i * 8;
-      if (i === scr.hl && i !== entryRow) {
-        out += '<rect class="ink" x="0" y="' + (y - 6.4) + '" width="' + W + '" height="8"/>' + svgText(1, y, line, { inv: true });
+      const r = right.includes(i) && i !== entryRow;
+      const pos = r ? { x: W - 1, anchor: "end" } : { x: 1 };
+      if (i === hl && i !== entryRow) {
+        out += '<rect class="ink" x="0" y="' + (y - 6.4) + '" width="' + W + '" height="8"/>' + svgText(pos.x, y, line, { inv: true, anchor: pos.anchor });
       } else {
-        out += svgText(1, y, line);
+        out += svgText(pos.x, y, line, { anchor: pos.anchor });
       }
     });
     if (entry) out += '<rect class="ink blink" x="' + (1 + entry.text.length * 4.2) + '" y="' + (7 + entryRow * 8 - 6) + '" width="4" height="7"/>';
@@ -135,13 +148,14 @@
       out += '<rect class="lcd" x="0" y="56" width="' + W + '" height="8"/>' + svgText(1, 62.5, read, { size: 5.6 });
       if (entry) out += '<rect class="ink blink" x="' + (1 + read.length * 3.4) + '" y="57" width="3" height="6"/>';
     }
-    return out + fkeyBar(scr.fkeys);
+    const idle = !scr.fkeys && !scr.pt && !scr.label && !read;
+    return out + fkeyBar(idle ? GRAPH_FKEYS : scr.fkeys);
   }
 
   function screenSvg(scr, o) {
     const body = scr.type === "menu" ? menuScreen(o.menuSel || scr.sel)
       : scr.type === "graph" ? graphScreen(scr, o.entry)
-      : textScreen(scr, o.entry);
+      : textScreen(scr, o.entry, o.hl != null ? o.hl : scr.hl);
     const shift = o.shift ? '<rect class="ink" x="' + (W - 7) + '" y="0" width="7" height="7.5"/>' + svgText(W - 3.5, 6, "S", { size: 6, anchor: "middle", inv: true }) : "";
     return '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Calculator screen">' +
       '<rect class="lcd" width="' + W + '" height="' + H + '"/>' + body + shift + "</svg>";
@@ -176,7 +190,7 @@
 
   const S = {
     data: null, topicTitle: "", lesson: null, step: 0, keyIdx: 0, typed: "", menuSel: null,
-    shift: false, mistakes: 0, wrongHere: 0, hintShown: false, done: false, answered: null,
+    shift: false, mistakes: 0, wrongHere: 0, hintShown: false, done: false, answered: null, tried: [],
     mode: App.store.get("gdc-mode") in MODES ? App.store.get("gdc-mode") : "guided"
   };
 
@@ -197,9 +211,13 @@
   }
 
   function resetStep() {
-    Object.assign(S, { keyIdx: 0, typed: "", shift: false, wrongHere: 0, hintShown: false, answered: null });
+    Object.assign(S, { keyIdx: 0, typed: "", shift: false, wrongHere: 0, hintShown: false, answered: null, tried: [] });
     const scr = S.done ? null : screenBefore(S.step);
     S.menuSel = scr && scr.type === "menu" ? scr.sel : null;
+    S.hl = scr && current().scroll != null ? scr.hl || 0 : null;
+    // Options are written with the right answer first; show them in a random order.
+    const st = S.done ? null : current();
+    S.order = st && st.ask ? st.options.map((_, i) => i).sort(() => Math.random() - 0.5) : null;
   }
 
   // The key the student should press next, or null.
@@ -213,6 +231,7 @@
       if (dr) return dr > 0 ? "DOWN" : "UP";
       return to > from ? "RIGHT" : "LEFT";
     }
+    if (st.scroll != null) return st.scroll > S.hl ? "DOWN" : "UP";
     return st.keys[S.keyIdx];
   }
 
@@ -239,9 +258,19 @@
       return wrong(id === "EXE" ? "That opens **" + S.menuSel + "**. Move to **" + st.select + "** first." : null);
     }
 
+    if (st.scroll != null) {
+      const lines = (screenBefore(S.step).lines || []).length;
+      if (id === "UP" || id === "DOWN") {
+        S.hl = Math.max(0, Math.min(lines - 1, S.hl + (id === "DOWN" ? 1 : -1)));
+        return S.hl === st.scroll ? nextStep() : renderAll();
+      }
+      return wrong(null);
+    }
+
     if (id !== st.keys[S.keyIdx]) return wrong(null);
+    const add = st.entry && st.entry.add && st.entry.add[S.keyIdx];
     S.keyIdx++;
-    S.typed += typedText(id);
+    S.typed += add != null ? add : typedText(id);
     S.shift = id === "SHIFT";
     if (S.keyIdx === st.keys.length) return nextStep();
     renderAll();
@@ -284,6 +313,7 @@
     const st = current();
     if (S.answered === st.answer) return;
     S.answered = i;
+    S.tried.push(i);
     if (i !== st.answer) { S.mistakes++; S.wrongHere++; }
     renderAll();
   }
@@ -307,7 +337,7 @@
     const st = current();
     const scr = shownScreen();
     const entry = !S.done && st && st.entry && S.keyIdx > 0 ? { line: st.entry.line, text: (st.entry.prefix || "") + S.typed } : null;
-    document.getElementById("screen").innerHTML = screenSvg(scr, { menuSel: S.menuSel, entry, shift: S.shift });
+    document.getElementById("screen").innerHTML = screenSvg(scr, { menuSel: S.menuSel, hl: S.hl, entry, shift: S.shift });
 
     document.querySelectorAll(".calc .key").forEach((b) => b.classList.remove("glow"));
     const exp = expectedKey();
@@ -350,9 +380,9 @@
     if (!S.done && st && st.ask) {
       const ok = S.answered === st.answer;
       html += '<div class="gdc-ask"><p>' + inline(st.ask) + '</p><div class="gdc-options">' +
-        st.options.map((o, i) => {
-          const cls = S.answered === i ? (i === st.answer ? " opt-ok" : " opt-bad") : "";
-          return '<button type="button" class="gdc-opt' + cls + '" data-opt="' + i + '"' + (ok ? " disabled" : "") + ">" + inline(o) + "</button>";
+        S.order.map((i) => {
+          const cls = i === st.answer && ok ? " opt-ok" : S.tried.includes(i) && i !== st.answer ? " opt-bad" : "";
+          return '<button type="button" class="gdc-opt' + cls + '" data-opt="' + i + '"' + (ok || S.tried.includes(i) ? " disabled" : "") + ">" + inline(st.options[i]) + "</button>";
         }).join("") + "</div>" +
         (S.answered != null ? '<p class="gdc-why ' + (ok ? "fb-ok" : "fb-bad") + '">' + (ok ? "Correct. " + inline(st.why) : "Not quite. Look at the screen and try again.") + "</p>" : "") +
         (ok ? '<button type="button" class="btn btn-primary" data-continue>Continue</button>' : "") + "</div>";

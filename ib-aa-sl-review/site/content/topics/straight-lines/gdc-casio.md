@@ -28,7 +28,7 @@ Straight lines are mostly a Paper 1 topic, so practise doing them **by hand**. O
 | Fraction | RUN-MAT | fraction key [[a b⁄c]] (Math input mode shows a fraction template) {{unverified}} |
 | Fraction ↔ decimal | RUN-MAT | [[F↔D]] |
 | Simultaneous equations | EQUA | [[MENU]] → EQUA → [[F1]] SIML → [[F1]] (2 unknowns) |
-| Intersection of graphs | GRAPH | [[SHIFT]] [[F5]] G-SOLV → [[F5]] ISCT |
+| Intersection of graphs | GRAPH | [[F5]] G-SOLV → [[F5]] ISCT |
 
 ## Step by step
 
@@ -54,7 +54,7 @@ Write the equations in the form $ax + by = c$ **before** you enter them.
 ### C. Intersection of two lines with GRAPH
 
 1. [[MENU]] → **GRAPH**. Rearrange each line to $y = \ldots$ and enter them in Y1 and Y2.
-2. [[F6]] DRAW → [[SHIFT]] [[F5]] **G-SOLV** → [[F5]] **ISCT**.
+2. [[F6]] DRAW → [[F5]] **G-SOLV** → [[F5]] **ISCT**.
 3. Read the point. If the lines are off screen, change the window with [[SHIFT]] [[F3]] V-WIN.
 
 ## Practice drill — do it until it is automatic

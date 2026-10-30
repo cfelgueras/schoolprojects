@@ -1,0 +1,1224 @@
+{
+ "topic": "functions-transformations",
+ "calculator": "Casio fx-9860GII / GIII",
+ "lessons": [
+  {
+   "id": "domain-range",
+   "title": "Restricted domain and range",
+   "tool": "GRAPH, MIN, Y-CAL",
+   "task": "Draw $f(x) = x^2 - 4x + 1$ for $0 \\le x \\le 5$ and find its range.",
+   "unverified": true,
+   "start": {
+    "type": "text",
+    "lines": [
+     "Graph Func  :Y=",
+     "Y1:",
+     "Y2:",
+     "Y3:",
+     "Y4:",
+     "Y5:"
+    ],
+    "hl": 1,
+    "fkeys": [
+     "SEL",
+     "DEL",
+     "TYPE",
+     "STYL",
+     "MEM",
+     "DRAW"
+    ]
+   },
+   "steps": [
+    {
+     "do": "Y1: type the function, then the domain `,` `[0,5]`. The square brackets are [[SHIFT]] [[+]] and [[SHIFT]] [[−]]. Then [[EXE]].",
+     "keys": [
+      "XT",
+      "SQR",
+      "SUB",
+      "4",
+      "XT",
+      "ADD",
+      "1",
+      "COMMA",
+      "SHIFT",
+      "ADD",
+      "0",
+      "COMMA",
+      "5",
+      "SHIFT",
+      "SUB",
+      "EXE"
+     ],
+     "hint": "[ is above [[+]] and ] is above [[−]]: press SHIFT first each time.",
+     "entry": {
+      "line": 1,
+      "prefix": "Y1:",
+      "add": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       "",
+       "[",
+       null,
+       null,
+       null,
+       "",
+       "]",
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=X²-4X+1,[0,5]",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 2,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Open the View Window: [[SHIFT]] then [[F3]] **V-WIN**.",
+     "keys": [
+      "SHIFT",
+      "F3"
+     ],
+     "hint": "On the Y= list, V-WIN is written above [[F3]]: press SHIFT first.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "View Window",
+       "Xmin :-1",
+       " max :6",
+       " scale:1",
+       "Ymin :-4",
+       " max :7",
+       " scale:1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "INIT",
+       "TRIG",
+       "STD",
+       "STO",
+       "RCL"
+      ]
+     }
+    },
+    {
+     "do": "Set $-1 \\le x \\le 6$, $-4 \\le y \\le 7$. Here the values are filled in for you; on your calculator type each one and press [[EXE]]. Then press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=X²-4X+1,[0,5]",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **DRAW**. Only the part from $x = 0$ to $x = 5$ appears.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       6,
+       -4,
+       7
+      ],
+      "fns": [
+       "(x>=0&&x<=5)?x*x-4*x+1:NaN"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **G-SOLV**.",
+     "keys": [
+      "F5"
+     ],
+     "hint": "G-SOLV is on [[F5]] in the menu at the bottom of the graph screen. No SHIFT needed.",
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       6,
+       -4,
+       7
+      ],
+      "fns": [
+       "(x>=0&&x<=5)?x*x-4*x+1:NaN"
+      ],
+      "fkeys": [
+       "ROOT",
+       "MAX",
+       "MIN",
+       "Y-ICPT",
+       "ISCT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "The lowest point is a minimum: press [[F3]] **MIN**.",
+     "keys": [
+      "F3"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       6,
+       -4,
+       7
+      ],
+      "fns": [
+       "(x>=0&&x<=5)?x*x-4*x+1:NaN"
+      ],
+      "pt": [
+       2,
+       -3
+      ],
+      "label": "MIN",
+      "read": "X=2  Y=-3"
+     }
+    },
+    {
+     "do": "Press [[F5]] **G-SOLV** again.",
+     "keys": [
+      "F5"
+     ],
+     "hint": "G-SOLV is on [[F5]] in the menu at the bottom of the graph screen. No SHIFT needed.",
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       6,
+       -4,
+       7
+      ],
+      "fns": [
+       "(x>=0&&x<=5)?x*x-4*x+1:NaN"
+      ],
+      "fkeys": [
+       "ROOT",
+       "MAX",
+       "MIN",
+       "Y-ICPT",
+       "ISCT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] (▷) for more options.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       6,
+       -4,
+       7
+      ],
+      "fns": [
+       "(x>=0&&x<=5)?x*x-4*x+1:NaN"
+      ],
+      "fkeys": [
+       "Y-CAL",
+       "X-CAL",
+       "∫dx",
+       "",
+       "",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **Y-CAL**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       6,
+       -4,
+       7
+      ],
+      "fns": [
+       "(x>=0&&x<=5)?x*x-4*x+1:NaN"
+      ],
+      "label": "Y-CAL",
+      "read": "X:"
+     }
+    },
+    {
+     "do": "The end point is at $x = 5$: type `5` and press [[EXE]].",
+     "keys": [
+      "5",
+      "EXE"
+     ],
+     "entry": {
+      "prefix": "X:"
+     },
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       6,
+       -4,
+       7
+      ],
+      "fns": [
+       "(x>=0&&x<=5)?x*x-4*x+1:NaN"
+      ],
+      "pt": [
+       5,
+       6
+      ],
+      "label": "Y-CAL",
+      "read": "X=5  Y=6"
+     }
+    },
+    {
+     "ask": "What is the range of $f$?",
+     "options": [
+      "$-3 \\le f(x) \\le 6$",
+      "$1 \\le f(x) \\le 6$",
+      "$0 \\le f(x) \\le 5$"
+     ],
+     "answer": 0,
+     "why": "The range runs from the minimum ($-3$) to the highest point, here the end point at $x = 5$. $f(0) = 1$ is not the lowest value."
+    }
+   ],
+   "result": "Range: $-3 \\le f(x) \\le 6$. Always check the end points of the domain as well as the turning point."
+  },
+  {
+   "id": "solve-isct",
+   "title": "Solve an unfamiliar equation",
+   "tool": "GRAPH → G-Solv ISCT",
+   "task": "Solve $2^x = x + 5$.",
+   "start": {
+    "type": "text",
+    "lines": [
+     "Graph Func  :Y=",
+     "Y1:",
+     "Y2:",
+     "Y3:",
+     "Y4:",
+     "Y5:"
+    ],
+    "hl": 1,
+    "fkeys": [
+     "SEL",
+     "DEL",
+     "TYPE",
+     "STYL",
+     "MEM",
+     "DRAW"
+    ]
+   },
+   "steps": [
+    {
+     "ask": "You can't solve this by algebra. What do you graph?",
+     "options": [
+      "$y = 2^x$ and $y = x + 5$, then find where they meet",
+      "$y = 2^x$ only",
+      "$y = x + 5$ only"
+     ],
+     "answer": 0,
+     "why": "Each side of the equation becomes one graph. The $x$-coordinates of the intersections are the solutions."
+    },
+    {
+     "do": "Y1: `2` [[^]] [[X,θ,T]], then [[EXE]].",
+     "keys": [
+      "2",
+      "POW",
+      "XT",
+      "EXE"
+     ],
+     "entry": {
+      "line": 1,
+      "prefix": "Y1:"
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=2^X",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 2,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Y2: [[X,θ,T]] [[+]] `5`, then [[EXE]].",
+     "keys": [
+      "XT",
+      "ADD",
+      "5",
+      "EXE"
+     ],
+     "entry": {
+      "line": 2,
+      "prefix": "Y2:"
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=2^X",
+       "Y2=X+5",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 3,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Open the View Window: [[SHIFT]] then [[F3]] **V-WIN**.",
+     "keys": [
+      "SHIFT",
+      "F3"
+     ],
+     "hint": "On the Y= list, V-WIN is written above [[F3]]: press SHIFT first.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "View Window",
+       "Xmin :-6",
+       " max :5",
+       " scale:1",
+       "Ymin :-2",
+       " max :10",
+       " scale:1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "INIT",
+       "TRIG",
+       "STD",
+       "STO",
+       "RCL"
+      ]
+     }
+    },
+    {
+     "do": "Set $-6 \\le x \\le 5$, $-2 \\le y \\le 10$. Here the values are filled in for you; on your calculator type each one and press [[EXE]]. Then press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=2^X",
+       "Y2=X+5",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **DRAW**.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -6,
+       5,
+       -2,
+       10
+      ],
+      "fns": [
+       "Math.pow(2,x)",
+       "x+5"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **G-SOLV**.",
+     "keys": [
+      "F5"
+     ],
+     "hint": "G-SOLV is on [[F5]] in the menu at the bottom of the graph screen. No SHIFT needed.",
+     "screen": {
+      "type": "graph",
+      "win": [
+       -6,
+       5,
+       -2,
+       10
+      ],
+      "fns": [
+       "Math.pow(2,x)",
+       "x+5"
+      ],
+      "fkeys": [
+       "ROOT",
+       "MAX",
+       "MIN",
+       "Y-ICPT",
+       "ISCT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **ISCT**.",
+     "keys": [
+      "F5"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -6,
+       5,
+       -2,
+       10
+      ],
+      "fns": [
+       "Math.pow(2,x)",
+       "x+5"
+      ],
+      "pt": [
+       -4.968050221,
+       0.03194977938
+      ],
+      "label": "ISCT",
+      "read": "X=-4.968050221  Y=0.0319497793"
+     }
+    },
+    {
+     "do": "Press [[▶]] for the next intersection.",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -6,
+       5,
+       -2,
+       10
+      ],
+      "fns": [
+       "Math.pow(2,x)",
+       "x+5"
+      ],
+      "pt": [
+       3,
+       8
+      ],
+      "label": "ISCT",
+      "read": "X=3  Y=8"
+     }
+    },
+    {
+     "ask": "What are the solutions?",
+     "options": [
+      "$x \\approx -4.97$ or $x = 3$",
+      "$(-4.97,\\ 0.0319)$ and $(3,\\ 8)$",
+      "$x = 3$ only"
+     ],
+     "answer": 0,
+     "why": "The question asks for $x$, so give only the $x$-coordinates. The left one is easy to miss with the standard window."
+    }
+   ],
+   "result": "$x \\approx -4.97$ or $x = 3$. Choose a window that shows every intersection: a solution outside the screen is not found."
+  },
+  {
+   "id": "x-cal",
+   "title": "Find x for a given y",
+   "tool": "G-Solv X-CAL",
+   "task": "For $f(x) = x^2 - 4x + 1$, solve $f(x) = 4$. The graph is already drawn.",
+   "unverified": true,
+   "start": {
+    "type": "graph",
+    "win": [
+     -2,
+     6,
+     -4,
+     8
+    ],
+    "fns": [
+     "x*x-4*x+1"
+    ]
+   },
+   "steps": [
+    {
+     "do": "Press [[F5]] **G-SOLV**.",
+     "keys": [
+      "F5"
+     ],
+     "hint": "G-SOLV is on [[F5]] in the menu at the bottom of the graph screen. No SHIFT needed.",
+     "screen": {
+      "type": "graph",
+      "win": [
+       -2,
+       6,
+       -4,
+       8
+      ],
+      "fns": [
+       "x*x-4*x+1"
+      ],
+      "fkeys": [
+       "ROOT",
+       "MAX",
+       "MIN",
+       "Y-ICPT",
+       "ISCT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] (▷) for more options.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -2,
+       6,
+       -4,
+       8
+      ],
+      "fns": [
+       "x*x-4*x+1"
+      ],
+      "fkeys": [
+       "Y-CAL",
+       "X-CAL",
+       "∫dx",
+       "",
+       "",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **X-CAL**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -2,
+       6,
+       -4,
+       8
+      ],
+      "fns": [
+       "x*x-4*x+1"
+      ],
+      "label": "X-CAL",
+      "read": "Y:"
+     }
+    },
+    {
+     "do": "Type `4` and press [[EXE]].",
+     "keys": [
+      "4",
+      "EXE"
+     ],
+     "entry": {
+      "prefix": "Y:"
+     },
+     "screen": {
+      "type": "graph",
+      "win": [
+       -2,
+       6,
+       -4,
+       8
+      ],
+      "fns": [
+       "x*x-4*x+1"
+      ],
+      "pt": [
+       -0.6457513111,
+       4
+      ],
+      "label": "X-CAL",
+      "read": "X=-0.6457513111  Y=4"
+     }
+    },
+    {
+     "do": "Press [[▶]] for the other $x$-value.",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -2,
+       6,
+       -4,
+       8
+      ],
+      "fns": [
+       "x*x-4*x+1"
+      ],
+      "pt": [
+       4.645751311,
+       4
+      ],
+      "label": "X-CAL",
+      "read": "X=4.645751311  Y=4"
+     }
+    },
+    {
+     "ask": "What are the solutions of $f(x) = 4$?",
+     "options": [
+      "$x \\approx -0.646$ or $x \\approx 4.65$",
+      "$x \\approx 4.65$ only",
+      "$x = 4$"
+     ],
+     "answer": 0,
+     "why": "A horizontal line $y = 4$ cuts the parabola twice. Exact: $x = 2 \\pm \\sqrt{7}$."
+    }
+   ],
+   "result": "$x \\approx -0.646$ or $x \\approx 4.65$. X-CAL is the reverse of Y-CAL: it gives $x$ for a $y$-value."
+  },
+  {
+   "id": "asymptotes",
+   "title": "Asymptotes with TABLE",
+   "tool": "TABLE",
+   "task": "Investigate the asymptotes of $f(x) = \\dfrac{2x + 1}{x - 3}$.",
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "do": "Press [[MENU]] to open the main menu.",
+     "keys": [
+      "MENU"
+     ],
+     "screen": {
+      "type": "menu",
+      "sel": "RUN•MAT"
+     }
+    },
+    {
+     "do": "Highlight **TABLE** with the arrow keys and press [[EXE]].",
+     "select": "TABLE",
+     "hint": "TABLE is in the second row, third icon.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Table Func  :Y=",
+       "Y1:",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "SET",
+       "TABL"
+      ]
+     }
+    },
+    {
+     "do": "Y1: `(2X+1)÷(X−3)`, with brackets around the top and the bottom. Then [[EXE]].",
+     "keys": [
+      "LP",
+      "2",
+      "XT",
+      "ADD",
+      "1",
+      "RP",
+      "DIV",
+      "LP",
+      "XT",
+      "SUB",
+      "3",
+      "RP",
+      "EXE"
+     ],
+     "hint": "Without brackets the calculator works out $2x + \\dfrac{1}{x} - 3$.",
+     "entry": {
+      "line": 1,
+      "prefix": "Y1:"
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Table Func  :Y=",
+       "Y1=(2X+1)÷(X-3)",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 2,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "SET",
+       "TABL"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **SET**.",
+     "keys": [
+      "F5"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Table Setting",
+       "X",
+       "Start:2.9",
+       "End  :3.1",
+       "Step :0.05"
+      ],
+      "hl": 2
+     }
+    },
+    {
+     "do": "Start $= 2.9$, End $= 3.1$, Step $= 0.05$ are filled in: values close to $x = 3$. Press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Table Func  :Y=",
+       "Y1=(2X+1)÷(X-3)",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "SET",
+       "TABL"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **TABL**.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "      X        Y1",
+       "    2.9       -68",
+       "   2.95      -138",
+       "      3     ERROR",
+       "   3.05       142",
+       "    3.1        72"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "FORM",
+       "DEL",
+       "ROW",
+       "EDIT",
+       "G-CON",
+       "G-PLT"
+      ]
+     }
+    },
+    {
+     "ask": "What happens at $x = 3$?",
+     "options": [
+      "A vertical asymptote $x = 3$: the values blow up and $f(3)$ is undefined",
+      "A root at $x = 3$",
+      "A horizontal asymptote $y = 3$"
+     ],
+     "answer": 0,
+     "why": "Dividing by $x - 3 = 0$ gives ERROR, and $y$ jumps from $-138$ to $142$ either side."
+    },
+    {
+     "do": "Now look at large $x$. Press [[EXIT]] to go back.",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Table Func  :Y=",
+       "Y1=(2X+1)÷(X-3)",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "SET",
+       "TABL"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **SET**. Start $= 100$, End $= 1000$, Step $= 100$ are filled in. Press [[EXIT]].",
+     "keys": [
+      "F5",
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Table Func  :Y=",
+       "Y1=(2X+1)÷(X-3)",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "SET",
+       "TABL"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **TABL**.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "      X        Y1",
+       "    100   2.072164948",
+       "    200   2.035532995",
+       "    300   2.023569024",
+       "    400   2.017632242",
+       "    500   2.014084507"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "FORM",
+       "DEL",
+       "ROW",
+       "EDIT",
+       "G-CON",
+       "G-PLT"
+      ]
+     }
+    },
+    {
+     "ask": "What happens as $x$ gets large?",
+     "options": [
+      "$y$ approaches $2$: horizontal asymptote $y = 2$",
+      "$y$ grows without limit",
+      "$y$ approaches $0$"
+     ],
+     "answer": 0,
+     "why": "For large $x$, $\\dfrac{2x + 1}{x - 3} \\approx \\dfrac{2x}{x} = 2$."
+    }
+   ],
+   "result": "Vertical asymptote $x = 3$, horizontal asymptote $y = 2$. TABLE is a quick check of what you find by algebra."
+  },
+  {
+   "id": "max",
+   "title": "Maximum of a function",
+   "tool": "G-Solv MAX",
+   "task": "Find the maximum point of $f(x) = x\\,e^{-x}$.",
+   "start": {
+    "type": "text",
+    "lines": [
+     "Graph Func  :Y=",
+     "Y1:",
+     "Y2:",
+     "Y3:",
+     "Y4:",
+     "Y5:"
+    ],
+    "hl": 1,
+    "fkeys": [
+     "SEL",
+     "DEL",
+     "TYPE",
+     "STYL",
+     "MEM",
+     "DRAW"
+    ]
+   },
+   "steps": [
+    {
+     "do": "Y1: [[X,θ,T]] then $e^{-x}$: [[SHIFT]] [[ln]] (eˣ), [[(-)]] [[X,θ,T]], then [[▶]] to leave the exponent. Then [[EXE]].",
+     "keys": [
+      "XT",
+      "SHIFT",
+      "LN",
+      "NEG",
+      "XT",
+      "RIGHT",
+      "EXE"
+     ],
+     "hint": "eˣ is the yellow label above [[ln]].",
+     "entry": {
+      "line": 1,
+      "prefix": "Y1:",
+      "add": [
+       null,
+       "",
+       "e^(",
+       null,
+       null,
+       ")",
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=Xe^(-X)",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 2,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Open the View Window: [[SHIFT]] then [[F3]] **V-WIN**.",
+     "keys": [
+      "SHIFT",
+      "F3"
+     ],
+     "hint": "On the Y= list, V-WIN is written above [[F3]]: press SHIFT first.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "View Window",
+       "Xmin :-1",
+       " max :5",
+       " scale:1",
+       "Ymin :-1",
+       " max :1",
+       " scale:0.5"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "INIT",
+       "TRIG",
+       "STD",
+       "STO",
+       "RCL"
+      ]
+     }
+    },
+    {
+     "do": "Set $-1 \\le x \\le 5$, $-1 \\le y \\le 1$. Here the values are filled in for you; on your calculator type each one and press [[EXE]]. Then press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=Xe^(-X)",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **DRAW**.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       5,
+       -1,
+       1
+      ],
+      "fns": [
+       "x*Math.exp(-x)"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **G-SOLV**.",
+     "keys": [
+      "F5"
+     ],
+     "hint": "G-SOLV is on [[F5]] in the menu at the bottom of the graph screen. No SHIFT needed.",
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       5,
+       -1,
+       1
+      ],
+      "fns": [
+       "x*Math.exp(-x)"
+      ],
+      "fkeys": [
+       "ROOT",
+       "MAX",
+       "MIN",
+       "Y-ICPT",
+       "ISCT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **MAX**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -1,
+       5,
+       -1,
+       1
+      ],
+      "fns": [
+       "x*Math.exp(-x)"
+      ],
+      "pt": [
+       1,
+       0.3678794412
+      ],
+      "label": "MAX",
+      "read": "X=1  Y=0.3678794412"
+     }
+    },
+    {
+     "ask": "Write the maximum point.",
+     "options": [
+      "$(1,\\ 0.368)$",
+      "$(0.368,\\ 1)$",
+      "$(1,\\ 0.37)$"
+     ],
+     "answer": 0,
+     "why": "$y = e^{-1} \\approx 0.368$ (3 significant figures)."
+    }
+   ],
+   "result": "Maximum at $(1,\\ e^{-1}) \\approx (1,\\ 0.368)$. With the standard window this graph is almost flat: always choose a window that shows the feature you need."
+  }
+ ]
+}

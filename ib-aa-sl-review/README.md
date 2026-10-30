@@ -43,6 +43,15 @@ Cada examen es un archivo en `site/content/papers/` (por ejemplo `2022-may-p1-tz
 ruby tools/check-fractions.rb
 ```
 
+## Calculadora interactiva (Casio fx-9860GII)
+La página `gdc.html#<id-del-tema>` muestra una calculadora para practicar las teclas paso a paso, con tres modos: Guided, Practice y Exam. Los ejercicios de cada tema están en `site/content/gdc/<id>.json`. Si ese archivo existe, la pestaña **Calculator** del tema muestra el botón para abrirla.
+
+- **Cuadráticas** (`quadratics.json`) se edita a mano.
+- **Los otros temas** se generan con `python3 tools/gen-gdc-lessons.py site/content/gdc`. Editá los ejercicios en ese script, no en el JSON, porque el script lo sobrescribe.
+- Cada paso puede ser de cuatro tipos: teclas (`keys`), elegir un ícono del menú (`select`), bajar con ▼ (`scroll`) o una pregunta (`ask`). La respuesta correcta va primero en `options`: el sitio mezcla el orden. Los formatos están explicados al principio de `site/assets/js/gdc.js`.
+- En la pantalla del gráfico, G-SOLV, ZOOM, V-WIN, etc. van directo con la tecla F, sin SHIFT. En la lista Y=, V-WIN sí es [[SHIFT]] [[F3]].
+- `"unverified": true` en un ejercicio muestra la etiqueta "unverified". Sacala cuando lo compruebes en la calculadora.
+
 ## Formato de una pregunta
 ```json
 {

@@ -1,0 +1,743 @@
+{
+ "topic": "statistics",
+ "calculator": "Casio fx-9860GII / GIII",
+ "lessons": [
+  {
+   "id": "one-var",
+   "title": "1-variable statistics",
+   "tool": "STAT → CALC 1VAR",
+   "task": "Find the mean, standard deviation and quartiles of $12,\\ 15,\\ 15,\\ 18,\\ 21,\\ 24,\\ 30$.",
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "do": "Press [[MENU]] to open the main menu.",
+     "keys": [
+      "MENU"
+     ],
+     "screen": {
+      "type": "menu",
+      "sel": "RUN•MAT"
+     }
+    },
+    {
+     "do": "Highlight **STAT** with the arrow keys and press [[EXE]].",
+     "select": "STAT",
+     "hint": "STAT is the second icon of the first row.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 1                  "
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Type the first values in List 1, with [[EXE]] after each: `12` [[EXE]] `15` [[EXE]] `15` [[EXE]] `18` [[EXE]].",
+     "keys": [
+      "1",
+      "2",
+      "EXE",
+      "1",
+      "5",
+      "EXE",
+      "1",
+      "5",
+      "EXE",
+      "1",
+      "8",
+      "EXE"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 1        12        ",
+       " 2        15        ",
+       " 3        15        ",
+       " 4        18        "
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "And the rest: `21` [[EXE]] `24` [[EXE]] `30` [[EXE]].",
+     "keys": [
+      "2",
+      "1",
+      "EXE",
+      "2",
+      "4",
+      "EXE",
+      "3",
+      "0",
+      "EXE"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 4        18        ",
+       " 5        21        ",
+       " 6        24        ",
+       " 7        30        "
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 4        18        ",
+       " 5        21        ",
+       " 6        24        ",
+       " 7        30        "
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **SET** to check which list is used.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :1",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "ask": "Each value appears once in the list. What must 1Var Freq be?",
+     "options": [
+      "$1$",
+      "List2",
+      "$7$"
+     ],
+     "answer": 0,
+     "why": "Freq $= 1$ means every entry counts once. Use a frequency list only for frequency tables."
+    },
+    {
+     "do": "1Var XList is List1 and 1Var Freq is 1. Press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 4        18        ",
+       " 5        21        ",
+       " 6        24        ",
+       " 7        30        "
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =19.28571429",
+       "Σx  =135",
+       "Σx² =2835",
+       "σx  =5.749889085",
+       "sx  =6.210590034",
+       "n   =7"
+      ]
+     }
+    },
+    {
+     "ask": "Which value is the standard deviation in IB?",
+     "options": [
+      "$\\sigma x \\approx 5.75$",
+      "$sx \\approx 6.21$",
+      "$\\Sigma x = 135$"
+     ],
+     "answer": 0,
+     "why": "IB uses the population standard deviation $\\sigma x$, not $sx$."
+    },
+    {
+     "do": "Press [[▼]] to scroll down to the quartiles.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see Q1, Med and Q3.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=12",
+       "Q1  =15",
+       "Med =18",
+       "Q3  =24",
+       "maxX=30",
+       "Mod =15"
+      ]
+     }
+    },
+    {
+     "ask": "What is the interquartile range?",
+     "options": [
+      "$24 - 15 = 9$",
+      "$30 - 12 = 18$",
+      "$18$"
+     ],
+     "answer": 0,
+     "why": "IQR $= Q_3 - Q_1$."
+    }
+   ],
+   "result": "$\\bar{x} \\approx 19.3$, $\\sigma \\approx 5.75$, $Q_1 = 15$, median $18$, $Q_3 = 24$, IQR $= 9$."
+  },
+  {
+   "id": "frequency",
+   "title": "Frequency table",
+   "tool": "STAT, Freq = List2",
+   "task": "Find the mean, median and standard deviation of: value $1, 2, 3, 4, 5$ with frequency $3, 7, 6, 3, 1$. List 1 already holds the values.",
+   "unverified": true,
+   "start": {
+    "type": "text",
+    "lines": [
+     "       List 1  List 2",
+     "SUB",
+     " 1         1        ",
+     " 2         2        ",
+     " 3         3        ",
+     " 4         4        "
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "do": "Move to List 2 with [[▶]].",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 1         1        ",
+       " 2         2        ",
+       " 3         3        ",
+       " 4         4        "
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ],
+      "hl": 2
+     }
+    },
+    {
+     "do": "Type the frequencies: `3` [[EXE]] `7` [[EXE]] `6` [[EXE]] `3` [[EXE]] `1` [[EXE]].",
+     "keys": [
+      "3",
+      "EXE",
+      "7",
+      "EXE",
+      "6",
+      "EXE",
+      "3",
+      "EXE",
+      "1",
+      "EXE"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 1         1       3",
+       " 2         2       7",
+       " 3         3       6",
+       " 4         4       3"
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC** then [[F6]] **SET**.",
+     "keys": [
+      "F2",
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :1",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "do": "Press [[▼]] to highlight **1Var Freq**.",
+     "scroll": 1,
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :1",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "1",
+       "LIST"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **LIST**, type `2` and press [[EXE]].",
+     "keys": [
+      "F2",
+      "2",
+      "EXE"
+     ],
+     "entry": {
+      "line": 1,
+      "prefix": "1Var Freq  :",
+      "add": [
+       "List",
+       null,
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :List2",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "1",
+       "LIST"
+      ]
+     }
+    },
+    {
+     "do": "Press [[EXIT]], then [[F1]] **1VAR**.",
+     "keys": [
+      "EXIT",
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =2.6",
+       "Σx  =52",
+       "Σx² =158",
+       "σx  =1.067707825",
+       "sx  =1.095445115",
+       "n   =20"
+      ]
+     }
+    },
+    {
+     "ask": "Check $n$ first. What should it be?",
+     "options": [
+      "$20$, the total frequency",
+      "$5$, the number of values",
+      "$15$"
+     ],
+     "answer": 0,
+     "why": "$3 + 7 + 6 + 3 + 1 = 20$. If $n = 5$, Freq is still set to 1."
+    },
+    {
+     "do": "Press [[▼]] to scroll down.",
+     "keys": [
+      "DOWN"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=1",
+       "Q1  =2",
+       "Med =2.5",
+       "Q3  =3",
+       "maxX=5",
+       "Mod =2"
+      ]
+     }
+    },
+    {
+     "ask": "Mean, median and standard deviation?",
+     "options": [
+      "$2.6$, $2.5$ and $1.07$",
+      "$2.6$, $3$ and $1.10$",
+      "$3$, $2.5$ and $1.07$"
+     ],
+     "answer": 0,
+     "why": "Mean $\\bar{x}$, median Med, standard deviation $\\sigma x$."
+    }
+   ],
+   "result": "Mean $2.6$, median $2.5$, $\\sigma \\approx 1.07$. Set Freq back to $1$ afterwards, or the next list will be wrong."
+  },
+  {
+   "id": "grouped",
+   "title": "Grouped data",
+   "tool": "STAT → 1VAR",
+   "task": "Estimate the mean and standard deviation. Classes $0$–$10$, $10$–$20$, …, $40$–$50$ with frequencies $5, 12, 18, 10, 5$. The lists are filled in and Freq is List2.",
+   "start": {
+    "type": "text",
+    "lines": [
+     "       List 1  List 2",
+     "SUB",
+     " 1         5       5",
+     " 2        15      12",
+     " 3        25      18",
+     " 4        35      10"
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "ask": "What did we type in List 1?",
+     "options": [
+      "The mid-interval values $5, 15, 25, 35, 45$",
+      "The lower bounds $0, 10, 20, 30, 40$",
+      "The upper bounds $10, 20, 30, 40, 50$"
+     ],
+     "answer": 0,
+     "why": "Each class is represented by its mid-interval value."
+    },
+    {
+     "do": "Press [[F2]] **CALC** then [[F1]] **1VAR**.",
+     "keys": [
+      "F2",
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =24.6",
+       "Σx  =1230",
+       "Σx² =36450",
+       "σx  =11.12834219",
+       "sx  =11.24132318",
+       "n   =50"
+      ]
+     }
+    },
+    {
+     "ask": "Why does the question say *estimate*?",
+     "options": [
+      "We used mid-interval values instead of the real data",
+      "The calculator rounds",
+      "$n$ is too small"
+     ],
+     "answer": 0,
+     "why": "We don't know the exact values inside each class."
+    }
+   ],
+   "result": "Estimated mean $24.6$, $\\sigma \\approx 11.1$, $n = 50$."
+  },
+  {
+   "id": "regression",
+   "title": "Regression line and r",
+   "tool": "STAT → REG X",
+   "task": "Find the regression line of $y$ on $x$ and $r$. List 1 holds $x$: $1, 2, 3, 4, 5$; List 2 holds $y$: $2.1, 3.9, 6.2, 7.8, 10.1$.",
+   "start": {
+    "type": "text",
+    "lines": [
+     "       List 1  List 2",
+     "SUB",
+     " 1         1     2.1",
+     " 2         2     3.9",
+     " 3         3     6.2",
+     " 4         4     7.8"
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "do": "Press [[F2]] **CALC**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 1         1     2.1",
+       " 2         2     3.9",
+       " 3         3     6.2",
+       " 4         4     7.8"
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F3]] **REG**.",
+     "keys": [
+      "F3"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 1         1     2.1",
+       " 2         2     3.9",
+       " 3         3     6.2",
+       " 4         4     7.8"
+      ],
+      "fkeys": [
+       "X",
+       "Med",
+       "X^2",
+       "X^3",
+       "X^4",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **X** (linear).",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "       List 1  List 2",
+       "SUB",
+       " 1         1     2.1",
+       " 2         2     3.9",
+       " 3         3     6.2",
+       " 4         4     7.8"
+      ],
+      "fkeys": [
+       "ax+b",
+       "a+bx"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **ax+b**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "LinearReg(ax+b)",
+       "a   =1.99",
+       "b   =0.05",
+       "r   =0.9986517556",
+       "r²  =0.9973053289"
+      ]
+     }
+    },
+    {
+     "ask": "Write the regression line.",
+     "options": [
+      "$y = 1.99x + 0.05$",
+      "$y = 0.05x + 1.99$",
+      "$x = 1.99y + 0.05$"
+     ],
+     "answer": 0,
+     "why": "With ax+b, $a$ is the gradient and $b$ the $y$-intercept."
+    },
+    {
+     "ask": "What does $r = 0.999$ tell you?",
+     "options": [
+      "Very strong positive linear correlation",
+      "Weak positive correlation",
+      "$y$ is caused by $x$"
+     ],
+     "answer": 0,
+     "why": "$r$ close to $1$: strong positive. Correlation does not prove causation."
+    }
+   ],
+   "result": "$y = 1.99x + 0.05$, $r \\approx 0.999$. For $x$ on $y$, swap the lists in SET (XList List2, YList List1)."
+  },
+  {
+   "id": "prediction",
+   "title": "Use the regression line",
+   "tool": "RUN•MAT",
+   "task": "Use $y = 1.99x + 0.05$ to predict $y$ when $x = 3.5$. The data go from $x = 1$ to $x = 5$.",
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "do": "Press [[MENU]] to open the main menu.",
+     "keys": [
+      "MENU"
+     ],
+     "screen": {
+      "type": "menu",
+      "sel": "RUN•MAT"
+     }
+    },
+    {
+     "do": "**RUN•MAT** is already highlighted. Press [[EXE]].",
+     "select": "RUN•MAT",
+     "screen": {
+      "type": "text",
+      "lines": []
+     }
+    },
+    {
+     "do": "Type `1.99` [[×]] `3.5` [[+]] `0.05` and press [[EXE]].",
+     "keys": [
+      "1",
+      "DOT",
+      "9",
+      "9",
+      "MUL",
+      "3",
+      "DOT",
+      "5",
+      "ADD",
+      "0",
+      "DOT",
+      "0",
+      "5",
+      "EXE"
+     ],
+     "entry": {
+      "line": 0
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1.99×3.5+0.05",
+       "7.015"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "ask": "Is the prediction reliable?",
+     "options": [
+      "Yes: $3.5$ is inside the data ($1$ to $5$) and $r$ is close to $1$",
+      "No: you can never predict",
+      "Only if $x$ is larger than 5"
+     ],
+     "answer": 0,
+     "why": "Interpolation (inside the data) with strong correlation is reliable. Extrapolation, for example $x = 20$, is not."
+    }
+   ],
+   "result": "$y \\approx 7.02$ (3 s.f.). Use the regression of $y$ on $x$ to predict $y$; to predict $x$ from $y$, use the line of $x$ on $y$."
+  }
+ ]
+}

@@ -28,7 +28,7 @@ Key sequences are for the **fx-9860GII / fx-9860GIII**. The logarithm template (
 | Log with any base | RUN-MAT (Math input mode) | [[F4]] MATH → [[F2]] logab |
 | $e^x$ | RUN-MAT | [[SHIFT]] [[ln]] |
 | Power | RUN-MAT | [[^]] |
-| Intersection | GRAPH | [[SHIFT]] [[F5]] G-SOLV → [[F5]] ISCT |
+| Intersection | GRAPH | [[F5]] G-SOLV → [[F5]] ISCT |
 
 ## Step by step
 
@@ -47,7 +47,7 @@ Or use change of base: `ln 12 ÷ ln 5`.
 **Example:** $2^x = 3 - x$.
 
 1. [[MENU]] → GRAPH. Y1: `2` [[^]] [[X,θ,T]]; Y2: `3` `−` [[X,θ,T]].
-2. [[F6]] DRAW → [[SHIFT]] [[F5]] → [[F5]] **ISCT**: $x = 1$.
+2. [[F6]] DRAW → [[F5]] → [[F5]] **ISCT**: $x = 1$.
 
 ### C. Growth model
 

@@ -36,8 +36,8 @@ On Paper 2, write the equation or function you are solving **before** you write 
 | Variable $x$ | — | [[X,θ,T]] |
 | Square | — | [[x²]] |
 | View window | GRAPH | [[SHIFT]] [[F3]] V-WIN |
-| Zoom | GRAPH (graph screen) | [[SHIFT]] [[F2]] ZOOM |
-| Graph solve | GRAPH (graph screen) | [[SHIFT]] [[F5]] G-SOLV |
+| Zoom | GRAPH (graph screen) | [[F2]] ZOOM |
+| Graph solve | GRAPH (graph screen) | [[F5]] G-SOLV |
 | Table of values | TABLE | [[MENU]] → TABLE → [[F5]] SET → [[F6]] TABL |
 
 ## Step by step
@@ -66,27 +66,27 @@ If $\Delta < 0$ the calculator either shows a message such as "No Real Roots" or
 1. [[MENU]] → **GRAPH** → [[EXE]].
 2. On the **Y1** line type: [[X,θ,T]] [[x²]] `−` `2` [[X,θ,T]] `−` `4`, then [[EXE]].
 3. Press [[F6]] **DRAW**.
-4. If you can't see the vertex and both roots, set the window: [[SHIFT]] [[F3]] **V-WIN**, e.g. Xmin $= -5$, Xmax $= 7$, Ymin $= -6$, Ymax $= 6$, then [[EXIT]] and [[F6]] DRAW.
-5. Press [[SHIFT]] [[F5]] **G-SOLV** → [[F1]] **ROOT**.
+4. If you can't see the vertex and both roots, set the window: [[SHIFT]] [[F3]] **V-WIN**, e.g. Xmin $= -5$, Xmax $= 7$, Ymin $= -8$, Ymax $= 6$, then [[EXIT]] and [[F6]] DRAW.
+5. Press [[F5]] **G-SOLV** → [[F1]] **ROOT**.
 6. The first root appears: $x \approx -1.24$. Press the **right arrow** [[▶]] to jump to the next root: $x \approx 3.24$.
 
 ### C. Find the vertex (maximum or minimum)
 
-1. With the graph drawn, press [[SHIFT]] [[F5]] **G-SOLV**.
+1. With the graph drawn, press [[F5]] **G-SOLV**.
 2. Press [[F3]] **MIN** if the parabola opens upwards ($a > 0$), or [[F2]] **MAX** if it opens downwards ($a < 0$).
 3. Read the vertex. For $x^2 - 2x - 4$: $(1,\ -5)$.
 
 ### D. $y$-intercept and evaluating $f(x)$
 
-- $y$-intercept: [[SHIFT]] [[F5]] G-SOLV → [[F4]] **Y-ICPT**.
-- Value of $f$ at a given $x$: [[SHIFT]] [[F5]] G-SOLV → [[F6]] (more) → [[F1]] **Y-CAL** {{unverified}} → type the $x$-value → [[EXE]].
+- $y$-intercept: [[F5]] G-SOLV → [[F4]] **Y-ICPT**.
+- Value of $f$ at a given $x$: [[F5]] G-SOLV → [[F6]] (more) → [[F1]] **Y-CAL** → type the $x$-value → [[EXE]].
 
 ### E. Intersection of a parabola and a line
 
 **Example:** where does $y = x + 1$ meet $y = x^2 - 2x - 4$?
 
 1. In GRAPH, put the parabola in **Y1** and the line in **Y2**. Draw with [[F6]].
-2. [[SHIFT]] [[F5]] G-SOLV → [[F5]] **ISCT**.
+2. [[F5]] G-SOLV → [[F5]] **ISCT**.
 3. If asked, choose the two graphs with the arrow keys and [[EXE]].
 4. First intersection: $(-1.19,\ -0.193)$. Press [[▶]] for the next: $(4.19,\ 5.19)$.
 

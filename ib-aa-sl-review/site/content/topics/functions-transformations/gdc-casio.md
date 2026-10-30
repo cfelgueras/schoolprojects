@@ -27,7 +27,7 @@ Key sequences are for the **fx-9860GII / fx-9860GIII**. Items marked {{unverifie
 |---|---|---|
 | Graph | GRAPH | [[MENU]] → GRAPH → Y1 … → [[F6]] DRAW |
 | View window | GRAPH | [[SHIFT]] [[F3]] V-WIN |
-| Graph solve | graph screen | [[SHIFT]] [[F5]] G-SOLV → ROOT [[F1]], MAX [[F2]], MIN [[F3]], Y-ICPT [[F4]], ISCT [[F5]] |
+| Graph solve | graph screen | [[F5]] G-SOLV → ROOT [[F1]], MAX [[F2]], MIN [[F3]], Y-ICPT [[F4]], ISCT [[F5]] |
 | $y$ for a given $x$ / $x$ for a given $y$ | graph screen | G-SOLV → [[F6]] → [[F1]] Y-CAL / [[F2]] X-CAL {{unverified}} |
 | Table of values | TABLE | [[MENU]] → TABLE → [[F5]] SET → [[F6]] TABL |
 
@@ -46,7 +46,7 @@ Key sequences are for the **fx-9860GII / fx-9860GIII**. Items marked {{unverifie
 **Example:** $2^x = x + 5$.
 
 1. Y1: `2` [[^]] [[X,θ,T]]. Y2: [[X,θ,T]] `+5`.
-2. [[F6]] DRAW → [[SHIFT]] [[F5]] → [[F5]] **ISCT**.
+2. [[F6]] DRAW → [[F5]] → [[F5]] **ISCT**.
 3. First intersection $x \approx -4.97$; press [[▶]] for the next: $x = 3$.
 
 ### C. Sum or difference of two functions
