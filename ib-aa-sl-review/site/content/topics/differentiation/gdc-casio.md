@@ -52,6 +52,17 @@ Key sequences are for the **fx-9860GII / fx-9860GIII**. The numerical derivative
 2. G-SOLV → MIN: $(3,\ -27)$.
 3. The flat point at the origin is **not** a max or min: it is an inflexion with zero gradient. Graph $f'$ (B) and use MIN on Y2: its minimum is at $x = 2$, so there is an inflexion at $(2,\ -16)$.
 
+### D. See $\dfrac{\mathrm{d}y}{\mathrm{d}x}$ on the graph (Derivative: On)
+
+**Example:** $y = x^3 - 3x$.
+
+1. In **GRAPH** press [[SHIFT]] [[MENU]] (SET UP). Scroll down to **Derivative** and press [[F1]] **On**. [[EXIT]].
+2. Put $x^3 - 3x$ in Y1 and draw with [[F6]].
+3. Press [[F1]] **TRACE**. Under X and Y the screen now also shows **dY/dX**, the gradient at the cursor.
+4. Move with [[◀]] [[▶]]: dY/dX is negative where the curve goes down, positive where it goes up, and $0$ at the stationary points $x = \pm 1$.
+
+The setting stays on until you switch it off in SET UP.
+
 ## Practice drill — do it until it is automatic
 
 | # | Task | Tool | Answer |

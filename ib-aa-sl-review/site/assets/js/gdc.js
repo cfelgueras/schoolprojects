@@ -6,11 +6,13 @@
  *   { do, keys: [...], screen }          press these keys in order
  *   { do, select: "GRAPH", screen }      pick an icon in the main menu (arrows + EXE)
  *   { do, scroll: 5, screen }            move the highlighted line (▲ ▼) to line 5
+ *   { do, trace: { to, dx }, screen }    move the TRACE cursor (◀ ▶, dx per press) to x = to
  *   { ask, options: [...], answer, why } multiple-choice question about the result
  * A step's `screen` is what the calculator shows once the step is done.
  * `entry: { line, prefix, add }` shows the line being typed; `add[i]` overrides what key i types.
  * Text screens: `lines`, `hl` (inverted line), `right` (right-aligned lines), `fkeys`.
  * Graph screens: `win`, `fns`, `pt`, `label`, `read`; with nothing else they show the graph F-key menu.
+ *   `trace: { fn, x, deriv }` puts the TRACE cursor on graph `fn` at x and computes the readout (dY/dX if `deriv`).
  * List screens (STAT): `cols` (List 1, List 2, …), `cur` [list, row], `fkeys`; numbers typed in a step fill the cells live.
  */
 (function () {
@@ -119,7 +121,21 @@
     }).join("") + svgText(W / 2, 62.5, "MAIN MENU", { size: 5.4, anchor: "middle" });
   }
 
-  function graphScreen(scr, entry) {
+  // Calculator-style number: 10 significant digits, tiny rounding noise shown as 0.
+  const calcNum = (v) => (Math.abs(v) < 1e-9 ? "0" : String(+v.toPrecision(10)));
+
+  // TRACE: the cursor sits on graph `fn` at x; with `deriv` the readout adds dY/dX like Derivative: On.
+  function traceView(scr, x) {
+    const t = scr.trace;
+    const f = new Function("x", "return " + scr.fns[t.fn || 0]);
+    const y = f(x), h = 1e-5;
+    const read = ["X=" + calcNum(x) + "  Y=" + calcNum(y)];
+    if (t.deriv) read.unshift("dY/dX=" + calcNum((f(x + h) - f(x - h)) / (2 * h)));
+    return Object.assign({}, scr, { pt: [x, y], read });
+  }
+
+  function graphScreen(scr, entry, tx) {
+    if (scr.trace) scr = traceView(scr, tx != null ? tx : scr.trace.x);
     const [x0, x1, y0, y1] = scr.win;
     const px = (x) => ((x - x0) / (x1 - x0)) * (W - 1);
     const py = (y) => ((y1 - y) / (y1 - y0)) * (H - 1);
@@ -146,7 +162,12 @@
     if (scr.label) out += '<rect class="lcd" x="0" y="0" width="' + (scr.label.length * 3.4 + 3) + '" height="7.5"/>' + svgText(1, 6, scr.label, { size: 5.6 });
     const read = entry ? entry.text : scr.read;
     if (read) {
-      out += '<rect class="lcd" x="0" y="56" width="' + W + '" height="8"/>' + svgText(1, 62.5, read, { size: 5.6 });
+      // One or more readout lines along the bottom, the last one on the bottom row.
+      const lines = [].concat(read);
+      lines.forEach((line, i) => {
+        const y = 62.5 - (lines.length - 1 - i) * 7.5;
+        out += '<rect class="lcd" x="0" y="' + (y - 6.5) + '" width="' + W + '" height="8"/>' + svgText(1, y, line, { size: 5.6 });
+      });
       if (entry) out += '<rect class="ink blink" x="' + (1 + read.length * 3.4) + '" y="57" width="3" height="6"/>';
     }
     const idle = !scr.fkeys && !scr.pt && !scr.label && !read;
@@ -180,7 +201,7 @@
 
   function screenSvg(scr, o) {
     const body = scr.type === "menu" ? menuScreen(o.menuSel || scr.sel)
-      : scr.type === "graph" ? graphScreen(scr, o.entry)
+      : scr.type === "graph" ? graphScreen(scr, o.entry, o.tx)
       : scr.type === "list" ? listScreen(o.list || scr, o.buf)
       : textScreen(scr, o.entry, o.hl != null ? o.hl : scr.hl);
     const shift = o.shift ? '<rect class="ink" x="' + (W - 7) + '" y="0" width="7" height="7.5"/>' + svgText(W - 3.5, 6, "S", { size: 6, anchor: "middle", inv: true }) : "";
@@ -245,6 +266,7 @@
     // A list editor is edited live: typed numbers go into cells as the student presses EXE.
     S.list = scr && scr.type === "list" ? { fkeys: scr.fkeys, cols: (scr.cols || []).map((c) => c.slice()), cur: (scr.cur || [0, 0]).slice() } : null;
     S.buf = "";
+    S.tx = scr && scr.trace && current().trace ? scr.trace.x : null;
     // Options are written with the right answer first; show them in a random order.
     const st = S.done ? null : current();
     S.order = st && st.ask ? st.options.map((_, i) => i).sort(() => Math.random() - 0.5) : null;
@@ -262,6 +284,7 @@
       return to > from ? "RIGHT" : "LEFT";
     }
     if (st.scroll != null) return st.scroll > S.hl ? "DOWN" : "UP";
+    if (st.trace) return st.trace.to > S.tx ? "RIGHT" : "LEFT";
     return st.keys[S.keyIdx];
   }
 
@@ -293,6 +316,14 @@
       if (id === "UP" || id === "DOWN") {
         S.hl = Math.max(0, Math.min(lines - 1, S.hl + (id === "DOWN" ? 1 : -1)));
         return S.hl === st.scroll ? nextStep() : renderAll();
+      }
+      return wrong(null);
+    }
+
+    if (st.trace) {
+      if (id === "LEFT" || id === "RIGHT") {
+        S.tx = +(S.tx + (id === "RIGHT" ? 1 : -1) * st.trace.dx).toFixed(10);
+        return Math.abs(S.tx - st.trace.to) < 1e-9 ? nextStep() : renderAll();
       }
       return wrong(null);
     }
@@ -379,7 +410,7 @@
     const st = current();
     const scr = shownScreen();
     const entry = !S.done && st && st.entry && S.keyIdx > 0 ? { line: st.entry.line, text: (st.entry.prefix || "") + S.typed } : null;
-    document.getElementById("screen").innerHTML = screenSvg(scr, { menuSel: S.menuSel, hl: S.hl, entry, shift: S.shift, list: S.done ? null : S.list, buf: S.buf });
+    document.getElementById("screen").innerHTML = screenSvg(scr, { menuSel: S.menuSel, hl: S.hl, entry, shift: S.shift, list: S.done ? null : S.list, buf: S.buf, tx: S.tx });
 
     document.querySelectorAll(".calc .key").forEach((b) => b.classList.remove("glow"));
     const exp = expectedKey();

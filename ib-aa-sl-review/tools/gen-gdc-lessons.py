@@ -381,6 +381,10 @@ save("exponents-logarithms", [
 # =====================================================================
 OPTN_F = ["LIST", "MAT", "CPLX", "CALC", "STAT", "▷"]
 CALCF = ["Solve", "d/dx", "d²/dx²", "∫dx", "SolvN", "▷"]
+GSETUP = ["Input Mode :Math", "Func Type  :Y=", "Draw Type  :Connect", "Derivative :Off", "Background :None", "Sketch Line:Normal", "Label      :Off"]
+GSETUP_ON = GSETUP[:3] + ["Derivative :On"] + GSETUP[4:]
+FD = ["x*x*x-3*x"]
+WD = [-6.3, 6.3, -5, 3]
 FS = ["x*x*x-3*x*x-9*x+2"]
 WS = [-4, 6, -35, 15]
 FI = ["x*x*x*x-4*x*x*x", "4*x*x*x-12*x*x"]
@@ -412,6 +416,32 @@ save("differentiation", [
                     {"line": 0, "prefix": "d/dx(e^(X)-3ln X"}),
                ask("Write the answer.", ["$2.48$", "$2.49$", "$2.5$"], "2.4816… to 3 significant figures is 2.48."),
            ], "Gradient $\\approx 2.48$. By hand: $e^{1.5} - \\dfrac{3}{1.5} = 4.48 - 2 = 2.48$ ✓."),
+    lesson("derivative-on", "See dy/dx on the graph", "SET UP Derivative: On + TRACE",
+           "Switch on the derivative display and trace $y = x^3 - 3x$ to see the gradient change. Y1 already holds the function.",
+           flist(["X^3-3X"], 1), [
+               keys("Open SET UP: [[SHIFT]] [[MENU]].", "SHIFT MENU", {"type": "text", "lines": GSETUP, "hl": 0},
+                    hint="SET UP is the yellow label above [[MENU]]. Open it from the GRAPH menu so the graph settings are shown."),
+               scroll("Press [[▼]] until **Derivative** is highlighted.", 3, {"type": "text", "lines": GSETUP, "hl": 3, "fkeys": ["On", "Off"]}),
+               keys("Press [[F1]] **On**.", "F1", {"type": "text", "lines": GSETUP_ON, "hl": 3, "fkeys": ["On", "Off"]}),
+               keys("Press [[EXIT]].", "EXIT", flist(["X^3-3X"], 1)),
+           ] + set_window(vwin(-6.3, 6.3, -5, 3), "$-6.3 \\le x \\le 6.3$ and $-5 \\le y \\le 3$. With this $x$-range each press of [[▶]] in TRACE moves $0.1$",
+                          flist(["X^3-3X"], 1)) + [
+               keys("Press [[F6]] **DRAW**.", "F6", graph(WD, FD)),
+               keys("Press [[F1]] **TRACE**. The cursor appears on the curve and the readout now includes **dY/dX**.", "F1",
+                    graph(WD, FD, trace={"fn": 0, "x": 0, "deriv": True}, label="Y1=X^3-3X"),
+                    hint="TRACE is on [[F1]] in the menu at the bottom of the graph screen."),
+               ask("At $x = 0$ the screen shows dY/dX $= -3$. What does that mean?",
+                   ["The gradient of the curve at $x = 0$ is $-3$: the curve is going down", "The $y$-value at $x = 0$ is $-3$", "The curve crosses the $x$-axis at $-3$"],
+                   "dY/dX is $f'(x)$, the gradient of the tangent at the cursor. Check: $f'(x) = 3x^2 - 3$, so $f'(0) = -3$."),
+               {"do": "Press [[▶]] to move along the curve until $X = 1$. Watch dY/dX change at each step.", "trace": {"to": 1, "dx": 0.1},
+                "hint": "Each press moves the cursor $0.1$ to the right.",
+                "screen": graph(WD, FD, trace={"fn": 0, "x": 1, "deriv": True}, label="Y1=X^3-3X")},
+               ask("At $X = 1$, dY/dX $= 0$. What is there?", ["A stationary point: here a local minimum $(1,\\ -2)$", "A root of the curve", "A point of inflexion"],
+                   "Gradient $0$ means a stationary point. dY/dX goes from negative to positive, so it is a minimum."),
+               ask("Where else is dY/dX $= 0$?", ["At $x = -1$", "At $x = 0$", "Nowhere else"],
+                   "$f'(x) = 3x^2 - 3 = 0$ gives $x = \\pm 1$. You could trace back with [[◀]] to check: at $x = -1$ there is a local maximum $(-1,\\ 2)$."),
+           ], "With **Derivative: On**, TRACE shows $\\dfrac{dy}{dx}$ at every point, so you can see where the gradient is positive, negative or zero. It stays on until you switch it off in SET UP.",
+           unverified=True),
     lesson("stationary", "Stationary points", "G-Solv MAX / MIN",
            "Find the stationary points of $f(x) = x^3 - 3x^2 - 9x + 2$.", flist([], 1), [
                keys("Y1: [[X,θ,T]] [[^]] `3` [[▶]] [[−]] `3` [[X,θ,T]] [[x²]] [[−]] `9` [[X,θ,T]] [[+]] `2`, then [[EXE]].",

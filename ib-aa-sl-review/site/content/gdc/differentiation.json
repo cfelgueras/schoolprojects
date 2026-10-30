@@ -304,6 +304,280 @@
    "result": "Gradient $\\approx 2.48$. By hand: $e^{1.5} - \\dfrac{3}{1.5} = 4.48 - 2 = 2.48$ ✓."
   },
   {
+   "id": "derivative-on",
+   "title": "See dy/dx on the graph",
+   "tool": "SET UP Derivative: On + TRACE",
+   "task": "Switch on the derivative display and trace $y = x^3 - 3x$ to see the gradient change. Y1 already holds the function.",
+   "unverified": true,
+   "start": {
+    "type": "text",
+    "lines": [
+     "Graph Func  :Y=",
+     "Y1=X^3-3X",
+     "Y2:",
+     "Y3:",
+     "Y4:",
+     "Y5:"
+    ],
+    "hl": 1,
+    "fkeys": [
+     "SEL",
+     "DEL",
+     "TYPE",
+     "STYL",
+     "MEM",
+     "DRAW"
+    ]
+   },
+   "steps": [
+    {
+     "do": "Open SET UP: [[SHIFT]] [[MENU]].",
+     "keys": [
+      "SHIFT",
+      "MENU"
+     ],
+     "hint": "SET UP is the yellow label above [[MENU]]. Open it from the GRAPH menu so the graph settings are shown.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Input Mode :Math",
+       "Func Type  :Y=",
+       "Draw Type  :Connect",
+       "Derivative :Off",
+       "Background :None",
+       "Sketch Line:Normal",
+       "Label      :Off"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "do": "Press [[▼]] until **Derivative** is highlighted.",
+     "scroll": 3,
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Input Mode :Math",
+       "Func Type  :Y=",
+       "Draw Type  :Connect",
+       "Derivative :Off",
+       "Background :None",
+       "Sketch Line:Normal",
+       "Label      :Off"
+      ],
+      "hl": 3,
+      "fkeys": [
+       "On",
+       "Off"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **On**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Input Mode :Math",
+       "Func Type  :Y=",
+       "Draw Type  :Connect",
+       "Derivative :On",
+       "Background :None",
+       "Sketch Line:Normal",
+       "Label      :Off"
+      ],
+      "hl": 3,
+      "fkeys": [
+       "On",
+       "Off"
+      ]
+     }
+    },
+    {
+     "do": "Press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=X^3-3X",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Open the View Window: [[SHIFT]] then [[F3]] **V-WIN**.",
+     "keys": [
+      "SHIFT",
+      "F3"
+     ],
+     "hint": "On the Y= list, V-WIN is written above [[F3]]: press SHIFT first.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "View Window",
+       "Xmin :-6.3",
+       " max :6.3",
+       " scale:1",
+       "Ymin :-5",
+       " max :3",
+       " scale:1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "INIT",
+       "TRIG",
+       "STD",
+       "STO",
+       "RCL"
+      ]
+     }
+    },
+    {
+     "do": "Set $-6.3 \\le x \\le 6.3$ and $-5 \\le y \\le 3$. With this $x$-range each press of [[▶]] in TRACE moves $0.1$. Here the values are filled in for you; on your calculator type each one and press [[EXE]]. Then press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Graph Func  :Y=",
+       "Y1=X^3-3X",
+       "Y2:",
+       "Y3:",
+       "Y4:",
+       "Y5:"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "SEL",
+       "DEL",
+       "TYPE",
+       "STYL",
+       "MEM",
+       "DRAW"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **DRAW**.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -6.3,
+       6.3,
+       -5,
+       3
+      ],
+      "fns": [
+       "x*x*x-3*x"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **TRACE**. The cursor appears on the curve and the readout now includes **dY/dX**.",
+     "keys": [
+      "F1"
+     ],
+     "hint": "TRACE is on [[F1]] in the menu at the bottom of the graph screen.",
+     "screen": {
+      "type": "graph",
+      "win": [
+       -6.3,
+       6.3,
+       -5,
+       3
+      ],
+      "fns": [
+       "x*x*x-3*x"
+      ],
+      "trace": {
+       "fn": 0,
+       "x": 0,
+       "deriv": true
+      },
+      "label": "Y1=X^3-3X"
+     }
+    },
+    {
+     "ask": "At $x = 0$ the screen shows dY/dX $= -3$. What does that mean?",
+     "options": [
+      "The gradient of the curve at $x = 0$ is $-3$: the curve is going down",
+      "The $y$-value at $x = 0$ is $-3$",
+      "The curve crosses the $x$-axis at $-3$"
+     ],
+     "answer": 0,
+     "why": "dY/dX is $f'(x)$, the gradient of the tangent at the cursor. Check: $f'(x) = 3x^2 - 3$, so $f'(0) = -3$."
+    },
+    {
+     "do": "Press [[▶]] to move along the curve until $X = 1$. Watch dY/dX change at each step.",
+     "trace": {
+      "to": 1,
+      "dx": 0.1
+     },
+     "hint": "Each press moves the cursor $0.1$ to the right.",
+     "screen": {
+      "type": "graph",
+      "win": [
+       -6.3,
+       6.3,
+       -5,
+       3
+      ],
+      "fns": [
+       "x*x*x-3*x"
+      ],
+      "trace": {
+       "fn": 0,
+       "x": 1,
+       "deriv": true
+      },
+      "label": "Y1=X^3-3X"
+     }
+    },
+    {
+     "ask": "At $X = 1$, dY/dX $= 0$. What is there?",
+     "options": [
+      "A stationary point: here a local minimum $(1,\\ -2)$",
+      "A root of the curve",
+      "A point of inflexion"
+     ],
+     "answer": 0,
+     "why": "Gradient $0$ means a stationary point. dY/dX goes from negative to positive, so it is a minimum."
+    },
+    {
+     "ask": "Where else is dY/dX $= 0$?",
+     "options": [
+      "At $x = -1$",
+      "At $x = 0$",
+      "Nowhere else"
+     ],
+     "answer": 0,
+     "why": "$f'(x) = 3x^2 - 3 = 0$ gives $x = \\pm 1$. You could trace back with [[◀]] to check: at $x = -1$ there is a local maximum $(-1,\\ 2)$."
+    }
+   ],
+   "result": "With **Derivative: On**, TRACE shows $\\dfrac{dy}{dx}$ at every point, so you can see where the gradient is positive, negative or zero. It stays on until you switch it off in SET UP."
+  },
+  {
    "id": "stationary",
    "title": "Stationary points",
    "tool": "G-Solv MAX / MIN",
