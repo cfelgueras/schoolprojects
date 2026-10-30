@@ -79,8 +79,11 @@
 .a-left { top: 24px; left: 2px; width: 30px; }
 .a-right { top: 24px; right: 2px; width: 30px; }
 
-.key.glow { outline: 3px solid var(--gold-2); outline-offset: 2px; animation: gdc-glow 1.2s ease-in-out infinite; z-index: 1; }
-@keyframes gdc-glow { 50% { outline-color: rgba(221, 175, 113, .25); } }
+/* The key to press next: gold fill and a pulsing halo, visible on dark and light keys alike */
+.key.glow { background: var(--gold-2); color: var(--navy-ink); box-shadow: 0 2px 0 var(--gold-ink), 0 0 0 3px #fff3d6, 0 0 16px 4px rgba(221, 175, 113, .9); animation: gdc-glow 1.1s ease-in-out infinite; z-index: 1; }
+.key.glow .k-sh { color: var(--navy-ink); }
+.key.k-shift.glow { background: #fff8e6; } /* SHIFT is gold already: light fill so the glow still stands out */
+@keyframes gdc-glow { 50% { box-shadow: 0 2px 0 var(--gold-ink), 0 0 0 3px #fff3d6, 0 0 4px 1px rgba(221, 175, 113, .4); } }
 .calc-idle .key { opacity: .55; cursor: default; }
 @media (prefers-reduced-motion: reduce) {
   .key.glow, .calc-screen svg .blink, .calc-screen.shake { animation: none; }
@@ -111,7 +114,6 @@
 .gdc-steps .st-now { background: var(--mist); color: var(--navy-ink); }
 .gdc-steps .st-now .st-n { background: var(--navy); color: #fff; }
 .gdc-steps .st-next { opacity: .55; }
-.gdc-steps.mode-practice .st-next { display: none; }
 .gdc-steps p { margin: 0; }
 
 .gdc-hint { background: var(--mist); border-radius: 12px; padding: 10px 14px; margin-top: 6px; }

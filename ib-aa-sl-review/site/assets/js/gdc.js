@@ -65,7 +65,7 @@
 
   const MODES = {
     guided: { label: "Guided", note: "The next key lights up." },
-    practice: { label: "Practice", note: "Follow the steps. Hints appear if you get stuck." },
+    practice: { label: "Practice", note: "Follow the steps. The key lights up if you press a wrong one." },
     exam: { label: "Exam", note: "Only the task, as in Paper 2. Use a hint if you need one." }
   };
 
@@ -239,7 +239,8 @@
   const S = {
     data: null, topicTitle: "", lesson: null, step: 0, keyIdx: 0, typed: "", menuSel: null,
     shift: false, mistakes: 0, wrongHere: 0, hintShown: false, done: false, answered: null, tried: [],
-    mode: App.store.get("gdc-mode") in MODES ? App.store.get("gdc-mode") : "guided"
+    // Every visit starts in Guided; the mode buttons change it for this page only.
+    mode: "guided"
   };
 
   const progressKey = () => "gdc-done:" + S.data.topic;
@@ -291,7 +292,7 @@
   function showKeyGlow() {
     const st = current();
     if (S.mode === "guided") return true;
-    return S.wrongHere >= (S.mode === "practice" ? 2 : 3) || (st && st.select && S.wrongHere >= 2);
+    return S.wrongHere >= (S.mode === "practice" ? 1 : 3) || (st && st.select && S.wrongHere >= 2);
   }
 
   function press(id) {
@@ -360,7 +361,8 @@
     const exp = expectedKey();
     let text = msg;
     if (!text) {
-      if (S.mode === "guided" || showKeyGlow()) text = "Not that key. Press [[" + LABEL[exp] + "]].";
+      if (S.mode === "practice") text = (current().hint ? current().hint + " " : "") + "Press [[" + LABEL[exp] + "]].";
+      else if (S.mode === "guided" || showKeyGlow()) text = "Not that key. Press [[" + LABEL[exp] + "]].";
       else if (S.mode === "practice") text = current().hint || "Read the step again and look for the key on the calculator.";
       else text = "Not quite. Try again, or use **Show hint**.";
     }
@@ -504,7 +506,7 @@
       const lesson = t.closest("[data-lesson]");
       if (lesson) { startLesson(lesson.dataset.lesson); return window.scrollTo({ top: document.querySelector(".gdc-bar").offsetTop - 8, behavior: "smooth" }); }
       const mode = t.closest("[data-mode]");
-      if (mode) { S.mode = mode.dataset.mode; App.store.set("gdc-mode", S.mode); return startLesson(S.lesson.id); }
+      if (mode) { S.mode = mode.dataset.mode; return startLesson(S.lesson.id); }
       const opt = t.closest("[data-opt]");
       if (opt) return answer(+opt.dataset.opt);
       if (t.closest("[data-continue]")) return nextStep();
