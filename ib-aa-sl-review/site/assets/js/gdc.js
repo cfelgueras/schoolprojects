@@ -11,6 +11,7 @@
  * `entry: { line, prefix, add }` shows the line being typed; `add[i]` overrides what key i types.
  * Text screens: `lines`, `hl` (inverted line), `right` (right-aligned lines), `fkeys`.
  * Graph screens: `win`, `fns`, `pt`, `label`, `read`; with nothing else they show the graph F-key menu.
+ * List screens (STAT): `cols` (List 1, List 2, …), `cur` [list, row], `fkeys`; numbers typed in a step fill the cells live.
  */
 (function () {
   "use strict";
@@ -152,9 +153,35 @@
     return out + fkeyBar(idle ? GRAPH_FKEYS : scr.fkeys);
   }
 
+  // STAT list editor: List 1–4 in a grid, the current cell inverted, the number being typed on the bottom line.
+  function listScreen(scr, buf) {
+    const cols = scr.cols || [], cur = scr.cur || [0, 0];
+    const NC = 4, ROWS = 4, x0 = 11, cw = (W - x0) / NC, y0 = 16;
+    const top = Math.max(0, cur[1] - ROWS + 1);
+    let out = "";
+    for (let c = 0; c < NC; c++) out += svgText(x0 + c * cw + cw / 2, 6.3, "List " + (c + 1), { size: 5.4, anchor: "middle" });
+    out += svgText(1, 13.8, "SUB", { size: 5 });
+    for (let r = 0; r < ROWS; r++) {
+      const i = top + r, y = y0 + r * 8;
+      out += svgText(1, y + 6.3, String(i + 1), { size: 5.4 });
+      for (let c = 0; c < NC; c++) {
+        const v = cols[c] && cols[c][i] != null ? String(cols[c][i]) : "";
+        const on = c === cur[0] && i === cur[1];
+        if (on) out += '<rect class="ink" x="' + (x0 + c * cw) + '" y="' + y + '" width="' + cw + '" height="8"/>';
+        out += svgText(x0 + (c + 1) * cw - 1.5, y + 6.3, v, { size: 5.4, anchor: "end", inv: on });
+      }
+    }
+    const yEnd = y0 + ROWS * 8;
+    for (let r = 0; r <= ROWS + 1; r++) out += '<line class="grid" x1="0" y1="' + (8 + r * 8) + '" x2="' + W + '" y2="' + (8 + r * 8) + '"/>';
+    for (let c = 0; c <= NC; c++) out += '<line class="grid" x1="' + (x0 + c * cw) + '" y1="0" x2="' + (x0 + c * cw) + '" y2="' + yEnd + '"/>';
+    if (buf) out += svgText(1, 54.5, buf, { size: 6 }) + '<rect class="ink blink" x="' + (1.5 + buf.length * 3.6) + '" y="49" width="3" height="6.5"/>';
+    return out + fkeyBar(scr.fkeys);
+  }
+
   function screenSvg(scr, o) {
     const body = scr.type === "menu" ? menuScreen(o.menuSel || scr.sel)
       : scr.type === "graph" ? graphScreen(scr, o.entry)
+      : scr.type === "list" ? listScreen(o.list || scr, o.buf)
       : textScreen(scr, o.entry, o.hl != null ? o.hl : scr.hl);
     const shift = o.shift ? '<rect class="ink" x="' + (W - 7) + '" y="0" width="7" height="7.5"/>' + svgText(W - 3.5, 6, "S", { size: 6, anchor: "middle", inv: true }) : "";
     return '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Calculator screen">' +
@@ -215,6 +242,9 @@
     const scr = S.done ? null : screenBefore(S.step);
     S.menuSel = scr && scr.type === "menu" ? scr.sel : null;
     S.hl = scr && current().scroll != null ? scr.hl || 0 : null;
+    // A list editor is edited live: typed numbers go into cells as the student presses EXE.
+    S.list = scr && scr.type === "list" ? { fkeys: scr.fkeys, cols: (scr.cols || []).map((c) => c.slice()), cur: (scr.cur || [0, 0]).slice() } : null;
+    S.buf = "";
     // Options are written with the right answer first; show them in a random order.
     const st = S.done ? null : current();
     S.order = st && st.ask ? st.options.map((_, i) => i).sort(() => Math.random() - 0.5) : null;
@@ -271,9 +301,21 @@
     const add = st.entry && st.entry.add && st.entry.add[S.keyIdx];
     S.keyIdx++;
     S.typed += add != null ? add : typedText(id);
+    if (S.list) editList(id);
     S.shift = id === "SHIFT";
     if (S.keyIdx === st.keys.length) return nextStep();
     renderAll();
+  }
+
+  function editList(id) {
+    const L = S.list, [c, r] = L.cur;
+    if (/^\d$/.test(id) || id === "DOT" || id === "NEG") S.buf += typedText(id);
+    else if (id === "EXE" && S.buf) {
+      (L.cols[c] = L.cols[c] || [])[r] = S.buf;
+      L.cur = [c, r + 1];
+      S.buf = "";
+    } else if (id === "RIGHT" || id === "LEFT") L.cur = [Math.max(0, c + (id === "RIGHT" ? 1 : -1)), r];
+    else if (id === "DOWN" || id === "UP") L.cur = [c, Math.max(0, r + (id === "DOWN" ? 1 : -1))];
   }
 
   function wrong(msg) {
@@ -337,7 +379,7 @@
     const st = current();
     const scr = shownScreen();
     const entry = !S.done && st && st.entry && S.keyIdx > 0 ? { line: st.entry.line, text: (st.entry.prefix || "") + S.typed } : null;
-    document.getElementById("screen").innerHTML = screenSvg(scr, { menuSel: S.menuSel, hl: S.hl, entry, shift: S.shift });
+    document.getElementById("screen").innerHTML = screenSvg(scr, { menuSel: S.menuSel, hl: S.hl, entry, shift: S.shift, list: S.done ? null : S.list, buf: S.buf });
 
     document.querySelectorAll(".calc .key").forEach((b) => b.classList.remove("glow"));
     const exp = expectedKey();

@@ -162,33 +162,55 @@
    },
    "steps": [
     {
-     "do": "Open d/dx: [[OPTN]] [[F4]] **CALC** [[F2]] **d/dx**.",
+     "do": "In RUN•MAT press [[OPTN]].",
      "keys": [
-      "OPTN",
-      "F4",
-      "F2"
+      "OPTN"
      ],
-     "entry": {
-      "line": 0,
-      "add": [
-       null,
-       "",
-       "d/dx("
-      ]
-     },
      "screen": {
       "type": "text",
       "lines": [
-       "d/dx("
+       ""
       ],
       "right": [
        1
+      ],
+      "fkeys": [
+       "LIST",
+       "MAT",
+       "CPLX",
+       "CALC",
+       "STAT",
+       "▷"
       ]
      }
     },
     {
-     "do": "Type $e^x$: [[SHIFT]] [[ln]] [[X,θ,T]] [[▶]].",
+     "do": "Press [[F4]] **CALC**.",
      "keys": [
+      "F4"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "Solve",
+       "d/dx",
+       "d²/dx²",
+       "∫dx",
+       "SolvN",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **d/dx**, then type $e^x$: [[SHIFT]] [[ln]] [[X,θ,T]] [[▶]].",
+     "keys": [
+      "F2",
       "SHIFT",
       "LN",
       "XT",
@@ -197,8 +219,8 @@
      "hint": "eˣ is above [[ln]]. [[▶]] leaves the exponent.",
      "entry": {
       "line": 0,
-      "prefix": "d/dx(",
       "add": [
+       "d/dx(",
        "",
        "e^(",
        null,
@@ -757,9 +779,29 @@
      }
     },
     {
-     "do": "Press [[F3]] **MIN**. Two graphs are drawn, so the calculator asks which one: Y1 is selected. Press [[EXE]].",
+     "do": "Press [[F3]] **MIN**.",
      "keys": [
-      "F3",
+      "F3"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -2,
+       5,
+       -35,
+       10
+      ],
+      "fns": [
+       "x*x*x*x-4*x*x*x",
+       "4*x*x*x-12*x*x"
+      ],
+      "label": "Y1=X^4-4X^3",
+      "fkeys": []
+     }
+    },
+    {
+     "do": "Two graphs are drawn, so the calculator asks which one. Y1 is shown at the top: press [[EXE]] to use it.",
+     "keys": [
       "EXE"
      ],
      "hint": "With more than one graph, G-SOLV first asks which graph to use: [[▲]] [[▼]] to choose, [[EXE]] to confirm.",
@@ -812,10 +854,50 @@
      }
     },
     {
-     "do": "Press [[F3]] **MIN**, then [[▼]] to choose Y2 ($f'$), then [[EXE]].",
+     "do": "Press [[F3]] **MIN**.",
      "keys": [
-      "F3",
-      "DOWN",
+      "F3"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -2,
+       5,
+       -35,
+       10
+      ],
+      "fns": [
+       "x*x*x*x-4*x*x*x",
+       "4*x*x*x-12*x*x"
+      ],
+      "label": "Y1=X^4-4X^3",
+      "fkeys": []
+     }
+    },
+    {
+     "do": "This time you want $f'$: press [[▼]] to choose Y2.",
+     "keys": [
+      "DOWN"
+     ],
+     "screen": {
+      "type": "graph",
+      "win": [
+       -2,
+       5,
+       -35,
+       10
+      ],
+      "fns": [
+       "x*x*x*x-4*x*x*x",
+       "4*x*x*x-12*x*x"
+      ],
+      "label": "Y2=4X^3-12X²",
+      "fkeys": []
+     }
+    },
+    {
+     "do": "Press [[EXE]].",
+     "keys": [
       "EXE"
      ],
      "screen": {

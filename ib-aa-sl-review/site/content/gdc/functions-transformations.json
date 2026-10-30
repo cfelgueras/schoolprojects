@@ -947,9 +947,25 @@
      }
     },
     {
-     "do": "Press [[F5]] **SET**. Start $= 100$, End $= 1000$, Step $= 100$ are filled in. Press [[EXIT]].",
+     "do": "Press [[F5]] **SET**.",
      "keys": [
-      "F5",
+      "F5"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "Table Setting",
+       "X",
+       "Start:100",
+       "End  :1000",
+       "Step :100"
+      ],
+      "hl": 2
+     }
+    },
+    {
+     "do": "Start $= 100$, End $= 1000$, Step $= 100$ are filled in: large values of $x$. Press [[EXIT]].",
+     "keys": [
       "EXIT"
      ],
      "screen": {

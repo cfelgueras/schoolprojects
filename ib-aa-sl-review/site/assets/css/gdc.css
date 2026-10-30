@@ -44,6 +44,7 @@
 .calc-screen svg .tile { fill: none; stroke: var(--lcd-ink); stroke-width: .5; }
 .calc-screen svg text { fill: var(--lcd-ink); font-family: var(--mono); white-space: pre; }
 .calc-screen svg text.inv { fill: var(--lcd); }
+.calc-screen svg .grid { stroke: var(--lcd-ink); stroke-width: .35; opacity: .8; }
 .calc-screen svg .axis { stroke: var(--lcd-ink); stroke-width: .5; opacity: .7; }
 .calc-screen svg .curve { fill: none; stroke: var(--lcd-ink); stroke-width: 1; stroke-linejoin: round; }
 .calc-screen svg .cursor { stroke: var(--lcd-ink); stroke-width: 1; }

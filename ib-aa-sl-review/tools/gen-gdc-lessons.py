@@ -288,7 +288,8 @@ save("functions-transformations", [
                ask("What happens at $x = 3$?", ["A vertical asymptote $x = 3$: the values blow up and $f(3)$ is undefined", "A root at $x = 3$", "A horizontal asymptote $y = 3$"],
                    "Dividing by $x - 3 = 0$ gives ERROR, and $y$ jumps from $-138$ to $142$ either side."),
                keys("Now look at large $x$. Press [[EXIT]] to go back.", "EXIT", flist(["(2X+1)÷(X-3)"], 1, table=True)),
-               keys("Press [[F5]] **SET**. Start $= 100$, End $= 1000$, Step $= 100$ are filled in. Press [[EXIT]].", "F5 EXIT",
+               keys("Press [[F5]] **SET**.", "F5", {"type": "text", "lines": ["Table Setting", "X", "Start:100", "End  :1000", "Step :100"], "hl": 2}),
+               keys("Start $= 100$, End $= 1000$, Step $= 100$ are filled in: large values of $x$. Press [[EXIT]].", "EXIT",
                     flist(["(2X+1)÷(X-3)"], 1, table=True)),
                keys("Press [[F6]] **TABL**.", "F6",
                     {"type": "text", "lines": ["      X        Y1", "    100   2.072164948", "    200   2.035532995", "    300   2.023569024", "    400   2.017632242", "    500   2.014084507"], "hl": 1, "fkeys": TAB_F}),
@@ -402,8 +403,9 @@ save("differentiation", [
            ], "$\\left.\\dfrac{dy}{dx}\\right|_{x=2} = 10$. On Paper 2 you can write: \"from GDC, gradient $= 10$\"."),
     lesson("gradient-e-ln", "Gradient with e and ln", "RUN•MAT → d/dx",
            "Find the gradient of $y = e^x - 3\\ln x$ at $x = 1.5$.", BLANK, [
-               keys("Open d/dx: [[OPTN]] [[F4]] **CALC** [[F2]] **d/dx**.", "OPTN F4 F2=d/dx(", run("d/dx("), {"line": 0}),
-               keys("Type $e^x$: [[SHIFT]] [[ln]] [[X,θ,T]] [[▶]].", "e^ x >=)", run("d/dx(e^(X)"), {"line": 0, "prefix": "d/dx("},
+               keys("In RUN•MAT press [[OPTN]].", "OPTN", run("", fkeys=OPTN_F)),
+               keys("Press [[F4]] **CALC**.", "F4", run("", fkeys=CALCF)),
+               keys("Press [[F2]] **d/dx**, then type $e^x$: [[SHIFT]] [[ln]] [[X,θ,T]] [[▶]].", "F2=d/dx( e^ x >=)", run("d/dx(e^(X)"), {"line": 0},
                     hint="eˣ is above [[ln]]. [[▶]] leaves the exponent."),
                keys("Type $-3\\ln x$: [[−]] `3` [[ln]] [[X,θ,T]].", "- 3 ln x", run("d/dx(e^(X)-3ln X"), {"line": 0, "prefix": "d/dx(e^(X)"}),
                keys("Press [[▶]], type `1.5`, then [[EXE]].", ">=)|x= 1 . 5 EXE", run("d/dx(e^(X)-3ln X)|x=1.5", "2.48168907"),
@@ -434,12 +436,14 @@ save("differentiation", [
            ] + set_window(vwin(-2, 5, -35, 10, 1, 5), "$-2 \\le x \\le 5$, $-35 \\le y \\le 10$", flist(["X^4-4X^3", "4X^3-12X²"], 1)) + [
                keys("Press [[F6]] **DRAW**.", "F6", graph(WI, FI)),
                gsolve(WI, FI),
-               keys("Press [[F3]] **MIN**. Two graphs are drawn, so the calculator asks which one: Y1 is selected. Press [[EXE]].", "F3 EXE",
+               keys("Press [[F3]] **MIN**.", "F3", graph(WI, FI, label="Y1=X^4-4X^3", fkeys=[])),
+               keys("Two graphs are drawn, so the calculator asks which one. Y1 is shown at the top: press [[EXE]] to use it.", "EXE",
                     pt(WI, FI, 3, -27, "MIN", "X=3  Y=-27"),
                     hint="With more than one graph, G-SOLV first asks which graph to use: [[▲]] [[▼]] to choose, [[EXE]] to confirm."),
                gsolve(WI, FI, True),
-               keys("Press [[F3]] **MIN**, then [[▼]] to choose Y2 ($f'$), then [[EXE]].", "F3 v EXE",
-                    pt(WI, FI, 2, -16, "MIN", "X=2  Y=-16")),
+               keys("Press [[F3]] **MIN**.", "F3", graph(WI, FI, label="Y1=X^4-4X^3", fkeys=[])),
+               keys("This time you want $f'$: press [[▼]] to choose Y2.", "v", graph(WI, FI, label="Y2=4X^3-12X²", fkeys=[])),
+               keys("Press [[EXE]].", "EXE", pt(WI, FI, 2, -16, "MIN", "X=2  Y=-16")),
                ask("The minimum of $f'$ is at $x = 2$. What is there on $f$?", ["A point of inflexion at $(2,\\ -16)$", "A minimum of $f$ at $(2,\\ -16)$", "A root of $f$"],
                    "Where $f'$ has a turning point, $f''= 0$ and the concavity of $f$ changes. $f(2) = 16 - 32 = -16$."),
            ], "Minimum $(3,\\ -27)$; inflexion points $(0,\\ 0)$ (stationary) and $(2,\\ -16)$ (non-stationary). The $y$-value of the inflexion comes from $f$, not from $f'$.", unverified=True),
@@ -550,16 +554,10 @@ save("geometry-trigonometry", [
 # =====================================================================
 # 5. Statistics
 # =====================================================================
-def lists(l1, l2=(), hl=None, top=1):
-    rows = ["       List 1  List 2", "SUB"]
-    n = max(len(l1), len(l2), 1)
-    for i in range(top - 1, min(n, top + 3)):
-        a = str(l1[i]) if i < len(l1) else ""
-        b = str(l2[i]) if i < len(l2) else ""
-        rows.append("%2d   %7s %7s" % (i + 1, a, b))
-    s = {"type": "text", "lines": rows, "fkeys": STAT_F}
-    if hl is not None: s["hl"] = hl
-    return s
+def lists(l1, l2=(), cur=(0, 0), fkeys=STAT_F):
+    """STAT list editor; cur = (list index, row index) of the highlighted cell."""
+    cols = [[str(v) for v in l1]] + ([[str(v) for v in l2]] if l2 else [])
+    return {"type": "list", "cols": cols, "cur": list(cur), "fkeys": fkeys}
 
 
 SET1 = ["1Var XList :List1", "1Var Freq  :1", "2Var XList :List1", "2Var YList :List2", "2Var Freq  :1"]
@@ -583,13 +581,14 @@ save("statistics", [
            "Find the mean, standard deviation and quartiles of $12,\\ 15,\\ 15,\\ 18,\\ 21,\\ 24,\\ 30$.", BLANK,
            menu_to("STAT", lists([]), "STAT is the second icon of the first row.") + [
                keys("Type the first values in List 1, with [[EXE]] after each: `12` [[EXE]] `15` [[EXE]] `15` [[EXE]] `18` [[EXE]].",
-                    "12 EXE 15 EXE 15 EXE 18 EXE", lists(D[:4], top=1)),
-               keys("And the rest: `21` [[EXE]] `24` [[EXE]] `30` [[EXE]].", "21 EXE 24 EXE 30 EXE", lists(D, top=4)),
-               keys("Press [[F2]] **CALC**.", "F2", dict(lists(D, top=4), fkeys=CALC_F)),
+                    "12 EXE 15 EXE 15 EXE 18 EXE", lists(D[:4], cur=(0, 4)),
+                    hint="Each number appears at the bottom while you type it and goes into the list when you press [[EXE]]."),
+               keys("And the rest: `21` [[EXE]] `24` [[EXE]] `30` [[EXE]].", "21 EXE 24 EXE 30 EXE", lists(D, cur=(0, 7))),
+               keys("Press [[F2]] **CALC**.", "F2", lists(D, cur=(0, 7), fkeys=CALC_F)),
                keys("Press [[F6]] **SET** to check which list is used.", "F6", {"type": "text", "lines": SET1, "hl": 0}),
                ask("Each value appears once in the list. What must 1Var Freq be?", ["$1$", "List2", "$7$"],
                    "Freq $= 1$ means every entry counts once. Use a frequency list only for frequency tables."),
-               keys("1Var XList is List1 and 1Var Freq is 1. Press [[EXIT]].", "EXIT", dict(lists(D, top=4), fkeys=CALC_F)),
+               keys("1Var XList is List1 and 1Var Freq is 1. Press [[EXIT]].", "EXIT", lists(D, cur=(0, 7), fkeys=CALC_F)),
                keys("Press [[F1]] **1VAR**.", "F1", onevar("19.28571429", "135", "2835", "5.749889085", "6.210590034", "7")),
                ask("Which value is the standard deviation in IB?", ["$\\sigma x \\approx 5.75$", "$sx \\approx 6.21$", "$\\Sigma x = 135$"],
                    "IB uses the population standard deviation $\\sigma x$, not $sx$."),
@@ -600,14 +599,17 @@ save("statistics", [
            ], "$\\bar{x} \\approx 19.3$, $\\sigma \\approx 5.75$, $Q_1 = 15$, median $18$, $Q_3 = 24$, IQR $= 9$."),
     lesson("frequency", "Frequency table", "STAT, Freq = List2",
            "Find the mean, median and standard deviation of: value $1, 2, 3, 4, 5$ with frequency $3, 7, 6, 3, 1$. List 1 already holds the values.",
-           lists(V, top=1), [
-               keys("Move to List 2 with [[▶]].", ">", dict(lists(V, top=1), hl=2)),
-               keys("Type the frequencies: `3` [[EXE]] `7` [[EXE]] `6` [[EXE]] `3` [[EXE]] `1` [[EXE]].", "3 EXE 7 EXE 6 EXE 3 EXE 1 EXE", lists(V, F, top=1)),
-               keys("Press [[F2]] **CALC** then [[F6]] **SET**.", "F2 F6", {"type": "text", "lines": SET1, "hl": 0}),
+           lists(V), [
+               keys("Move to List 2 with [[▶]].", ">", lists(V, cur=(1, 0))),
+               keys("Type the frequencies: `3` [[EXE]] `7` [[EXE]] `6` [[EXE]] `3` [[EXE]] `1` [[EXE]].", "3 EXE 7 EXE 6 EXE 3 EXE 1 EXE", lists(V, F, cur=(1, 5)),
+                    hint="Same order as the values: the frequency of 1 goes next to 1."),
+               keys("Press [[F2]] **CALC**.", "F2", lists(V, F, cur=(1, 5), fkeys=CALC_F)),
+               keys("Press [[F6]] **SET**.", "F6", {"type": "text", "lines": SET1, "hl": 0}),
                scroll("Press [[▼]] to highlight **1Var Freq**.", 1, {"type": "text", "lines": SET1, "hl": 1, "fkeys": ["1", "LIST"]}),
                keys("Press [[F2]] **LIST**, type `2` and press [[EXE]].", "F2=List 2 EXE", {"type": "text", "lines": SETF, "hl": 1, "fkeys": ["1", "LIST"]},
                     {"line": 1, "prefix": "1Var Freq  :"}),
-               keys("Press [[EXIT]], then [[F1]] **1VAR**.", "EXIT F1", onevar("2.6", "52", "158", "1.067707825", "1.095445115", "20")),
+               keys("Press [[EXIT]] to go back to the lists.", "EXIT", lists(V, F, cur=(1, 5), fkeys=CALC_F)),
+               keys("Press [[F1]] **1VAR**.", "F1", onevar("2.6", "52", "158", "1.067707825", "1.095445115", "20")),
                ask("Check $n$ first. What should it be?", ["$20$, the total frequency", "$5$, the number of values", "$15$"],
                    "$3 + 7 + 6 + 3 + 1 = 20$. If $n = 5$, Freq is still set to 1."),
                keys("Press [[▼]] to scroll down.", "v", onevar2("1", "2", "2.5", "3", "5", "2")),
@@ -616,19 +618,20 @@ save("statistics", [
            ], "Mean $2.6$, median $2.5$, $\\sigma \\approx 1.07$. Set Freq back to $1$ afterwards, or the next list will be wrong.", unverified=True),
     lesson("grouped", "Grouped data", "STAT → 1VAR",
            "Estimate the mean and standard deviation. Classes $0$–$10$, $10$–$20$, …, $40$–$50$ with frequencies $5, 12, 18, 10, 5$. The lists are filled in and Freq is List2.",
-           lists(M, G, top=1), [
+           lists(M, G), [
                ask("What did we type in List 1?", ["The mid-interval values $5, 15, 25, 35, 45$", "The lower bounds $0, 10, 20, 30, 40$", "The upper bounds $10, 20, 30, 40, 50$"],
                    "Each class is represented by its mid-interval value."),
-               keys("Press [[F2]] **CALC** then [[F1]] **1VAR**.", "F2 F1", onevar("24.6", "1230", "36450", "11.12834219", "11.24132318", "50")),
+               keys("Press [[F2]] **CALC**.", "F2", lists(M, G, fkeys=CALC_F)),
+               keys("Press [[F1]] **1VAR**.", "F1", onevar("24.6", "1230", "36450", "11.12834219", "11.24132318", "50")),
                ask("Why does the question say *estimate*?", ["We used mid-interval values instead of the real data", "The calculator rounds", "$n$ is too small"],
                    "We don't know the exact values inside each class."),
            ], "Estimated mean $24.6$, $\\sigma \\approx 11.1$, $n = 50$."),
     lesson("regression", "Regression line and r", "STAT → REG X",
            "Find the regression line of $y$ on $x$ and $r$. List 1 holds $x$: $1, 2, 3, 4, 5$; List 2 holds $y$: $2.1, 3.9, 6.2, 7.8, 10.1$.",
-           lists(X, Y, top=1), [
-               keys("Press [[F2]] **CALC**.", "F2", dict(lists(X, Y, top=1), fkeys=CALC_F)),
-               keys("Press [[F3]] **REG**.", "F3", dict(lists(X, Y, top=1), fkeys=["X", "Med", "X^2", "X^3", "X^4", "▷"])),
-               keys("Press [[F1]] **X** (linear).", "F1", dict(lists(X, Y, top=1), fkeys=["ax+b", "a+bx"])),
+           lists(X, Y), [
+               keys("Press [[F2]] **CALC**.", "F2", lists(X, Y, fkeys=CALC_F)),
+               keys("Press [[F3]] **REG**.", "F3", lists(X, Y, fkeys=["X", "Med", "X^2", "X^3", "X^4", "▷"])),
+               keys("Press [[F1]] **X** (linear).", "F1", lists(X, Y, fkeys=["ax+b", "a+bx"])),
                keys("Press [[F1]] **ax+b**.", "F1", {"type": "text", "lines": ["LinearReg(ax+b)", "a   =1.99", "b   =0.05", "r   =0.9986517556", "r²  =0.9973053289"]}),
                ask("Write the regression line.", ["$y = 1.99x + 0.05$", "$y = 0.05x + 1.99$", "$x = 1.99y + 0.05$"],
                    "With ax+b, $a$ is the gradient and $b$ the $y$-intercept."),
