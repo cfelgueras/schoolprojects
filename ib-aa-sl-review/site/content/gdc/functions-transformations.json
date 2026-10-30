@@ -597,6 +597,145 @@
    "result": "$x \\approx -4.97$ or $x = 3$. Choose a window that shows every intersection: a solution outside the screen is not found."
   },
   {
+   "id": "solven",
+   "title": "Solve with SolveN",
+   "tool": "RUN•MAT → SolveN",
+   "task": "Solve $2^x = x + 5$ without drawing a graph.",
+   "unverified": true,
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "ask": "SolveN solves *left side* $= 0$. Which equation do you give it?",
+     "options": [
+      "$2^x - x - 5 = 0$",
+      "$2^x + x + 5 = 0$",
+      "$2^x = x + 5$ as it is"
+     ],
+     "answer": 0,
+     "why": "Move everything to the left: $2^x - (x + 5) = 0$."
+    },
+    {
+     "do": "In RUN•MAT press [[OPTN]].",
+     "keys": [
+      "OPTN"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "LIST",
+       "MAT",
+       "CPLX",
+       "CALC",
+       "STAT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F4]] **CALC**.",
+     "keys": [
+      "F4"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "Solve",
+       "d/dx",
+       "d²/dx²",
+       "∫dx",
+       "SolvN",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **SolveN**, then type $2^x - x - 5$: `2` [[^]] [[X,θ,T]] [[▶]] [[−]] [[X,θ,T]] [[−]] `5`.",
+     "keys": [
+      "F5",
+      "2",
+      "POW",
+      "XT",
+      "RIGHT",
+      "SUB",
+      "XT",
+      "SUB",
+      "5"
+     ],
+     "hint": "Press [[▶]] after the $x$ to leave the exponent.",
+     "entry": {
+      "line": 0,
+      "add": [
+       "SolveN(",
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(2^X-X-5"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "do": "Close the bracket [[)]] and press [[EXE]].",
+     "keys": [
+      "RP",
+      "EXE"
+     ],
+     "entry": {
+      "line": 0,
+      "prefix": "SolveN(2^X-X-5"
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(2^X-X-5)",
+       "{-4.968050221,3}"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "ask": "SolveN gives a list. What are the solutions?",
+     "options": [
+      "$x \\approx -4.97$ or $x = 3$",
+      "$x = 3$ only",
+      "$x \\approx -4.97$ only"
+     ],
+     "answer": 0,
+     "why": "Every number in the list is a solution. Same answers as with GRAPH and ISCT, without choosing a window."
+    }
+   ],
+   "result": "$x \\approx -4.97$ or $x = 3$. SolveN finds up to 10 solutions at once; if it shows \"More solutions may exist\", give it limits."
+  },
+  {
    "id": "x-cal",
    "title": "Find x for a given y",
    "tool": "G-Solv X-CAL",

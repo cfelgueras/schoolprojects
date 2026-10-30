@@ -132,6 +132,22 @@ def set_window(win_lines, win_text, back):
     ]
 
 
+SN_OPTN = ["LIST", "MAT", "CPLX", "CALC", "STAT", "▷"]
+SN_CALC = ["Solve", "d/dx", "d²/dx²", "∫dx", "SolvN", "▷"]
+
+
+def solven(expr, typed, result, say, hint=None):
+    """RUN•MAT: OPTN → CALC → SolveN(expr) → list of solutions."""
+    return [
+        keys("In RUN•MAT press [[OPTN]].", "OPTN", run("", fkeys=SN_OPTN)),
+        keys("Press [[F4]] **CALC**.", "F4", run("", fkeys=SN_CALC)),
+        keys("Press [[F5]] **SolveN**, then type " + say + ".", "F5=SolveN( " + expr, run("SolveN(" + typed),
+             {"line": 0}, hint=hint),
+        keys("Close the bracket [[)]] and press [[EXE]].", ") EXE", run("SolveN(" + typed + ")", result),
+             {"line": 0, "prefix": "SolveN(" + typed}),
+    ]
+
+
 def lesson(id, title, tool, task, start, steps, result, unverified=False):
     L = {"id": id, "title": title, "tool": tool, "task": task}
     if unverified: L["unverified"] = True
@@ -263,6 +279,16 @@ save("functions-transformations", [
                ask("What are the solutions?", ["$x \\approx -4.97$ or $x = 3$", "$(-4.97,\\ 0.0319)$ and $(3,\\ 8)$", "$x = 3$ only"],
                    "The question asks for $x$, so give only the $x$-coordinates. The left one is easy to miss with the standard window."),
            ], "$x \\approx -4.97$ or $x = 3$. Choose a window that shows every intersection: a solution outside the screen is not found."),
+    lesson("solven", "Solve with SolveN", "RUN•MAT → SolveN",
+           "Solve $2^x = x + 5$ without drawing a graph.", BLANK, [
+               ask("SolveN solves *left side* $= 0$. Which equation do you give it?", ["$2^x - x - 5 = 0$", "$2^x + x + 5 = 0$", "$2^x = x + 5$ as it is"],
+                   "Move everything to the left: $2^x - (x + 5) = 0$."),
+           ] + solven("2 ^ x > - x - 5", "2^X-X-5", "{-4.968050221,3}",
+                      "$2^x - x - 5$: `2` [[^]] [[X,θ,T]] [[▶]] [[−]] [[X,θ,T]] [[−]] `5`",
+                      hint="Press [[▶]] after the $x$ to leave the exponent.") + [
+               ask("SolveN gives a list. What are the solutions?", ["$x \\approx -4.97$ or $x = 3$", "$x = 3$ only", "$x \\approx -4.97$ only"],
+                   "Every number in the list is a solution. Same answers as with GRAPH and ISCT, without choosing a window."),
+           ], "$x \\approx -4.97$ or $x = 3$. SolveN finds up to 10 solutions at once; if it shows \"More solutions may exist\", give it limits.", unverified=True),
     lesson("x-cal", "Find x for a given y", "G-Solv X-CAL",
            "For $f(x) = x^2 - 4x + 1$, solve $f(x) = 4$. The graph is already drawn.", graph(WC, FC), [
                gsolve(WC, FC),
@@ -374,6 +400,15 @@ save("exponents-logarithms", [
                ask("When does the population reach 1000?", ["$t \\approx 23.1$", "$t \\approx 1000$", "$t = 23$"],
                    "The answer is the $x$-coordinate, the time. Exact: $t = \\dfrac{\\ln 2}{0.03}$."),
            ], "$t \\approx 23.1$ (years, or whatever the unit of $t$ is). With the standard window you would see nothing: set the window from the context."),
+    lesson("solven", "Growth model with SolveN", "RUN•MAT → SolveN",
+           "$P(t) = 500e^{0.03t}$. Find when $P = 1000$ in one line, without a graph.", BLANK, [
+               ask("Which expression do you give SolveN?", ["$500e^{0.03x} - 1000$", "$500e^{0.03x} + 1000$", "$1000$"],
+                   "SolveN solves *expression* $= 0$, so $500e^{0.03x} = 1000$ becomes $500e^{0.03x} - 1000 = 0$."),
+           ] + solven("500 e^ 0 . 03 x >=) - 1000", "500e^(0.03X)-1000", "{23.10490602}",
+                      "`500` [[SHIFT]] [[ln]] `0.03` [[X,θ,T]] [[▶]] [[−]] `1000`", hint="eˣ is above [[ln]]; [[▶]] leaves the exponent.") + [
+               ask("Write the answer.", ["$t \\approx 23.1$", "$t = 23.10490602$", "$t \\approx 1000$"],
+                   "One solution, to 3 significant figures."),
+           ], "$t \\approx 23.1$. Same as ISCT, but with no window to set. In the exam write the equation $500e^{0.03t} = 1000$ and the answer.", unverified=True),
 ])
 
 # =====================================================================
@@ -456,6 +491,14 @@ save("differentiation", [
                ask("Which statement is correct?", ["Local maximum $(-1,\\ 7)$, local minimum $(3,\\ -25)$", "Maximum $(7,\\ -1)$, minimum $(-25,\\ 3)$", "Both are minimum points"],
                    "At a stationary point $f'(x) = 0$. Check: $f'(x) = 3x^2 - 6x - 9 = 3(x + 1)(x - 3)$."),
            ], "Local maximum $(-1,\\ 7)$ and local minimum $(3,\\ -25)$. The GDC finds them; the question may still ask you to justify with $f'(x) = 0$."),
+    lesson("solven", "Stationary points with SolveN", "f′(x) = 0 → SolveN",
+           "Find the $x$-coordinates of the stationary points of $f(x) = x^3 - 3x^2 - 9x + 2$ by solving $f'(x) = 0$.", BLANK, [
+               ask("What is $f'(x)$?", ["$3x^2 - 6x - 9$", "$3x^2 - 6x$", "$x^2 - 6x - 9$"],
+                   "Differentiate each term: $3x^2 - 2(3x) - 9$."),
+           ] + solven("3 x sq - 6 x - 9", "3X²-6X-9", "{-1,3}", "$3x^2 - 6x - 9$: `3` [[X,θ,T]] [[x²]] [[−]] `6` [[X,θ,T]] [[−]] `9`") + [
+               ask("Where are the stationary points?", ["$x = -1$ and $x = 3$", "$x = -9$", "$x = 3$ only"],
+                   "$f'(x) = 0$ at both. Their $y$-values come from $f$: $f(-1) = 7$ and $f(3) = -25$."),
+           ], "Stationary points at $x = -1$ and $x = 3$, i.e. $(-1,\\ 7)$ and $(3,\\ -25)$. Questions that say \"show\" or \"use calculus\" still need $f'(x) = 0$ written out.", unverified=True),
     lesson("inflexion", "Point of inflexion", "Graph of f′ + MIN",
            "$f(x) = x^4 - 4x^3$. Find the minimum and the non-stationary point of inflexion.", flist([], 1), [
                ask("First differentiate by hand. What is $f'(x)$?", ["$4x^3 - 12x^2$", "$4x^3 - 4x^2$", "$x^3 - 12x^2$"],
@@ -603,6 +646,16 @@ save("geometry-trigonometry", [
                ask("Write the solutions.", ["$x \\approx 0.170$ or $x \\approx 1.40$", "$x \\approx 0.17$ or $x \\approx 1.4$", "$x \\approx 9.74^\\circ$ or $x \\approx 80.3^\\circ$"],
                    "3 significant figures: $0.170$ keeps its last zero."),
            ], "$x \\approx 0.170$ or $x \\approx 1.40$. Setting Xmin and Xmax to the interval stops you from giving extra solutions."),
+    lesson("solven", "Trig equation with SolveN", "RUN•MAT → SolveN (Rad)",
+           "Solve $3\\sin 2x = 1$ for $0 \\le x \\le \\pi$ with SolveN. The calculator is in radians.", BLANK, [
+               ask("A trig equation has infinitely many solutions. What must you give SolveN?", ["The limits $0$ and $\\pi$ of the interval", "Nothing else", "An initial guess"],
+                   "With limits SolveN only returns the solutions in the interval. Without them it may say \"More solutions may exist\"."),
+           ] + solven("3 sin ( 2 x ) - 1 , x , 0 , pi", "3sin (2X)-1,X,0,π", "{0.1699184547,1.400877872}",
+                      "the expression, the variable and the limits: `3` [[sin]] [[(]] `2` [[X,θ,T]] [[)]] [[−]] `1` [[,]] [[X,θ,T]] [[,]] `0` [[,]] π",
+                      hint="π is above [[EXP]]. The order is: expression, variable, lower limit, upper limit.") + [
+               ask("Write the solutions.", ["$x \\approx 0.170$ or $x \\approx 1.40$", "$x \\approx 0.170$ only", "$x \\approx 9.74$ or $x \\approx 80.3$"],
+                   "Both values are in $[0,\\ \\pi]$. Degrees would only appear in Deg mode."),
+           ], "$x \\approx 0.170$ or $x \\approx 1.40$, the same as with ISCT. With SolveN the interval goes in the limits instead of the V-Window.", unverified=True),
     lesson("trig-model", "Trig model: minimum", "GRAPH (Rad) → MIN",
            "The depth of water is $h(t) = 2.5\\cos\\left(\\dfrac{\\pi t}{6}\\right) + 4$ metres, $0 \\le t \\le 24$ hours. When is it lowest? The calculator is in radians.", flist([], 1), [
                keys("Y1: `2.5` [[cos]] [[(]] π [[X,θ,T]] [[÷]] `6` [[)]] [[+]] `4`, then [[EXE]]. π is [[SHIFT]] [[EXP]].",

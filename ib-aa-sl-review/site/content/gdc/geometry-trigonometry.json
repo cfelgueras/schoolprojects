@@ -1257,6 +1257,159 @@
    "result": "$x \\approx 0.170$ or $x \\approx 1.40$. Setting Xmin and Xmax to the interval stops you from giving extra solutions."
   },
   {
+   "id": "solven",
+   "title": "Trig equation with SolveN",
+   "tool": "RUN•MAT → SolveN (Rad)",
+   "task": "Solve $3\\sin 2x = 1$ for $0 \\le x \\le \\pi$ with SolveN. The calculator is in radians.",
+   "unverified": true,
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "ask": "A trig equation has infinitely many solutions. What must you give SolveN?",
+     "options": [
+      "The limits $0$ and $\\pi$ of the interval",
+      "Nothing else",
+      "An initial guess"
+     ],
+     "answer": 0,
+     "why": "With limits SolveN only returns the solutions in the interval. Without them it may say \"More solutions may exist\"."
+    },
+    {
+     "do": "In RUN•MAT press [[OPTN]].",
+     "keys": [
+      "OPTN"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "LIST",
+       "MAT",
+       "CPLX",
+       "CALC",
+       "STAT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F4]] **CALC**.",
+     "keys": [
+      "F4"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "Solve",
+       "d/dx",
+       "d²/dx²",
+       "∫dx",
+       "SolvN",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **SolveN**, then type the expression, the variable and the limits: `3` [[sin]] [[(]] `2` [[X,θ,T]] [[)]] [[−]] `1` [[,]] [[X,θ,T]] [[,]] `0` [[,]] π.",
+     "keys": [
+      "F5",
+      "3",
+      "SIN",
+      "LP",
+      "2",
+      "XT",
+      "RP",
+      "SUB",
+      "1",
+      "COMMA",
+      "XT",
+      "COMMA",
+      "0",
+      "COMMA",
+      "SHIFT",
+      "EXP"
+     ],
+     "hint": "π is above [[EXP]]. The order is: expression, variable, lower limit, upper limit.",
+     "entry": {
+      "line": 0,
+      "add": [
+       "SolveN(",
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       "",
+       "π"
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(3sin (2X)-1,X,0,π"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "do": "Close the bracket [[)]] and press [[EXE]].",
+     "keys": [
+      "RP",
+      "EXE"
+     ],
+     "entry": {
+      "line": 0,
+      "prefix": "SolveN(3sin (2X)-1,X,0,π"
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(3sin (2X)-1,X,0,π)",
+       "{0.1699184547,1.400877872}"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "ask": "Write the solutions.",
+     "options": [
+      "$x \\approx 0.170$ or $x \\approx 1.40$",
+      "$x \\approx 0.170$ only",
+      "$x \\approx 9.74$ or $x \\approx 80.3$"
+     ],
+     "answer": 0,
+     "why": "Both values are in $[0,\\ \\pi]$. Degrees would only appear in Deg mode."
+    }
+   ],
+   "result": "$x \\approx 0.170$ or $x \\approx 1.40$, the same as with ISCT. With SolveN the interval goes in the limits instead of the V-Window."
+  },
+  {
    "id": "trig-model",
    "title": "Trig model: minimum",
    "tool": "GRAPH (Rad) → MIN",

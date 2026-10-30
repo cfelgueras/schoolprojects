@@ -30,6 +30,7 @@ Key sequences are for the **fx-9860GII / fx-9860GIII**. Items marked {{unverifie
 | Graph solve | graph screen | [[F5]] G-SOLV → ROOT [[F1]], MAX [[F2]], MIN [[F3]], Y-ICPT [[F4]], ISCT [[F5]] |
 | $y$ for a given $x$ / $x$ for a given $y$ | graph screen | G-SOLV → [[F6]] → [[F1]] Y-CAL / [[F2]] X-CAL {{unverified}} |
 | Table of values | TABLE | [[MENU]] → TABLE → [[F5]] SET → [[F6]] TABL |
+| Solve an equation (all solutions as a list) | RUN-MAT | [[OPTN]] → [[F4]] CALC → [[F5]] SolveN: `SolveN(expression, X, min, max)` solves expression $= 0$ {{unverified}} |
 
 ## Step by step
 

@@ -28,6 +28,7 @@ Key sequences are for the **fx-9860GII / fx-9860GIII**. Items marked {{unverifie
 | $\pi$ | any | [[SHIFT]] [[EXP]] |
 | Degree / radian symbols | RUN-MAT | [[OPTN]] → [[F6]] → ANGL {{unverified}} |
 | Intersection | GRAPH | [[F5]] G-SOLV → [[F5]] ISCT |
+| Solve an equation (all solutions as a list) | RUN-MAT | [[OPTN]] → [[F4]] CALC → [[F5]] SolveN: `SolveN(expression, X, min, max)` solves expression $= 0$ {{unverified}} |
 
 ## Step by step
 

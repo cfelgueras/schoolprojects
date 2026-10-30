@@ -745,6 +745,161 @@
     }
    ],
    "result": "$t \\approx 23.1$ (years, or whatever the unit of $t$ is). With the standard window you would see nothing: set the window from the context."
+  },
+  {
+   "id": "solven",
+   "title": "Growth model with SolveN",
+   "tool": "RUN•MAT → SolveN",
+   "task": "$P(t) = 500e^{0.03t}$. Find when $P = 1000$ in one line, without a graph.",
+   "unverified": true,
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "ask": "Which expression do you give SolveN?",
+     "options": [
+      "$500e^{0.03x} - 1000$",
+      "$500e^{0.03x} + 1000$",
+      "$1000$"
+     ],
+     "answer": 0,
+     "why": "SolveN solves *expression* $= 0$, so $500e^{0.03x} = 1000$ becomes $500e^{0.03x} - 1000 = 0$."
+    },
+    {
+     "do": "In RUN•MAT press [[OPTN]].",
+     "keys": [
+      "OPTN"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "LIST",
+       "MAT",
+       "CPLX",
+       "CALC",
+       "STAT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F4]] **CALC**.",
+     "keys": [
+      "F4"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "Solve",
+       "d/dx",
+       "d²/dx²",
+       "∫dx",
+       "SolvN",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **SolveN**, then type `500` [[SHIFT]] [[ln]] `0.03` [[X,θ,T]] [[▶]] [[−]] `1000`.",
+     "keys": [
+      "F5",
+      "5",
+      "0",
+      "0",
+      "SHIFT",
+      "LN",
+      "0",
+      "DOT",
+      "0",
+      "3",
+      "XT",
+      "RIGHT",
+      "SUB",
+      "1",
+      "0",
+      "0",
+      "0"
+     ],
+     "hint": "eˣ is above [[ln]]; [[▶]] leaves the exponent.",
+     "entry": {
+      "line": 0,
+      "add": [
+       "SolveN(",
+       null,
+       null,
+       null,
+       "",
+       "e^(",
+       null,
+       null,
+       null,
+       null,
+       null,
+       ")",
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(500e^(0.03X)-1000"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "do": "Close the bracket [[)]] and press [[EXE]].",
+     "keys": [
+      "RP",
+      "EXE"
+     ],
+     "entry": {
+      "line": 0,
+      "prefix": "SolveN(500e^(0.03X)-1000"
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(500e^(0.03X)-1000)",
+       "{23.10490602}"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "ask": "Write the answer.",
+     "options": [
+      "$t \\approx 23.1$",
+      "$t = 23.10490602$",
+      "$t \\approx 1000$"
+     ],
+     "answer": 0,
+     "why": "One solution, to 3 significant figures."
+    }
+   ],
+   "result": "$t \\approx 23.1$. Same as ISCT, but with no window to set. In the exam write the equation $500e^{0.03t} = 1000$ and the answer."
   }
  ]
 }

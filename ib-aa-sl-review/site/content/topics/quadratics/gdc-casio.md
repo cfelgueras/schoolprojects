@@ -39,6 +39,7 @@ On Paper 2, write the equation or function you are solving **before** you write 
 | Zoom | GRAPH (graph screen) | [[F2]] ZOOM |
 | Graph solve | GRAPH (graph screen) | [[F5]] G-SOLV |
 | Table of values | TABLE | [[MENU]] → TABLE → [[F5]] SET → [[F6]] TABL |
+| Solve an equation (all solutions as a list) | RUN-MAT | [[OPTN]] → [[F4]] CALC → [[F5]] SolveN: `SolveN(expression, X, min, max)` solves expression $= 0$ {{unverified}} |
 
 ## Step by step
 

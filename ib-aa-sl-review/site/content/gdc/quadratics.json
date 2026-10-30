@@ -419,6 +419,133 @@
    "result": "The roots of $x^2 - 2x - 4$ are $x \\approx -1.24$ and $x \\approx 3.24$. If a root is missing, change the V-Window: ROOT only finds roots that are on the screen."
   },
   {
+   "id": "solven",
+   "title": "Roots with SolveN",
+   "tool": "RUN•MAT → SolveN",
+   "unverified": true,
+   "task": "Solve $x^2 - 2x - 4 = 0$ in one line, without a graph.",
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "do": "In RUN•MAT press [[OPTN]].",
+     "keys": [
+      "OPTN"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "LIST",
+       "MAT",
+       "CPLX",
+       "CALC",
+       "STAT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F4]] **CALC**.",
+     "keys": [
+      "F4"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "Solve",
+       "d/dx",
+       "d²/dx²",
+       "∫dx",
+       "SolvN",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **SolveN**, then type $x^2 - 2x - 4$: [[X,θ,T]] [[x²]] [[−]] `2` [[X,θ,T]] [[−]] `4`.",
+     "keys": [
+      "F5",
+      "XT",
+      "SQR",
+      "SUB",
+      "2",
+      "XT",
+      "SUB",
+      "4"
+     ],
+     "hint": "SolveN solves *expression* $= 0$, so you only type the left side.",
+     "entry": {
+      "line": 0,
+      "add": [
+       "SolveN(",
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(X²-2X-4"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "do": "Close the bracket [[)]] and press [[EXE]].",
+     "keys": [
+      "RP",
+      "EXE"
+     ],
+     "entry": {
+      "line": 0,
+      "prefix": "SolveN(X²-2X-4"
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(X²-2X-4)",
+       "{-1.236067977,3.236067977}"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "ask": "SolveN returns a list. What are the roots?",
+     "options": [
+      "$x \\approx -1.24$ or $x \\approx 3.24$",
+      "$x \\approx -1.24$ only",
+      "$x = 1 \\pm 5$"
+     ],
+     "answer": 0,
+     "why": "Each number in the list is a root. Exactly they are $1 \\pm \\sqrt{5}$; in Math mode the calculator may show them that way, and [[F↔D]] switches to decimals."
+    }
+   ],
+   "result": "$x \\approx -1.24$ or $x \\approx 3.24$. EQUA, ROOT and SolveN all give the same roots: use the one you are fastest with, and write the equation first."
+  },
+  {
    "id": "vertex",
    "title": "Find the vertex",
    "tool": "G-Solv MIN / MAX",

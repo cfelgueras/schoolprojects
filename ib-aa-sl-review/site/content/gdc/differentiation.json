@@ -835,6 +835,144 @@
    "result": "Local maximum $(-1,\\ 7)$ and local minimum $(3,\\ -25)$. The GDC finds them; the question may still ask you to justify with $f'(x) = 0$."
   },
   {
+   "id": "solven",
+   "title": "Stationary points with SolveN",
+   "tool": "f′(x) = 0 → SolveN",
+   "task": "Find the $x$-coordinates of the stationary points of $f(x) = x^3 - 3x^2 - 9x + 2$ by solving $f'(x) = 0$.",
+   "unverified": true,
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "ask": "What is $f'(x)$?",
+     "options": [
+      "$3x^2 - 6x - 9$",
+      "$3x^2 - 6x$",
+      "$x^2 - 6x - 9$"
+     ],
+     "answer": 0,
+     "why": "Differentiate each term: $3x^2 - 2(3x) - 9$."
+    },
+    {
+     "do": "In RUN•MAT press [[OPTN]].",
+     "keys": [
+      "OPTN"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "LIST",
+       "MAT",
+       "CPLX",
+       "CALC",
+       "STAT",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F4]] **CALC**.",
+     "keys": [
+      "F4"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       ""
+      ],
+      "right": [
+       1
+      ],
+      "fkeys": [
+       "Solve",
+       "d/dx",
+       "d²/dx²",
+       "∫dx",
+       "SolvN",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F5]] **SolveN**, then type $3x^2 - 6x - 9$: `3` [[X,θ,T]] [[x²]] [[−]] `6` [[X,θ,T]] [[−]] `9`.",
+     "keys": [
+      "F5",
+      "3",
+      "XT",
+      "SQR",
+      "SUB",
+      "6",
+      "XT",
+      "SUB",
+      "9"
+     ],
+     "entry": {
+      "line": 0,
+      "add": [
+       "SolveN(",
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(3X²-6X-9"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "do": "Close the bracket [[)]] and press [[EXE]].",
+     "keys": [
+      "RP",
+      "EXE"
+     ],
+     "entry": {
+      "line": 0,
+      "prefix": "SolveN(3X²-6X-9"
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "SolveN(3X²-6X-9)",
+       "{-1,3}"
+      ],
+      "right": [
+       1
+      ]
+     }
+    },
+    {
+     "ask": "Where are the stationary points?",
+     "options": [
+      "$x = -1$ and $x = 3$",
+      "$x = -9$",
+      "$x = 3$ only"
+     ],
+     "answer": 0,
+     "why": "$f'(x) = 0$ at both. Their $y$-values come from $f$: $f(-1) = 7$ and $f(3) = -25$."
+    }
+   ],
+   "result": "Stationary points at $x = -1$ and $x = 3$, i.e. $(-1,\\ 7)$ and $(3,\\ -25)$. Questions that say \"show\" or \"use calculus\" still need $f'(x) = 0$ written out."
+  },
+  {
    "id": "inflexion",
    "title": "Point of inflexion",
    "tool": "Graph of f′ + MIN",
