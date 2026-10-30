@@ -135,6 +135,7 @@ footer .credit b { color: #fff; }
 .prose table { border-collapse: collapse; width: 100%; font-size: 15px; }
 .prose th { font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: left; font-weight: 900; padding: 8px 10px; border-bottom: 2px solid var(--line); vertical-align: bottom; }
 .prose td { padding: 9px 10px; border-bottom: 1px solid #efe9de; vertical-align: top; }
+.prose p > img:only-child { display: block; width: 100%; max-width: 520px; margin: 14px auto; } /* diagrams in theory */
 .prose code { font-family: var(--mono); font-size: .88em; background: var(--cream-2); padding: 1px 6px; border-radius: 5px; }
 kbd { display: inline-block; font-family: var(--mono); font-size: .8em; font-weight: 700; line-height: 1.3; padding: 1px 7px; border: 1px solid #cfd9e5; border-bottom-width: 3px; border-radius: 6px; background: #fff; color: var(--navy-ink); white-space: nowrap; }
 

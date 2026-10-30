@@ -136,7 +136,11 @@ Arc $= 6(1.2) = 7.2$ cm. Perimeter $= 7.2 + 6 + 6 = 19.2$ cm. Area $= \dfrac{1}{
 ## 5. The unit circle and identities
 
 - On the unit circle, the point at angle $\theta$ is $(\cos\theta,\ \sin\theta)$.
-- **Signs (CAST):** $\sin$ positive in quadrants I and II; $\cos$ in I and IV; $\tan$ in I and III.
+- **Signs in each quadrant:**
+
+![Unit circle on the x and y axes. Quadrant I: sin, cos and tan positive. Quadrant II: only sin positive. Quadrant III: only tan positive. Quadrant IV: only cos positive. The circle meets the axes at 0 or 2π, π/2, π and 3π/2.](content/topics/geometry-trigonometry/img/unit-circle-signs.svg)
+
+  $\tan\theta = \dfrac{\sin\theta}{\cos\theta}$, so $\tan$ is positive where $\sin$ and $\cos$ have the same sign (I and III).
 - **Symmetry:** $\sin(\pi - \theta) = \sin\theta$, $\cos(-\theta) = \cos\theta$, $\cos(2\pi - \theta) = \cos\theta$.
 
 :::formula booklet Identities
@@ -167,6 +171,17 @@ $\cos^2\theta = 1 - \dfrac{9}{25} = \dfrac{16}{25}$. $\theta$ is obtuse, so $\co
 1. Isolate the trig function.
 2. Find the first solution (exact values or GDC).
 3. Use the unit circle / symmetry to find **all** solutions in the given interval. If the angle is $2x$, extend the interval for $2x$ first.
+
+### Finding the other solutions
+
+![Unit circle with the same angle θ measured from the x-axis in every quadrant. Quadrant I: θ. Quadrant II: π − θ (180° − θ). Quadrant III: π + θ (180° + θ). Quadrant IV: 2π − θ (360° − θ).](content/topics/geometry-trigonometry/img/other-solutions.svg)
+
+1. Find $\theta$, the angle in quadrant I, with the value **without its sign** (exact values or $\sin^{-1}$, $\cos^{-1}$, $\tan^{-1}$ on the GDC).
+2. Use the **sign** to choose the quadrants (diagram in section 5).
+3. Write the angle for each quadrant with the diagram above.
+4. Add or subtract $2\pi$ ($360^\circ$) until you have every solution in the interval.
+
+**Example:** $\cos x = -\dfrac{1}{2}$, $0 \leq x \leq 2\pi$. Without the sign, $\cos\theta = \dfrac{1}{2}$ gives $\theta = \dfrac{\pi}{3}$. $\cos$ is negative in II and III: $x = \pi - \dfrac{\pi}{3} = \dfrac{2\pi}{3}$ or $x = \pi + \dfrac{\pi}{3} = \dfrac{4\pi}{3}$.
 
 :::example Worked example 9 — without a calculator
 **Question.** Solve $2\cos^2 x - \cos x - 1 = 0$ for $0 \leq x \leq 2\pi$.

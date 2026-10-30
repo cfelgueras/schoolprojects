@@ -73,6 +73,7 @@ La página `gdc.html#<id-del-tema>` muestra una calculadora para practicar las t
 
 ## Herramientas
 - `ruby tools/check-fractions.rb` — avisa si hay fracciones "a/b".
+- `python3 tools/draw-trig-diagrams.py` — vuelve a dibujar los dos círculos unitarios de la teoría de trigonometría (`site/content/topics/geometry-trigonometry/img/`). Para cambiarlos, editá el script.
 - `osascript -l JavaScript tools/render-page.js <pdf> <página> <salida.png>` — pasa una página de PDF a imagen para recortar figuras.
 - `ruby tools/screenshot.rb <carpeta> <páginas…>` — capturas en celular, tablet y computadora (requiere Safari con "Permitir automatización remota").
 - `ruby tools/check-new-papers.rb` — lista los PDFs nuevos de ~/Desktop/Claude que todavía no se procesaron (registro en `review/processed.json`).
