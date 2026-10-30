@@ -497,6 +497,13 @@ save("differentiation", [
 # =====================================================================
 SETUP = ["Input Mode :Math", "Frac Result:d/c", "Func Type  :Y=", "Draw Type  :Connect", "Derivative :Off", "Angle      :Rad", "Complex Mode:Real"]
 SETUP_DEG = SETUP[:5] + ["Angle      :Deg"] + SETUP[6:]
+TWO_PI = 6.283185307
+WF = [0, TWO_PI, -4, 5]
+FF = ["3*Math.sin(2*x)+1"]
+WDEG = [0, 360, -3, 3]
+FDEG = ["2*Math.cos(x*Math.PI/180)", "1"]
+WW = [0, 30, 0, 40]
+FW = ["20-18*Math.cos(Math.PI*x/15)", "30"]
 PI = 3.141592654
 WT = [0, PI, -4, 4]
 FT = ["3*Math.sin(2*x)", "1"]
@@ -539,6 +546,48 @@ save("geometry-trigonometry", [
                ask("Write both answers.", ["$B \\approx 45.8^\\circ$ or $B \\approx 134^\\circ$", "$B \\approx 45.8^\\circ$ only", "$B \\approx 45.8^\\circ$ or $B \\approx 314^\\circ$"],
                    "Both are possible if $134.2^\\circ + 35^\\circ < 180^\\circ$, which is true here."),
            ], "$B \\approx 45.8^\\circ$ or $B \\approx 134^\\circ$. Use Ans instead of retyping a rounded value."),
+    lesson("triangle-apps", "Triangle applications", "RUN•MAT (Deg)",
+           "From $30$ m away, the angle of elevation of the top of a tree is $35^\\circ$. Find its height. Then find the area of a triangle with $a = 8$, $b = 11$ and $C = 40^\\circ$. The calculator is in degrees.", BLANK, [
+               ask("Which ratio gives the height $h$ of the tree?", ["$\\tan 35^\\circ = \\dfrac{h}{30}$, so $h = 30\\tan 35^\\circ$", "$\\sin 35^\\circ = \\dfrac{h}{30}$", "$\\cos 35^\\circ = \\dfrac{h}{30}$"],
+                   "Opposite (the height) over adjacent (the 30 m along the ground): tangent."),
+               keys("Type `30` [[tan]] `35` and press [[EXE]].", "30 tan 35 EXE", run("30tan 35", "21.00622615"), {"line": 0}),
+               ask("Which formula gives the area?", ["$\\dfrac{1}{2}ab\\sin C$", "$\\dfrac{1}{2}ab$", "$ab\\sin C$"],
+                   "Two sides and the angle between them: $A = \\dfrac{1}{2}ab\\sin C$ (formula booklet)."),
+               keys("Type `0.5` [[×]] `8` [[×]] `11` [[×]] [[sin]] `40` and press [[EXE]].", "0 . 5 * 8 * 11 * sin 40 EXE",
+                    run("30tan 35", "21.00622615", "0.5×8×11×sin 40", "28.28265483", right=(1, 3)), {"line": 2}),
+               ask("Write both answers with units.", ["$h \\approx 21.0$ m and area $\\approx 28.3\\ \\text{m}^2$", "$h = 21$ m and area $= 28$", "$h \\approx 21.0$ m and area $\\approx 28.3$ m"],
+                   "3 significant figures, and area in square units."),
+           ], "Height $\\approx 21.0$ m, area $\\approx 28.3\\ \\text{m}^2$. Draw a diagram first: it tells you which ratio or rule to use."),
+    lesson("graph-features", "Features of a trig graph", "GRAPH (Rad) → MAX, MIN",
+           "Draw $y = 3\\sin(2x) + 1$ for $0 \\le x \\le 2\\pi$ and find its amplitude, period and principal axis. The calculator is in radians.", flist([], 1), [
+               keys("Y1: `3` [[sin]] [[(]] `2` [[X,θ,T]] [[)]] [[+]] `1`, then [[EXE]].", "3 sin ( 2 x ) + 1 EXE", flist(["3sin (2X)+1"], 2), {"line": 1, "prefix": "Y1:"},
+                    hint="Brackets around $2x$: without them the calculator works out $\\sin 2 \\times x$."),
+           ] + set_window(vwin(0, TWO_PI, -4, 5), "Xmin $= 0$, Xmax $= 2\\pi$ (type `2` [[SHIFT]] [[EXP]]), $-4 \\le y \\le 5$", flist(["3sin (2X)+1"], 1)) + [
+               keys("Press [[F6]] **DRAW**.", "F6", graph(WF, FF)),
+               gsolve(WF, FF),
+               keys("Press [[F2]] **MAX**.", "F2", pt(WF, FF, 0.7853981634, 4, "MAX", "X=0.7853981634  Y=4")),
+               keys("Press [[▶]] for the next maximum.", ">", pt(WF, FF, 3.926990817, 4, "MAX", "X=3.926990817  Y=4")),
+               ask("Two maxima are at $x \\approx 0.785$ and $x \\approx 3.93$. What is the period?", ["$3.93 - 0.785 \\approx 3.14 = \\pi$", "$4$", "$2\\pi$"],
+                   "The period is the distance between two maxima. Check: $\\dfrac{2\\pi}{b} = \\dfrac{2\\pi}{2} = \\pi$."),
+               gsolve(WF, FF, True),
+               keys("Press [[F3]] **MIN**.", "F3", pt(WF, FF, 2.35619449, -2, "MIN", "X=2.35619449  Y=-2")),
+               ask("The maximum is $4$ and the minimum is $-2$. Amplitude and principal axis?", ["Amplitude $3$, principal axis $y = 1$", "Amplitude $6$, principal axis $y = 2$", "Amplitude $4$, principal axis $y = 0$"],
+                   "Amplitude $= \\dfrac{\\max - \\min}{2} = \\dfrac{4 - (-2)}{2} = 3$. Principal axis $y = \\dfrac{\\max + \\min}{2} = 1$."),
+           ], "Amplitude $3$, period $\\pi$, principal axis $y = 1$: they match $a = 3$, $b = 2$, $d = 1$ in $y = a\\sin(bx) + d$. The GDC is a quick way to check them."),
+    lesson("graph-degrees", "Trig graph in degrees", "GRAPH (Deg) → ISCT",
+           "Solve $2\\cos x = 1$ for $0^\\circ \\le x \\le 360^\\circ$. The calculator is in degrees.", flist([], 1), [
+               ask("The interval is in degrees. What window do you need?", ["$0 \\le x \\le 360$", "$0 \\le x \\le 2\\pi$", "$-6.3 \\le x \\le 6.3$ (the standard one)"],
+                   "In Deg mode the $x$-axis is in degrees: the standard window would show only $6^\\circ$ of the graph."),
+               keys("Y1: `2` [[cos]] [[X,θ,T]], then [[EXE]].", "2 cos x EXE", flist(["2cos X"], 2), {"line": 1, "prefix": "Y1:"}),
+               keys("Y2: `1`, then [[EXE]].", "1 EXE", flist(["2cos X", "1"], 3), {"line": 2, "prefix": "Y2:"}),
+           ] + set_window(vwin(0, 360, -3, 3, 90, 1), "Xmin $= 0$, Xmax $= 360$, Xscale $= 90$ (a mark every $90^\\circ$), $-3 \\le y \\le 3$", flist(["2cos X", "1"], 1)) + [
+               keys("Press [[F6]] **DRAW**.", "F6", graph(WDEG, FDEG)),
+               gsolve(WDEG, FDEG),
+               keys("Press [[F5]] **ISCT**.", "F5", pt(WDEG, FDEG, 60, 1, "ISCT", "X=60  Y=1")),
+               keys("Press [[▶]] for the next one.", ">", pt(WDEG, FDEG, 300, 1, "ISCT", "X=300  Y=1")),
+               ask("Write the solutions.", ["$x = 60^\\circ$ or $x = 300^\\circ$", "$x = 60^\\circ$ only", "$x = 60^\\circ$ or $x = 120^\\circ$"],
+                   "Cosine is positive in the first and fourth quadrants: $60^\\circ$ and $360^\\circ - 60^\\circ$."),
+           ], "$x = 60^\\circ$ or $x = 300^\\circ$. If the graph looks like a straight line, check the angle mode and the window."),
     lesson("trig-equation", "Trig equation on an interval", "GRAPH (Rad) → ISCT",
            "Solve $3\\sin 2x = 1$ for $0 \\le x \\le \\pi$.", flist([], 1), [
                ask("Which angle mode?", ["Radians: the interval uses $\\pi$", "Degrees", "It doesn't matter"],
@@ -567,6 +616,24 @@ save("geometry-trigonometry", [
                ask("What is the maximum depth? Use the equation, not the calculator.", ["$4 + 2.5 = 6.5$ m", "$4$ m", "$2.5$ m"],
                    "The principal axis is $y = 4$ and the amplitude is $2.5$: maximum $4 + 2.5$, minimum $4 - 2.5 = 1.5$ ✓."),
            ], "Lowest depth $1.5$ m at $t = 6$ and $t = 18$ hours. Maximum $6.5$ m. Amplitude and principal axis let you check the GDC."),
+    lesson("ferris-wheel", "Application: Ferris wheel", "GRAPH (Rad) → ISCT",
+           "The height of a seat on a Ferris wheel is $h(t) = 20 - 18\\cos\\left(\\dfrac{\\pi t}{15}\\right)$ metres, $t$ in seconds, $0 \\le t \\le 30$ (one turn). For how long is the seat higher than $30$ m? The calculator is in radians.", flist([], 1), [
+               ask("How do you find when the seat is at $30$ m?", ["Graph $y = h(t)$ and $y = 30$ and find where they meet", "Put $t = 30$ into $h(t)$", "Find the maximum of $h$"],
+                   "\"When is $h(t) = 30$?\" is an equation: intersect the graph with the line $y = 30$."),
+               keys("Y1: `20` [[−]] `18` [[cos]] [[(]] π [[X,θ,T]] [[÷]] `15` [[)]], then [[EXE]].", "20 - 18 cos ( pi x / 15 ) EXE",
+                    flist(["20-18cos (πX÷15)"], 2), {"line": 1, "prefix": "Y1:"}, hint="π is above [[EXP]]. The calculator uses $X$ for $t$."),
+               keys("Y2: `30`, then [[EXE]].", "30 EXE", flist(["20-18cos (πX÷15)", "30"], 3), {"line": 2, "prefix": "Y2:"}),
+           ] + set_window(vwin(0, 30, 0, 40, 5, 10), "$0 \\le x \\le 30$ (one turn) and $0 \\le y \\le 40$ (the heights)", flist(["20-18cos (πX÷15)", "30"], 1)) + [
+               keys("Press [[F6]] **DRAW**.", "F6", graph(WW, FW)),
+               gsolve(WW, FW),
+               keys("Press [[F5]] **ISCT**.", "F5", pt(WW, FW, 10.31241572, 30, "ISCT", "X=10.31241572  Y=30")),
+               keys("Press [[▶]] for the second time.", ">", pt(WW, FW, 19.68758428, 30, "ISCT", "X=19.68758428  Y=30")),
+               ask("The seat goes above $30$ m at $t \\approx 10.31$ and comes back down at $t \\approx 19.69$. For how long is it above $30$ m?",
+                   ["$19.69 - 10.31 \\approx 9.38$ s", "$10.3$ s", "$19.7$ s"],
+                   "The time between the two intersections. Subtract the full values, not rounded ones: $9.375…$, so $9.38$ s."),
+               ask("What is the lowest height of the seat, and when?", ["$2$ m at $t = 0$", "$20$ m at $t = 15$", "$38$ m at $t = 0$"],
+                   "$\\cos 0 = 1$, so $h(0) = 20 - 18 = 2$. The highest point is $38$ m at $t = 15$."),
+           ], "The seat is above $30$ m for about $9.38$ s per turn. Contextual questions: write the equation, the two values from the GDC and the subtraction."),
     lesson("pi-exact", "π, radians and exact answers", "RUN•MAT π, F↔D",
            "Find the volume of a cone with $r = 4$ and $h = 9$, then convert $2.4$ radians to degrees.", BLANK, [
                ask("Which formula gives the volume of a cone?", ["$V = \\dfrac{1}{3}\\pi r^2 h$", "$V = \\pi r^2 h$", "$V = \\dfrac{4}{3}\\pi r^3$"],

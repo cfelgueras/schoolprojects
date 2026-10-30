@@ -61,6 +61,27 @@ Setting Xmin and Xmax to the given interval means the GDC shows **only** the sol
 1. Y1: `2.5cos(πX÷6)+4`. V-Window: Xmin $0$, Xmax $24$, Ymin $0$, Ymax $8$.
 2. MAX: $(0,\ 6.5)$ or $(12,\ 6.5)$; MIN: $(6,\ 1.5)$.
 
+### E. Features of a trig graph
+
+**Example:** $y = 3\sin(2x) + 1$, $0 \leq x \leq 2\pi$ (Rad mode).
+
+1. Y1: `3sin(2X)+1`. V-Window: Xmin $0$, Xmax $2\pi$, Ymin $-4$, Ymax $5$.
+2. [[F5]] G-SOLV → [[F2]] MAX: $(0.785,\ 4)$; [[▶]] for the next maximum: $(3.93,\ 4)$. **Period** $= 3.93 - 0.785 \approx \pi$.
+3. [[F5]] G-SOLV → [[F3]] MIN: $(2.36,\ -2)$.
+4. **Amplitude** $= \dfrac{4 - (-2)}{2} = 3$; **principal axis** $y = \dfrac{4 + (-2)}{2} = 1$.
+
+In **Deg** mode use a window in degrees, e.g. Xmin $0$, Xmax $360$, Xscale $90$. The standard window shows almost nothing.
+
+### F. Application: when is it above a value?
+
+**Example:** a Ferris wheel seat is at height $h(t) = 20 - 18\cos\left(\dfrac{\pi t}{15}\right)$ m, $0 \leq t \leq 30$ s (Rad mode). For how long is it above $30$ m?
+
+1. Y1: `20−18cos(πX÷15)`, Y2: `30`. V-Window: Xmin $0$, Xmax $30$, Ymin $0$, Ymax $40$.
+2. ISCT: $t \approx 10.31$, then [[▶]]: $t \approx 19.69$.
+3. Time above $30$ m: $19.69 - 10.31 \approx 9.38$ s. Subtract the unrounded values.
+
+Write the equation $h(t) = 30$, both values from the GDC and the subtraction: that is the working the markscheme expects.
+
 ## Practice drill — do it until it is automatic
 
 | # | Task | Mode | Answer |
