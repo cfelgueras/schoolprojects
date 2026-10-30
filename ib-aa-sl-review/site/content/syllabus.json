@@ -1,0 +1,82 @@
+{
+  "course": "IB Mathematics: Analysis and Approaches SL",
+  "areas": [
+    { "id": "number-algebra", "number": 1, "title": "Number & Algebra" },
+    { "id": "functions", "number": 2, "title": "Functions" },
+    { "id": "geometry-trig", "number": 3, "title": "Geometry & Trigonometry" },
+    { "id": "prob-stats", "number": 4, "title": "Statistics & Probability" },
+    { "id": "calculus", "number": 5, "title": "Calculus" }
+  ],
+  "topics": [
+    {
+      "id": "straight-lines",
+      "mock": 1,
+      "area": "functions",
+      "codes": ["SL 2.1", "SL 3.1"],
+      "title": "Straight lines",
+      "summary": "Gradient, intercepts, parallel and perpendicular lines, the three forms of the equation of a line, midpoint, distance and the perpendicular bisector.",
+      "keywords": ["line", "gradient", "slope", "intercept", "parallel", "perpendicular", "perpendicular bisector", "midpoint", "distance", "Pythagoras", "general form", "point-gradient"],
+      "status": "published"
+    },
+    {
+      "id": "quadratics",
+      "mock": 2,
+      "area": "functions",
+      "codes": ["SL 2.6", "SL 2.7"],
+      "title": "Quadratics",
+      "summary": "Three forms of a quadratic, vertex and axis of symmetry, the quadratic formula, the discriminant, quadratic inequalities and applications.",
+      "keywords": ["quadratic", "parabola", "vertex", "axis of symmetry", "completing the square", "factorise", "quadratic formula", "discriminant", "roots", "zeros", "x-intercepts", "inequality", "nature of roots", "tangent", "equal roots"],
+      "status": "published"
+    },
+    {
+      "id": "functions-transformations",
+      "mock": 3,
+      "area": "functions",
+      "codes": ["SL 2.2–2.5", "SL 2.8", "SL 2.10–2.11"],
+      "title": "Functions and transformations",
+      "summary": "Domain and range, composite and inverse functions, rational functions and asymptotes, transformations of graphs and solving equations with technology.",
+      "keywords": ["function", "domain", "range", "composite", "inverse", "identity", "rational", "reciprocal", "asymptote", "limit", "transformation", "translation", "stretch", "reflection", "polynomial", "intersection"],
+      "status": "published"
+    },
+    {
+      "id": "exponents-logarithms",
+      "mock": 4,
+      "area": "number-algebra",
+      "codes": ["SL 1.5", "SL 1.7", "SL 2.9"],
+      "title": "Exponents and logarithms",
+      "summary": "Laws of exponents and logarithms, exponential and logarithmic functions and their graphs, the number e, change of base and exponential equations.",
+      "keywords": ["exponent", "index", "power", "logarithm", "log", "ln", "natural logarithm", "e", "change of base", "exponential equation", "asymptote", "hidden quadratic"],
+      "status": "published"
+    },
+    {
+      "id": "statistics",
+      "mock": 5,
+      "area": "prob-stats",
+      "codes": ["SL 4.1–4.4", "SL 4.10"],
+      "title": "Statistics: basic statistics and correlation",
+      "summary": "Sampling, data presentation, measures of central tendency and dispersion, outliers, box plots, cumulative frequency, correlation and regression lines.",
+      "keywords": ["mean", "median", "mode", "quartile", "IQR", "outlier", "box plot", "box and whisker", "histogram", "cumulative frequency", "standard deviation", "variance", "sampling", "regression", "correlation", "Pearson", "scatter"],
+      "status": "published"
+    },
+    {
+      "id": "differentiation",
+      "mock": 6,
+      "area": "calculus",
+      "codes": ["SL 5.1–5.4", "SL 5.6–5.8"],
+      "title": "Calculus 1: basic differentiation",
+      "summary": "Limits and the derivative, increasing and decreasing functions, tangents and normals, second derivative, maximum, minimum and inflexion points, concavity.",
+      "keywords": ["derivative", "differentiation", "gradient", "rate of change", "limit", "tangent", "normal", "increasing", "decreasing", "stationary point", "maximum", "minimum", "inflexion", "inflection", "concave", "second derivative"],
+      "status": "published"
+    },
+    {
+      "id": "geometry-trigonometry",
+      "mock": 7,
+      "area": "geometry-trig",
+      "codes": ["SL 3.1–3.8"],
+      "title": "Geometry and trigonometry",
+      "summary": "Right-angled trigonometry, 3D solids, sine and cosine rules, radians, arcs and sectors, the unit circle, exact values, trigonometric equations, graphs and models.",
+      "keywords": ["trigonometry", "sine", "cosine", "tangent", "sine rule", "cosine rule", "ambiguous case", "area of triangle", "radian", "arc", "sector", "unit circle", "exact values", "identity", "trigonometric equation", "amplitude", "period", "volume", "surface area", "3D"],
+      "status": "published"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "paper": { "year": 2023, "session": "May", "timezone": "TZ1", "paper": 1, "level": "SL" },
+  "questions": [
+    {
+      "id": "2023-may-p1-tz1-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "straight-lines",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "Point P has coordinates $(-3,\\ 2)$, and point Q has coordinates $(15,\\ -8)$. Point M is the midpoint of $[\\text{PQ}]$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find the coordinates of M.", "markscheme": "$\\text{M}\\ (6,\\ -3)$ ***A1A1***" },
+        { "label": "b", "marks": 2, "intro": "Line $L$ is perpendicular to $[\\text{PQ}]$ and passes through M.", "text": "Find the gradient of $L$.", "markscheme": "gradient of $[\\text{PQ}] = -\\dfrac{5}{9}$ ***(A1)***\n\ngradient of $L = \\dfrac{9}{5}$ ***A1***" },
+        { "label": "c", "marks": 1, "text": "Hence, write down the equation of $L$.", "markscheme": "$y + 3 = \\dfrac{9}{5}(x - 6)$ OR $y = \\dfrac{9}{5}x - \\dfrac{69}{5}$ (or equivalent) ***A1***\n\n> **Note:** Do not accept $L = \\dfrac{9}{5}x - \\dfrac{69}{5}$." }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz1-q2",
+      "question": "2",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The function $f$ is defined by $f(x) = \\dfrac{7x + 7}{2x - 4}$ for $x \\in \\mathbb{R}$, $x \\neq 2$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find the zero of $f(x)$.", "markscheme": "recognizing $f(x) = 0$ ***(M1)***\n\n$x = -1$ ***A1***" },
+        { "label": "b", "marks": 2, "text": "For the graph of $y = f(x)$, write down the equation of\n\n(i) the vertical asymptote;\n\n(ii) the horizontal asymptote.", "markscheme": "(i) $x = 2$ (must be an equation with $x$) ***A1***\n\n(ii) $y = \\dfrac{7}{2}$ (must be an equation with $y$) ***A1***" },
+        { "label": "c", "marks": 3, "text": "Find $f^{-1}(x)$, the inverse function of $f(x)$.", "markscheme": "**EITHER**\n\ninterchanging $x$ and $y$ ***(M1)***\n\n$2xy - 4x = 7y + 7$\n\ncorrect working with $y$ terms on the same side: $2xy - 7y = 4x + 7$ ***(A1)***\n\n**OR**\n\n$2yx - 4y = 7x + 7$\n\ncorrect working with $x$ terms on the same side: $2yx - 7x = 4y + 7$ ***(A1)***\n\ninterchanging $x$ and $y$ OR making $x$ the subject $x = \\dfrac{4y + 7}{2y - 7}$ ***(M1)***\n\n**THEN**\n\n$f^{-1}(x) = \\dfrac{4x + 7}{2x - 7}$ (or equivalent) $\\left(x \\neq \\dfrac{7}{2}\\right)$ ***A1***" }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz1-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "statistics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "On a Monday at an amusement park, a sample of $40$ visitors was randomly selected as they were leaving the park. They were asked how many times that day they had been on a ride called *The Dragon*. This information is summarized in the following frequency table.\n\n| **Number of times on *The Dragon*** | **Frequency** |\n|:---:|:---:|\n| $0$ | $6$ |\n| $1$ | $16$ |\n| $2$ | $13$ |\n| $3$ | $2$ |\n| $4$ | $3$ |\n\nIt can be assumed that this sample is representative of all visitors to the park for the following day.",
+      "parts": [
+        { "label": "a", "marks": 4, "text": "For the following day, Tuesday, estimate\n\n(i) the probability that a randomly selected visitor will ride *The Dragon*;\n\n(ii) the expected number of times a visitor will ride *The Dragon*.", "markscheme": "(i) summing frequencies of riders or finding complement ***(M1)***\n\nprobability $= \\dfrac{34}{40}$ ***A1***\n\n(ii) attempt to find expected value ***(M1)***\n\n$\\dfrac{16}{40} + \\left(2 \\times \\dfrac{13}{40}\\right) + \\left(3 \\times \\dfrac{2}{40}\\right) + \\left(4 \\times \\dfrac{3}{40}\\right)$\n\n$\\dfrac{60}{40} \\ (= 1.5)$ ***A1***" },
+        { "label": "b", "marks": 2, "intro": "It is known that $1000$ visitors will attend the amusement park on Tuesday. *The Dragon* can carry a maximum of $10$ people each time it runs.", "text": "Estimate the minimum number of times *The Dragon* must run to satisfy demand.", "markscheme": "evidence of **their** rides per visitor $\\times 1000$ or $\\div 10$ ***(M1)***\n\n$1500$ OR $0.15$\n\n$150$ (times) ***A1***" }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz1-q4",
+      "question": "4",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": "quadratics",
+      "status": "ok",
+      "stem": "",
+      "parts": [
+        { "label": "a", "marks": 1, "text": "Show that the equation $\\cos 2x = \\sin x$ can be written in the form $2\\sin^2 x + \\sin x - 1 = 0$.", "markscheme": "$1 - 2\\sin^2 x = \\sin x$ ***A1***\n\n$2\\sin^2 x + \\sin x - 1 = 0$ ***AG***" },
+        { "label": "b", "marks": 5, "text": "Hence, solve $\\cos 2x = \\sin x$, where $-\\pi \\leq x \\leq \\pi$.", "markscheme": "valid attempt to solve quadratic ***(M1)***\n\n$(2\\sin x - 1)(\\sin x + 1)$ OR $\\dfrac{-1 \\pm \\sqrt{1 - 4(2)(-1)}}{2(2)}$\n\nrecognition to solve for $\\sin x$ ***(M1)***\n\n$\\sin x = \\dfrac{1}{2}$ OR $\\sin x = -1$\n\nany correct solution from $\\sin x = -1$ ***A1***\n\nany correct solution from $\\sin x = \\dfrac{1}{2}$ ***A1***\n\n> **Note:** The previous two marks may be awarded for degree or radian values, irrespective of domain.\n\n$x = -\\dfrac{\\pi}{2},\\ \\dfrac{\\pi}{6},\\ \\dfrac{5\\pi}{6}$ ***A1***\n\n> **Note:** If no working shown, award no marks for a final value(s).  \n> Award ***A0*** for $-\\dfrac{\\pi}{2},\\ \\dfrac{\\pi}{6},\\ \\dfrac{5\\pi}{6}$ if additional values also given." }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz1-q5",
+      "question": "5",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "exponents-logarithms",
+      "secondaryTopic": "quadratics",
+      "status": "ok",
+      "stem": "",
+      "parts": [
+        { "label": "", "marks": 6, "text": "Find the range of possible values of $k$ such that $e^{2x} + \\ln k = 3e^x$ has at least one real solution.", "markscheme": "recognition of quadratic in $e^x$ ***(M1)***\n\n$\\left(e^x\\right)^2 - 3e^x + \\ln k \\ (= 0)$ OR $A^2 - 3A + \\ln k \\ (= 0)$\n\nrecognizing discriminant $\\geq 0$ (seen anywhere) ***(M1)***\n\n$(-3)^2 - 4(1)(\\ln k)$ OR $9 - 4\\ln k$ ***(A1)***\n\n$\\ln k \\leq \\dfrac{9}{4}$ ***(A1)***\n\n$e^{\\frac{9}{4}}$ (seen anywhere) ***A1***\n\n$0 < k \\leq e^{\\frac{9}{4}}$ ***A1***" }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz1-q6",
+      "question": "6",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": "functions-transformations",
+      "status": "ok",
+      "stem": "The function $f$ is defined by $f(x) = \\sin qx$, where $q > 0$. The following diagram shows part of the graph of $f$ for $0 \\leq x \\leq 4m$, where $x$ is in radians. There are $x$-intercepts at $x = 0$, $2m$ and $4m$.\n\n![Grid with x from 0 to 6m and y from −4 to 4, showing one period of f: maximum 1 at x = m, minimum −1 at x = 3m.](content/papers/img/2023-may-p1-tz1-q6.png)",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find an expression for $m$ in terms of $q$.", "markscheme": "recognition that period is $4m$ OR substitution of a point on $f$ (except the origin) ***(M1)***\n\n$4m = \\dfrac{2\\pi}{q}$ OR $1 = \\sin qm$\n\n$m = \\dfrac{\\pi}{2q}$ ***A1***" },
+        { "label": "b", "marks": 4, "intro": "The function $g$ is defined by $g(x) = 3\\sin\\dfrac{2qx}{3}$, for $0 \\leq x \\leq 6m$.", "text": "On the axes above, sketch the graph of $g$.", "markscheme": "horizontal scale factor is $\\dfrac{3}{2}$ (seen anywhere) ***(A1)***\n\n> **Note:** This ***(A1)*** may be earned by seeing a period of $6m$, half period of $3m$ or the correct $x$-coordinate of the maximum/minimum point.\n\n![Graph of g: amplitude 3, maximum (1.5m, 3), zero at 3m, minimum (4.5m, −3), ending at 6m, drawn with the graph of f.](content/papers/img/2023-may-p1-tz1-q6b-ms.png)\n\n***A1A1A1***\n\n> **Note:** Curve must be an approximate sinusoidal shape (sine or cosine). Only in this case, award the following:  \n> ***A1*** for correct amplitude.  \n> ***A1*** for correct domain.  \n> ***A1*** for correct max and min points **and** correct $x$-intercepts." }
+      ]
+    }
+  ]
+}

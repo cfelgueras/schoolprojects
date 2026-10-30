@@ -1,0 +1,106 @@
+{
+  "decks": [
+    {
+      "topic": "straight-lines",
+      "cards": [
+        { "front": "Gradient through $(x_1, y_1)$ and $(x_2, y_2)$", "back": "$m = \\dfrac{y_2 - y_1}{x_2 - x_1}$ 📘" },
+        { "front": "Three forms of the equation of a line", "back": "$y = mx + c$, $\\ ax + by + d = 0$, $\\ y - y_1 = m(x - x_1)$ 📘" },
+        { "front": "Condition for parallel lines", "back": "$m_1 = m_2$" },
+        { "front": "Condition for perpendicular lines", "back": "$m_1 \\times m_2 = -1$, so $m_2 = -\\dfrac{1}{m_1}$" },
+        { "front": "Midpoint of $(x_1, y_1)$ and $(x_2, y_2)$", "back": "$\\left(\\dfrac{x_1 + x_2}{2},\\ \\dfrac{y_1 + y_2}{2}\\right)$ 📘" },
+        { "front": "Distance between two points", "back": "$d = \\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$ 📘" },
+        { "front": "How to find the perpendicular bisector of $[\\text{AB}]$", "back": "1. Midpoint of $[\\text{AB}]$. 2. Negative reciprocal of the gradient of $[\\text{AB}]$. 3. Line through the midpoint with that gradient." },
+        { "front": "Converse of Pythagoras", "back": "If $a^2 + b^2 = c^2$, the triangle is right-angled (the right angle is opposite $c$)." },
+        { "front": "Gradient of a vertical line? Of a horizontal line?", "back": "Vertical ($x = k$): undefined. Horizontal ($y = k$): $0$." }
+      ]
+    },
+    {
+      "topic": "quadratics",
+      "cards": [
+        { "front": "Axis of symmetry of $y = ax^2 + bx + c$", "back": "$x = -\\dfrac{b}{2a}$ 📘" },
+        { "front": "Quadratic formula", "back": "$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ 📘" },
+        { "front": "Vertex of $f(x) = a(x - h)^2 + k$", "back": "$(h,\\ k)$; axis of symmetry $x = h$" },
+        { "front": "$x$-intercepts of $f(x) = a(x - p)(x - q)$", "back": "$(p,\\ 0)$ and $(q,\\ 0)$" },
+        { "front": "$\\Delta > 0$, $\\Delta = 0$, $\\Delta < 0$ mean…", "back": "Two distinct real roots · two equal real roots · no real roots" },
+        { "front": "\"Real roots\" (no other word) means…", "back": "$\\Delta \\geq 0$" },
+        { "front": "A line is tangent to a parabola when…", "back": "The equation from equating them has $\\Delta = 0$ (one point of contact)." },
+        { "front": "$a > 0$ and roots $p < q$: where is $ax^2 + bx + c < 0$?", "back": "Between the roots: $p < x < q$" },
+        { "front": "Maximum or minimum of a quadratic model", "back": "The vertex: $x = -\\dfrac{b}{2a}$, then substitute. Max if $a < 0$, min if $a > 0$." }
+      ]
+    },
+    {
+      "topic": "functions-transformations",
+      "cards": [
+        { "front": "$(f \\circ g)(x)$ means…", "back": "$f(g(x))$: apply $g$ first, then $f$." },
+        { "front": "How to find $f^{-1}(x)$", "back": "Write $y = f(x)$, swap $x$ and $y$, make $y$ the subject." },
+        { "front": "Graph of $f^{-1}$ compared with $f$", "back": "Reflection in the line $y = x$" },
+        { "front": "Domain and range of $f^{-1}$", "back": "Domain of $f^{-1}$ = range of $f$; range of $f^{-1}$ = domain of $f$." },
+        { "front": "Asymptotes of $y = \\dfrac{ax + b}{cx + d}$", "back": "Vertical $x = -\\dfrac{d}{c}$; horizontal $y = \\dfrac{a}{c}$" },
+        { "front": "$y = f(x) + b$ and $y = f(x - a)$", "back": "Up $b$ (vertical translation) · right $a$ (horizontal translation)" },
+        { "front": "$y = p\\,f(x)$ and $y = f(qx)$", "back": "Vertical stretch, factor $p$ · horizontal stretch, factor $\\dfrac{1}{q}$" },
+        { "front": "$y = -f(x)$ and $y = f(-x)$", "back": "Reflection in the $x$-axis · reflection in the $y$-axis" },
+        { "front": "The reciprocal function $\\dfrac{1}{x}$ is self-inverse because…", "back": "$f^{-1}(x) = \\dfrac{1}{x} = f(x)$: its graph is symmetric in $y = x$." }
+      ]
+    },
+    {
+      "topic": "exponents-logarithms",
+      "cards": [
+        { "front": "$a^m \\times a^n$, $\\ \\dfrac{a^m}{a^n}$, $\\ (a^m)^n$", "back": "$a^{m+n}$, $\\ a^{m-n}$, $\\ a^{mn}$" },
+        { "front": "$a^{-n}$ and $a^{\\frac{m}{n}}$", "back": "$\\dfrac{1}{a^n}$ and $\\left(\\sqrt[n]{a}\\right)^m$" },
+        { "front": "Definition of $\\log_a b$", "back": "$a^x = b \\Leftrightarrow x = \\log_a b$ 📘" },
+        { "front": "Laws of logarithms", "back": "$\\log_a xy = \\log_a x + \\log_a y$; $\\ \\log_a \\dfrac{x}{y} = \\log_a x - \\log_a y$; $\\ \\log_a x^m = m\\log_a x$ 📘" },
+        { "front": "Change of base", "back": "$\\log_a x = \\dfrac{\\log_b x}{\\log_b a}$ 📘" },
+        { "front": "$\\log_a 1$, $\\ \\log_a a$, $\\ \\ln e$", "back": "$0$, $\\ 1$, $\\ 1$" },
+        { "front": "Asymptote and intercept of $y = a^x$", "back": "$y = 0$; passes through $(0,\\ 1)$" },
+        { "front": "Asymptote and intercept of $y = \\log_a x$", "back": "$x = 0$; passes through $(1,\\ 0)$" },
+        { "front": "Hidden quadratic: $e^{2x} - 5e^x + 4 = 0$", "back": "Let $u = e^x$: $u^2 - 5u + 4 = 0$, so $e^x = 4$ or $1$, $x = \\ln 4$ or $0$." }
+      ]
+    },
+    {
+      "topic": "statistics",
+      "cards": [
+        { "front": "Interquartile range", "back": "$\\text{IQR} = Q_3 - Q_1$ 📘" },
+        { "front": "Outlier rule", "back": "More than $1.5 \\times \\text{IQR}$ below $Q_1$ or above $Q_3$" },
+        { "front": "Mean of grouped data", "back": "$\\bar{x} = \\dfrac{\\sum f x}{n}$ using mid-interval values 📘" },
+        { "front": "Adding $k$ to every value changes…", "back": "Mean, median, quartiles $+k$. Standard deviation, IQR: unchanged." },
+        { "front": "Multiplying every value by $k$ changes…", "back": "Mean $\\times k$, standard deviation $\\times \\lvert k\\rvert$, variance $\\times k^2$" },
+        { "front": "Which regression line to predict $x$ from $y$?", "back": "The regression line of $x$ on $y$" },
+        { "front": "Both regression lines pass through…", "back": "The mean point $(\\bar{x},\\ \\bar{y})$" },
+        { "front": "$r = -0.95$ means…", "back": "Strong negative linear correlation" },
+        { "front": "Interpolation vs extrapolation", "back": "Inside the data range (reliable if $r$ strong) vs outside it (not reliable)" },
+        { "front": "Stratified sampling", "back": "Sample each group in proportion to its size: $\\dfrac{\\text{group size}}{\\text{population}} \\times \\text{sample size}$" }
+      ]
+    },
+    {
+      "topic": "differentiation",
+      "cards": [
+        { "front": "Derivative of $x^n$", "back": "$nx^{n-1}$ 📘" },
+        { "front": "Derivatives of $e^x$ and $\\ln x$", "back": "$e^x$ and $\\dfrac{1}{x}$ 📘" },
+        { "front": "Equation of the tangent at $x = a$", "back": "$y - f(a) = f'(a)(x - a)$" },
+        { "front": "Gradient of the normal at $x = a$", "back": "$-\\dfrac{1}{f'(a)}$" },
+        { "front": "$f$ is increasing when…", "back": "$f'(x) > 0$" },
+        { "front": "Stationary point is a maximum if…", "back": "$f''(a) < 0$, or $f'$ changes from $+$ to $-$" },
+        { "front": "Point of inflexion", "back": "$f''(x) = 0$ **and** $f''$ changes sign" },
+        { "front": "Concave up / concave down", "back": "$f''(x) > 0$ / $f''(x) < 0$" },
+        { "front": "On the graph of $f'$, a max / min of $f$ is…", "back": "A root (where $f'$ crosses the $x$-axis)" },
+        { "front": "On the graph of $f'$, a point of inflexion of $f$ is…", "back": "A maximum or minimum of $f'$" }
+      ]
+    },
+    {
+      "topic": "geometry-trigonometry",
+      "cards": [
+        { "front": "Sine rule", "back": "$\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C}$ 📘" },
+        { "front": "Cosine rule", "back": "$c^2 = a^2 + b^2 - 2ab\\cos C$ 📘" },
+        { "front": "Area of a triangle (two sides, included angle)", "back": "$\\dfrac{1}{2}ab\\sin C$ 📘" },
+        { "front": "Arc length and sector area", "back": "$l = r\\theta$, $\\ A = \\dfrac{1}{2}r^2\\theta$ ($\\theta$ in radians) 📘" },
+        { "front": "$\\sin\\dfrac{\\pi}{6}$, $\\cos\\dfrac{\\pi}{6}$, $\\tan\\dfrac{\\pi}{6}$", "back": "$\\dfrac{1}{2}$, $\\dfrac{\\sqrt{3}}{2}$, $\\dfrac{\\sqrt{3}}{3}$" },
+        { "front": "$\\sin\\dfrac{\\pi}{4}$, $\\cos\\dfrac{\\pi}{4}$, $\\tan\\dfrac{\\pi}{4}$", "back": "$\\dfrac{\\sqrt{2}}{2}$, $\\dfrac{\\sqrt{2}}{2}$, $1$" },
+        { "front": "$\\sin\\dfrac{\\pi}{3}$, $\\cos\\dfrac{\\pi}{3}$, $\\tan\\dfrac{\\pi}{3}$", "back": "$\\dfrac{\\sqrt{3}}{2}$, $\\dfrac{1}{2}$, $\\sqrt{3}$" },
+        { "front": "Pythagorean identity", "back": "$\\cos^2\\theta + \\sin^2\\theta = 1$ 📘" },
+        { "front": "Amplitude and period of $y = a\\sin(b(x - c)) + d$", "back": "Amplitude $\\lvert a\\rvert$; period $\\dfrac{2\\pi}{b}$; principal axis $y = d$" },
+        { "front": "Ambiguous case of the sine rule", "back": "$\\sin B = k$ gives $B$ and $180^\\circ - B$; both valid if the angles still add to less than $180^\\circ$." },
+        { "front": "Volume of a cone and of a sphere", "back": "$\\dfrac{1}{3}\\pi r^2 h$ and $\\dfrac{4}{3}\\pi r^3$ 📘" }
+      ]
+    }
+  ]
+}

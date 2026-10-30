@@ -1,0 +1,148 @@
+{
+  "paper": { "year": 2022, "session": "May", "timezone": "TZ1", "paper": 1, "level": "SL" },
+  "questions": [
+    {
+      "id": "2022-may-p1-tz1-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "straight-lines",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "Consider the points $\\text{A}(-2,\\ 20)$, $\\text{B}(4,\\ 6)$ and $\\text{C}(-14,\\ 12)$. The line $L$ passes through the point $\\text{A}$ and is perpendicular to $[\\text{BC}]$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "Find the equation of $L$.",
+          "markscheme": "$m_{\\text{BC}} = \\dfrac{12 - 6}{-14 - 4} \\left(= -\\dfrac{1}{3}\\right)$ ***(A1)***\n\nfinding $m_L = \\dfrac{-1}{m_{\\text{BC}}}$ using their $m_{\\text{BC}}$ ***(M1)***\n\n$m_L = 3$\n\n$y - 20 = 3(x + 2)$, $\\ y = 3x + 26$ ***A1***\n\n> **Note:** Do not accept $L = 3x + 26$."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "intro": "The line $L$ passes through the point $(k,\\ 2)$.",
+          "text": "Find the value of $k$.",
+          "markscheme": "substituting $(k,\\ 2)$ into their $L$ ***(M1)***\n\n$2 - 20 = 3(k + 2)$ OR $2 = 3k + 26$\n\n$k = -8$ ***A1***"
+        }
+      ]
+    },
+    {
+      "id": "2022-may-p1-tz1-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "statistics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "A survey at a swimming pool is given to one adult in each family. The age of the adult, $a$ years old, and of their eldest child, $c$ years old, are recorded.\n\nThe ages of the eldest child are summarized in the following box and whisker diagram.\n\n![Box and whisker diagram of the ages of the eldest child (years): minimum 2, lower quartile 6, median 7, upper quartile 10, maximum 18. Diagram not to scale.](content/papers/img/2022-may-p1-tz1-q3.png)\n\n**diagram not to scale**",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "Find the largest value of $c$ that would not be considered an outlier.",
+          "markscheme": "$\\text{IQR} = 10 - 6 \\ (= 4)$ ***(A1)***\n\nattempt to find $Q_3 + 1.5 \\times \\text{IQR}$ ***(M1)***\n\n$10 + 6$\n\n$16$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "intro": "The regression line of $a$ on $c$ is $a = \\dfrac{7}{4}c + 20$. The regression line of $c$ on $a$ is $c = \\dfrac{1}{2}a - 9$.",
+          "text": "(i) One of the adults surveyed is 42 years old. Estimate the age of their eldest child.\n\n(ii) Find the mean age of all the adults surveyed.",
+          "markscheme": "(i) choosing $c = \\dfrac{1}{2}a - 9$ ***(M1)***\n\n$\\dfrac{1}{2} \\times 42 - 9$\n\n$= 12$ (years old) ***A1***\n\n(ii) attempt to solve system by substitution or elimination ***(M1)***\n\n$34$ (years old) ***A1***"
+        }
+      ]
+    },
+    {
+      "id": "2022-may-p1-tz1-q4",
+      "question": "4",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": "functions-transformations",
+      "status": "ok",
+      "stem": "Consider the functions $f(x) = \\sqrt{3}\\sin x + \\cos x$ where $0 \\leq x \\leq \\pi$ and $g(x) = 2x$ where $x \\in \\mathbb{R}$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Find $(f \\circ g)(x)$.",
+          "markscheme": "$(f \\circ g)(x) = f(2x)$ ***(A1)***\n\n$f(2x) = \\sqrt{3}\\sin 2x + \\cos 2x$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "text": "Solve the equation $(f \\circ g)(x) = 2\\cos 2x$ where $0 \\leq x \\leq \\pi$.",
+          "markscheme": "$\\sqrt{3}\\sin 2x + \\cos 2x = 2\\cos 2x$\n\n$\\sqrt{3}\\sin 2x = \\cos 2x$\n\nrecognising to use $\\tan$ or $\\cot$ ***M1***\n\n$\\tan 2x = \\dfrac{1}{\\sqrt{3}}$ OR $\\cot 2x = \\sqrt{3}$ (values may be seen in right triangle) ***(A1)***\n\n$\\left(\\arctan\\left(\\dfrac{1}{\\sqrt{3}}\\right) = \\right) \\dfrac{\\pi}{6}$ (seen anywhere) (accept degrees) ***(A1)***\n\n$2x = \\dfrac{\\pi}{6},\\ \\dfrac{7\\pi}{6}$\n\n$x = \\dfrac{\\pi}{12},\\ \\dfrac{7\\pi}{12}$ ***A1A1***\n\n> **Note:** Do not award the final ***A1*** if any additional solutions are seen.  \n> Award ***A1A0*** for correct answers in degrees.  \n> Award ***A0A0*** for correct answers in degrees with additional values."
+        }
+      ]
+    },
+    {
+      "id": "2022-may-p1-tz1-q6",
+      "question": "6",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": "functions-transformations",
+      "status": "ok",
+      "stem": "Consider $f(x) = 4\\sin x + 2.5$ and $g(x) = 4\\sin\\left(x - \\dfrac{3\\pi}{2}\\right) + 2.5 + q$, where $x \\in \\mathbb{R}$ and $q > 0$.\n\nThe graph of $g$ is obtained by two transformations of the graph of $f$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Describe these two transformations.",
+          "markscheme": "translation (shift) by $\\dfrac{3\\pi}{2}$ to the right/positive horizontal direction ***A1***\n\ntranslation (shift) by $q$ upwards/positive vertical direction ***A1***\n\n> **Note:** accept translation by $\\begin{pmatrix} \\dfrac{3\\pi}{2} \\\\[4pt] q \\end{pmatrix}$  \n> **Do not accept** ‘move’ for translation/shift."
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "intro": "The $y$-intercept of the graph of $g$ is at $(0,\\ r)$.",
+          "text": "Given that $g(x) \\geq 7$, find the smallest value of $r$.",
+          "markscheme": "**METHOD 1**\n\nminimum of $4\\sin\\left(x - \\dfrac{3\\pi}{2}\\right)$ is $-4$ (may be seen in sketch) ***(M1)***\n\n$-4 + 2.5 + q \\geq 7$\n\n$q \\geq 8.5$ (accept $q = 8.5$) ***A1***\n\nsubstituting $x = 0$ and their $q \\ (= 8.5)$ to find $r$ ***(M1)***\n\n$(r =)\\ 4\\sin\\left(\\dfrac{-3\\pi}{2}\\right) + 2.5 + 8.5$\n\n$4 + 2.5 + 8.5$ ***(A1)***\n\nsmallest value of $r$ is $15$ ***A1***\n\n**METHOD 2**\n\nsubstituting $x = 0$ to find an expression (for $r$) in terms of $q$ ***(M1)***\n\n$(g(0) = r =)\\ 4\\sin\\left(\\dfrac{-3\\pi}{2}\\right) + 2.5 + q$\n\n$(r =)\\ 6.5 + q$ ***A1***\n\nminimum of $4\\sin\\left(x - \\dfrac{3\\pi}{2}\\right)$ is $-4$ ***(M1)***\n\n$-4 + 2.5 + q \\geq 7$\n\n$-4 + 2.5 + (r - 6.5) \\geq 7$ (accept $=$) ***(A1)***\n\nsmallest value of $r$ is $15$ ***A1***\n\n**METHOD 3**\n\n$4\\sin\\left(x - \\dfrac{3\\pi}{2}\\right) + 2.5 + q = 4\\cos x + 2.5 + q$ ***A1***\n\n$y$-intercept of $4\\cos x + 2.5 + q$ is a maximum ***(M1)***\n\namplitude of $g(x)$ is $4$ ***(A1)***\n\nattempt to find least maximum ***(M1)***\n\n$r = 2 \\times 4 + 7$\n\nsmallest value of $r$ is $15$ ***A1***"
+        }
+      ]
+    },
+    {
+      "id": "2022-may-p1-tz1-q7",
+      "question": "7",
+      "section": "B",
+      "marks": 14,
+      "primaryTopic": "differentiation",
+      "secondaryTopic": "quadratics",
+      "status": "ok",
+      "stem": "A function, $f$, has its derivative given by $f'(x) = 3x^2 - 12x + p$, where $p \\in \\mathbb{R}$. The following diagram shows part of the graph of $f'$.\n\n![Graph of f′: an upward parabola that crosses the y-axis above the origin and touches the x-axis at its vertex, to the right of the y-axis.](content/papers/img/2022-may-p1-tz1-q7.png)\n\nThe graph of $f'$ has an axis of symmetry $x = q$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Find the value of $q$.",
+          "markscheme": "**EITHER**\n\nattempt to use $x = -\\dfrac{b}{2a}$ ***(M1)***\n\n$q = -\\dfrac{-12}{2 \\times 3}$\n\n**OR**\n\nattempt to complete the square ***(M1)***\n\n$3(x - 2)^2 - 12 + p$\n\n**OR**\n\nattempt to differentiate and equate to $0$ ***(M1)***\n\n$f''(x) = 6x - 12 = 0$\n\n**THEN**\n\n$q = 2$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "intro": "The vertex of the graph of $f'$ lies on the $x$-axis.",
+          "text": "(i) Write down the value of the discriminant of $f'$.\n\n(ii) Hence or otherwise, find the value of $p$.",
+          "markscheme": "(i) discriminant $= 0$ ***A1***\n\n(ii) **EITHER**\n\nattempt to substitute into $b^2 - 4ac$ ***(M1)***\n\n$(-12)^2 - 4 \\times 3 \\times p = 0$ ***A1***\n\n**OR**\n\n$f'(2) = 0$ ***(M1)***\n\n$-12 + p = 0$ ***A1***\n\n**THEN**\n\n$p = 12$ ***A1***"
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "Find the value of the gradient of the graph of $f'$ at $x = 0$.",
+          "markscheme": "$f''(x) = 6x - 12$ ***A1***\n\nattempt to find $f''(0)$ ***(M1)***\n\n$= 6 \\times 0 - 12$\n\ngradient $= -12$ ***A1***"
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "text": "Sketch the graph of $f''$, the second derivative of $f$. Indicate clearly the $x$-intercept and the $y$-intercept.",
+          "markscheme": "![Sketch of f″: a straight line with positive gradient through (2, 0) and (0, −12).](content/papers/img/2022-may-p1-tz1-q7d-ms.png)\n\n***A1A1***\n\n> **Note:** Award ***A1*** for line with positive gradient, ***A1*** for correct intercepts."
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "intro": "The graph of $f$ has a point of inflexion at $x = a$.",
+          "text": "(i) Write down the value of $a$.\n\n(ii) Find the values of $x$ for which the graph of $f$ is concave-down. Justify your answer.",
+          "markscheme": "(i) $a = 2$ ***A1***\n\n(ii) $x < 2$ ***A1***\n\n$f''(x) < 0$ (for $x < 2$) OR the $f''$ is below the $x$-axis (for $x < 2$)\n\nOR ![Sign diagram of f″: negative for x less than 2, positive for x greater than 2.](content/papers/img/2022-may-p1-tz1-q7e-ms.png) (sign diagram must be labelled $f''$) ***R1***"
+        }
+      ]
+    }
+  ]
+}

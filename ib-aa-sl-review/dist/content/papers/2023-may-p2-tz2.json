@@ -1,0 +1,83 @@
+{
+  "paper": { "year": 2023, "session": "May", "timezone": "TZ2", "paper": 2, "level": "SL" },
+  "questions": [
+    {
+      "id": "2023-may-p2-tz2-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "statistics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "A botanist is conducting an experiment which studies the growth of plants.\n\nThe heights of the plants are measured on seven different days.\n\nThe following table shows the number of days, $d$, that the experiment has been running and the average height, $h\\text{ cm}$, of the plants on each of those days.\n\n| Number of days $(d)$ | $2$ | $5$ | $13$ | $24$ | $33$ | $37$ | $42$ |\n|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|\n| Average height $(h)$ | $10$ | $16$ | $30$ | $59$ | $76$ | $79$ | $82$ |",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "The regression line of $h$ on $d$ for this data can be written in the form $h = ad + b$.\n\nFind the value of $a$ and the value of $b$.", "markscheme": "$a = 1.93258\\ldots$, $b = 7.21662\\ldots$\n\n$a = 1.93$, $b = 7.22$ ***A1A1***" },
+        { "label": "b", "marks": 1, "text": "Write down the value of the Pearson’s product-moment correlation coefficient, $r$.", "markscheme": "$r = 0.991087\\ldots$\n\n$r = 0.991$ ***A1***" },
+        { "label": "c", "marks": 2, "text": "Use your regression line to estimate the average height of the plants when the experiment has been running for $20$ days.", "markscheme": "attempt to substitute $d = 20$ into their equation ***(M1)***\n\nheight $= 45.8683\\ldots$\n\nheight $= 45.9$ (cm) ***A1***" }
+      ]
+    },
+    {
+      "id": "2023-may-p2-tz2-q2",
+      "question": "2",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The following diagram shows two buildings situated on level ground.\n\nFrom point P on the ground directly between the two buildings, the angle of elevation to the top of each building is $\\theta$.\n\n**diagram not to scale**\n\n![Two buildings on level ground with point P between them. A is the top of the taller building (height h), B the top of the shorter one. PA = 150 m, PB = 90 m, AB = 154 m, and both angles of elevation at P are θ.](content/papers/img/2023-may-p2-tz2-q2.png)\n\nThe distance from point P to point A at the top of the taller building is $150$ metres.\n\nThe distance from point P to point B at the top of the shorter building is $90$ metres.\n\nThe distance between A and B is $154$ metres.",
+      "parts": [
+        { "label": "a", "marks": 3, "text": "Find the measure of $\\text{A}\\hat{\\text{P}}\\text{B}$.", "markscheme": "attempt to substitute into cosine rule ***(M1)***\n\n$154^2 = 150^2 + 90^2 - 2(150)(90)\\cos \\text{A}\\hat{\\text{P}}\\text{B}$ OR $\\cos \\text{A}\\hat{\\text{P}}\\text{B} = \\dfrac{150^2 + 90^2 - 154^2}{2(150)(90)}$ ***(A1)***\n\n$\\text{A}\\hat{\\text{P}}\\text{B} = 75.2286\\ldots^\\circ$ OR $1.31298\\ldots$ radians\n\n$\\text{A}\\hat{\\text{P}}\\text{B} = 75.2^\\circ$ OR $1.31$ radians ***A1***" },
+        { "label": "b", "marks": 3, "text": "Find the height, $h$, of the taller building.", "markscheme": "valid approach to find $\\theta$ ***(M1)***\n\n$\\theta = \\dfrac{180^\\circ - \\text{A}\\hat{\\text{P}}\\text{B}}{2}$ OR $\\theta = \\dfrac{180^\\circ - 75.2286\\ldots^\\circ}{2} \\ (= 52.3856\\ldots)$ OR $\\theta = \\dfrac{\\pi - 1.31298\\ldots}{2} \\ (= 0.914302\\ldots)$\n\nvalid approach to express $h$ in terms of $\\theta$ ***(M1)***\n\n$\\sin\\theta = \\dfrac{h}{150}$ OR $h = 150\\sin 52.3856\\ldots^\\circ$\n\n$h = 118.820\\ldots$\n\n$h = 119$ (m) ***A1***" }
+      ]
+    },
+    {
+      "id": "2023-may-p2-tz2-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "exponents-logarithms",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The amount of a drug, in milligrams (mg), in a patient’s body can be modelled by the function $A(t) = 500e^{-kt}$, where $k$ is a positive constant and $t$ is the time in hours after the initial dose is given.",
+      "parts": [
+        { "label": "a", "marks": 1, "text": "Write down the amount of the drug in the patient’s body when $t = 0$.", "markscheme": "$A(0) = 500$ (mg) ***A1***" },
+        { "label": "b", "marks": 2, "intro": "After three hours, the amount of the drug in the patient’s body has decreased to $280\\text{ mg}$.", "text": "Find the value of $k$.", "markscheme": "$280 = 500e^{-3k}$ ***(A1)***\n\n$k = 0.193272\\ldots$\n\n$k = 0.193 \\ \\left(= -\\dfrac{1}{3}\\ln\\left(\\dfrac{280}{500}\\right)\\right)$ ***A1***" },
+        { "label": "c", "marks": 2, "intro": "The second dose is given $T$ hours after the initial dose, when the amount of the drug in the patient’s body is $140\\text{ mg}$.", "text": "Find the value of $T$.", "markscheme": "$500e^{-0.193272\\ldots T} = 140$ ***(A1)***\n\n$T = 6.58636\\ldots$\n\n$T = 6.59$ (h) ***A1***" }
+      ]
+    },
+    {
+      "id": "2023-may-p2-tz2-q7",
+      "question": "7",
+      "section": "B",
+      "marks": 15,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": "differentiation",
+      "status": "ok",
+      "stem": "Consider the function $h(x) = \\sqrt{4x - 2}$, for $x \\geq \\dfrac{1}{2}$.",
+      "parts": [
+        { "label": "a", "marks": 5, "text": "(i) Find $h^{-1}(x)$, the inverse of $h(x)$, and state its domain.\n\n(ii) Write down the range of $h^{-1}(x)$.", "markscheme": "(i) swapping $x$ and $y$, or $h\\left(h^{-1}(x)\\right) = x$ ***(M1)***\n\n$h^{-1}(x) = \\dfrac{x^2 + 2}{4}$ ***A1***\n\nrecognizing range of $h$ is domain of $h^{-1}$ ***(M1)***\n\nDomain: $x \\geq 0$ ***A1***\n\n(ii) range of $h^{-1}$ is $y \\geq \\dfrac{1}{2}$ ***A1***" },
+        { "label": "b", "marks": 3, "text": "The graph of $h$ intersects the graph of $h^{-1}$ at two points.\n\nFind the $x$-coordinates of these two points.", "markscheme": "$\\sqrt{4x - 2} = \\dfrac{x^2 + 2}{4}$ OR $\\sqrt{4x - 2} = x$ OR $\\dfrac{x^2 + 2}{4} = x$ ***(M1)***\n\n$x = 0.585786\\ldots$, $x = 3.414213\\ldots \\ \\left(= 2 + \\sqrt{2}\\right)$\n\n$x = 0.586$, $x = 3.41$ ***A1A1***" },
+        { "label": "c", "marks": 2, "text": "Find the area enclosed by the graph of $h$ and the graph of $h^{-1}$.", "markscheme": "attempt to form integral of the difference between $h(x)$ and their $h^{-1}$, using their limits from part (b) ***(M1)***\n\n$\\displaystyle\\int_{0.585786\\ldots}^{3.414213\\ldots} \\left(h(x) - h^{-1}(x)\\right)\\mathrm{d}x$ OR $\\displaystyle\\int_{0.585786\\ldots}^{3.414213\\ldots} \\left(\\sqrt{4x - 2} - \\dfrac{x^2 + 2}{4}\\right)\\mathrm{d}x$ OR $6.5996632\\ldots - 4.7140452\\ldots$\n\n$1.88561\\ldots$\n\narea $= 1.89$ ***A1***" },
+        { "label": "d", "marks": 2, "text": "Find $h'(x)$.", "markscheme": "attempt to use chain rule or power rule ***(M1)***\n\n$h'(x) = 4 \\cdot \\dfrac{1}{2}(4x - 2)^{-\\frac{1}{2}}$\n\n$h'(x) = \\dfrac{2}{\\sqrt{4x - 2}}$ ***A1***" },
+        { "label": "e", "marks": 3, "text": "Find the value of $x$ for which the graph of $h$ and the graph of $h^{-1}$ have the same gradient.", "markscheme": "**EITHER**\n\n$\\left(h^{-1}\\right)'(x) = \\dfrac{x}{2}$ ***(A1)***\n\nequating their $h'(x)$ to the derivative of their $h^{-1}(x)$ and attempting to solve for $x$ ***(M1)***\n\n$\\dfrac{2}{\\sqrt{4x - 2}} = \\dfrac{x}{2}$\n\n**OR**\n\nfinding intersection of graphs of their derivatives ***(M2)***\n\n**THEN**\n\n$1.772776\\ldots$\n\n$x = 1.77$ ***A1***" }
+      ]
+    },
+    {
+      "id": "2023-may-p2-tz2-q8",
+      "question": "8",
+      "section": "B",
+      "marks": 13,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "A weight suspended on a spring is pulled down and released, so that it moves up and down vertically.\n\nThe height, $H$ metres, of the base of the weight above the ground can be modelled by the function $H(t) = a\\cos(7.8t) + b$, for $a,\\ b \\in \\mathbb{R}$ and $0 \\leq t \\leq 10$, where $t$ is the time in seconds after the weight is released.\n\n![A weight hanging on a spring above the ground; H is the height of its base above the ground.](content/papers/img/2023-may-p2-tz2-q8a.png)",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find the period of the function.", "markscheme": "$7.8 = \\dfrac{2\\pi}{\\text{period}}$ ***(M1)***\n\n$\\dfrac{2\\pi}{7.8} = 0.805536\\ldots$\n\nperiod $= 0.806 \\ \\left(= \\dfrac{10\\pi}{39}\\right)$ ***A1***" },
+        { "label": "b", "marks": 3, "intro": "The weight is released when its base is at a minimum height of $1$ metre above the ground, and it reaches a maximum height of $1.8$ metres above the ground. The graph of $H$ is shown in the following diagram.\n\n![Graph of H against t for 0 ≤ t ≤ 10, oscillating between 1 and 1.8.](content/papers/img/2023-may-p2-tz2-q8b.png)", "text": "Find the value of\n\n(i) $a$;\n\n(ii) $b$.", "markscheme": "**METHOD 1**\n\n(i) amplitude $= \\dfrac{\\max - \\min}{2}$ ***(M1)***\n\n$\\dfrac{1.8 - 1}{2}$\n\n$a = -0.4$ ***A1***\n\n(ii) $b = 1.4$ ***A1***\n\n**METHOD 2**\n\nattempt to form two simultaneous equations in $a$ and $b$ ***(M1)***\n\n$H(0) = 1 \\Rightarrow a + b = 1$, $\\ H\\left(\\dfrac{\\pi}{7.8}\\right) = 1.8 \\Rightarrow -a + b = 1.8$\n\n$a = -0.4$, $b = 1.4$ ***A1A1***" },
+        { "label": "c", "marks": 2, "text": "Find the number of times that the weight reaches its maximum height in the first five seconds of its motion.", "markscheme": "**EITHER**\n\n$\\dfrac{5}{\\text{period}} = 6.207\\ldots < 6\\tfrac{1}{2}$ ***(A1)***\n\n**OR**\n\nconsideration of number of maximums on graph in first 5 seconds ***(A1)***\n\n**OR**\n\nmaximums when $t = 0.403,\\ 1.21,\\ 2.01,\\ 2.82,\\ 3.62,\\ 4.43$ ***(A1)***\n\n**THEN**\n\n$6$ times ***A1***" },
+        { "label": "d", "marks": 2, "text": "Find the first time that the base of the weight reaches a height of $1.5$ metres.", "markscheme": "recognizing that $H(t) = 1.5$ ***(M1)***\n\n$-0.4\\cos(7.8t) + 1.4 = 1.5$\n\n$0.233779\\ldots$\n\n$t = 0.234$ (seconds) ***A1***" },
+        { "label": "e", "marks": 4, "intro": "A camera is set to take a picture of the weight at a random time during the first five seconds of its motion.", "text": "Find the probability that the height of the base of the weight is greater than $1.5$ metres at the time the picture is taken.", "markscheme": "finding second time height is $1.5$ metres ***(M1)***\n\n$t = 0.571757\\ldots$\n\nin each period, height is greater than $1.5$ metres for $0.337978\\ldots$ seconds ***(A1)***\n\n> **Note:** Award ***(M1)(A1)*** for total time $2.02787\\ldots$ seen.\n\nmultiplying their value by $6$ and dividing by $5$ ***(M1)***\n\n$\\dfrac{0.337978\\ldots \\times 6}{5}$ OR $\\dfrac{2.02787\\ldots}{5}$\n\n$= 0.405574\\ldots$\n\n$\\text{P}(\\text{height is greater than } 1.5\\text{ m}) = 0.406$ ***A1***" }
+      ]
+    }
+  ]
+}

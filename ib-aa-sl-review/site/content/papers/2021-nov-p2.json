@@ -1,0 +1,94 @@
+{
+  "paper": { "year": 2021, "session": "November", "timezone": null, "paper": 2, "level": "SL" },
+  "questions": [
+    {
+      "id": "2021-nov-p2-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "statistics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "In Lucy’s music academy, eight students took their piano diploma examination and achieved scores out of 150. For her records, Lucy decided to record the average number of hours per week each student reported practising in the weeks prior to their examination. These results are summarized in the table below.\n\n| Average weekly practice time $(h)$ | $28$ | $13$ | $45$ | $33$ | $17$ | $29$ | $39$ | $36$ |\n|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|\n| Diploma score $(D)$ | $115$ | $82$ | $120$ | $116$ | $79$ | $101$ | $110$ | $121$ |",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find Pearson’s product-moment correlation coefficient, $r$, for these data.", "markscheme": "use of GDC to give ***(M1)***\n\n$r = 0.883529\\ldots$\n\n$r = 0.884$ ***A1***\n\n> **Note:** Award the ***(M1)*** for any correct value of $r$, $a$, $b$ or $r^2 = 0.780624\\ldots$ seen in part (a) or part (b)." },
+        { "label": "b", "marks": 1, "text": "The relationship between the variables can be modelled by the regression equation $D = ah + b$. Write down the value of $a$ and the value of $b$.", "markscheme": "$a = 1.36609\\ldots$, $b = 64.5171\\ldots$\n\n$a = 1.37$, $b = 64.5$ ***A1***" },
+        { "label": "c", "marks": 2, "text": "One of these eight students was disappointed with her result and wished she had practised more. Based on the given data, determine how her score could have been expected to alter had she practised an extra five hours per week.", "markscheme": "attempt to find their difference ***(M1)***\n\n$5 \\times 1.36609\\ldots$ OR $1.36609\\ldots(h + 5) + 64.5171\\ldots - (1.36609\\ldots h + 64.5171\\ldots)$\n\n$6.83045\\ldots$\n\n$= 6.83$ ($6.85$ from $1.37$)\n\nthe student could have expected her score to increase by 7 marks. ***A1***\n\n> **Note:** Accept an increase of $6$, $6.83$ or $6.85$." }
+      ]
+    },
+    {
+      "id": "2021-nov-p2-q2",
+      "question": "2",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": "exponents-logarithms",
+      "status": "ok",
+      "stem": "Consider the function $f(x) = e^{-x^2} - 0.5$, for $-2 \\leq x \\leq 2$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find the values of $x$ for which $f(x) = 0$.", "markscheme": "$x = -0.832554\\ldots$, $x = 0.832554\\ldots$\n\n$x = -0.833$, $x = 0.833$ ***A1A1***" },
+        { "label": "b", "marks": 3, "text": "Sketch the graph of $f$ on the following grid.\n\n![Empty grid with x and y from −2 to 2.](content/papers/img/2021-nov-p2-q2-grid.png)", "markscheme": "![Graph of f: symmetric bell shape with maximum (0, 0.5), roots near ±0.833 and endpoints near (±2, −0.5).](content/papers/img/2021-nov-p2-q2b-ms.png)\n\n***A1A1A1***\n\n> **Note:** Award ***A1*** for approximately correct shape. Only if this mark is awarded, award ***A1*** for approximately correct roots and maximum point and ***A1*** for approximately correct endpoints.  \n> Allow $-1 < x \\leq -0.8$, $0.8 \\leq x < 1$ for roots, $x = 0$, $0.4 \\leq y \\leq 0.6$ for maximum and $x = \\pm 2$, $-0.6 \\leq y \\leq -0.4$ for endpoints." }
+      ]
+    },
+    {
+      "id": "2021-nov-p2-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "Consider a triangle ABC, where $\\text{AC} = 12$, $\\text{CB} = 7$ and $\\text{B}\\hat{\\text{A}}\\text{C} = 25^\\circ$.",
+      "parts": [
+        { "label": "", "marks": 5, "text": "Find the smallest possible perimeter of triangle ABC.", "markscheme": "**EITHER**\n\nattempt to use cosine rule ***(M1)***\n\n$12^2 + \\text{AB}^2 - 2 \\times 12 \\times \\cos 25^\\circ \\times \\text{AB} = 7^2$ OR $\\text{AB}^2 - 21.7513\\ldots\\text{AB} + 95 = 0$ ***(A1)***\n\nat least one correct value for AB ***(A1)***\n\n$\\text{AB} = 6.05068\\ldots$ OR $\\text{AB} = 15.7007\\ldots$\n\nusing their smaller value for AB to find minimum perimeter ***(M1)***\n\n$12 + 7 + 6.05068\\ldots$\n\n**OR**\n\nattempt to use sine rule ***(M1)***\n\n$\\dfrac{\\sin \\text{B}}{12} = \\dfrac{\\sin 25^\\circ}{7}$ OR $\\sin \\text{B} = 0.724488\\ldots$ OR $\\hat{\\text{B}} = 133.573\\ldots^\\circ$ OR $\\hat{\\text{B}} = 46.4263\\ldots^\\circ$ ***(A1)***\n\nat least one correct value for $C$ ***(A1)***\n\n$\\hat{C} = 21.4263\\ldots^\\circ$ OR $\\hat{C} = 108.573\\ldots^\\circ$\n\nusing their acute value for $\\hat{C}$ to find minimum perimeter ***(M1)***\n\n$12 + 7 + \\sqrt{12^2 + 7^2 - 2 \\times 12 \\times 7\\cos 21.4263\\ldots^\\circ}$ OR $12 + 7 + \\dfrac{7\\sin 21.4263\\ldots^\\circ}{\\sin 25^\\circ}$\n\n**THEN**\n\n$25.0506\\ldots$\n\nminimum perimeter $= 25.1$. ***A1***" }
+      ]
+    },
+    {
+      "id": "2021-nov-p2-q5",
+      "question": "5",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The following diagram shows a semicircle with centre O and radius $r$. Points P, Q and R lie on the circumference of the circle, such that $\\text{PQ} = 2r$ and $\\text{R}\\hat{\\text{O}}\\text{Q} = \\theta$, where $0 < \\theta < \\pi$.\n\n![Semicircle on diameter PQ with centre O; R on the arc, angle ROQ = θ. Triangle POR and the segment cut off by chord RQ are shaded.](content/papers/img/2021-nov-p2-q5.png)",
+      "parts": [
+        { "label": "a", "marks": 5, "text": "Given that the areas of the two shaded regions are equal, show that $\\theta = 2\\sin\\theta$.", "markscheme": "attempt to find the area of either shaded region in terms of $r$ and $\\theta$ ***(M1)***\n\n> **Note:** Do not award ***M1*** if they have only copied from the booklet and not applied to the shaded area.\n\nArea of segment $= \\dfrac{1}{2}r^2\\theta - \\dfrac{1}{2}r^2\\sin\\theta$ ***A1***\n\nArea of triangle $= \\dfrac{1}{2}r^2\\sin(\\pi - \\theta)$ ***A1***\n\ncorrect equation in terms of $\\theta$ only ***(A1)***\n\n$\\theta - \\sin\\theta = \\sin(\\pi - \\theta)$\n\n$\\theta - \\sin\\theta = \\sin\\theta$ ***A1***\n\n$\\theta = 2\\sin\\theta$ ***AG***\n\n> **Note:** Award a maximum of ***M1A1A0A0A0*** if a candidate uses degrees (i.e., $\\dfrac{1}{2}r^2\\sin(180^\\circ - \\theta)$), even if later work is correct.\n\n> **Note:** If a candidate directly states that the area of the triangle is $\\dfrac{1}{2}r^2\\sin\\theta$, award a maximum of ***M1A1A0A1A1***." },
+        { "label": "b", "marks": 1, "text": "Hence determine the value of $\\theta$.", "markscheme": "$\\theta = 1.89549\\ldots$\n\n$\\theta = 1.90$ ***A1***\n\n> **Note:** Award ***A0*** if there is more than one solution. Award ***A0*** for an answer in degrees." }
+      ]
+    },
+    {
+      "id": "2021-nov-p2-q7",
+      "question": "7",
+      "section": "B",
+      "marks": 14,
+      "primaryTopic": "differentiation",
+      "secondaryTopic": "straight-lines",
+      "status": "ok",
+      "stem": "Points A and P lie on opposite banks of a river, such that AP is the shortest distance across the river. Point B represents the centre of a city which is located on the riverbank. $\\text{PB} = 215\\text{ km}$, $\\text{AP} = 65\\text{ km}$ and $\\text{A}\\hat{\\text{P}}\\text{B} = 90^\\circ$.\n\nThe following diagram shows this information.\n\n![A river with A on one bank and P directly opposite on the other bank, 65 km across; B is on the same bank as P, 215 km from P.](content/papers/img/2021-nov-p2-q7.png)\n\nA boat travels at an average speed of $42\\text{ km h}^{-1}$. A bus travels along the straight road between P and B at an average speed of $84\\text{ km h}^{-1}$.",
+      "parts": [
+        { "label": "a", "marks": 4, "text": "Find the travel time, in hours, from A to B given that\n\n(i) the boat is taken from A to P, and the bus from P to B;\n\n(ii) the boat travels directly to B.", "markscheme": "(i) $\\dfrac{\\text{AP}}{42}$ OR $\\dfrac{215}{84}$ OR $\\dfrac{65}{42} + \\dfrac{215}{84}$ ***(M1)***\n\ntime $= 4.10714\\ldots$ (hours)\n\ntime $= 4.11$ (hours) ***A1***\n\n(ii) $\\text{AB} = \\sqrt{215^2 + 65^2} \\ (= 224.610\\ldots)$ ***(A1)***\n\ntime $= 5.34787\\ldots$ (hours)\n\ntime $= 5.35$ (hours) ***A1***" },
+        { "label": "b", "marks": 6, "intro": "There is a point D, which lies on the road from P to B, such that $\\text{BD} = x\\text{ km}$. The boat travels from A to D, and the bus travels from D to B.", "text": "(i) Find an expression, in terms of $x$ for the travel time $T$, from A to B, passing through D.\n\n(ii) Find the value of $x$ so that $T$ is a minimum.\n\n(iii) Write down the minimum value of $T$.", "markscheme": "(i) $\\text{AD} = \\sqrt{(215 - x)^2 + 65^2}$ ***(A1)***\n\n$t = \\dfrac{\\sqrt{(215 - x)^2 + 65^2}}{42}$ ***(A1)***\n\n$T = \\dfrac{\\sqrt{(215 - x)^2 + 65^2}}{42} + \\dfrac{x}{84} \\ \\left(= \\dfrac{\\sqrt{x^2 - 430x + 50450}}{42} + \\dfrac{x}{84}\\right)$ ***A1***\n\n(ii) valid approach to find the minimum for $T$ (may be seen in (iii)) ***(M1)***\n\ngraph of $T$ OR $T' = 0$ OR graph of $T'$\n\n$x = 177.472\\ldots$ km\n\n$x = 177$ km ***A1***\n\n(iii) $T = 3.89980\\ldots$\n\n$T = 3.90$ (hours) ***A1***\n\n> **Note:** Only allow ***FT*** in (b)(ii) and (iii) for $0 < x < 215$ and a function $T$ that has a minimum in that interval." },
+        { "label": "c", "marks": 4, "text": "An excursion involves renting the boat and the bus. The cost to rent the boat is &#36;200 per hour, and the cost to rent the bus is &#36;150 per hour.\n\n(i) Find the new value of $x$ so that the total cost $C$ to travel from A to B via D is a minimum.\n\n(ii) Write down the minimum total cost for this journey.", "markscheme": "(i) $C = 200 \\cdot \\dfrac{\\sqrt{(215 - x)^2 + 65^2}}{42} + 150 \\cdot \\dfrac{x}{84}$ ***(A1)***\n\nvalid approach to find the minimum for $C(x)$ (may be seen in (ii)) ***(M1)***\n\ngraph of $C$ OR $C' = 0$ OR graph of $C'$\n\n$x = 188.706\\ldots$ km\n\n$x = 189$ km ***A1***\n\n> **Note:** Only allow ***FT*** from (b) if the function $T$ has a minimum in $0 < x < 215$.\n\n(ii) $C = 670.864$\n\n$C =$ &#36;671 ***A1***\n\n> **Note:** Only allow ***FT*** from (c)(i) if the function $C$ has a minimum in $0 < x < 215$." }
+      ]
+    },
+    {
+      "id": "2021-nov-p2-q8",
+      "question": "8",
+      "section": "B",
+      "marks": 13,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The height of water, in metres, in Dungeness harbour is modelled by the function $H(t) = a\\sin\\big(b(t - c)\\big) + d$, where $t$ is the number of hours after midnight, and $a$, $b$, $c$ and $d$ are constants, where $a > 0$, $b > 0$ and $c > 0$.\n\nThe following graph shows the height of the water for 13 hours, starting at midnight.\n\n![Graph of H(t) for 0 ≤ t ≤ 13: starts near 3, rises to a maximum near t = 4.5, falls to a minimum near t = 10.5 and rises again.](content/papers/img/2021-nov-p2-q8.png)\n\nThe first high tide occurs at 04:30 and the next high tide occurs 12 hours later. Throughout the day, the height of the water fluctuates between $2.2\\text{ m}$ and $6.8\\text{ m}$.\n\nAll heights are given correct to one decimal place.",
+      "parts": [
+        { "label": "a", "marks": 1, "text": "Show that $b = \\dfrac{\\pi}{6}$.", "markscheme": "$12 = \\dfrac{2\\pi}{b}$ OR $b = \\dfrac{2\\pi}{12}$ ***A1***\n\n$b = \\dfrac{\\pi}{6}$ ***AG***" },
+        { "label": "b", "marks": 2, "text": "Find the value of $a$.", "markscheme": "$a = \\dfrac{6.8 - 2.2}{2}$ OR $a = \\dfrac{\\max - \\min}{2}$ ***(M1)***\n\n$= 2.3$ (m) ***A1***" },
+        { "label": "c", "marks": 2, "text": "Find the value of $d$.", "markscheme": "$d = \\dfrac{6.8 + 2.2}{2}$ OR $d = \\dfrac{\\max + \\min}{2}$ ***(M1)***\n\n$= 4.5$ (m) ***A1***" },
+        { "label": "d", "marks": 3, "text": "Find the smallest possible value of $c$.", "markscheme": "**METHOD 1**\n\nsubstituting $t = 4.5$ and $H = 6.8$ for example into their equation for $H$ ***(A1)***\n\n$6.8 = 2.3\\sin\\left(\\dfrac{\\pi}{6}(4.5 - c)\\right) + 4.5$\n\nattempt to solve their equation ***(M1)***\n\n$c = 1.5$ ***A1***\n\n**METHOD 2**\n\nusing horizontal translation of $\\dfrac{12}{4}$ ***(M1)***\n\n$4.5 - c = 3$ ***(A1)***\n\n$c = 1.5$ ***A1***\n\n**METHOD 3**\n\n$H'(t) = (2.3)\\left(\\dfrac{\\pi}{6}\\right)\\cos\\left(\\dfrac{\\pi}{6}(t - c)\\right)$ ***(A1)***\n\nattempts to solve their $H'(4.5) = 0$ for $c$ ***(M1)***\n\n$(2.3)\\left(\\dfrac{\\pi}{6}\\right)\\cos\\left(\\dfrac{\\pi}{6}(4.5 - c)\\right) = 0$\n\n$c = 1.5$ ***A1***" },
+        { "label": "e", "marks": 2, "text": "Find the height of the water at 12:00.", "markscheme": "attempt to find $H$ when $t = 12$ or $t = 0$, graphically or algebraically ***(M1)***\n\n$H = 2.87365\\ldots$\n\n$H = 2.87$ (m) ***A1***" },
+        { "label": "f", "marks": 3, "text": "Determine the number of hours, over a 24-hour period, for which the tide is higher than 5 metres.", "markscheme": "attempt to solve $5 = 2.3\\sin\\left(\\dfrac{\\pi}{6}(t - 1.5)\\right) + 4.5$ ***(M1)***\n\ntimes are $t = 1.91852\\ldots$ and $t = 7.08147\\ldots$, $(t = 13.9185\\ldots,\\ t = 19.0814\\ldots)$ ***(A1)***\n\ntotal time is $2 \\times (7.081\\ldots - 1.919\\ldots)$\n\n$10.3258\\ldots$\n\n$= 10.3$ (hours) ***A1***\n\n> **Note:** Accept $10$." }
+      ]
+    }
+  ]
+}

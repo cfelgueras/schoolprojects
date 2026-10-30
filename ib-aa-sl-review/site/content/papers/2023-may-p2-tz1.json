@@ -1,0 +1,81 @@
+{
+  "paper": { "year": 2023, "session": "May", "timezone": "TZ1", "paper": 2, "level": "SL" },
+  "questions": [
+    {
+      "id": "2023-may-p2-tz1-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The cities Lucknow (L), Jaipur (J) and Delhi (D) are represented in the following diagram. Lucknow lies $500\\text{ km}$ directly east of Jaipur, and $\\text{J}\\hat{\\text{L}}\\text{D} = 25^\\circ$.\n\n**diagram not to scale**\n\n![Triangle JDL with J at the left end of a 500 km horizontal side JL, a North arrow at J, D above, and angle 25° at L.](content/papers/img/2023-may-p2-tz1-q1.png)\n\nThe bearing of D from J is $034^\\circ$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find $\\text{J}\\hat{\\text{D}}\\text{L}$.", "markscheme": "Let N be North\n\n$\\text{N}\\hat{\\text{J}}\\text{D} = 34^\\circ$ OR $\\text{D}\\hat{\\text{J}}\\text{L} = 56^\\circ$ (must be labelled or indicated in diagram): ***(A1)***\n\n$\\text{J}\\hat{\\text{D}}\\text{L} = 99\\ (^\\circ)$ ***A1***\n\n> **Note:** Accept $\\dfrac{11\\pi}{20}$, $1.73$ (radians)." },
+        { "label": "b", "marks": 3, "text": "Find the distance between Lucknow and Delhi.", "markscheme": "attempt to apply the sine rule ***(M1)***\n\n$\\dfrac{\\text{DL}}{\\sin 56^\\circ} = \\dfrac{500}{\\sin 99^\\circ}$ OR $\\dfrac{\\text{DL}}{\\sin 0.977384\\ldots} = \\dfrac{500}{\\sin 1.72787\\ldots}$ ***(A1)***\n\n$419.685\\ldots$\n\n$\\text{DL} = 420$ (km) ***A1***\n\n> **Note:** Award ***M1A1A0*** for $261$ (km) from use of degrees with GDC set in radians (with or without working)." }
+      ]
+    },
+    {
+      "id": "2023-may-p2-tz1-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The functions $f$ and $g$ are defined by $f(x) = 2x - x^3$ and $g(x) = \\tan x$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find $(f \\circ g)(x)$.", "markscheme": "attempt to substitute $g$ into $f$ ***(M1)***\n\n$(f \\circ g)(x) = 2\\tan x - \\tan^3 x$ ***A1***" },
+        { "label": "b", "marks": 3, "text": "On the following grid, sketch the graph of $y = (f \\circ g)(x)$ for $-1 \\leq x \\leq 1$. Write down and clearly label the coordinates of any local maximum or minimum points.\n\n![Empty grid with x from −1 to 1 and y from −2 to 2.](content/papers/img/2023-may-p2-tz1-q3-grid.png)", "markscheme": "![Graph of y = 2 tan x − tan³ x for −1 ≤ x ≤ 1: through the origin, minimum (−0.685, −1.09), maximum (0.685, 1.09).](content/papers/img/2023-may-p2-tz1-q3b-ms.png)\n\n***A1A1A1***\n\n> **Note:** ***A1*** for approximately correct odd function passing through the origin with a maximum above $y = 1$ and a minimum below $y = -1$.  \n> ***A1*** for endpoints at $x = \\pm 1$ and $y$ in the intervals $[0.6,\\ 0.8]$ and $[-0.8,\\ -0.6]$.  \n> ***A1*** for maximum in approximately correct position and labelled $(0.685,\\ 1.09)$ AND minimum in approximately correct position and labelled $(-0.685,\\ -1.09)$. For approximate position, allow $-0.8 \\leq x \\leq -0.6$, $-1.2 \\leq y \\leq -1$ for minimum and $0.6 \\leq x \\leq 0.8$, $1 \\leq y \\leq 1.2$ for maximum. If the candidate gives the coordinates of extrema below their sketch, only award this mark if extrema are marked in the correct interval (eg by a dot)." }
+      ]
+    },
+    {
+      "id": "2023-may-p2-tz1-q4",
+      "question": "4",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "statistics",
+      "secondaryTopic": "quadratics",
+      "status": "ok",
+      "stem": "The total number of children, $y$, visiting a park depends on the highest temperature, $T$, in degrees Celsius ($^\\circ$C). A park official predicts the total number of children visiting his park on any given day using the model $y = -0.6T^2 + 23T + 110$, where $10 \\leq T \\leq 35$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Use this model to estimate the number of children in the park on a day when the highest temperature is $25^\\circ\\text{C}$.", "markscheme": "recognising to find $y(25)$ ***(M1)***\n\n$y(25) = -0.6 \\times 25^2 + 23 \\times 25 + 110$\n\n$= 310$ (children) ***A1***" },
+        { "label": "b", "marks": 3, "intro": "An ice cream vendor investigates the relationship between the total number of children visiting the park and the number of ice creams sold, $x$. The following table shows the data collected on five different days.\n\n| **Total number of children** $(y)$ | $81$ | $175$ | $202$ | $346$ | $360$ |\n|:---:|:---:|:---:|:---:|:---:|:---:|\n| **Ice creams sold** $(x)$ | $15$ | $27$ | $23$ | $35$ | $46$ |", "text": "Find an appropriate regression equation that will allow the vendor to predict the number of ice creams sold on a day when there are $y$ children in the park.", "markscheme": "recognizing $x$ on $y$ is required ***(M1)***\n\n$0.0935114\\ldots$ and $7.43053\\ldots$ ***(A1)***\n\n$x = 0.0935y + 7.43$ ***A1***" },
+        { "label": "c", "marks": 2, "text": "Hence, use your regression equation to predict the number of ice creams that the vendor sells on a day when the highest temperature is $25^\\circ\\text{C}$.", "markscheme": "attempt to substitute their answer to part (a) into their regression equation for either $x$ or $y$ ***(M1)***\n\n$x = 0.0935114\\ldots \\times 310 + 7.43053\\ldots \\ (= 36.4190\\ldots)$\n\n$36$ (accept $37$ or $36.4$) ***A1***\n\n> **Note:** Award ***(M1)A1FT*** for $x = 37$ found from using $y = 9.39x - 41.5$.  \n> Award ***(M1)A0FT*** for a correct ***FT*** answer that lies outside $[15,\\ 46]$." }
+      ]
+    },
+    {
+      "id": "2023-may-p2-tz1-q7",
+      "question": "7",
+      "section": "B",
+      "marks": 13,
+      "primaryTopic": "exponents-logarithms",
+      "secondaryTopic": "differentiation",
+      "status": "ok",
+      "stem": "The temperature of a cup of tea, $t$ minutes after it is poured, can be modelled by $H(t) = 21 + 75e^{-0.08t}$, $t \\geq 0$. The temperature is measured in degrees Celsius ($^\\circ$C).",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "(i) Find the initial temperature of the tea.\n\n(ii) Find the temperature of the tea three minutes after it is poured.", "markscheme": "(i) $96\\ (^\\circ)$ (exact) ***A1***\n\n(ii) $79.9970\\ldots$\n\n$80.0\\ (^\\circ)$ (accept $80$) ***A1***" },
+        { "label": "b", "marks": 2, "text": "Write down the value of $H'(3)$.", "markscheme": "$-4.71976\\ldots$\n\n$-4.72$ ($^\\circ$C min$^{-1}$) ***A2***" },
+        { "label": "c", "marks": 2, "text": "Interpret the meaning of your answer to part (b) in the given context.", "markscheme": "3 valid descriptors, in any order: ***A2***\n\n- at 3 minutes (or when $t = 3$)\n- cooling/decreasing (do not accept “changing”)\n- $4.72^\\circ$C min$^{-1}$ (must include units) (accept approximately 5 deg/min)" },
+        { "label": "d", "marks": 3, "text": "After $k$ minutes, the tea will be below $67^\\circ\\text{C}$ and cool enough to drink.\n\nFind the least possible value of $k$, where $k \\in \\mathbb{Z}^+$.", "markscheme": "**METHOD 1**\n\nvalid attempt to solve $H(t) = 67$ (accept an inequality) ***(M1)***\n\neg intersection of graphs, use of logarithms.\n\n$6.11058\\ldots$ ***(A1)***\n\n$7$ (min) ***A1***\n\n**METHOD 2**\n\nvalid attempt to find crossover values ***(M1)***\n\n$(6,\\ 67.4087\\ldots)$ and $(7,\\ 63.8406\\ldots)$ ***(A1)***\n\n$7$ (min) ***A1***" },
+        { "label": "e", "marks": 2, "intro": "As the tea cools, $H(t)$ approaches the temperature of the room, which is constant.", "text": "Find the temperature of the room.", "markscheme": "recognition that $t \\to \\infty$ ***(M1)***\n\n$21\\ (^\\circ\\text{C})$ ***A1***" },
+        { "label": "f", "marks": 2, "text": "Find the limit of $H'(t)$ as $t$ approaches infinity.", "markscheme": "**METHOD 1 (working with slopes of $H$)**\n\nvalid attempt to analyse progression of slopes of $H$ ***(M1)***\n\n$\\displaystyle\\lim_{t \\to \\infty} H'(t) = 0$ ***A1***\n\n**METHOD 2 (working with $H'$)**\n\nvalid attempt to use $H'$ and large values of $t$. ***(M1)***\n\n$\\displaystyle\\lim_{t \\to \\infty} H'(t) = 0$ ***A1***" }
+      ]
+    },
+    {
+      "id": "2023-may-p2-tz1-q9",
+      "question": "9",
+      "section": "B",
+      "marks": 15,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "An engineer is designing a gutter to catch rainwater from the roof of a house.\n\nThe gutter will be open at the top and is made by folding a piece of sheet metal $45\\text{ cm}$ wide and $600\\text{ cm}$ long.\n\n**diagram not to scale**\n\n![A flat sheet of metal 45 wide and 600 long is folded into an open gutter with two vertical sides and a curved bottom.](content/papers/img/2023-may-p2-tz1-q9a.png)\n\nThe cross-section of the gutter is shaded in the following diagram.\n\n**diagram not to scale**\n\n![Cross-section: width w at the top, vertical sides of 10, and arc AB of a circle with centre O and radius 12; angle AOB = θ.](content/papers/img/2023-may-p2-tz1-q9b.png)\n\nThe height of both vertical sides is $10\\text{ cm}$. The width of the gutter is $w\\text{ cm}$.\n\nArc AB lies on the circumference of a circle with centre O and radius $12\\text{ cm}$.\n\nLet $\\text{A}\\hat{\\text{O}}\\text{B} = \\theta$ radians, where $0 < \\theta < \\pi$.",
+      "parts": [
+        { "label": "a", "marks": 3, "text": "Show that $\\theta = 2.08$, correct to three significant figures.", "markscheme": "recognition that $45 = 10 + 10 +$ arc length ***(M1)***\n\narc length $= 25$ (cm) ***(A1)***\n\n$25 = 12\\theta$ ***A1***\n\n$\\theta = 2.08$ correct to 3 significant figures ***AG***" },
+        { "label": "b", "marks": 7, "text": "Find the area of the cross-section of the gutter.", "markscheme": "> **Note:** There are many different ways to dissect the cross-section to determine its area. In all approaches, candidates will need to find $w$ or $\\dfrac{w}{2}$. Award the first three marks for work seen anywhere.\n\n**EITHER**\n\nevidence of using the cosine rule OR sine rule ***(M1)***\n\n$w^2 = 12^2 + 12^2 - 2 \\cdot 12 \\cdot 12\\cos(2.08)$ OR $\\dfrac{w}{\\sin(2.08)} = \\dfrac{12}{\\sin(0.530796\\ldots)}$ ***(A1)***\n\n$w = 20.6977\\ldots$ or $\\dfrac{w}{2} = 10.3488\\ldots$ ***(A1)***\n\n**OR**\n\nusing trig ratios in a right triangle with angle $\\dfrac{2.08}{2}$ and side length $\\dfrac{w}{2}$ ***(M1)***\n\n$\\sin\\left(\\dfrac{2.08}{2}\\right) = \\dfrac{\\left(\\frac{w}{2}\\right)}{12}$ ***(A1)***\n\n$w = 20.6977\\ldots$ or $\\dfrac{w}{2} = 10.3488\\ldots$ ***(A1)***\n\n> **Note:** Accept $w = 20.7179\\ldots$ from use of $\\dfrac{\\theta}{2} = \\dfrac{25}{24}$.\n\n**THEN**\n\nLet the points A, B, C, D, E, F, G, H lie on the figure as follows:\n\n![The cross-section with C and D at the top corners, G the top midpoint, E and F at the level of O on the sides, A and B at the ends of the arc and H the lowest point of the arc.](content/papers/img/2023-may-p2-tz1-q9-ms.png)\n\n**EITHER**\n\n(segment AHB $=$) sector OAB $-$ triangle OAB ***(M1)***\n\n$= \\dfrac{1}{2} \\times 12^2 \\times 2.08 - \\dfrac{1}{2} \\times 12^2 \\times \\sin 2.08 \\ (= 149.76 - 62.8655\\ldots = 86.8944\\ldots)$ ***(A1)***\n\nvalid approach to find total cross-sectional area (seen anywhere) ***(M1)***\n\nsector OAB $-$ triangle OAB $+$ rectangle CDBA\n\n$= 86.8944\\ldots + 10w \\ (= 86.8944\\ldots + 206.977\\ldots)$\n\n> **Note:** Use of $\\theta = \\dfrac{25}{12}$ throughout leads to segment OAB $= 87.2517\\ldots$ and cross-sectional area $= 87.2517\\ldots + 207.179\\ldots$.\n\n**OR**\n\ntrapezium CGOA ($=$ rectangle CGOE $+$ triangle EOA) ***(M1)***\n\n$= \\dfrac{1}{2} \\times \\big(10 + (10 - 12\\cos(1.04))\\big) \\times \\dfrac{20.6977\\ldots}{2} \\ (= 72.0557)$ ***(A1)***\n\nvalid approach to find total cross-sectional area (seen anywhere) ***(M1)***\n\n$2 \\times$ trapezium CGOA $+$ sector OAB\n\n$= 2(72.0557\\ldots) + \\dfrac{1}{2} \\times 12^2 \\times 2.08 \\ (= 144.111\\ldots + 149.76)$\n\n> **Note:** Use of $\\theta = \\dfrac{25}{12}$ leads to area of trapezium CGOA $= 72.2154\\ldots$ and cross-sectional area $= 144.430\\ldots + 150$.\n\n**OR**\n\n$2 \\times$ area of trapezium CGOA ($=$ area of rectangle CDFE $+ 2 \\times$ triangle EOA) ***(M1)***\n\n$20.6977\\ldots \\times (10 - 12\\cos(1.04)) + 2 \\times \\dfrac{1}{2} \\times 12\\cos(1.04) \\times 12\\sin(1.04)$ ***(A1)***\n\n$(= 81.2458\\ldots + 62.8655\\ldots)$\n\nvalid approach to find total cross-sectional area (seen anywhere) ***(M1)***\n\n$2 \\times$ trapezium CGOA $+$ sector OAB\n\n$= 144.111\\ldots + \\dfrac{1}{2} \\times 12^2 \\times 2.08 \\ (= 144.111\\ldots + 149.76)$\n\n> **Note:** Use of $\\theta = \\dfrac{25}{12}$ leads to $2 \\times$ area of trapezium CGOA $= 144.430\\ldots$ and cross-sectional area $= 144.430\\ldots + 150$.\n\n**THEN**\n\narea of cross-section $= 293.871\\ldots$ ($294.430\\ldots$ from exact answer)\n\n$= 294$ (cm$^2$) ***A1***" },
+        { "label": "c", "marks": 5, "intro": "In a storm, the total volume, in $\\text{cm}^3$, of rainwater that enters the gutter can be modelled by a function $R(t)$, where $t$ is the time, in seconds, since the start of the storm.\n\nIt was determined that the **rate** at which rainwater entered the gutter could be modelled by\n\n$$R'(t) = 50\\cos\\left(\\dfrac{2\\pi t}{5}\\right) + 3000, \\ t \\geq 0.$$\n\nDuring any $60$-second period, if the volume of rainwater entering the gutter is greater than the volume of the gutter, it will overflow.", "text": "Determine whether the gutter overflowed in this storm. Justify your answer.", "markscheme": "**METHOD 1**\n\nvolume of gutter $= 176323$ OR $176658$ (OR $600 \\times$ their area) (seen anywhere) ***A1***\n\nrecognising rainfall can be represented by an integral ***(M1)***\n\n$\\displaystyle\\int_0^{60} R'(t)\\,\\mathrm{d}t \\ \\left(= \\dfrac{250}{2\\pi}\\sin\\left(\\dfrac{2\\pi \\times 60}{5}\\right) + 3000 \\times 60\\right)$ ***(A1)***\n\n> **Note:** Accept any 60 second interval or any interval which is a multiple of 5 seconds (one period) scaled up to 60 seconds e.g. $12\\displaystyle\\int_0^5 R'(t)\\,\\mathrm{d}t$.\n\nrainfall over 60 seconds $= 180000$ (cm$^3$) ***A1***\n\nthe gutter will overflow because the rainfall $>$ gutter volume ***A1***\n\n**METHOD 2**\n\nvolume of gutter $= 176323$ OR $176658$ (OR $600 \\times$ their area) (seen anywhere) ***A1***\n\nrecognition that cosine has a minimum value of $-1$ ***(M1)***\n\n$R'(t) \\geq -1 \\times 50 + 3000$ (cm$^3$ s$^{-1}$) ***(A1)***\n\nrainfall over 60 seconds $\\geq 177000$ ***(A1)***\n\nthe gutter will overflow because the rainfall $>$ gutter volume ***A1***\n\n**METHOD 3**\n\nvolume of gutter $= 176323$ OR $176658$ (OR $600 \\times$ their area) (seen anywhere) ***A1***\n\nrecognising rainfall can be represented by an integral ***(M1)***\n\nattempt to solve $60 > 58.8$ OR $\\displaystyle\\int_0^T R'(t)\\,\\mathrm{d}t = 176658$ ***(M1)***\n\ntime to reach overflow point $= 58.7875\\ldots$ OR $58.8990\\ldots$ ***A1***\n\nthe gutter will overflow because $60 > 58.8$ OR $60 > 58.9$ ***A1***" }
+      ]
+    }
+  ]
+}

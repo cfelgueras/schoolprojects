@@ -1,0 +1,74 @@
+{
+  "paper": { "year": 2018, "session": "May", "timezone": "TZ2", "paper": 1, "level": "SL (previous syllabus)" },
+  "questions": [
+    {
+      "id": "2018-may-p1-tz2-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "statistics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "A data set has $n$ items. The sum of the items is $800$ and the mean is $20$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find $n$.", "markscheme": "correct approach ***(A1)***\n\neg $\\dfrac{800}{n} = 20$\n\n$40$ ***A1*** ***N2***" },
+        { "label": "b", "marks": 4, "intro": "The standard deviation of this data set is $3$. Each value in the set is multiplied by $10$.", "text": "(i) Write down the value of the new mean.\n\n(ii) Find the value of the new variance.", "markscheme": "(i) $200$ ***A1*** ***N1***\n\n(ii) **METHOD 1**\n\nrecognizing variance $= \\sigma^2$ ***(M1)***\n\neg $3^2 = 9$\n\ncorrect working to find new variance ***(A1)***\n\neg $\\sigma^2 \\times 10^2$, $9 \\times 100$\n\n$900$ ***A1*** ***N3***\n\n**METHOD 2**\n\nnew standard deviation is $30$ ***(A1)***\n\nrecognizing variance $= \\sigma^2$ ***(M1)***\n\neg $3^2 = 9$, $30^2$\n\n$900$ ***A1*** ***N3***" }
+      ]
+    },
+    {
+      "id": "2018-may-p1-tz2-q4",
+      "question": "4",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The following diagram shows a circle with centre O and radius $r\\text{ cm}$.\n\n**diagram not to scale**\n\n![Circle with centre O and radius r; the shaded sector AOB has angle θ at O.](content/papers/img/2018-may-p1-tz2-q4.png)\n\nThe points A and B lie on the circumference of the circle, and $\\text{A}\\hat{\\text{O}}\\text{B} = \\theta$. The area of the shaded sector AOB is $12\\text{ cm}^2$ and the length of arc AB is $6\\text{ cm}$.",
+      "parts": [
+        { "label": "", "marks": 7, "text": "Find the value of $r$.", "markscheme": "evidence of correctly substituting into circle formula (may be seen later) ***A1A1***\n\neg $\\dfrac{1}{2}\\theta r^2 = 12$, $r\\theta = 6$\n\nattempt to eliminate one variable ***(M1)***\n\neg $r = \\dfrac{6}{\\theta}$, $\\theta = \\dfrac{l}{r}$, $\\dfrac{\\frac{1}{2}\\theta r^2}{r\\theta} = \\dfrac{12}{6}$\n\ncorrect elimination ***(A1)***\n\neg $\\dfrac{1}{2} \\times \\dfrac{6}{r} \\times r^2 = 12$, $\\dfrac{1}{2}\\theta \\times \\left(\\dfrac{6}{\\theta}\\right)^2 = 12$, $A = \\dfrac{1}{2} \\times r^2 \\times \\dfrac{l}{r}$, $\\dfrac{r^2}{2r} = 2$\n\ncorrect equation ***(A1)***\n\neg $\\dfrac{1}{2} \\times 6r = 12$, $\\dfrac{1}{2} \\times \\dfrac{36}{\\theta} = 12$, $12 = \\dfrac{1}{2} \\times r^2 \\times \\dfrac{6}{r}$\n\ncorrect working ***(A1)***\n\neg $3r = 12$, $\\dfrac{18}{\\theta} = 12$, $\\dfrac{r}{2} = 2$, $24 = 6r$\n\n$r = 4$ (cm) ***A1*** ***N2***" }
+      ]
+    },
+    {
+      "id": "2018-may-p1-tz2-q5",
+      "question": "5",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The following diagram shows the graph of a function $f$, for $-4 \\leq x \\leq 2$.\n\n![Graph of f on a grid: a straight segment from (−4, 1) to (0, 0) and another from (0, 0) to (2, 2).](content/papers/img/2018-may-p1-tz2-q5-f.png)",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "On the same axes, sketch the graph of $f(-x)$.", "markscheme": "![The graph of f (grey) and its reflection f(−x) (black): segments from (−2, 2) to (0, 0) and from (0, 0) to (4, 1).](content/papers/img/2018-may-p1-tz2-q5a-ms.png)\n\n***A2*** ***N2***" },
+        { "label": "b", "marks": 4, "text": "Another function, $g$, can be written in the form $g(x) = a \\times f(x + b)$. The following diagram shows the graph of $g$.\n\n![Graph of g: a straight segment from (−3, −2) to (1, 0) and another from (1, 0) to (3, −4).](content/papers/img/2018-may-p1-tz2-q5-g.png)\n\nWrite down the value of $a$ and of $b$.", "markscheme": "recognizing horizontal shift/translation of $1$ unit ***(M1)***\n\neg $b = 1$, moved $1$ right\n\nrecognizing vertical stretch/dilation with scale factor $2$ ***(M1)***\n\neg $a = 2$, $y \\times (-2)$\n\n$a = -2$, $b = -1$ ***A1A1*** ***N2N2***" }
+      ]
+    },
+    {
+      "id": "2018-may-p1-tz2-q6",
+      "question": "6",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "quadratics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "",
+      "parts": [
+        { "label": "", "marks": 7, "text": "Let $f(x) = px^2 + qx - 4p$, where $p \\neq 0$. Find the number of roots for the equation $f(x) = 0$. Justify your answer.", "markscheme": "**METHOD 1**\n\nevidence of discriminant ***(M1)***\n\neg $b^2 - 4ac$, $\\Delta$\n\ncorrect substitution into discriminant ***(A1)***\n\neg $q^2 - 4p(-4p)$\n\ncorrect discriminant ***A1***\n\neg $q^2 + 16p^2$\n\n$16p^2 > 0$ (accept $p^2 > 0$) ***A1***\n\n$q^2 \\geq 0$ (do not accept $q^2 > 0$) ***A1***\n\n$q^2 + 16p^2 > 0$ ***A1***\n\n$f$ has 2 roots ***A1*** ***N0***\n\n**METHOD 2**\n\n$y$-intercept $= -4p$ (seen anywhere) ***A1***\n\nif $p$ is positive, then the $y$-intercept will be negative ***A1***\n\nan upward-opening parabola with a negative $y$-intercept ***R1***\n\neg sketch that must indicate $p > 0$.\n\nif $p$ is negative, then the $y$-intercept will be positive ***A1***\n\na downward-opening parabola with a positive $y$-intercept ***R1***\n\neg sketch that must indicate $p < 0$.\n\n$f$ has 2 roots ***A2*** ***N0***" }
+      ]
+    },
+    {
+      "id": "2018-may-p1-tz2-q9",
+      "question": "9",
+      "section": "B",
+      "marks": 15,
+      "primaryTopic": "differentiation",
+      "secondaryTopic": "geometry-trigonometry",
+      "status": "ok",
+      "stem": "A closed cylindrical can with radius $r$ centimetres and height $h$ centimetres has a volume of $20\\pi\\text{ cm}^3$.\n\n**diagram not to scale**\n\n![A closed cylinder with radius r and height h.](content/papers/img/2018-may-p1-tz2-q9.png)",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Express $h$ in terms of $r$.", "markscheme": "correct equation for volume ***(A1)***\n\neg $\\pi r^2 h = 20\\pi$\n\n$h = \\dfrac{20}{r^2}$ ***A1*** ***N2***" },
+        { "label": "b", "marks": 4, "intro": "The material for the base and top of the can costs $10$ cents per $\\text{cm}^2$ and the material for the curved side costs $8$ cents per $\\text{cm}^2$. The total cost of the material, in cents, is $C$.", "text": "Show that $C = 20\\pi r^2 + \\dfrac{320\\pi}{r}$.", "markscheme": "attempt to find formula for cost of parts ***(M1)***\n\neg $10 \\times$ two circles, $8 \\times$ curved side\n\ncorrect expression for cost of two circles in terms of $r$ (seen anywhere) ***A1***\n\neg $2\\pi r^2 \\times 10$\n\ncorrect expression for cost of curved side (seen anywhere) ***(A1)***\n\neg $2\\pi r \\times h \\times 8$\n\ncorrect expression for cost of curved side in terms of $r$ ***A1***\n\neg $8 \\times 2\\pi r \\times \\dfrac{20}{r^2}$, $\\dfrac{320\\pi r}{r^2}$\n\n$C = 20\\pi r^2 + \\dfrac{320\\pi}{r}$ ***AG*** ***N0***" },
+        { "label": "c", "marks": 9, "text": "Given that there is a minimum value for $C$, find this minimum value in terms of $\\pi$.", "markscheme": "recognize $C' = 0$ at minimum ***(R1)***\n\neg $C' = 0$, $\\dfrac{\\mathrm{d}C}{\\mathrm{d}r} = 0$\n\ncorrect differentiation (may be seen in equation)\n\n$C' = 40\\pi r - \\dfrac{320\\pi}{r^2}$ ***A1A1***\n\ncorrect equation ***A1***\n\neg $40\\pi r - \\dfrac{320\\pi}{r^2} = 0$, $40\\pi r = \\dfrac{320\\pi}{r^2}$\n\ncorrect working ***(A1)***\n\neg $40r^3 = 320$, $r^3 = 8$\n\n$r = 2$ (m) ***A1***\n\nattempt to substitute **their** value of $r$ into $C$ ***(M1)***\n\neg $20\\pi \\times 4 + 320 \\times \\dfrac{\\pi}{2}$\n\ncorrect working ***(A1)***\n\neg $80\\pi + 160\\pi$\n\n$240\\pi$ (cents) ***A1*** ***N3***\n\n> **Note:** Do not accept $753.6$, $753.98$ or $754$, even if $240\\pi$ is seen." }
+      ]
+    }
+  ]
+}

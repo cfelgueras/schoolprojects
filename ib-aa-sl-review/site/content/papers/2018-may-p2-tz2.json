@@ -1,0 +1,120 @@
+{
+  "paper": {
+    "year": 2018,
+    "session": "May",
+    "timezone": "TZ2",
+    "paper": 2,
+    "level": "SL (previous syllabus)"
+  },
+  "questions": [
+    {
+      "id": "2018-may-p2-tz2-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "statistics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The following table shows the mean weight, $y\\text{ kg}$, of children who are $x$ years old.\n\n| **Age ($x$ years)** | $1.25$ | $2.25$ | $3.5$ | $4.4$ | $5.85$ |\n|:---:|:---:|:---:|:---:|:---:|:---:|\n| **Weight ($y$ kg)** | $10$ | $13$ | $14$ | $17$ | $19$ |\n\nThe relationship between the variables is modelled by the regression line with equation $y = ax + b$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "text": "(i) Find the value of $a$ and of $b$.\n\n(ii) Write down the correlation coefficient.",
+          "markscheme": "(i) valid approach ***(M1)***\n\neg correct value for $a$ or $b$ (or for $r$ seen in (ii))\n\n$a = 1.91966$, $b = 7.97717$\n\n$a = 1.92$, $b = 7.98$ ***A1A1*** ***N3***\n\n(ii) $0.984674$\n\n$r = 0.985$ ***A1*** ***N1***"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Use your equation to estimate the mean weight of a child that is $1.95$ years old.",
+          "markscheme": "correct substitution into their equation ***(A1)***\n\neg $1.92 \\times 1.95 + 7.98$\n\n$11.7205$\n\n$11.7$ (kg) ***A1*** ***N2***"
+        }
+      ]
+    },
+    {
+      "id": "2018-may-p2-tz2-q2",
+      "question": "2",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The following diagram shows quadrilateral ABCD.\n\n**diagram not to scale**\n\n![Quadrilateral ABCD with diagonal DB: AB = 11, BC = 6, angle BAD = 59°, angle ADB = 100° and angle CBD = 82°.](content/papers/img/2018-may-p2-tz2-q2.png)\n\n$\\text{AB} = 11\\text{ cm}$, $\\text{BC} = 6\\text{ cm}$, $\\text{B}\\hat{\\text{A}}\\text{D} = 59^\\circ$, $\\text{A}\\hat{\\text{D}}\\text{B} = 100^\\circ$, and $\\text{C}\\hat{\\text{B}}\\text{D} = 82^\\circ$",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "Find DB.",
+          "markscheme": "evidence of choosing sine rule ***(M1)***\n\neg $\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C}$\n\ncorrect substitution ***(A1)***\n\neg $\\dfrac{\\text{DB}}{\\sin 59^\\circ} = \\dfrac{11}{\\sin 100^\\circ}$\n\n$9.57429$\n\n$\\text{DB} = 9.57$ (cm) ***A1*** ***N2***"
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Find DC.",
+          "markscheme": "evidence of choosing cosine rule ***(M1)***\n\neg $a^2 = b^2 + c^2 - 2bc\\cos(A)$, $\\text{DC}^2 = \\text{DB}^2 + \\text{BC}^2 - 2\\text{DB} \\times \\text{BC} \\times \\cos(\\text{D}\\hat{\\text{B}}\\text{C})$\n\ncorrect substitution into RHS ***(A1)***\n\neg $9.57^2 + 6^2 - 2 \\times 9.57 \\times 6 \\times \\cos 82^\\circ$, $111.677$\n\n$10.5677$\n\n$\\text{DC} = 10.6$ (cm) ***A1*** ***N2***"
+        }
+      ]
+    },
+    {
+      "id": "2018-may-p2-tz2-q6",
+      "question": "6",
+      "section": "A",
+      "marks": 8,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "At an amusement park, a Ferris wheel with diameter $111$ metres rotates at a constant speed. The bottom of the wheel is $k$ metres above the ground. A seat starts at the bottom of the wheel.\n\n**diagram not to scale**\n\n![A Ferris wheel of diameter 111 on supports; the bottom of the wheel is k above the ground and it rotates anticlockwise.](content/papers/img/2018-may-p2-tz2-q6.png)\n\nThe wheel completes one revolution in $16$ minutes.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "After $8$ minutes, the seat is $117\\text{ m}$ above the ground. Find $k$.",
+          "markscheme": "valid approach to find $k$ ***(M1)***\n\neg 8 minutes is half a turn, $k +$ diameter, $k + 111 = 117$\n\n$k = 6$ ***A1*** ***N2***"
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "intro": "After $t$ minutes, the height of the seat above ground is given by $h(t) = 61.5 + a\\cos\\left(\\dfrac{\\pi}{8}t\\right)$, for $0 \\leq t \\leq 32$.",
+          "text": "Find the value of $a$.",
+          "markscheme": "**METHOD 1**\n\nvalid approach ***(M1)***\n\neg $\\dfrac{\\max - \\min}{2}$, $a =$ radius\n\n$\\lvert a\\rvert = \\dfrac{117 - 6}{2}$, $55.5$ ***(A1)***\n\n$a = -55.5$ ***A1*** ***N2***\n\n**METHOD 2**\n\nattempt to substitute valid point into equation for $f$ ***(M1)***\n\neg $h(0) = 6$, $h(8) = 117$\n\ncorrect equation ***(A1)***\n\neg $6 = 61.5 + a\\cos\\left(\\dfrac{\\pi}{8} \\times 0\\right)$, $117 = 61.5 + a\\cos\\left(\\dfrac{\\pi}{8} \\times 8\\right)$, $6 = 61.5 + a$\n\n$a = -55.5$ ***A1*** ***N2***"
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "Find when the seat is $30\\text{ m}$ above the ground for the third time.",
+          "markscheme": "valid approach ***(M1)***\n\neg sketch of $h$ and $y = 30$, $h = 30$, $61.5 - 55.5\\cos\\left(\\dfrac{\\pi}{8}t\\right) = 30$, $t = 2.46307$, $t = 13.5369$\n\n$18.4630$\n\n$t = 18.5$ (minutes) ***A2*** ***N3***"
+        }
+      ]
+    },
+    {
+      "id": "2018-may-p2-tz2-q7",
+      "question": "7",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "Let $f(x) = \\dfrac{8x - 5}{cx + 6}$ for $x \\neq -\\dfrac{6}{c}$, $c \\neq 0$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "The line $x = 3$ is a vertical asymptote to the graph of $f$. Find the value of $c$.",
+          "markscheme": "valid approach ***(M1)***\n\neg $cx + 6 = 0$, $-\\dfrac{6}{c} = 3$\n\n$c = -2$ ***A1*** ***N2***"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Write down the equation of the horizontal asymptote to the graph of $f$.",
+          "markscheme": "valid approach ***(M1)***\n\neg $\\displaystyle\\lim_{x \\to \\infty} f(x)$, $y = \\dfrac{8}{c}$\n\n$y = -4$ (must be an equation) ***A1*** ***N2***"
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "The line $y = k$, where $k \\in \\mathbb{R}$ intersects the graph of $\\lvert f(x)\\rvert$ at exactly one point. Find the possible values of $k$.",
+          "markscheme": "valid approach to analyze modulus function ***(M1)***\n\neg sketch, horizontal asymptote at $y = 4$, $y = 0$\n\n$k = 4$, $k = 0$ ***A2*** ***N3***"
+        }
+      ]
+    }
+  ]
+}

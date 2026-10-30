@@ -1,0 +1,122 @@
+{
+  "paper": { "year": 2022, "session": "May", "timezone": "TZ1", "paper": 2, "level": "SL" },
+  "questions": [
+    {
+      "id": "2022-may-p2-tz1-q2",
+      "question": "2",
+      "section": "A",
+      "marks": 4,
+      "primaryTopic": "statistics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The number of hours spent exercising each week by a group of students is shown in the following table.\n\n| **Exercising time** (**in hours**) | **Number of students** |\n|:---:|:---:|\n| $2$ | $5$ |\n| $3$ | $1$ |\n| $4$ | $4$ |\n| $5$ | $3$ |\n| $6$ | $x$ |\n\nThe median is $4.5$ hours.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Find the value of $x$.",
+          "markscheme": "**EITHER**\n\nrecognising that half the total frequency is $10$ (may be seen in an ordered list or indicated on the frequency table) ***(A1)***\n\n**OR**\n\n$5 + 1 + 4 = 3 + x$ ***(A1)***\n\n**OR**\n\n$\\sum f = 20$ ***(A1)***\n\n**THEN**\n\n$x = 7$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Find the standard deviation.",
+          "markscheme": "**METHOD 1**\n\n$1.58429\\ldots$\n\n$1.58$ ***A2***\n\n**METHOD 2**\n\n**EITHER**\n\n$$\\sigma^2 = \\dfrac{5 \\times (2 - 4.3)^2 + 1 \\times (3 - 4.3)^2 + 4 \\times (4 - 4.3)^2 + 3 \\times (5 - 4.3)^2 + 7 \\times (6 - 4.3)^2}{20} \\ (= 2.51)$$ ***(A1)***\n\n**OR**\n\n$$\\sigma^2 = \\dfrac{5 \\times 2^2 + 1 \\times 3^2 + 4 \\times 4^2 + 3 \\times 5^2 + 7 \\times 6^2}{20} - 4.3^2 \\ (= 2.51)$$ ***(A1)***\n\n**THEN**\n\n$\\sigma = \\sqrt{2.51} = 1.58429\\ldots$\n\n$= 1.58$ ***A1***"
+        }
+      ]
+    },
+    {
+      "id": "2022-may-p2-tz1-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "A company is designing a new logo. The logo is created by removing two equal segments from a rectangle, as shown in the following diagram.\n\n**diagram not to scale**\n\n![The logo: a rectangle with a curved segment removed from each of the two longer sides.](content/papers/img/2022-may-p2-tz1-q3-logo.png)\n\nThe rectangle measures $5\\text{ cm}$ by $4\\text{ cm}$. The points A and B lie on a circle, with centre O and radius $2\\text{ cm}$, such that $\\text{A}\\hat{\\text{O}}\\text{B} = \\theta$, where $0 < \\theta < \\pi$. This information is shown in the following diagram.\n\n**diagram not to scale**\n\n![Rectangle 4 wide and 5 high. On the left side, O lies outside the rectangle; OA = 2, angle AOB = θ, and the shaded segment between chord AB and the arc lies inside the rectangle. An equal shaded segment is on the right side.](content/papers/img/2022-may-p2-tz1-q3-diagram.png)",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "Find the area of one of the shaded segments in terms of $\\theta$.",
+          "markscheme": "valid approach to find area of segment by finding area of sector $-$ area of triangle ***(M1)***\n\n$\\dfrac{1}{2}r^2\\theta - \\dfrac{1}{2}r^2\\sin\\theta$\n\n$\\dfrac{1}{2}(2)^2\\theta - \\dfrac{1}{2}(2)^2\\sin\\theta$ ***(A1)***\n\narea $= 2\\theta - 2\\sin\\theta$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Given that the area of the logo is $13.4\\text{ cm}^2$, find the value of $\\theta$.",
+          "markscheme": "**EITHER**\n\narea of logo $=$ area of rectangle $-$ area of segments ***(M1)***\n\n$5 \\times 4 - 2 \\times (2\\theta - 2\\sin\\theta) = 13.4$ ***(A1)***\n\n**OR**\n\narea of one segment $= \\dfrac{20 - 13.4}{2} \\ (= 3.3)$ ***(M1)***\n\n$2\\theta - 2\\sin\\theta = 3.3$ ***(A1)***\n\n**THEN**\n\n$\\theta = 2.35672\\ldots$\n\n$\\theta = 2.36$ (do not accept an answer in degrees) ***A1***\n\n> **Note:** Award ***(M1)(A1)A0*** if there is more than one solution.  \n> Award ***(M1)(A1FT)A0*** if the candidate works in degrees and obtains a final answer of $135.030\\ldots$"
+        }
+      ]
+    },
+    {
+      "id": "2022-may-p2-tz1-q7",
+      "question": "7",
+      "section": "B",
+      "marks": 13,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": "differentiation",
+      "status": "ok",
+      "stem": "**All lengths in this question are in centimetres.**\n\nA solid metal ornament is in the shape of a right pyramid, with vertex V and square base ABCD. The centre of the base is X. Point V has coordinates $(1,\\ 5,\\ 0)$ and point A has coordinates $(-1,\\ 1,\\ 6)$.\n\n**diagram not to scale**\n\n![Right pyramid with vertex V above the centre X of the square base ABCD.](content/papers/img/2022-may-p2-tz1-q7.png)",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Find $\\text{AV}$.",
+          "markscheme": "attempt to use the distance formula to find $\\text{AV}$ ***(M1)***\n\n$\\sqrt{(1 - (-1))^2 + (5 - 1)^2 + (0 - 6)^2}$\n\n$= 7.48331\\ldots$\n\n$= 7.48$ (cm) $\\left(= \\sqrt{56} \\text{ or } 2\\sqrt{14}\\right)$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Given that $\\text{A}\\hat{\\text{V}}\\text{B} = 40^\\circ$, find $\\text{AB}$.",
+          "markscheme": "**METHOD 1**\n\nattempt to apply cosine rule OR sine rule to find $\\text{AB}$ ***(M1)***\n\n$(\\text{AB} =)\\ \\sqrt{7.48\\ldots^2 + 7.48\\ldots^2 - 2 \\times 7.48\\ldots \\times 7.48\\ldots \\cos(40^\\circ)}$ OR $\\dfrac{\\text{AB}}{\\sin 40^\\circ} = \\dfrac{\\sqrt{56}}{\\sin 70^\\circ}$ ***(A1)***\n\n$= 5.11888\\ldots$\n\n$= 5.12$ (cm) ***A1***\n\n**METHOD 2**\n\nLet M be the midpoint of $[\\text{AB}]$\n\nattempt to apply right-angled trigonometry on triangle AVM ***(M1)***\n\n$= 2 \\times 7.48\\ldots \\times \\sin(20^\\circ)$ ***(A1)***\n\n$= 5.11888\\ldots$\n\n$= 5.12$ (cm) ***A1***"
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "intro": "The volume of the pyramid is $57.2\\text{ cm}^3$, correct to three significant figures.",
+          "text": "Find the height of the pyramid, $\\text{VX}$.",
+          "markscheme": "**METHOD 1**\n\nequating volume of pyramid formula to $57.2$ ***(M1)***\n\n$\\dfrac{1}{3} \\times 5.11\\ldots^2 \\times h = 57.2$ ***(A1)***\n\n$h = 6.54886\\ldots$\n\n$h = 6.55$ (cm) ***A1***\n\n**METHOD 2**\n\nLet M be the midpoint of $[\\text{AB}]$\n\n$\\text{AV}^2 = \\text{AM}^2 + \\text{MX}^2 + \\text{XV}^2$ ***(M1)***\n\n$$\\Rightarrow \\text{XV} = \\sqrt{7.48\\ldots^2 - \\left(\\dfrac{5.11\\ldots}{2}\\right)^2 - \\left(\\dfrac{5.11\\ldots}{2}\\right)^2}$$ ***(A1)***\n\n$h = 6.54886\\ldots$\n\n$h = 6.55$ (cm) ***A1***"
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "intro": "A second ornament is in the shape of a cuboid with a rectangular base of length $2x\\text{ cm}$, width $x\\text{ cm}$ and height $y\\text{ cm}$. The cuboid has the same volume as the pyramid.",
+          "text": "The cuboid has a minimum surface area of $S\\text{ cm}^2$. Find the value of $S$.",
+          "markscheme": "$V = x \\times 2x \\times y = 57.2$ ***(A1)***\n\n$S = 2\\left(2x^2 + xy + 2xy\\right)$ ***A1***\n\n> **Note:** Condone use of $A$.\n\nattempt to substitute $y = \\dfrac{57.2}{2x^2}$ into their expression for surface area ***(M1)***\n\n$(S(x) =)\\ 4x^2 + 6x\\left(\\dfrac{57.2}{2x^2}\\right)$\n\n**EITHER**\n\nattempt to find minimum turning point on graph of area function ***(M1)***\n\n**OR**\n\n$\\dfrac{\\mathrm{d}S}{\\mathrm{d}x} = 8x - 171.6x^{-2} = 0$ OR $x = 2.77849\\ldots$ ***(M1)***\n\n**THEN**\n\n$92.6401\\ldots$\n\nminimum surface area $= 92.6$ (cm$^2$) ***A1***"
+        }
+      ]
+    },
+    {
+      "id": "2022-may-p2-tz1-q8",
+      "question": "8",
+      "section": "B",
+      "marks": 16,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The function $f$ is defined by $f(x) = \\dfrac{4x + 1}{x + 4}$, where $x \\in \\mathbb{R}$, $x \\neq -4$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "For the graph of $f$\n\n(i) write down the equation of the vertical asymptote;\n\n(ii) find the equation of the horizontal asymptote.",
+          "markscheme": "(i) $x = -4$ ***A1***\n\n(ii) attempt to substitute into $y = \\dfrac{a}{c}$ OR table with large values of $x$ OR sketch of $f$ showing asymptotic behaviour ***(M1)***\n\n$y = 4$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 8,
+          "text": "(i) Find $f^{-1}(x)$.\n\n(ii) Using an algebraic approach, show that the graph of $f^{-1}$ is obtained by a reflection of the graph of $f$ in the $y$-axis followed by a reflection in the $x$-axis.",
+          "markscheme": "(i) $y = \\dfrac{4x + 1}{x + 4}$\n\nattempt to interchange $x$ and $y$ (seen anywhere) ***M1***\n\n$xy + 4y = 4x + 1$ OR $xy + 4x = 4y + 1$ ***(A1)***\n\n$xy - 4x = 1 - 4y$ OR $xy - 4y = 1 - 4x$ ***(A1)***\n\n$f^{-1}(x) = \\dfrac{1 - 4x}{x - 4}$ $\\left(\\text{accept } y = \\dfrac{1 - 4x}{x - 4}\\right)$ ***A1***\n\n(ii) reflection in $y$-axis given by $f(-x)$ ***(M1)***\n\n$f(-x) = \\dfrac{-4x + 1}{-x + 4}$ ***(A1)***\n\nreflection of their $f(-x)$ in $x$-axis given by $-f(-x)$ accept “now $-f(x)$” ***M1***\n\n$\\left(-f(-x) =\\right)\\ -\\dfrac{-4x + 1}{-x + 4}$\n\n$= \\dfrac{-4x + 1}{x - 4}$ OR $\\dfrac{4x - 1}{-x + 4}$ ***A1***\n\n$= \\dfrac{1 - 4x}{x - 4} \\ \\left(= f^{-1}(x)\\right)$ ***AG***\n\n> **Note:** If the candidate attempts to show the result using a particular coordinate on the graph of $f$ rather than a general coordinate on the graph of $f$, where appropriate, award marks as follows:  \n> ***M0A0*** for eg $(2,\\ 3) \\to (-2,\\ 3)$  \n> ***M0A0*** for $(-2,\\ 3) \\to (-2,\\ -3)$"
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "intro": "The graphs of $f$ and $f^{-1}$ intersect at $x = p$ and $x = q$, where $p < q$.",
+          "text": "(i) Find the value of $p$ and the value of $q$.\n\n(ii) Hence, find the area enclosed by the graph of $f$ and the graph of $f^{-1}$.",
+          "markscheme": "(i) attempt to solve $f(x) = f^{-1}(x)$ using graph or algebraically ***(M1)***\n\n$p = -1$ AND $q = 1$ ***A1***\n\n> **Note:** Award ***(M1)A0*** if only one correct value seen.\n\n(ii) attempt to set up an integral to find area between $f$ and $f^{-1}$ ***(M1)***\n\n$$\\int_{-1}^{1} \\left(\\dfrac{4x + 1}{x + 4} - \\dfrac{1 - 4x}{x - 4}\\right) \\mathrm{d}x$$ ***(A1)***\n\n$= 0.675231\\ldots$\n\n$= 0.675$ ***A1***"
+        }
+      ]
+    }
+  ]
+}

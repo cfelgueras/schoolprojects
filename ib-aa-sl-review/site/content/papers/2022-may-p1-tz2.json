@@ -1,0 +1,65 @@
+{
+  "paper": { "year": 2022, "session": "May", "timezone": "TZ2", "paper": 1, "level": "SL" },
+  "questions": [
+    {
+      "id": "2022-may-p1-tz2-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "no-markscheme",
+      "stem": "The following table shows values of $f(x)$ and $g(x)$ for different values of $x$.\n\nBoth $f$ and $g$ are one-to-one functions.\n\n| $x$ | $-2$ | $0$ | $3$ | $4$ |\n|:---:|:---:|:---:|:---:|:---:|\n| $f(x)$ | $8$ | $4$ | $0$ | $-3$ |\n| $g(x)$ | $-5$ | $-2$ | $4$ | $0$ |",
+      "parts": [
+        { "label": "a", "marks": 1, "text": "Find $g(0)$." },
+        { "label": "b", "marks": 2, "text": "Find $(f \\circ g)(0)$." },
+        { "label": "c", "marks": 2, "text": "Find the value of $x$ such that $f(x) = 0$." }
+      ]
+    },
+    {
+      "id": "2022-may-p1-tz2-q4",
+      "question": "4",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "no-markscheme",
+      "stem": "A function $f$ is defined by $f(x) = \\dfrac{2x - 1}{x + 1}$, where $x \\in \\mathbb{R}$, $x \\neq -1$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "The graph of $y = f(x)$ has a vertical asymptote and a horizontal asymptote.\n\nWrite down the equation of\n\n(i) the vertical asymptote;\n\n(ii) the horizontal asymptote." },
+        { "label": "b", "marks": 3, "text": "On the set of axes below, sketch the graph of $y = f(x)$.\n\nOn your sketch, clearly indicate the asymptotes and the position of any points of intersection with the axes.\n\n![Empty grid with x and y from −6 to 6.](content/papers/img/2022-may-p1-tz2-q4-grid.png)" },
+        { "label": "c", "marks": 1, "text": "Hence, solve the inequality $0 < \\dfrac{2x - 1}{x + 1} < 2$." }
+      ]
+    },
+    {
+      "id": "2022-may-p1-tz2-q5",
+      "question": "5",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "no-markscheme",
+      "stem": "",
+      "parts": [
+        { "label": "", "marks": 5, "text": "Find the least positive value of $x$ for which $\\cos\\left(\\dfrac{x}{2} + \\dfrac{\\pi}{3}\\right) = \\dfrac{1}{\\sqrt{2}}$." }
+      ]
+    },
+    {
+      "id": "2022-may-p1-tz2-q7",
+      "question": "7",
+      "section": "B",
+      "marks": 15,
+      "primaryTopic": "quadratics",
+      "secondaryTopic": "differentiation",
+      "status": "no-markscheme",
+      "stem": "The following diagram shows part of the graph of a quadratic function $f$.\n\nThe graph of $f$ has its vertex at $(3,\\ 4)$, and it passes through point Q as shown.\n\n![Upward parabola f with vertex (3, 4) above the x-axis and a point Q on the right branch.](content/papers/img/2022-may-p1-tz2-q7.png)",
+      "parts": [
+        { "label": "a", "marks": 1, "text": "Write down the equation of the axis of symmetry." },
+        { "label": "b", "marks": 4, "text": "The function can be written in the form $f(x) = a(x - h)^2 + k$.\n\n(i) Write down the values of $h$ and $k$.\n\n(ii) Point Q has coordinates $(5,\\ 12)$. Find the value of $a$." },
+        { "label": "c", "marks": 4, "intro": "The line $L$ is tangent to the graph of $f$ at Q.", "text": "Find the equation of $L$." },
+        { "label": "d", "marks": 3, "intro": "Now consider another function $y = g(x)$. The derivative of $g$ is given by $g'(x) = f(x) - d$, where $d \\in \\mathbb{R}$.", "text": "Find the values of $d$ for which $g$ is an increasing function." },
+        { "label": "e", "marks": 3, "text": "Find the values of $x$ for which the graph of $g$ is concave-up." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "paper": { "year": 2021, "session": "November", "timezone": null, "paper": 1, "level": "SL" },
+  "questions": [
+    {
+      "id": "2021-nov-p1-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "quadratics",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "Consider the function $f(x) = -2(x - 1)(x + 3)$, for $x \\in \\mathbb{R}$. The following diagram shows part of the graph of $f$.\n\n![A downward parabola crossing the x-axis on both sides of the y-axis, with its vertex to the left of the y-axis.](content/papers/img/2021-nov-p1-q1.png)",
+      "parts": [
+        { "label": "a", "marks": 5, "text": "For the graph of $f$\n\n(i) find the $x$-coordinates of the $x$-intercepts;\n\n(ii) find the coordinates of the vertex.", "markscheme": "(i) setting $f(x) = 0$ ***(M1)***\n\n$x = 1$, $x = -3$ (accept $(1,\\ 0)$, $(-3,\\ 0)$) ***A1***\n\n(ii) **METHOD 1**\n\n$x = -1$ ***A1***\n\nsubstituting their $x$-coordinate into $f$ ***(M1)***\n\n$y = 8$ ***A1***\n\n$(-1,\\ 8)$\n\n**METHOD 2**\n\nattempt to complete the square ***(M1)***\n\n$-2\\left((x + 1)^2 - 4\\right)$\n\n$x = -1$, $y = 8$ ***A1A1***\n\n$(-1,\\ 8)$" },
+        { "label": "b", "marks": 2, "intro": "The function $f$ can be written in the form $f(x) = -2(x - h)^2 + k$.", "text": "Write down the value of $h$ and the value of $k$.", "markscheme": "$h = -1$ ***A1***\n\n$k = 8$ ***A1***" }
+      ]
+    },
+    {
+      "id": "2021-nov-p1-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The function $f$ is defined by $f(x) = \\dfrac{2x + 4}{3 - x}$, where $x \\in \\mathbb{R}$, $x \\neq 3$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Write down the equation of\n\n(i) the vertical asymptote of the graph of $f$;\n\n(ii) the horizontal asymptote of the graph of $f$.", "markscheme": "(i) $x = 3$ ***A1***\n\n(ii) $y = -2$ ***A1***" },
+        { "label": "b", "marks": 2, "text": "Find the coordinates where the graph of $f$ crosses\n\n(i) the $x$-axis;\n\n(ii) the $y$-axis.", "markscheme": "(i) $(-2,\\ 0)$ (accept $x = -2$) ***A1***\n\n(ii) $\\left(0,\\ \\dfrac{4}{3}\\right)$ (accept $y = \\dfrac{4}{3}$ and $f(0) = \\dfrac{4}{3}$) ***A1***" },
+        { "label": "c", "marks": 1, "text": "Sketch the graph of $f$ on the axes below.\n\n![Empty axes with x and y from −15 to 15.](content/papers/img/2021-nov-p1-q3-axes.png)", "markscheme": "![Graph of f: two branches with vertical asymptote x = 3 and horizontal asymptote y = −2.](content/papers/img/2021-nov-p1-q3c-ms.png)\n\n***A1***\n\n> **Note:** Award ***A1*** for completely correct shape: two branches in correct quadrants with asymptotic behaviour." }
+      ]
+    },
+    {
+      "id": "2021-nov-p1-q6",
+      "question": "6",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": "quadratics",
+      "status": "ok",
+      "stem": "",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Show that $2x - 3 - \\dfrac{6}{x - 1} = \\dfrac{2x^2 - 5x - 3}{x - 1}$, $x \\in \\mathbb{R}$, $x \\neq 1$.", "markscheme": "**METHOD 1**\n\nattempt to write all LHS terms with a common denominator of $x - 1$ ***(M1)***\n\n$2x - 3 - \\dfrac{6}{x - 1} = \\dfrac{2x(x - 1) - 3(x - 1) - 6}{x - 1}$ OR $\\dfrac{(2x - 3)(x - 1)}{x - 1} - \\dfrac{6}{x - 1}$\n\n$= \\dfrac{2x^2 - 2x - 3x + 3 - 6}{x - 1}$ OR $\\dfrac{2x^2 - 5x + 3}{x - 1} - \\dfrac{6}{x - 1}$ ***A1***\n\n$= \\dfrac{2x^2 - 5x - 3}{x - 1}$ ***AG***\n\n**METHOD 2**\n\nattempt to use algebraic division on RHS ***(M1)***\n\ncorrectly obtains quotient of $2x - 3$ and remainder $-6$ ***A1***\n\n$= 2x - 3 - \\dfrac{6}{x - 1}$ as required. ***AG***" },
+        { "label": "b", "marks": 5, "text": "Hence or otherwise, solve the equation $2\\sin 2\\theta - 3 - \\dfrac{6}{\\sin 2\\theta - 1} = 0$ for $0 \\leq \\theta \\leq \\pi$, $\\theta \\neq \\dfrac{\\pi}{4}$.", "markscheme": "consider the equation $\\dfrac{2\\sin^2 2\\theta - 5\\sin 2\\theta - 3}{\\sin 2\\theta - 1} = 0$ ***(M1)***\n\n$\\Rightarrow 2\\sin^2 2\\theta - 5\\sin 2\\theta - 3 = 0$\n\n**EITHER**\n\nattempt to factorise in the form $(2\\sin 2\\theta + a)(\\sin 2\\theta + b)$ ***(M1)***\n\n> **Note:** Accept any variable in place of $\\sin 2\\theta$.\n\n$(2\\sin 2\\theta + 1)(\\sin 2\\theta - 3) = 0$\n\n**OR**\n\nattempt to substitute into quadratic formula ***(M1)***\n\n$\\sin 2\\theta = \\dfrac{5 \\pm \\sqrt{49}}{4}$\n\n**THEN**\n\n$\\sin 2\\theta = -\\dfrac{1}{2}$ or $\\sin 2\\theta = 3$ ***(A1)***\n\n> **Note:** Award ***A1*** for $\\sin 2\\theta = -\\dfrac{1}{2}$ only.\n\none of $\\dfrac{7\\pi}{6}$ OR $\\dfrac{11\\pi}{6}$ (accept $210$ or $330$) ***(A1)***\n\n$\\theta = \\dfrac{7\\pi}{12},\\ \\dfrac{11\\pi}{12}$ (must be in radians) ***A1***\n\n> **Note:** Award ***A0*** if additional answers given." }
+      ]
+    },
+    {
+      "id": "2021-nov-p1-q9",
+      "question": "9",
+      "section": "B",
+      "marks": 14,
+      "primaryTopic": "differentiation",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "Consider a function $f$ with domain $a < x < b$. The following diagram shows the graph of $f'$, the derivative of $f$.\n\n![Graph of f′ for a < x < b: it crosses the x-axis at p, has a local maximum at q, passes through the origin, has a local minimum at r and touches the x-axis at a local maximum at t.](content/papers/img/2021-nov-p1-q9.png)\n\nThe graph of $f'$, the derivative of $f$, has $x$-intercepts at $x = p$, $x = 0$ and $x = t$. There are local maximum points at $x = q$ and $x = t$ and a local minimum point at $x = r$.",
+      "parts": [
+        { "label": "a", "marks": 2, "text": "Find all the values of $x$ where the graph of $f$ is increasing. Justify your answer.", "markscheme": "> **Special note:** In this question if candidates use the word ‘gradient’ in their reasoning. e.g. gradient is positive, it must be clear whether this is the gradient of $f$ or the gradient of $f'$ to earn the ***R*** mark.\n\n$f$ increases when $p < x < 0$ ***A1***\n\n$f$ increases when $f'(x) > 0$ OR $f'$ is above the $x$-axis ***R1***\n\n> **Note:** Do not award ***A0R1***." },
+        { "label": "b", "marks": 1, "text": "Find the value of $x$ where the graph of $f$ has a local maximum.", "markscheme": "$x = 0$ ***A1***" },
+        { "label": "c", "marks": 5, "text": "(i) Find the value of $x$ where the graph of $f$ has a local minimum. Justify your answer.\n\n(ii) Find the values of $x$ where the graph of $f$ has points of inflexion. Justify your answer.", "markscheme": "(i) $f$ is minimum when $x = p$ ***A1***\n\nbecause $f'(p) = 0$, $f'(x) < 0$ when $x < p$ and $f'(x) > 0$ when $x > p$ (may be seen in a sign diagram clearly labelled as $f'$)\n\nOR because $f'$ changes from negative to positive at $x = p$\n\nOR $f'(p) = 0$ and slope of $f'$ is positive at $x = p$ ***R1***\n\n> **Note:** Do not award ***A0 R1***.\n\n(ii) $f$ has points of inflexion when $x = q$, $x = r$ and $x = t$ ***A2***\n\n$f'$ has turning points at $x = q$, $x = r$ and $x = t$\n\nOR\n\n$f''(q) = 0$, $f''(r) = 0$ and $f''(t) = 0$ and $f'$ changes from increasing to decreasing or vice versa at each of these $x$-values (may be seen in a sign diagram clearly labelled as $f''$ and $f'$) ***R1***\n\n> **Note:** Award ***A0*** if any incorrect answers are given. Do not award ***A0R1***." },
+        { "label": "d", "marks": 6, "text": "The total area of the region enclosed by the graph of $f'$, the derivative of $f$, and the $x$-axis is $20$.\n\nGiven that $f(p) + f(t) = 4$, find the value of $f(0)$.", "markscheme": "recognizing area from $p$ to $t$ (seen anywhere) ***M1***\n\n$\\displaystyle\\int_p^t \\lvert f'(x)\\rvert\\,\\mathrm{d}x$\n\nrecognizing to negate integral for area below $x$-axis ***(M1)***\n\n$\\displaystyle\\int_p^0 f'(x)\\,\\mathrm{d}x - \\int_0^t f'(x)\\,\\mathrm{d}x$ OR $\\displaystyle\\int_p^0 f'(x)\\,\\mathrm{d}x + \\int_t^0 f'(x)\\,\\mathrm{d}x$\n\n$\\displaystyle\\int_m^n f'(x)\\,\\mathrm{d}x = f(n) - f(m)$ (for any integral) ***(M1)***\n\n$f(0) - f(p) - [f(t) - f(0)]$ OR $f(0) - f(p) + f(0) - f(t)$ ***(A1)***\n\n$2f(0) - [f(t) + f(p)] = 20$, $2f(0) - 4 = 20$ ***(A1)***\n\n$f(0) = 12$ ***A1***" }
+      ]
+    }
+  ]
+}

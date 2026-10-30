@@ -1,0 +1,172 @@
+{
+  "paper": {
+    "year": 2023,
+    "session": "May",
+    "timezone": "TZ2",
+    "paper": 1,
+    "level": "SL"
+  },
+  "questions": [
+    {
+      "id": "2023-may-p1-tz2-q1",
+      "question": "1",
+      "section": "A",
+      "marks": 6,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The following diagram shows a circle with centre O and radius $4\\text{ cm}$.\n\n**diagram not to scale**\n\n![Circle with centre O and radius 4. The shaded sector POR has angle θ at O; Q lies on the arc between P and R.](content/papers/img/2023-may-p1-tz2-q1.png)\n\nThe points P, Q and R lie on the circumference of the circle and $\\text{P}\\hat{\\text{O}}\\text{R} = \\theta$, where $\\theta$ is measured in radians.\n\nThe length of arc PQR is $10\\text{ cm}$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Find the perimeter of the shaded sector.",
+          "markscheme": "attempts to find perimeter ***(M1)***\n\narc $+ 2 \\times$ radius OR $10 + 4 + 4$\n\n$= 18$ (cm) ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Find $\\theta$.",
+          "markscheme": "$10 = 4\\theta$ ***(A1)***\n\n$\\theta = \\dfrac{10}{4} \\ \\left(= \\dfrac{5}{2},\\ 2.5\\right)$ ***A1***"
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "Find the area of the shaded sector.",
+          "markscheme": "area $= \\dfrac{1}{2}\\left(\\dfrac{10}{4}\\right)\\left(4^2\\right) \\ (= 1.25 \\times 16)$ ***(A1)***\n\n$= 20$ (cm$^2$) ***A1***"
+        }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz2-q3",
+      "question": "3",
+      "section": "A",
+      "marks": 5,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "A function $f$ is defined by $f(x) = 1 - \\dfrac{1}{x - 2}$, where $x \\in \\mathbb{R}$, $x \\neq 2$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "The graph of $y = f(x)$ has a vertical asymptote and a horizontal asymptote.\n\nWrite down the equation of\n\n(i) the vertical asymptote;\n\n(ii) the horizontal asymptote.",
+          "markscheme": "(i) $x = 2$ ***A1***\n\n(ii) $y = 1$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Find the coordinates of the point where the graph of $y = f(x)$ intersects\n\n(i) the $y$-axis;\n\n(ii) the $x$-axis.",
+          "markscheme": "(i) $\\left(0,\\ \\dfrac{3}{2}\\right)$ ***A1***\n\n(ii) $(3,\\ 0)$ ***A1***"
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "text": "On the following set of axes, sketch the graph of $y = f(x)$, showing all the features found in parts (a) and (b).\n\n![Empty grid with x and y axes from −5 to 5.](content/papers/img/2023-may-p1-tz2-q3-axes.png)",
+          "markscheme": "![Sketch of y = 1 − 1 divided by (x − 2): two branches, asymptotes x = 2 and y = 1, intercepts (0, 1.5) and (3, 0).](content/papers/img/2023-may-p1-tz2-q3c-ms.png)\n\ntwo correct branches with correct asymptotic behaviour and intercepts clearly shown ***A1***"
+        }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz2-q6",
+      "question": "6",
+      "section": "A",
+      "marks": 7,
+      "primaryTopic": "functions-transformations",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "The functions $f$ and $g$ are defined for $x \\in \\mathbb{R}$ by\n\n$$f(x) = ax + b, \\text{ where } a,\\ b \\in \\mathbb{Z}$$\n\n$$g(x) = x^2 + x + 3.$$",
+      "parts": [
+        {
+          "label": "",
+          "marks": 7,
+          "text": "Find the two possible functions $f$ such that $(g \\circ f)(x) = 4x^2 - 14x + 15$.",
+          "markscheme": "attempts to form $(g \\circ f)(x)$ ***(M1)***\n\n$[f(x)]^2 + f(x) + 3$ OR $(ax + b)^2 + ax + b + 3$\n\n$a^2x^2 + 2abx + b^2 + ax + b + 3 \\ \\left(= 4x^2 - 14x + 15\\right)$ ***(A1)***\n\nequates their corresponding terms to form at least one equation ***(M1)***\n\n$a^2x^2 = 4x^2$ OR $a^2 = 4$ OR $2abx + ax = -14x$ OR $2ab + a = -14$ OR $b^2 + b + 3 = 15$\n\n$a = \\pm 2$ (seen anywhere) ***A1***\n\nattempt to use $2ab + a = -14$ to pair the correct values (seen anywhere) ***(M1)***\n\n$f(x) = 2x - 4$ (accept $a = 2$ with $b = -4$), $f(x) = -2x + 3$ (accept $a = -2$ with $b = 3$) ***A1A1***"
+        }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz2-q7",
+      "question": "7",
+      "section": "B",
+      "marks": 17,
+      "primaryTopic": "quadratics",
+      "secondaryTopic": "differentiation",
+      "status": "ok",
+      "stem": "The following diagram shows part of the graph of a quadratic function $f$.\n\nThe vertex of the parabola is $(-2,\\ -5)$ and the $y$-intercept is at point P.\n\n![Upward parabola f with vertex (−2, −5), crossing the y-axis at P below the x-axis.](content/papers/img/2023-may-p1-tz2-q7a.png)",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "Write down the equation of the axis of symmetry.",
+          "markscheme": "$x = -2$ (must be an equation) ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "intro": "The function can be written in the form $f(x) = \\dfrac{1}{4}(x - h)^2 + k$, where $h,\\ k \\in \\mathbb{Z}$.",
+          "text": "Write down the values of $h$ and $k$.",
+          "markscheme": "$h = -2,\\ k = -5$ ***A1A1***"
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "Find the $y$-coordinate of P.",
+          "markscheme": "substituting $x = 0$ into $f(x)$ ***(M1)***\n\n$y = \\dfrac{1}{4}(0 + 2)^2 - 5$\n\n$y = -4$ (accept $\\text{P}(0,\\ -4)$) ***A1***"
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "intro": "In the following diagram, the line $L$ is normal to the graph of $f$ at point P.\n\n![The parabola f with the line L through P, normal to f at P; L meets f again at Q in the second quadrant.](content/papers/img/2023-may-p1-tz2-q7b.png)",
+          "text": "Find the equation of the line $L$, in the form $y = ax + b$.",
+          "markscheme": "$f'(x) = \\dfrac{1}{2}(x + 2) \\ \\left(= \\dfrac{1}{2}x + 1\\right)$ ***(A1)***\n\nsubstituting $x = 0$ into their derivative ***(M1)***\n\n$f'(0) = 1$\n\ngradient of normal is $-1$ (may be seen in their equation) ***A1***\n\n$y = -x - 4$ (accept $a = -1$, $b = -4$) ***A1***\n\n> **Note:** Award ***A0*** for $L = -x - 4$ (without the $y =$)."
+        },
+        {
+          "label": "e",
+          "marks": 8,
+          "intro": "The line $L$ intersects the graph of $f$ at a second point, Q, as shown above.",
+          "text": "Calculate the distance between P and Q.",
+          "markscheme": "equating their $f(x)$ to their $L$ ***(M1)***\n\n$\\dfrac{1}{4}(x + 2)^2 - 5 = -x - 4$\n\n$\\dfrac{1}{4}x^2 + 2x = 0$ (or equivalent) ***(A1)***\n\nvalid attempt to solve their quadratic ***(M1)***\n\n$\\dfrac{1}{4}x(x + 8) = 0$ OR $x(x + 8) = 0$\n\n$x = -8$ ***A1***\n\n> **Note:** Accept both solutions $x = -8$ and $x = 0$ here, $x = -8$ may be seen in working to find coordinates of Q or distance.\n\nsubstituting their value of $x$ (not $x = 0$) into their $f(x)$ or their $L$ ***(M1)***\n\n$y = -(-8) - 4$ or $y = \\dfrac{1}{4}(-8 + 2)^2 - 5$\n\n$\\text{Q}(-8,\\ 4)$ ***A1***\n\ncorrect substitution into distance formula ***(A1)***\n\n$\\sqrt{(-8 - 0)^2 + (4 - (-4))^2}$\n\ndistance $= \\sqrt{128} \\ \\left(= 8\\sqrt{2}\\right)$ ***A1***"
+        }
+      ]
+    },
+    {
+      "id": "2023-may-p1-tz2-q8",
+      "question": "8",
+      "section": "B",
+      "marks": 14,
+      "primaryTopic": "geometry-trigonometry",
+      "secondaryTopic": null,
+      "status": "ok",
+      "stem": "Consider an acute angle $\\theta$ such that $\\cos\\theta = \\dfrac{2}{3}$.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "text": "Find the value of\n\n(i) $\\sin\\theta$;\n\n(ii) $\\sin 2\\theta$.",
+          "markscheme": "(i) attempt to use Pythagoras ***(M1)***\n\n$\\sin^2\\theta + \\left(\\dfrac{2}{3}\\right)^2 = 1$ OR $x^2 + 2^2 = 3^2$ OR right triangle with side $2$ and hypotenuse $3$\n\n$\\sin\\theta = \\dfrac{\\sqrt{5}}{3}$ ***A1***\n\n(ii) attempt to substitute into double-angle identity using their value of $\\sin\\theta$ ***(M1)***\n\n$\\sin 2\\theta = 2\\left(\\dfrac{\\sqrt{5}}{3}\\right)\\left(\\dfrac{2}{3}\\right)$\n\n$\\sin 2\\theta = \\dfrac{4\\sqrt{5}}{9}$ ***A1***"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "intro": "The following diagram shows triangle ABC, with $\\hat{\\text{B}} = \\theta$, $\\hat{\\text{A}} = 2\\theta$, $\\text{BC} = a$ and $\\text{AC} = b$.\n\n![Triangle ABC with angle θ at B, angle 2θ at A, side BC = a and side AC = b.](content/papers/img/2023-may-p1-tz2-q8a.png)",
+          "text": "Show that $b = \\dfrac{3a}{4}$.",
+          "markscheme": "**METHOD 1 (using values from part (a))**\n\n$\\dfrac{b}{\\sin\\theta} = \\dfrac{a}{\\sin 2\\theta}$\n\nattempt to use sine rule with their values from part (a) ***(M1)***\n\n$\\dfrac{b}{\\left(\\frac{\\sqrt{5}}{3}\\right)} = \\dfrac{a}{\\left(\\frac{4\\sqrt{5}}{9}\\right)}$ OR $\\dfrac{\\left(\\frac{\\sqrt{5}}{3}\\right)}{b} = \\dfrac{\\left(\\frac{4\\sqrt{5}}{9}\\right)}{a}$\n\ncorrect working that leads to ***AG*** ***A1***\n\n$\\dfrac{\\sqrt{5}}{3}a = \\dfrac{4\\sqrt{5}}{9}b$ OR $\\dfrac{3b}{\\sqrt{5}} = \\dfrac{9a}{4\\sqrt{5}}$ OR $\\dfrac{a}{3} = \\dfrac{4b}{9}$ (or equivalent)\n\n$b = \\dfrac{3a}{4}$ ***AG***\n\n**METHOD 2 (double-angle identity)**\n\n$\\dfrac{b}{\\sin\\theta} = \\dfrac{a}{\\sin 2\\theta}$\n\nusing double-angle identity ***(A1)***\n\n$\\dfrac{b}{\\sin\\theta} = \\dfrac{a}{2\\sin\\theta\\cos\\theta}$ OR $b = \\dfrac{a\\sin\\theta}{2\\sin\\theta\\cos\\theta}$ OR $b = \\dfrac{a}{2\\cos\\theta}$\n\ncorrect working (involving substituting $\\cos\\theta = \\dfrac{2}{3}$) that leads to ***AG*** ***A1***\n\n$b = \\dfrac{a\\sin\\theta}{2\\sin\\theta\\left(\\frac{2}{3}\\right)}$ OR $b = \\dfrac{a\\left(\\frac{\\sqrt{5}}{3}\\right)}{2\\left(\\frac{\\sqrt{5}}{3}\\right)\\left(\\frac{2}{3}\\right)}$ OR $b = \\dfrac{a}{2\\left(\\frac{2}{3}\\right)}$ (or equivalent)\n\n$b = \\dfrac{3a}{4}$ ***AG***"
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "intro": "$[\\text{BA}]$ is extended to form an isosceles triangle DAC, with $\\hat{\\text{D}} = \\theta$, as shown in the following diagram.\n\n![Line BAD with C above it: triangle ABC as before and triangle DAC with angle θ at D.](content/papers/img/2023-may-p1-tz2-q8b.png)",
+          "text": "Find the value of $\\sin \\text{C}\\hat{\\text{A}}\\text{D}$.",
+          "markscheme": "**METHOD 1 (using supplementary angles)**\n\nrecognizing $\\text{C}\\hat{\\text{A}}\\text{D}$ and $\\text{B}\\hat{\\text{A}}\\text{C}$ are supplementary ***(M1)***\n\nrecognizing supplementary angles have the same sine value ***(A1)***\n\n$\\sin \\text{C}\\hat{\\text{A}}\\text{D} = \\sin 2\\theta$\n\n$\\sin \\text{C}\\hat{\\text{A}}\\text{D} = \\dfrac{4\\sqrt{5}}{9}$ ***A1***\n\n**METHOD 2 (using sine rule)**\n\nrecognizing $\\text{CD} = a$ ***(M1)***\n\n$\\dfrac{a}{\\sin \\text{C}\\hat{\\text{A}}\\text{D}} = \\dfrac{b}{\\sin\\theta}$\n\ncorrect substitution of $\\sin\\theta = \\dfrac{\\sqrt{5}}{3}$ and $b = \\dfrac{3a}{4}$ into sine rule ***(A1)***\n\n$\\dfrac{a}{\\sin \\text{C}\\hat{\\text{A}}\\text{D}} = \\dfrac{\\left(\\frac{3a}{4}\\right)}{\\left(\\frac{\\sqrt{5}}{3}\\right)}$ OR $\\sin \\text{C}\\hat{\\text{A}}\\text{D} = \\dfrac{a\\left(\\frac{\\sqrt{5}}{3}\\right)}{\\left(\\frac{3a}{4}\\right)}$ (or equivalent)\n\n$\\sin \\text{C}\\hat{\\text{A}}\\text{D} = \\dfrac{4\\sqrt{5}}{9}$ ***A1***"
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "text": "Find the area of triangle DAC, in terms of $a$.",
+          "markscheme": "**METHOD 1 (using $\\text{C}\\hat{\\text{A}}\\text{D}$ in area formula)**\n\nrecognizing $\\text{D}\\hat{\\text{C}}\\text{A} = \\theta$ ***(A1)***\n\nrecognizing $\\text{AD} = b \\ \\left(= \\dfrac{3a}{4}\\right)$ ***(A1)***\n\ncorrect substitution into area formula (must substitute expressions for two sides and name/expression/value for $\\sin \\text{C}\\hat{\\text{A}}\\text{D}$) ***(M1)***\n\narea $= \\dfrac{1}{2}(b)(b)\\left(\\dfrac{4\\sqrt{5}}{9}\\right)$ OR area $= \\dfrac{1}{2}(b)(b)\\sin 2\\theta$ OR area $= \\dfrac{1}{2}(b)(b)\\sin \\text{C}\\hat{\\text{A}}\\text{D}$\n\ncorrect substitution in terms of $a$ ***(A1)***\n\narea $= \\dfrac{1}{2}\\left(\\dfrac{3a}{4}\\right)\\left(\\dfrac{3a}{4}\\right)\\left(\\dfrac{4\\sqrt{5}}{9}\\right)$\n\narea $= \\dfrac{\\sqrt{5}a^2}{8}$ ***A1***\n\n**METHOD 2 (using $\\text{A}\\hat{\\text{C}}\\text{D}$ or $\\text{A}\\hat{\\text{D}}\\text{C}$ in area formula)**\n\nrecognizing $\\text{CD} = a$ ***(A1)***\n\nrecognizing $\\text{AD} = b \\ \\left(= \\dfrac{3a}{4}\\right)$ and/or $\\text{D}\\hat{\\text{C}}\\text{A} = \\theta$ ***(A1)***\n\ncorrect substitution into area formula (must substitute expressions for two sides and name/expression/value for $\\sin \\text{A}\\hat{\\text{D}}\\text{C}$ or $\\sin \\text{A}\\hat{\\text{C}}\\text{D}$) ***(M1)***\n\narea $= \\dfrac{1}{2}(a)(b)\\left(\\dfrac{\\sqrt{5}}{3}\\right)$ OR area $= \\dfrac{1}{2}(a)(b)\\sin\\theta$ OR area $= \\dfrac{1}{2}(a)(b)\\sin \\text{A}\\hat{\\text{D}}\\text{C}$ OR area $= \\dfrac{1}{2}(a)(b)\\sin \\text{A}\\hat{\\text{C}}\\text{D}$\n\ncorrect substitution in terms of $a$ ***(A1)***\n\narea $= \\dfrac{1}{2}(a)\\left(\\dfrac{3a}{4}\\right)\\left(\\dfrac{\\sqrt{5}}{3}\\right)$\n\narea $= \\dfrac{\\sqrt{5}a^2}{8}$ ***A1***"
+        }
+      ]
+    }
+  ]
+}
