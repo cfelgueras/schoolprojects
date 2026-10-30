@@ -105,7 +105,14 @@
       return;
     }
     const md = (await fetchOptional(base + CALCS[chosen].file)) || ":::note Coming soon\nThe " + CALCS[chosen].label + " guide for this topic is being written.\n:::";
+    // Interactive trainer (Casio only) when content/gdc/<topic>.json exists.
+    const trainer = chosen === "casio" && (await fetchOptional("content/gdc/" + encodeURIComponent(id) + ".json")) !== null;
     panel.innerHTML =
+      (trainer
+        ? '<a class="gdc-promo" href="gdc.html#' + encodeURIComponent(id) + '"><span class="ic" aria-hidden="true">🧮</span>' +
+          "<div><b>Practise on the interactive calculator</b><span>Press the real keys step by step, with hints.</span></div>" +
+          '<span class="go">Start →</span></a>'
+        : "") +
       '<div class="calc-picker"><span class="lbl">Calculator:</span><div class="seg" role="group" aria-label="Calculator">' +
       Object.keys(CALCS).map((k) =>
         '<button type="button" data-calc="' + k + '" aria-pressed="' + (k === chosen) + '">' + CALCS[k].label + "</button>").join("") +
