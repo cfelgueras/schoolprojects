@@ -32,8 +32,7 @@
 /* ===== Calculator ===== */
 .calc { --body: #2b3442; --body-2: #1f2631; --key: #3b4555; --key-hi: #4a5568; --key-ink: #f3f5f8; --shift: #e3b061; --lcd: #c9d3bb; --lcd-ink: #1f2a1c;
   width: 100%; max-width: 340px; margin: 0 auto; background: linear-gradient(180deg, var(--body), var(--body-2)); border-radius: 26px 26px 36px 36px; padding: 14px 14px 20px; box-shadow: 0 2px 0 rgba(255, 255, 255, .06) inset, 0 18px 40px rgba(0, 25, 60, .25); user-select: none; -webkit-user-select: none; }
-.calc-brand { display: flex; justify-content: space-between; align-items: baseline; color: #d7dde6; padding: 0 6px 8px; font-size: 11px; letter-spacing: .08em; }
-.calc-brand b { font-size: 15px; letter-spacing: .18em; }
+.calc-brand { display: flex; justify-content: flex-end; align-items: baseline; color: #d7dde6; padding: 0 6px 8px; font-size: 11px; letter-spacing: .08em; }
 .calc-screen { background: #11161d; border-radius: 10px; padding: 9px; margin-bottom: 14px; }
 .calc-screen svg { display: block; width: 100%; height: auto; border-radius: 3px; }
 .calc-screen.shake { animation: gdc-shake .3s; }

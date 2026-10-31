@@ -218,8 +218,8 @@
 
   function calculatorHtml() {
     const row = (keys, cls) => '<div class="k-row">' + keys.map((k) => keyHtml(k, cls)).join("") + "</div>";
-    return '<div class="calc" aria-label="Casio fx-9860GII">' +
-      '<div class="calc-brand"><b>CASIO</b><span>fx-9860GII</span></div>' +
+    return '<div class="calc" aria-label="fx-9860GII calculator">' +
+      '<div class="calc-brand"><span>fx-9860GII</span></div>' +
       '<div class="calc-screen" id="screen"></div>' +
       '<div class="k-fn">' + row(FKEYS, "key-f") + "</div>" +
       '<div class="k-mid"><div class="k-ctrl">' + CTRL.map((r) => row(r)).join("") + "</div>" +
