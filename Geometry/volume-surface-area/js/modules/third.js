@@ -1,7 +1,7 @@
 // Module 3 · Why one third? Pour a pyramid or cone into the prism or cylinder with the same base and height;
 // lower a sphere into the cylinder that just holds it (Archimedes).
 import { createViewer, THREE } from "../viewer.js";
-import { initShell, onKey, createSteps, quiz, tex } from "../shell.js";
+import { initShell, onKey, createSteps, quiz, tex, texHTML } from "../shell.js";
 import { geo, glassMat, waterMat, solidMat, outlined } from "../solids.js";
 import { n, work, sliders, defaults, tabs, formulaBar, workingHTML, dimLine, COLORS, v3 } from "../kit.js";
 import * as F from "../formulas.js";
@@ -232,19 +232,47 @@ function frame() {
   }
 }
 
+// The formula first, then a prediction, then the animation that checks it
+const FORMULA = {
+  pyramid: ["V = \\colorbox{#fff1cc}{$\\tfrac{1}{3}$} \\times \\text{base area} \\times h", "pyramid", "prism"],
+  cone: ["V = \\colorbox{#fff1cc}{$\\tfrac{1}{3}$}\\pi r^2 h", "cone", "cylinder"],
+  sphere: ["V = \\tfrac{4}{3}\\pi r^3", "sphere", "cylinder"],
+};
+function formulaHTML(src) { return `<div class="formula on" style="font-size:1.35em;margin:10px 0">${texHTML(src)}</div>`; }
+// buttons to guess; the guess is remembered for the last step
+function predictHTML(options) {
+  return `<div class="row-gap" data-predict>${options.map((o) => `<button class="btn ghost" type="button" data-guess="${o}">${o}</button>`).join("")}</div><p class="fb" data-said></p>`;
+}
+function wirePredict(box) {
+  box.querySelectorAll("[data-guess]").forEach((b) => b.addEventListener("click", () => {
+    S.guess = b.dataset.guess;
+    box.querySelectorAll("[data-guess]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    box.querySelector("[data-said]").textContent = "You said " + S.guess + ". Press Next to check.";
+  }));
+  if (S.guess) { const b = box.querySelector(`[data-guess="${S.guess}"]`); if (b) b.click(); }
+}
+function guessLine(right) {
+  if (!S.guess) return "";
+  return S.guess === right ? `<p class="fb ok">You predicted ${S.guess}: correct!</p>` : `<p class="fb bad">You predicted ${S.guess}. The answer is ${right}.</p>`;
+}
+
 function makeSteps() {
   const set = (focus) => () => { S.focus = focus; renderMain(); };
   const run = () => { if (!S.playing) play(); };
+  const [src, solid, holder] = FORMULA[S.mode];
+  S.guess = null;
   const list = S.mode === "sphere" ? [
-    { title: "A sphere in a cylinder", html: "<p>The cylinder fits the sphere exactly: radius <b>r</b> and height <b>2r</b>. It is full of water.</p>", enter: () => { build(); set("sphere")(); } },
+    { title: "The formula", html: "<p>The volume of a sphere is</p>" + formulaHTML(src) + "<p>Where does it come from? Compare the sphere with the cylinder that fits it exactly: radius <b>r</b>, height <b>2r</b>.</p>", enter: () => { build(); set("sphere")(); } },
+    { title: "Predict", html: "<p>The cylinder is full of water. We lower the sphere in. What fraction of the water spills out?</p>" + predictHTML(["½", "⅔", "¾"]), enter: (box) => { set("sphere")(); wirePredict(box); } },
     { title: "Lower the sphere", html: "<p>The sphere pushes out water equal to its own volume. Watch how much spills.</p>", enter: () => { set("sphere")(); run(); } },
-    { title: "⅔ of the cylinder", html: "<p>Exactly <b>⅔</b> of the water spills, so the sphere is ⅔ of the cylinder:</p><p>⅔ × 2πr³ = <b>4/3 πr³</b>.</p>", enter: set("sphere") },
-    { title: "Hemisphere", html: "<p>A hemisphere is half a sphere: <b>V = 2/3 πr³</b>.</p>", enter: set("hemi") },
+    { title: "⅔ of the cylinder", html: () => guessLine("⅔") + "<p>Exactly <b>⅔</b> of the water spills, so the sphere is ⅔ of the cylinder:</p>" + formulaHTML("\\tfrac{2}{3} \\times \\pi r^2 \\times 2r = \\tfrac{4}{3}\\pi r^3"), enter: set("sphere") },
+    { title: "Hemisphere", html: "<p>A hemisphere is half a sphere:</p>" + formulaHTML("V = \\tfrac{2}{3}\\pi r^3"), enter: set("hemi") },
   ] : [
-    { title: "Same base, same height", html: `<p>The ${S.mode === "cone" ? "cone and the cylinder" : "pyramid and the prism"} have the <b>same base</b> and the <b>same height</b>.</p>`, enter: () => { build(); set(S.mode)(); } },
-    { title: "Fill and pour", html: `<p>Fill the ${S.mode} with water and pour it in. <span class='student-only'>Press <b>Pour once</b>.</span></p>`, enter: () => { set(S.mode)(); if (A.pours === 0 && !S.playing) pourOnce(); } },
-    { title: "How many?", html: "<p>Keep pouring. How many times until it is full?</p>", enter: () => { set(S.mode)(); run(); } },
-    { title: "One third", html: `<p>It takes <b>3</b>, so the ${S.mode} is <b>⅓</b> of the ${S.mode === "cone" ? "cylinder: V = ⅓πr²h" : "prism: V = ⅓ × base area × h"}.</p>`, enter: set(S.mode) },
+    { title: "The formula", html: `<p>The volume of a ${solid} is</p>` + formulaHTML(src) + `<p>Where does the <b>⅓</b> come from? Compare it with a ${holder} with the <b>same base</b> and the <b>same height</b>.</p>`, enter: () => { build(); set(S.mode)(); } },
+    { title: "Predict", html: `<p>How many ${solid}s full of water does it take to fill the ${holder}?</p>` + predictHTML(["2", "3", "4"]), enter: (box) => { set(S.mode)(); wirePredict(box); } },
+    { title: "Fill and pour", html: `<p>Fill the ${solid} with water and pour it in. <span class='student-only'>Press <b>Pour once</b>.</span></p>`, enter: () => { set(S.mode)(); if (A.pours === 0 && !S.playing) pourOnce(); } },
+    { title: "Keep pouring", html: "<p>Keep pouring until it is full.</p>", enter: () => { set(S.mode)(); run(); } },
+    { title: "One third", html: () => guessLine("3") + `<p>It takes <b>3</b>, so the ${solid} is <b>⅓</b> of the ${holder}:</p>` + formulaHTML(src), enter: set(S.mode) },
   ];
   createSteps($("steps"), list);
 }

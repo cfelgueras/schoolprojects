@@ -247,3 +247,4 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 30px; color: var(--m
 .lbl.h { background: #e3f0fb; border-color: #0072b2; color: #00456e; }
 .lbl.s { background: #fbe9df; border-color: #d55e00; color: #7a3300; }
 .lbl.red { background: #fde3e1; border-color: #d0342c; color: #8c1d17; }
+.btn.ghost[aria-pressed="true"] { background: var(--navy); color: var(--card); border-color: var(--navy); }

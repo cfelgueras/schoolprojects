@@ -86,7 +86,7 @@ export function texHTML(src) {
 }
 
 // ---------- Guided steps ----------
-// steps: [{ title, html, enter() }]. The arrow keys move between steps.
+// steps: [{ title, html (text or a function returning it), enter(textBox) }]. The arrow keys move between steps.
 export function createSteps(box, steps) {
   let i = 0;
   box.innerHTML =
@@ -99,7 +99,7 @@ export function createSteps(box, steps) {
     const s = steps[i];
     box.querySelector(".count").textContent = i + 1 + " / " + steps.length;
     box.querySelector(".step-title").textContent = s.title;
-    box.querySelector(".step-text").innerHTML = s.html || "";
+    box.querySelector(".step-text").innerHTML = (typeof s.html === "function" ? s.html() : s.html) || "";
     prevBtn.disabled = i === 0;
     nextBtn.disabled = i === steps.length - 1;
     if (s.enter) s.enter(box.querySelector(".step-text"));
