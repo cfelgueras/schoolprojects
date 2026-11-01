@@ -64,12 +64,12 @@ export function formulaBar(box, list, on) {
   });
 }
 
-// lines of working: [[label, tex], ...] or [tex, ...]
+// lines of working: [[label, tex, extra class], ...] or [tex, ...]
 export function workingHTML(lines) {
   return lines.map((l) => {
-    const [label, src] = Array.isArray(l) ? l : ["", l];
+    const [label, src, cls] = Array.isArray(l) ? l : ["", l];
     const el = document.createElement("div");
-    el.className = "work-line";
+    el.className = "work-line" + (cls ? " " + cls : "");
     if (label) el.innerHTML = `<span class="wl">${label}</span>`;
     const t = document.createElement("span");
     tex(t, src);
