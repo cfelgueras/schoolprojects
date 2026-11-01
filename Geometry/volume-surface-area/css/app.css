@@ -254,10 +254,11 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 30px; color: var(--m
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) { --f1: #24415f; --f2: #5a4524; --f3: #2d5378; --f4: #6a3553; --dim: #e3b878; }
 }
-.sheet { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); padding-bottom: 40px; }
+.sheet { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); padding-bottom: 40px; }
+@media (max-width: 700px) { .sheet { grid-template-columns: minmax(0, 1fr); } }
 .sheet-card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--navy); border-radius: 10px; padding: 16px 18px; break-inside: avoid; }
 .sheet-card h2 { margin: 0 0 6px; font-family: var(--serif); font-weight: 600; font-size: 1.25rem; }
-.solid-svg { display: block; width: 100%; max-width: 260px; margin: 4px auto 8px; color: var(--ink); overflow: visible; }
+.solid-svg { display: block; width: 100%; max-width: 200px; height: auto; margin: 4px auto 8px; color: var(--ink); overflow: visible; }
 .sv-l { font: italic 600 17px var(--serif); fill: var(--dim); }
 .sv-s { font: 700 12px var(--sans); fill: var(--muted); }
 .f-rows { display: flex; flex-direction: column; gap: 6px; }
@@ -265,7 +266,8 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 30px; color: var(--m
 .f-row .f-what { font-size: .84rem; font-weight: 800; color: var(--muted); }
 .f-row .katex { font-size: 1.08em; }
 .tip { margin: 10px 0 0; padding: 8px 10px; border-radius: 8px; background: var(--soft); font-size: .9rem; }
-body.mode-teacher .sheet { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+body.mode-teacher .sheet { gap: 20px; }
+body.mode-teacher .solid-svg { max-width: 240px; }
 
 @media print {
   @page { margin: 12mm; }
@@ -277,6 +279,6 @@ body.mode-teacher .sheet { grid-template-columns: repeat(auto-fill, minmax(380px
   .topbar { padding: 0 0 6px; }
   .sheet { grid-template-columns: 1fr 1fr; gap: 8px; }
   .sheet-card { padding: 8px 10px; border-top-width: 3px; }
-  .solid-svg { max-width: 170px; }
+  .solid-svg { max-width: 150px; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
