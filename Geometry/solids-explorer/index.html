@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Solids Explorer</title>
+  <meta name="description" content="Turn a 3D solid, change its dimensions and see its volume and surface area worked out.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300478e'/%3E%3Cpath d='M4 4L28 28M28 4L4 28' stroke='%23ddaf71' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+  <style>
+    :root {
+      --navy: #00478e;
+      --gold: #ddaf71;
+      --gold-ink: #9a6a2c;
+      --ink: #1b2430;
+      --muted: #5b6573;
+      --bg: #f6f4ef;
+      --card: #ffffff;
+      --line: #e3ded3;
+      --soft: #eef3fa;
+      --solid: #8fb4e3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --navy: #7fb2ec;
+        --gold-ink: #ddaf71;
+        --ink: #e9edf2;
+        --muted: #a3adba;
+        --bg: #11161d;
+        --card: #1a212b;
+        --line: #2b3542;
+        --soft: #222c39;
+        --solid: #4f80bd;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Nunito Sans", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+    .bar { height: 6px; background: linear-gradient(90deg, #00478e 0 70%, #ddaf71 70%); }
+    header { padding: 40px 0 20px; }
+    .eyebrow { margin: 0 0 6px; color: var(--muted); font-weight: 700; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+    .back { color: var(--navy); text-decoration: none; }
+    h1 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: clamp(1.9rem, 5vw, 2.5rem); line-height: 1.15; }
+    h1 em { color: var(--navy); font-weight: 400; }
+    .lead { margin: 10px 0 0; color: var(--muted); max-width: 60ch; }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+    .tabs button {
+      font: inherit; font-weight: 700; font-size: .92rem; cursor: pointer;
+      padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line);
+      background: var(--card); color: var(--ink);
+    }
+    .tabs button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--card); }
+    .tabs button:focus-visible, .stage canvas:focus-visible, input:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+    .layout { display: grid; gap: 16px; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); padding-bottom: 48px; }
+    @media (max-width: 820px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+    .panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+    .stage { padding: 0; overflow: hidden; position: relative; }
+    .stage canvas { display: block; width: 100%; height: clamp(300px, 52vw, 480px); cursor: grab; touch-action: none; }
+    .stage canvas:active { cursor: grabbing; }
+    .hint { position: absolute; left: 14px; bottom: 10px; margin: 0; color: var(--muted); font-size: .8rem; pointer-events: none; }
+
+    .side { display: flex; flex-direction: column; gap: 16px; }
+    h2 { margin: 0 0 12px; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.15rem; }
+    .dim { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 12px; margin-bottom: 12px; }
+    .dim label { font-weight: 700; font-size: .92rem; }
+    .dim output { font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; }
+    .dim input { grid-column: 1 / -1; width: 100%; accent-color: var(--navy); }
+    .result { padding: 12px 14px; border-radius: 10px; background: var(--soft); margin-top: 10px; overflow-x: auto; }
+    .result:first-of-type { margin-top: 0; }
+    .result h3 { margin: 0; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .result .katex-display { margin: 6px 0; text-align: left; }
+    .result .katex-display > .katex { text-align: left; }
+    .note { margin: 10px 0 0; color: var(--muted); font-size: .85rem; }
+    footer { border-top: 1px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <div class="bar" aria-hidden="true"></div>
+  <header class="wrap">
+    <p class="eyebrow"><a class="back" href="../">← Volume &amp; Surface Area</a></p>
+    <h1>Solids <em>Explorer</em></h1>
+    <p class="lead">Choose a solid, drag it to turn it and move the sliders. The volume and surface area update as you go.</p>
+  </header>
+
+  <main class="wrap">
+    <div class="tabs" id="tabs" role="group" aria-label="Solid"></div>
+    <div class="layout">
+      <div class="panel stage">
+        <canvas id="view" tabindex="0" aria-label="3D view of the solid. Use the arrow keys to turn it."></canvas>
+        <p class="hint">Drag (or use the arrow keys) to turn the solid.</p>
+      </div>
+      <div class="side">
+        <section class="panel">
+          <h2>Dimensions (cm)</h2>
+          <div id="dims"></div>
+        </section>
+        <section class="panel" aria-live="polite">
+          <div class="result"><h3>Volume</h3><div id="vol"></div></div>
+          <div class="result"><h3>Surface area</h3><div id="area"></div></div>
+          <p class="note">Answers rounded to 3 significant figures.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="wrap">Created by Camila Felgueras.</footer>
+
+  <script>
+  (function () {
+    "use strict";
+    var N = 48; // segments for round solids
+
+    // ---------- Number formatting ----------
+    function num(x) { return String(Math.round(x * 1000) / 1000); }
+    function sig3(x) {
+      if (x === 0) return "0";
+      var d = 2 - Math.floor(Math.log10(Math.abs(x)));
+      var r = Math.round(x * Math.pow(10, d)) / Math.pow(10, d);
+      return d > 0 ? r.toFixed(d) : String(r);
+    }
+    function isExact(x) { return Math.abs(x - Math.round(x * 1000) / 1000) < 1e-9 && String(Math.round(x * 1000) / 1000).length <= 6; }
+    function answer(x, unit) {
+      return (isExact(x) ? "= " + num(x) : "\\approx " + sig3(x)) + "\\ \\text{cm}^" + unit;
+    }
+
+    // ---------- Meshes (y is up, every solid is convex and contains the origin) ----------
+    function Mesh() { this.v = []; this.f = []; }
+    Mesh.prototype.add = function (x, y, z) { this.v.push([x, y, z]); return this.v.length - 1; };
+    Mesh.prototype.face = function (ids) { this.f.push(ids); };
+    Mesh.prototype.ring = function (r, y) {
+      var ids = [];
+      for (var i = 0; i < N; i++) { var a = 2 * Math.PI * i / N; ids.push(this.add(r * Math.cos(a), y, r * Math.sin(a))); }
+      return ids;
+    };
+    Mesh.prototype.band = function (lo, hi) {
+      for (var i = 0; i < N; i++) { var j = (i + 1) % N; this.face([lo[i], lo[j], hi[j], hi[i]]); }
+    };
+    Mesh.prototype.cap = function (ring, apex) {
+      for (var i = 0; i < N; i++) this.face([ring[i], ring[(i + 1) % N], apex]);
+    };
+
+    function box(l, w, h) {
+      var m = new Mesh(), x = l / 2, y = h / 2, z = w / 2, p = [];
+      [[-x, -y, -z], [x, -y, -z], [x, -y, z], [-x, -y, z], [-x, y, -z], [x, y, -z], [x, y, z], [-x, y, z]]
+        .forEach(function (q) { p.push(m.add(q[0], q[1], q[2])); });
+      [[0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 5, 4], [1, 2, 6, 5], [2, 3, 7, 6], [3, 0, 4, 7]]
+        .forEach(function (f) { m.face(f.map(function (i) { return p[i]; })); });
+      return m;
+    }
+    function cylinder(r, h) {
+      var m = new Mesh(), lo = m.ring(r, -h / 2), hi = m.ring(r, h / 2);
+      m.band(lo, hi); m.face(lo); m.face(hi);
+      return m;
+    }
+    function cone(r, h) {
+      var m = new Mesh(), lo = m.ring(r, -h / 2);
+      m.cap(lo, m.add(0, h / 2, 0)); m.face(lo);
+      return m;
+    }
+    function pyramid(b, h) {
+      var m = new Mesh(), s = b / 2, y = -h / 2;
+      var base = [m.add(-s, y, -s), m.add(s, y, -s), m.add(s, y, s), m.add(-s, y, s)], a = m.add(0, h / 2, 0);
+      for (var i = 0; i < 4; i++) m.face([base[i], base[(i + 1) % 4], a]);
+      m.face(base);
+      return m;
+    }
+    function sphere(r, half) {
+      // half: hemisphere with its flat base at y = -r/2
+      var m = new Mesh(), rows = 24, prev = null, y0 = half ? -r / 2 : 0, from = half ? 0 : 1 - rows / 2;
+      for (var j = from; j < rows / 2; j++) {
+        var phi = Math.PI * j / rows, ring = m.ring(r * Math.cos(phi), y0 + r * Math.sin(phi));
+        if (prev) m.band(prev, ring);
+        else if (half) m.face(ring);
+        else m.cap(ring, m.add(0, y0 - r, 0));
+        prev = ring;
+      }
+      m.cap(prev, m.add(0, y0 + r, 0));
+      return m;
+    }
+
+    // ---------- The solids: dimensions, mesh, labelled guide lines and formulas ----------
+    // guide: [from, to, label, dashed]
+    var SOLIDS = {
+      cuboid: {
+        name: "Cuboid",
+        dims: [["l", "Length l", 6], ["w", "Width w", 4], ["h", "Height h", 3]],
+        mesh: function (d) { return box(d.l, d.w, d.h); },
+        guides: function (d) {
+          var x = d.l / 2, y = d.h / 2, z = d.w / 2;
+          return [[[-x, -y, z], [x, -y, z], "l"], [[x, -y, z], [x, -y, -z], "w"], [[-x, -y, z], [-x, y, z], "h"]];
+        },
+        volume: function (d) {
+          return ["V = l \\times w \\times h", "V = " + num(d.l) + " \\times " + num(d.w) + " \\times " + num(d.h), answer(d.l * d.w * d.h, 3)];
+        },
+        area: function (d) {
+          return ["A = 2(lw + lh + wh)",
+            "A = 2(" + num(d.l) + " \\times " + num(d.w) + " + " + num(d.l) + " \\times " + num(d.h) + " + " + num(d.w) + " \\times " + num(d.h) + ")",
+            answer(2 * (d.l * d.w + d.l * d.h + d.w * d.h), 2)];
+        }
+      },
+      cylinder: {
+        name: "Cylinder",
+        dims: [["r", "Radius r", 3], ["h", "Height h", 6]],
+        mesh: function (d) { return cylinder(d.r, d.h); },
+        guides: function (d, yaw) {
+          return [[[0, d.h / 2, 0], [d.r * Math.cos(yaw), d.h / 2, d.r * Math.sin(yaw)], "r"], [[0, -d.h / 2, 0], [0, d.h / 2, 0], "h", true]];
+        },
+        volume: function (d) {
+          return ["V = \\pi r^2 h", "V = \\pi \\times " + num(d.r) + "^2 \\times " + num(d.h), answer(Math.PI * d.r * d.r * d.h, 3)];
+        },
+        area: function (d) {
+          return ["A = 2\\pi r^2 + 2\\pi r h",
+            "A = 2\\pi \\times " + num(d.r) + "^2 + 2\\pi \\times " + num(d.r) + " \\times " + num(d.h),
+            answer(2 * Math.PI * d.r * d.r + 2 * Math.PI * d.r * d.h, 2)];
+        }
+      },
+      cone: {
+        name: "Cone",
+        dims: [["r", "Radius r", 3], ["h", "Height h", 4]],
+        mesh: function (d) { return cone(d.r, d.h); },
+        guides: function (d, yaw) {
+          var c = Math.cos(yaw) * d.r, s = Math.sin(yaw) * d.r, y = -d.h / 2;
+          return [[[0, y, 0], [c, y, s], "r", true], [[0, y, 0], [0, -y, 0], "h", true], [[-c, y, -s], [0, -y, 0], "l"]];
+        },
+        volume: function (d) {
+          return ["V = \\tfrac{1}{3}\\pi r^2 h", "V = \\tfrac{1}{3}\\pi \\times " + num(d.r) + "^2 \\times " + num(d.h), answer(Math.PI * d.r * d.r * d.h / 3, 3)];
+        },
+        area: function (d) {
+          var l = Math.hypot(d.r, d.h);
+          return ["l = \\sqrt{r^2 + h^2} = \\sqrt{" + num(d.r) + "^2 + " + num(d.h) + "^2} " + (isExact(l) ? "= " + num(l) : "\\approx " + sig3(l)),
+            "A = \\pi r^2 + \\pi r l",
+            "A = \\pi \\times " + num(d.r) + "^2 + \\pi \\times " + num(d.r) + " \\times " + (isExact(l) ? num(l) : sig3(l) + "\\ldots"),
+            answer(Math.PI * d.r * d.r + Math.PI * d.r * l, 2)];
+        }
+      },
+      pyramid: {
+        name: "Square pyramid",
+        dims: [["b", "Base side b", 6], ["h", "Height h", 4]],
+        mesh: function (d) { return pyramid(d.b, d.h); },
+        guides: function (d, yaw) {
+          // s on the face nearest the viewer, b on the base edge of the next nearest face
+          var s = d.b / 2, y = -d.h / 2;
+          var mids = [[s, 0], [-s, 0], [0, s], [0, -s]].sort(function (p, q) {
+            return (q[1] * Math.cos(yaw) - q[0] * Math.sin(yaw)) - (p[1] * Math.cos(yaw) - p[0] * Math.sin(yaw));
+          });
+          var m = mids[0], e = mids[1];
+          var edge = e[0] ? [[e[0], y, -s], [e[0], y, s]] : [[-s, y, e[1]], [s, y, e[1]]];
+          return [[edge[0], edge[1], "b"], [[0, y, 0], [0, -y, 0], "h", true], [[m[0], y, m[1]], [0, -y, 0], "s"]];
+        },
+        volume: function (d) {
+          return ["V = \\tfrac{1}{3} b^2 h", "V = \\tfrac{1}{3} \\times " + num(d.b) + "^2 \\times " + num(d.h), answer(d.b * d.b * d.h / 3, 3)];
+        },
+        area: function (d) {
+          var s = Math.hypot(d.h, d.b / 2);
+          return ["s = \\sqrt{h^2 + \\left(\\tfrac{b}{2}\\right)^2} = \\sqrt{" + num(d.h) + "^2 + " + num(d.b / 2) + "^2} " + (isExact(s) ? "= " + num(s) : "\\approx " + sig3(s)),
+            "A = b^2 + 4 \\times \\tfrac{1}{2} b s",
+            "A = " + num(d.b) + "^2 + 2 \\times " + num(d.b) + " \\times " + (isExact(s) ? num(s) : sig3(s) + "\\ldots"),
+            answer(d.b * d.b + 2 * d.b * s, 2)];
+        }
+      },
+      sphere: {
+        name: "Sphere",
+        dims: [["r", "Radius r", 4]],
+        mesh: function (d) { return sphere(d.r, false); },
+        guides: function (d, yaw) { return [[[0, 0, 0], [d.r * Math.cos(yaw), 0, d.r * Math.sin(yaw)], "r", true]]; },
+        volume: function (d) {
+          return ["V = \\tfrac{4}{3}\\pi r^3", "V = \\tfrac{4}{3}\\pi \\times " + num(d.r) + "^3", answer(4 / 3 * Math.PI * Math.pow(d.r, 3), 3)];
+        },
+        area: function (d) {
+          return ["A = 4\\pi r^2", "A = 4\\pi \\times " + num(d.r) + "^2", answer(4 * Math.PI * d.r * d.r, 2)];
+        }
+      },
+      hemisphere: {
+        name: "Hemisphere",
+        dims: [["r", "Radius r", 4]],
+        mesh: function (d) { return sphere(d.r, true); },
+        guides: function (d, yaw) { return [[[0, -d.r / 2, 0], [d.r * Math.cos(yaw), -d.r / 2, d.r * Math.sin(yaw)], "r"]]; },
+        volume: function (d) {
+          return ["V = \\tfrac{2}{3}\\pi r^3", "V = \\tfrac{2}{3}\\pi \\times " + num(d.r) + "^3", answer(2 / 3 * Math.PI * Math.pow(d.r, 3), 3)];
+        },
+        area: function (d) {
+          return ["A = 2\\pi r^2 + \\pi r^2 = 3\\pi r^2", "A = 3\\pi \\times " + num(d.r) + "^2", answer(3 * Math.PI * d.r * d.r, 2)];
+        }
+      }
+    };
+
+    // ---------- State ----------
+    var S = { solid: "cuboid", d: {}, yaw: 0.6, pitch: 0.38 };
+    Object.keys(SOLIDS).forEach(function (k) {
+      S.d[k] = {};
+      SOLIDS[k].dims.forEach(function (x) { S.d[k][x[0]] = x[2]; });
+    });
+
+    var canvas = document.getElementById("view"), ctx = canvas.getContext("2d");
+    var mesh = null, faceNormals = [], edges = [];
+
+    function sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+    function dot(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
+
+    // Outward unit normal of every face (Newell's method), and every edge with the faces that share it
+    function prepare() {
+      var sol = SOLIDS[S.solid];
+      mesh = sol.mesh(S.d[S.solid]);
+      faceNormals = mesh.f.map(function (f) {
+        var n = [0, 0, 0], c = [0, 0, 0];
+        for (var i = 0; i < f.length; i++) {
+          var p = mesh.v[f[i]], q = mesh.v[f[(i + 1) % f.length]];
+          n[0] += (p[1] - q[1]) * (p[2] + q[2]);
+          n[1] += (p[2] - q[2]) * (p[0] + q[0]);
+          n[2] += (p[0] - q[0]) * (p[1] + q[1]);
+          c[0] += p[0]; c[1] += p[1]; c[2] += p[2];
+        }
+        var len = Math.hypot(n[0], n[1], n[2]) || 1;
+        n = [n[0] / len, n[1] / len, n[2] / len];
+        return dot(n, c) < 0 ? [-n[0], -n[1], -n[2]] : n;
+      });
+      var map = {};
+      edges = [];
+      mesh.f.forEach(function (f, fi) {
+        for (var i = 0; i < f.length; i++) {
+          var a = f[i], b = f[(i + 1) % f.length], key = Math.min(a, b) + "-" + Math.max(a, b);
+          if (!map[key]) { map[key] = { a: a, b: b, faces: [] }; edges.push(map[key]); }
+          map[key].faces.push(fi);
+        }
+      });
+    }
+
+    function rotate(p) {
+      var cy = Math.cos(S.yaw), sy = Math.sin(S.yaw), cp = Math.cos(S.pitch), sp = Math.sin(S.pitch);
+      var x = p[0] * cy + p[2] * sy, z = -p[0] * sy + p[2] * cy;
+      return [x, p[1] * cp - z * sp, p[1] * sp + z * cp];
+    }
+
+    function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+    function rgb(hex) { var n = parseInt(hex.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+
+    function draw() {
+      var dpr = window.devicePixelRatio || 1, W = canvas.clientWidth, H = canvas.clientHeight;
+      if (canvas.width !== Math.round(W * dpr) || canvas.height !== Math.round(H * dpr)) {
+        canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+
+      // Fixed scale, so a bigger slider value really looks bigger; shrink only if the solid would not fit
+      var reach = Math.max.apply(null, mesh.v.map(function (p) { return Math.hypot(p[0], p[1], p[2]); }));
+      var scale = Math.min(Math.min(W, H) * 0.42 / 5, Math.min(W, H) * 0.44 / reach), cx = W / 2, cy = H / 2 + 6;
+      function screen(p) { var r = rotate(p); return [cx + r[0] * scale, cy - r[1] * scale]; }
+      var pts = mesh.v.map(screen);
+      var light = [-0.35, 0.6, 0.72], base = rgb(css("--solid")), ink = css("--ink");
+      var front = faceNormals.map(function (n) { return rotate(n)[2] > 1e-6; });
+
+      // 1. Faces that point at the viewer (convex solid, so these never overlap)
+      mesh.f.forEach(function (f, i) {
+        if (!front[i]) return;
+        var k = 0.62 + 0.38 * Math.max(0, dot(rotate(faceNormals[i]), light));
+        var col = "rgb(" + base.map(function (c) { return Math.round(Math.min(255, c * k + 40 * (1 - k))); }).join(",") + ")";
+        ctx.beginPath();
+        f.forEach(function (vi, j) { var p = pts[vi]; if (j) ctx.lineTo(p[0], p[1]); else ctx.moveTo(p[0], p[1]); });
+        ctx.closePath();
+        ctx.fillStyle = col; ctx.strokeStyle = col; ctx.lineWidth = 0.8;
+        ctx.fill(); ctx.stroke();
+      });
+
+      // 2. Edges: sharp edges solid if seen, dashed if hidden; the outline of curved surfaces solid
+      var solid = [], dashed = [];
+      edges.forEach(function (e) {
+        var f1 = e.faces[0], f2 = e.faces[1] === undefined ? f1 : e.faces[1];
+        var sharp = dot(faceNormals[f1], faceNormals[f2]) < 0.9, seen = front[f1] || front[f2];
+        if (sharp) (seen ? solid : dashed).push(e);
+        else if (front[f1] !== front[f2]) solid.push(e);
+      });
+      function stroke(list, dash, width, alpha) {
+        ctx.save();
+        ctx.setLineDash(dash); ctx.lineWidth = width; ctx.strokeStyle = ink; ctx.globalAlpha = alpha; ctx.lineCap = "round";
+        ctx.beginPath();
+        list.forEach(function (e) { var a = pts[e.a], b = pts[e.b]; ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); });
+        ctx.stroke();
+        ctx.restore();
+      }
+      stroke(dashed, [5, 5], 1.3, 0.55);
+      stroke(solid, [], 1.8, 0.9);
+
+      // 3. Labelled dimensions
+      var gold = css("--gold-ink"), card = css("--card"), d = S.d[S.solid];
+      ctx.font = "800 15px 'Nunito Sans', system-ui, sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      SOLIDS[S.solid].guides(d, S.yaw).forEach(function (g) {
+        var a = screen(g[0]), b = screen(g[1]);
+        ctx.save();
+        ctx.strokeStyle = gold; ctx.fillStyle = gold; ctx.lineWidth = 2.6; ctx.lineCap = "round";
+        ctx.setLineDash(g[3] ? [6, 5] : []);
+        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+        ctx.setLineDash([]);
+        [a, b].forEach(function (p) { ctx.beginPath(); ctx.arc(p[0], p[1], 3.5, 0, 2 * Math.PI); ctx.fill(); });
+        // label beside the middle of the segment, on the side away from the centre of the picture
+        var t = d[g[2]] === undefined ? 0.3 : 0.5; // slant labels nearer the base, away from h
+        var mx = a[0] + (b[0] - a[0]) * t, my = a[1] + (b[1] - a[1]) * t, dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy) || 1;
+        var nx = -dy / len, ny = dx / len;
+        if ((mx - cx) * nx + (my - cy) * ny < 0) { nx = -nx; ny = -ny; }
+        // slant heights (l, s) are worked out, not set with a slider: show just the letter
+        var label = d[g[2]] === undefined ? g[2] : g[2] + " = " + num(d[g[2]]);
+        var tx = mx + nx * 18, ty = my + ny * 18, tw = ctx.measureText(label).width + 12;
+        ctx.fillStyle = card; ctx.globalAlpha = 0.92;
+        ctx.beginPath(); ctx.roundRect ? ctx.roundRect(tx - tw / 2, ty - 11, tw, 22, 6) : ctx.rect(tx - tw / 2, ty - 11, tw, 22); ctx.fill();
+        ctx.globalAlpha = 1; ctx.fillStyle = gold;
+        ctx.fillText(label, tx, ty + 1);
+        ctx.restore();
+      });
+    }
+
+    // ---------- Formulas ----------
+    function tex(el, lines) {
+      el.innerHTML = "";
+      lines.forEach(function (t) {
+        var div = document.createElement("div");
+        if (window.katex) katex.render(t, div, { displayMode: true, throwOnError: false });
+        else div.textContent = t;
+        el.appendChild(div);
+      });
+    }
+    function results() {
+      var sol = SOLIDS[S.solid], d = S.d[S.solid];
+      tex(document.getElementById("vol"), sol.volume(d));
+      tex(document.getElementById("area"), sol.area(d));
+    }
+
+    // ---------- Controls ----------
+    function renderTabs() {
+      var box = document.getElementById("tabs");
+      box.innerHTML = "";
+      Object.keys(SOLIDS).forEach(function (k) {
+        var b = document.createElement("button");
+        b.type = "button"; b.textContent = SOLIDS[k].name;
+        b.setAttribute("aria-pressed", String(k === S.solid));
+        b.addEventListener("click", function () { S.solid = k; renderTabs(); renderDims(); update(); });
+        box.appendChild(b);
+      });
+    }
+    function renderDims() {
+      var box = document.getElementById("dims"), d = S.d[S.solid];
+      box.innerHTML = "";
+      SOLIDS[S.solid].dims.forEach(function (x) {
+        var id = "dim-" + x[0], row = document.createElement("div");
+        row.className = "dim";
+        row.innerHTML = '<label for="' + id + '">' + x[1] + '</label><output for="' + id + '">' + num(d[x[0]]) + ' cm</output>' +
+          '<input type="range" id="' + id + '" min="1" max="10" step="0.5" value="' + d[x[0]] + '">';
+        row.querySelector("input").addEventListener("input", function (e) {
+          d[x[0]] = parseFloat(e.target.value);
+          row.querySelector("output").textContent = num(d[x[0]]) + " cm";
+          update();
+        });
+        box.appendChild(row);
+      });
+    }
+    function update() { prepare(); draw(); results(); }
+
+    // Turning the solid: drag with mouse / finger, or arrow keys
+    var drag = null;
+    canvas.addEventListener("pointerdown", function (e) { drag = [e.clientX, e.clientY]; canvas.setPointerCapture(e.pointerId); });
+    canvas.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      S.yaw += (e.clientX - drag[0]) * 0.01;
+      S.pitch = Math.max(-1.45, Math.min(1.45, S.pitch + (e.clientY - drag[1]) * 0.01));
+      drag = [e.clientX, e.clientY];
+      draw();
+    });
+    ["pointerup", "pointercancel"].forEach(function (t) { canvas.addEventListener(t, function () { drag = null; }); });
+    canvas.addEventListener("keydown", function (e) {
+      var step = 0.12, k = e.key;
+      if (k === "ArrowLeft") S.yaw -= step;
+      else if (k === "ArrowRight") S.yaw += step;
+      else if (k === "ArrowUp") S.pitch = Math.max(-1.45, S.pitch - step);
+      else if (k === "ArrowDown") S.pitch = Math.min(1.45, S.pitch + step);
+      else return;
+      e.preventDefault(); draw();
+    });
+    new ResizeObserver(draw).observe(canvas);
+    if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+
+    renderTabs(); renderDims(); prepare(); draw();
+    // KaTeX loads with defer, after this script: show the formulas once it is ready
+    window.addEventListener("DOMContentLoaded", function () { results(); if (document.fonts) document.fonts.ready.then(draw); });
+  })();
+  </script>
+</body>
+</html>
