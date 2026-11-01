@@ -142,8 +142,9 @@ export function roundSig(x, n = 3) {
 // x to n s.f. as text, keeping trailing zeros (2.50) and never using e-notation
 export function sig(x, n = 3) {
   if (x === 0) return "0";
-  const d = n - 1 - Math.floor(Math.log10(Math.abs(x)));
   const r = roundSig(x, n);
+  // decimals from the rounded value: 0.99999 rounds to 1, which needs 2 decimals (1.00), not 3
+  const d = n - 1 - Math.floor(Math.log10(Math.abs(r)));
   return d > 0 ? r.toFixed(d) : String(r);
 }
 
