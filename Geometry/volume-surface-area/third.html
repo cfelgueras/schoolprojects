@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Why One Third?</title>
+  <meta name="description" content="Pour a pyramid or cone into its prism or cylinder, and lower a sphere into its cylinder.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300478e'/%3E%3Cpath d='M4 4L28 28M28 4L4 28' stroke='%23ddaf71' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <link rel="stylesheet" href="css/app.css?v=1">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+  <!-- import maps for older browsers (Safari < 16.4) -->
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.8.2/dist/es-module-shims.js"></script>
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body class="mode-student">
+  <div class="bar" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="titles">
+        <p class="crumb"><a href="./">← Volume &amp; Surface Area</a> · Module 3</p>
+        <h1>Why <em>one third?</em></h1>
+      </div>
+      <div class="tools">
+        <div class="seg" role="group" aria-label="Mode">
+          <button type="button" data-mode="teacher" aria-pressed="false">Teacher</button>
+          <button type="button" data-mode="student" aria-pressed="true">Student</button>
+        </div>
+        <button class="btn ghost" type="button" id="toggle-panel" title="Hide or show the side panel (P)">Hide panel</button>
+        <button class="btn ghost" type="button" id="fullscreen" title="Full screen (F)">Full screen</button>
+      </div>
+    </div>
+    <div class="solid-tabs" id="tabs" role="group" aria-label="Choose"></div>
+
+    <div class="workspace">
+      <div class="stage-card">
+        <div class="viewer" id="viewer"></div>
+        <div class="stage-tools"><button class="btn ghost" type="button" id="reset-view" title="Reset view (R)">↺ Reset view</button></div>
+        <div class="stage-foot" id="foot">
+          <output id="count" class="score">Pours: 0 / 3</output>
+          <button class="btn ghost" type="button" id="once">Pour once</button>
+          <button class="btn ghost" type="button" id="empty">Empty</button>
+          <button class="btn" type="button" id="play" title="Play / pause (space)">Pour until full</button>
+        </div>
+      </div>
+
+      <aside class="side">
+        <section class="panel" id="steps" aria-live="polite"></section>
+        <section class="panel" id="main" aria-live="polite"></section>
+        <section class="panel" id="formulas-panel">
+          <h3>Formulas</h3>
+          <div class="formulas" id="formulas"></div>
+        </section>
+        <section class="panel" id="controls-panel">
+          <h2>Dimensions</h2>
+          <div id="controls"></div>
+        </section>
+        <section class="panel student-only" id="quiz"></section>
+        <p class="keys-help teacher-only"><kbd>←</kbd> <kbd>→</kbd> steps · <kbd>space</kbd> play / pause · <kbd>R</kbd> reset view · <kbd>P</kbd> panel · <kbd>F</kbd> full screen</p>
+      </aside>
+    </div>
+  </div>
+  <footer class="wrap">Created by Camila Felgueras.</footer>
+  <script type="module" src="js/modules/third.js?v=1"></script>
+</body>
+</html>
