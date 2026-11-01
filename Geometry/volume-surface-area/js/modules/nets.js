@@ -3,6 +3,7 @@ import { createViewer, THREE } from "../viewer.js";
 import { buildFoldable } from "../foldable.js";
 import { initShell, onKey, tex, texHTML, createSteps, quiz, onModeChange } from "../shell.js";
 import * as F from "../formulas.js";
+import { n, work, unitTex } from "../kit.js";
 
 const { PI, sin, cos, atan2, hypot, acos } = Math;
 const N = 36; // sides of the polygon that stands in for a circle
@@ -10,15 +11,7 @@ const N = 36; // sides of the polygon that stands in for a circle
 // Okabe–Ito colours: told apart with every common type of colour blindness
 const C = ["#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7"];
 
-const cm = "\\ \\text{cm}";
-const cm2 = "\\ \\text{cm}^2";
-const n = (x) => F.num(x);
-// "sym = substitution (= kπ) = value cm²"
-function work(sym, sub, value, piK) {
-  let s = sym + " = " + sub;
-  if (piK !== undefined && F.isExact(piK)) s += " = " + F.piForm(piK).replace("π", "\\pi");
-  return s + (F.isExact(value) ? " = " : " \\approx ") + n(value) + cm2;
-}
+const cm = unitTex.cm;
 
 // ---------- Flat nets ----------
 // regular N-gon around (cx, cz); vertex k at angle start + dir·2πk/N
