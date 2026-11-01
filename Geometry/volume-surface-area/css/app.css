@@ -219,3 +219,27 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 30px; color: var(--m
 .tests li.bad { background: var(--bad-bg); }
 .tests li.bad::before { content: "✗ "; color: var(--bad); font-weight: 800; }
 .summary { font-weight: 800; font-size: 1.1rem; }
+
+/* ---------- Shared by modules 2–8 ---------- */
+.check { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: .9rem; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--navy); }
+.toggles { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 10px; }
+.work-line { display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; border-radius: 8px; background: var(--soft); margin-bottom: 8px; overflow-x: auto; }
+.work-line .wl { font-size: .8rem; font-weight: 800; color: var(--muted); }
+.work-line.out { text-decoration: line-through; opacity: .6; }
+.work-line.red { border-left: 4px solid #d0342c; }
+.big-count { font-family: var(--serif); font-size: 2.2rem; font-weight: 600; color: var(--navy); line-height: 1.1; margin: 0; }
+.answer { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.answer input[type=text], .answer input[type=number], .answer select, .field {
+  min-height: 40px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); font-weight: 700;
+}
+.answer input[type=text], .answer input[type=number] { width: 9em; }
+.fb { margin: 10px 0 0; font-weight: 700; }
+.fb.ok { color: var(--ok); }
+.fb.bad { color: var(--bad); }
+.problem { margin: 0 0 10px; }
+.solution { margin-top: 10px; }
+.chart { width: 100%; height: 160px; display: block; margin-top: 8px; }
+.score { font-weight: 800; color: var(--navy); }
+.row-gap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.legend-red { color: #d0342c; font-weight: 800; }

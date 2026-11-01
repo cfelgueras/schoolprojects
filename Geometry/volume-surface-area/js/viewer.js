@@ -33,7 +33,8 @@ export function createViewer(container, { grid = true } = {}) {
 
   let gridHelper = null;
   if (grid) {
-    gridHelper = new THREE.GridHelper(200, 200, 0x9aa3ad, 0xd5d9de);
+    const dark = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+    gridHelper = dark ? new THREE.GridHelper(200, 200, 0x4a5666, 0x2a3442) : new THREE.GridHelper(200, 200, 0x9aa3ad, 0xd5d9de);
     gridHelper.material.transparent = true;
     gridHelper.material.opacity = 0.45;
     gridHelper.position.y = -0.02;
