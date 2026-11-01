@@ -14,6 +14,7 @@ Interactive 3D lessons. Static site: HTML, CSS and ES modules, no build step. Gi
 | `units.html` | 6 · Unit Cubes & Conversions |
 | `problems.html` | 7 · Real-world Problems |
 | `practice.html` | 8 · Practice (`practice.html?topic=heights` opens one topic) |
+| `summary.html` | 9 · Formula Sheet: every formula with a drawing; prints well (Print / Save as PDF) |
 | `tests.html` | Opens in the browser and checks every formula ("All … tests passed") |
 | `js/formulas.js` | **Every** area and volume formula, rounding to 3 s.f. and answer checking. Change formulas only here. |
 | `js/tests.js` | The tests for `formulas.js` |
