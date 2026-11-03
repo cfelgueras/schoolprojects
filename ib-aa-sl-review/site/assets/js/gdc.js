@@ -516,20 +516,31 @@
   }
 
   async function init() {
-    const { topic, lesson } = parseHash();
+    // A page outside this site (Use of GDC) brings its own lessons: <body data-gdc-lessons="lessons/" data-gdc-default="list">.
+    // Its lesson files then carry their own headings (eyebrow, heading) instead of the IB syllabus.
+    const own = document.body.dataset.gdcLessons;
+    let { topic, lesson } = parseHash();
+    if (own && !topic) topic = document.body.dataset.gdcDefault;
     const main = document.querySelector("main");
     let syllabus;
     try {
-      [syllabus, S.data] = await Promise.all([App.loadSyllabus(), App.fetchJSON("content/gdc/" + encodeURIComponent(topic) + ".json")]);
+      if (own) S.data = await App.fetchJSON(own + encodeURIComponent(topic) + ".json");
+      else [syllabus, S.data] = await Promise.all([App.loadSyllabus(), App.fetchJSON("content/gdc/" + encodeURIComponent(topic) + ".json")]);
     } catch (e) {
-      main.innerHTML = '<div class="wrap"><p class="empty-state">The calculator trainer for this topic is coming soon. <a href="index.html">Back to all topics</a></p></div>';
+      main.innerHTML = '<div class="wrap"><p class="empty-state">The calculator trainer for this topic is coming soon. <a href="' + (own ? "../" : "index.html") + '">Back</a></p></div>';
       return;
     }
-    const t = syllabus.topics.find((x) => x.id === topic);
-    document.title = "Calculator · " + t.title + " · AA SL Review";
-    document.getElementById("gdc-eyebrow").textContent = "Topic " + t.mock + " · Calculator trainer";
-    document.getElementById("gdc-title").innerHTML = esc(t.title.split(":")[0]) + " <em>on the GDC</em>";
-    document.getElementById("gdc-back").href = "topic.html#" + encodeURIComponent(topic) + "--gdc";
+    if (own) {
+      document.title = S.data.heading + " · Use of GDC";
+      document.getElementById("gdc-eyebrow").textContent = S.data.eyebrow;
+      document.getElementById("gdc-title").innerHTML = esc(S.data.heading) + " <em>on the GDC</em>";
+    } else {
+      const t = syllabus.topics.find((x) => x.id === topic);
+      document.title = "Calculator · " + t.title + " · AA SL Review";
+      document.getElementById("gdc-eyebrow").textContent = "Topic " + t.mock + " · Calculator trainer";
+      document.getElementById("gdc-title").innerHTML = esc(t.title.split(":")[0]) + " <em>on the GDC</em>";
+      document.getElementById("gdc-back").href = "topic.html#" + encodeURIComponent(topic) + "--gdc";
+    }
     document.getElementById("gdc-modes").innerHTML = Object.keys(MODES).map((m) =>
       '<button type="button" data-mode="' + m + '" aria-pressed="false">' + MODES[m].label + "</button>").join("");
     document.getElementById("gdc-calc").innerHTML = calculatorHtml();

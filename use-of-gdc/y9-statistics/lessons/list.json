@@ -1,0 +1,342 @@
+{
+ "topic": "list",
+ "eyebrow": "Y9 Statistics · Section 1",
+ "heading": "A list of numbers",
+ "calculator": "Casio fx-9860GII / GIII",
+ "lessons": [
+  {
+   "id": "enter",
+   "title": "Mean, median, mode and range",
+   "tool": "STAT → CALC → 1VAR",
+   "task": "These are the marks of 10 students in a quiz: $4,\\ 8,\\ 6,\\ 5,\\ 8,\\ 3,\\ 9,\\ 8,\\ 2,\\ 7$. Find the **mean**, **median**, **mode** and **range** with the calculator.",
+   "start": {
+    "type": "text",
+    "lines": []
+   },
+   "steps": [
+    {
+     "ask": "How many values are there?",
+     "options": [
+      "$10$",
+      "$9$, because $8$ is repeated",
+      "$7$"
+     ],
+     "answer": 0,
+     "why": "Count every value, even the repeated ones: there are $10$ marks. You will check this number on the calculator later."
+    },
+    {
+     "do": "Press [[MENU]] to open the main menu.",
+     "keys": [
+      "MENU"
+     ],
+     "screen": {
+      "type": "menu",
+      "sel": "RUN•MAT"
+     }
+    },
+    {
+     "do": "Highlight **STAT** with the arrow keys and press [[EXE]].",
+     "select": "STAT",
+     "hint": "STAT is the second icon of the first row.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       []
+      ],
+      "cur": [
+       0,
+       0
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "ask": "The mark $8$ appears three times. How many times do you type it?",
+     "options": [
+      "$3$ times, once for each student",
+      "Once: the calculator knows it repeats",
+      "It doesn't matter"
+     ],
+     "answer": 0,
+     "why": "Every value goes in the list, so the calculator can count it. If you type $8$ only once, the mean and the mode come out wrong."
+    },
+    {
+     "do": "Type the first five marks into List 1, pressing [[EXE]] after each one: `4` [[EXE]] `8` [[EXE]] `6` [[EXE]] `5` [[EXE]] `8` [[EXE]].",
+     "keys": [
+      "4",
+      "EXE",
+      "8",
+      "EXE",
+      "6",
+      "EXE",
+      "5",
+      "EXE",
+      "8",
+      "EXE"
+     ],
+     "hint": "Each number appears at the bottom of the screen while you type it, and goes into the list when you press [[EXE]].",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4",
+        "8",
+        "6",
+        "5",
+        "8"
+       ]
+      ],
+      "cur": [
+       0,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Now the other five: `3` [[EXE]] `9` [[EXE]] `8` [[EXE]] `2` [[EXE]] `7` [[EXE]].",
+     "keys": [
+      "3",
+      "EXE",
+      "9",
+      "EXE",
+      "8",
+      "EXE",
+      "2",
+      "EXE",
+      "7",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4",
+        "8",
+        "6",
+        "5",
+        "8",
+        "3",
+        "9",
+        "8",
+        "2",
+        "7"
+       ]
+      ],
+      "cur": [
+       0,
+       10
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC** to calculate.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4",
+        "8",
+        "6",
+        "5",
+        "8",
+        "3",
+        "9",
+        "8",
+        "2",
+        "7"
+       ]
+      ],
+      "cur": [
+       0,
+       10
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **SET** to check the settings.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :1",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "ask": "Look at **1Var Freq**. It says $1$. What does that mean?",
+     "options": [
+      "Each value in the list counts once",
+      "There is only $1$ value",
+      "The answer will be rounded to $1$ decimal place"
+     ],
+     "answer": 0,
+     "why": "Freq $= 1$ means every number in List 1 counts once. That is right for a list of numbers. (In frequency tables we will change it.)"
+    },
+    {
+     "do": "The settings are right. Press [[EXIT]] to go back.",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4",
+        "8",
+        "6",
+        "5",
+        "8",
+        "3",
+        "9",
+        "8",
+        "2",
+        "7"
+       ]
+      ],
+      "cur": [
+       0,
+       10
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR** (one-variable statistics).",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =6",
+       "Σx  =60",
+       "Σx² =412",
+       "σx  =2.28035085",
+       "sx  =2.40370085",
+       "n   =10"
+      ]
+     }
+    },
+    {
+     "ask": "First check **n**. What should it be?",
+     "options": [
+      "$10$, the number of marks",
+      "$58$",
+      "$8$"
+     ],
+     "answer": 0,
+     "why": "$n$ is how many values the calculator used. It must match your count: $10$. If not, a value is missing or typed twice."
+    },
+    {
+     "ask": "Which line is the **mean**?",
+     "options": [
+      "$\\bar{x} = 6$",
+      "$\\Sigma x = 60$",
+      "$\\sigma x = 2.2804\\ldots$"
+     ],
+     "answer": 0,
+     "why": "$\\bar{x}$ (x-bar) is the mean. $\\Sigma x$ is the total of all the marks: mean $= \\dfrac{\\Sigma x}{n} = \\dfrac{60}{10} = 6$. You don't need $\\sigma x$ or $sx$ in Year 9."
+    },
+    {
+     "do": "Press [[▼]] to scroll down to the rest of the results.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see minX, Med, maxX and Mod.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=2",
+       "Q1  =4",
+       "Med =6.5",
+       "Q3  =8",
+       "maxX=9",
+       "Mod =8"
+      ]
+     }
+    },
+    {
+     "ask": "Which line is the **median**?",
+     "options": [
+      "Med $= 6.5$",
+      "Q1 $= 4$",
+      "Mod $= 8$"
+     ],
+     "answer": 0,
+     "why": "Med is the median, the middle value when the marks are in order: $2, 3, 4, 5, \\mathbf{6}, \\mathbf{7}, 8, 8, 8, 9$. With $10$ values it is halfway between $6$ and $7$: $6.5$."
+    },
+    {
+     "ask": "What is the **mode**?",
+     "options": [
+      "$8$",
+      "$3$, because it appears $3$ times",
+      "$9$, the biggest"
+     ],
+     "answer": 0,
+     "why": "Mod is the mode: the value that appears most often. $8$ appears $3$ times. (The mode is the value, $8$, not how many times it appears.)"
+    },
+    {
+     "ask": "The calculator doesn't show the range. How do you find it?",
+     "options": [
+      "maxX $-$ minX $= 9 - 2 = 7$",
+      "It is Q3 $-$ Q1",
+      "It is $n = 10$"
+     ],
+     "answer": 0,
+     "why": "Range $=$ largest $-$ smallest. The calculator gives both: maxX and minX."
+    }
+   ],
+   "result": "Mean $= 6$, median $= 6.5$, mode $= 8$, range $= 7$. Always check $n$ first."
+  }
+ ]
+}

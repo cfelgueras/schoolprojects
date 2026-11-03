@@ -142,3 +142,8 @@
 .gdc-promo span { color: rgba(255, 255, 255, .8); font-size: 14px; }
 .gdc-promo .go { margin-left: auto; color: var(--gold-2); font-weight: 900; white-space: nowrap; }
 @media (max-width: 520px) { .gdc-promo .go { display: none; } }
+
+/* Section links on pages outside the IB site (Use of GDC) */
+.gdc-sections { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.gdc-sections a { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--navy); font-weight: 800; font-size: .92rem; text-decoration: none; }
+.gdc-sections a:hover { border-color: var(--navy); }
