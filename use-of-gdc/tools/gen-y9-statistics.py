@@ -71,7 +71,8 @@ def lesson(id, title, tool, task, start, steps, result, unverified=False):
 def save(section, eyebrow, heading, lessons):
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(OUT, section + ".json"), "w", encoding="utf-8") as f:
-        json.dump({"topic": section, "eyebrow": eyebrow, "heading": heading, "calculator": "Casio fx-9860GII / GIII", "lessons": lessons},
+        # Exam mode: only the key presses, to check the steps are automatic
+        json.dump({"topic": section, "eyebrow": eyebrow, "heading": heading, "calculator": "Casio fx-9860GII / GIII", "examSkipsQuestions": True, "lessons": lessons},
                   f, ensure_ascii=False, indent=1)
         f.write("\n")
     print(section, len(lessons), "lessons", sum(len(l["steps"]) for l in lessons), "steps")

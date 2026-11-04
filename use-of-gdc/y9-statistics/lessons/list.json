@@ -3,6 +3,7 @@
  "eyebrow": "Y9 Statistics · Section 1",
  "heading": "A list of numbers",
  "calculator": "Casio fx-9860GII / GIII",
+ "examSkipsQuestions": true,
  "lessons": [
   {
    "id": "clear",

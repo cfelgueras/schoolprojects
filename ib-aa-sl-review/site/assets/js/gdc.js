@@ -252,6 +252,8 @@
 
   function startLesson(id) {
     S.lesson = S.data.lessons.find((l) => l.id === id) || S.data.lessons[0];
+    // A lessons file can ask for Exam mode to be keys only, without the questions: "examSkipsQuestions": true
+    if (S.mode === "exam" && S.data.examSkipsQuestions) S.lesson = Object.assign({}, S.lesson, { steps: S.lesson.steps.filter((st) => !st.ask) });
     Object.assign(S, { step: 0, mistakes: 0, done: false, whys: {} });
     resetStep();
     history.replaceState(null, "", "#" + S.data.topic + "--" + S.lesson.id);
@@ -475,7 +477,7 @@
     if (S.mode === "exam" && !S.done && st && st.ask) html += '<div class="gdc-ask"><p>' + inline(st.ask) + "</p>" + askHtml(st) + "</div>";
 
     if (S.done) {
-      const idx = S.data.lessons.indexOf(L);
+      const idx = S.data.lessons.findIndex((l) => l.id === L.id);
       const next = S.data.lessons[idx + 1];
       html += '<div class="gdc-result"><div class="gdc-result-head">' + (S.mistakes ? "Done: " + S.mistakes + " mistake" + (S.mistakes === 1 ? "" : "s") : "Done: no mistakes") + "</div>" +
         inline(L.result) + '<div class="gdc-result-actions"><button type="button" class="btn ghost" data-restart>Try again</button>' +
@@ -492,7 +494,7 @@
   function renderLessons() {
     const done = doneSet();
     document.getElementById("gdc-lessons").innerHTML = S.data.lessons.map((l, i) =>
-      '<button type="button" class="gdc-lesson" data-lesson="' + esc(l.id) + '" aria-pressed="' + (l === S.lesson) + '">' +
+      '<button type="button" class="gdc-lesson" data-lesson="' + esc(l.id) + '" aria-pressed="' + (l.id === S.lesson.id) + '">' +
       "<b>" + (done.has(l.id) ? "✓" : String.fromCharCode(65 + i)) + "</b>" + esc(l.title) + "</button>").join("");
     document.querySelectorAll("#gdc-modes button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.mode === S.mode));
     document.getElementById("gdc-mode-note").textContent = MODES[S.mode].note;

@@ -3,6 +3,7 @@
  "eyebrow": "Y9 Statistics · Section 2",
  "heading": "Frequency tables",
  "calculator": "Casio fx-9860GII / GIII",
+ "examSkipsQuestions": true,
  "lessons": [
   {
    "id": "ex8",
