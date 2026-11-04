@@ -147,3 +147,11 @@
 .gdc-sections { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .gdc-sections a { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--navy); font-weight: 800; font-size: .92rem; text-decoration: none; }
 .gdc-sections a:hover { border-color: var(--navy); }
+
+/* Questions answered inside their step: right answers move on by themselves, the explanation stays */
+.gdc-steps li > div { flex: 1; min-width: 0; }
+.gdc-steps .gdc-options { margin-top: 10px; }
+.gdc-steps .gdc-opt { color: var(--ink); }
+.gdc-steps .gdc-why { margin: 8px 0 0; }
+.gdc-why.fb-ok { color: var(--ok); font-weight: 800; }
+.gdc-steps .st-why { margin: 4px 0 0; font-size: 14px; color: var(--ok); }

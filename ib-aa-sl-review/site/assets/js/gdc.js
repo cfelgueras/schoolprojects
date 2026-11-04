@@ -238,7 +238,7 @@
 
   const S = {
     data: null, topicTitle: "", lesson: null, step: 0, keyIdx: 0, typed: "", menuSel: null,
-    shift: false, mistakes: 0, wrongHere: 0, hintShown: false, done: false, answered: null, tried: [],
+    shift: false, mistakes: 0, wrongHere: 0, hintShown: false, done: false, answered: null, tried: [], whys: {},
     // Every visit starts in Guided; the mode buttons change it for this page only.
     mode: "guided"
   };
@@ -252,7 +252,7 @@
 
   function startLesson(id) {
     S.lesson = S.data.lessons.find((l) => l.id === id) || S.data.lessons[0];
-    Object.assign(S, { step: 0, mistakes: 0, done: false });
+    Object.assign(S, { step: 0, mistakes: 0, done: false, whys: {} });
     resetStep();
     history.replaceState(null, "", "#" + S.data.topic + "--" + S.lesson.id);
     renderLessons();
@@ -384,6 +384,7 @@
     renderAll();
   }
 
+  // A right answer turns green and moves on by itself; its explanation stays under the step.
   function answer(i) {
     const st = current();
     if (S.answered === st.answer) return;
@@ -391,6 +392,14 @@
     S.tried.push(i);
     if (i !== st.answer) { S.mistakes++; S.wrongHere++; }
     renderAll();
+    if (i === st.answer) {
+      const at = S.step, lesson = S.lesson;
+      setTimeout(() => {
+        if (S.lesson !== lesson || S.step !== at) return;
+        S.whys[at] = st.why;
+        nextStep();
+      }, 800);
+    }
   }
 
   function feedback(md, kind) {
@@ -426,10 +435,21 @@
     if (!keepFeedback) feedback("", "");
   }
 
+  // The options of a question, where the question is
+  function askHtml(st) {
+    const ok = S.answered === st.answer;
+    return '<div class="gdc-options">' + S.order.map((i) => {
+      const cls = i === st.answer && ok ? " opt-ok" : S.tried.includes(i) && i !== st.answer ? " opt-bad" : "";
+      return '<button type="button" class="gdc-opt' + cls + '" data-opt="' + i + '"' + (ok || S.tried.includes(i) ? " disabled" : "") + ">" + inline(st.options[i]) + "</button>";
+    }).join("") + "</div>" +
+      (S.answered != null ? '<p class="gdc-why ' + (ok ? "fb-ok" : "fb-bad") + '">' + (ok ? "Correct!" : "Not quite. Look at the screen and try again.") + "</p>" : "");
+  }
+
   function stepItem(st, i) {
     const state = S.done || i < S.step ? "done" : i === S.step ? "now" : "next";
     const text = st.ask ? "**Think:** " + st.ask : st.do;
-    return '<li class="st-' + state + '"><span class="st-n">' + (state === "done" ? "✓" : i + 1) + "</span><div>" + inline(text) + "</div></li>";
+    const extra = st.ask && state === "now" ? askHtml(st) : st.ask && state === "done" && S.whys[i] ? '<p class="st-why">' + inline(S.whys[i]) + "</p>" : "";
+    return '<li class="st-' + state + '"><span class="st-n">' + (state === "done" ? "✓" : i + 1) + "</span><div>" + inline(text) + extra + "</div></li>";
   }
 
   function renderPanel() {
@@ -452,16 +472,7 @@
       html += '<ol class="gdc-steps mode-' + S.mode + '">' + L.steps.map(stepItem).join("") + "</ol>";
     }
 
-    if (!S.done && st && st.ask) {
-      const ok = S.answered === st.answer;
-      html += '<div class="gdc-ask"><p>' + inline(st.ask) + '</p><div class="gdc-options">' +
-        S.order.map((i) => {
-          const cls = i === st.answer && ok ? " opt-ok" : S.tried.includes(i) && i !== st.answer ? " opt-bad" : "";
-          return '<button type="button" class="gdc-opt' + cls + '" data-opt="' + i + '"' + (ok || S.tried.includes(i) ? " disabled" : "") + ">" + inline(st.options[i]) + "</button>";
-        }).join("") + "</div>" +
-        (S.answered != null ? '<p class="gdc-why ' + (ok ? "fb-ok" : "fb-bad") + '">' + (ok ? "Correct. " + inline(st.why) : "Not quite. Look at the screen and try again.") + "</p>" : "") +
-        (ok ? '<button type="button" class="btn btn-primary" data-continue>Continue</button>' : "") + "</div>";
-    }
+    if (S.mode === "exam" && !S.done && st && st.ask) html += '<div class="gdc-ask"><p>' + inline(st.ask) + "</p>" + askHtml(st) + "</div>";
 
     if (S.done) {
       const idx = S.data.lessons.indexOf(L);
