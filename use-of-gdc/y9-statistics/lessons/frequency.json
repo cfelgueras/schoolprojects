@@ -1,0 +1,1467 @@
+{
+ "topic": "frequency",
+ "eyebrow": "Y9 Statistics · Section 2",
+ "heading": "Frequency tables",
+ "calculator": "Casio fx-9860GII / GIII",
+ "lessons": [
+  {
+   "id": "ex8",
+   "title": "Question 8: grades",
+   "tool": "STAT, 1Var Freq: List2",
+   "task": "Grades of 20 IB students. Completed table — grade: $1, 2, 3, 4, 5, 6, 7$; frequency: $1, 4, 2, 3, 4, 5, 1$. (b) Write down the modal grade. (c) Find the median grade and check it with the GDC. The lists are empty.",
+   "start": {
+    "type": "list",
+    "cols": [
+     []
+    ],
+    "cur": [
+     0,
+     0
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "ask": "In this table, what does **frequency** mean?",
+     "options": [
+      "How many students got each grade",
+      "The grade of each student",
+      "The total of the grades"
+     ],
+     "answer": 0,
+     "why": "Frequency $=$ how many times something happens. Here: how many students got each grade."
+    },
+    {
+     "ask": "Grade $6$ has frequency $5$. What does that tell you?",
+     "options": [
+      "$5$ students got a $6$",
+      "$6$ students got a $5$",
+      "The 5th student got a 6"
+     ],
+     "answer": 0,
+     "why": "The grade is the **value** we measured ($6$); the frequency is how many students got it ($5$)."
+    },
+    {
+     "ask": "Which row is the **variable** (the thing we measured) and which is the **frequency**?",
+     "options": [
+      "Variable: the grades $1$ to $7$. Frequency: $1, 4, 2, 3, 4, 5, 1$",
+      "Variable: $1, 4, 2, 3, 4, 5, 1$. Frequency: the grades",
+      "Both are frequencies"
+     ],
+     "answer": 0,
+     "why": "The variable is what each student has (a grade). The frequency counts the students."
+    },
+    {
+     "ask": "How many students are there in total?",
+     "options": [
+      "$20$: add the frequencies",
+      "$7$: there are 7 grades",
+      "$28$: add the grades"
+     ],
+     "answer": 0,
+     "why": "$1 + 4 + 2 + 3 + 4 + 5 + 1 = 20$. The calculator's $n$ must say $20$."
+    },
+    {
+     "ask": "So what goes in each list?",
+     "options": [
+      "List 1: the grades. List 2: the frequencies",
+      "List 1: the frequencies. List 2: the grades",
+      "All $20$ grades in List 1, one by one"
+     ],
+     "answer": 0,
+     "why": "Values in List 1, frequencies in List 2, each frequency next to its value. (Typing all $20$ grades one by one also works, but it is slow and easy to get wrong.)"
+    },
+    {
+     "do": "Press [[MENU]] to open the main menu.",
+     "keys": [
+      "MENU"
+     ],
+     "screen": {
+      "type": "menu",
+      "sel": "RUN•MAT"
+     }
+    },
+    {
+     "do": "Highlight **STAT** with the arrow keys and press [[EXE]].",
+     "select": "STAT",
+     "screen": {
+      "type": "list",
+      "cols": [
+       []
+      ],
+      "cur": [
+       0,
+       0
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Type them into **List 1 (the grades)**, pressing [[EXE]] after each one: `1` [[EXE]] `2` [[EXE]] `3` [[EXE]] `4` [[EXE]] `5` [[EXE]].",
+     "keys": [
+      "1",
+      "EXE",
+      "2",
+      "EXE",
+      "3",
+      "EXE",
+      "4",
+      "EXE",
+      "5",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ]
+      ],
+      "cur": [
+       0,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `6` [[EXE]] `7` [[EXE]].",
+     "keys": [
+      "6",
+      "EXE",
+      "7",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+       ]
+      ],
+      "cur": [
+       0,
+       7
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Move across to **List 2** with [[▶]].",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+       ]
+      ],
+      "cur": [
+       1,
+       7
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Go up to the top of List 2: press [[▲]] 7 times.",
+     "keys": [
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP"
+     ],
+     "hint": "The frequency of the first value must go in row 1, next to it.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+       ]
+      ],
+      "cur": [
+       1,
+       0
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Type them into **List 2 (the frequencies)**, pressing [[EXE]] after each one: `1` [[EXE]] `4` [[EXE]] `2` [[EXE]] `3` [[EXE]] `4` [[EXE]].",
+     "keys": [
+      "1",
+      "EXE",
+      "4",
+      "EXE",
+      "2",
+      "EXE",
+      "3",
+      "EXE",
+      "4",
+      "EXE"
+     ],
+     "hint": "Same order as the grades: the frequency of grade 1 goes next to 1.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+       ],
+       [
+        "1",
+        "4",
+        "2",
+        "3",
+        "4"
+       ]
+      ],
+      "cur": [
+       1,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `5` [[EXE]] `1` [[EXE]].",
+     "keys": [
+      "5",
+      "EXE",
+      "1",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+       ],
+       [
+        "1",
+        "4",
+        "2",
+        "3",
+        "4",
+        "5",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       7
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "ask": "Check the lists. Which pair is in the same row?",
+     "options": [
+      "Grade $6$ and frequency $5$",
+      "Grade $6$ and frequency $1$",
+      "Grade $5$ and frequency $5$"
+     ],
+     "answer": 0,
+     "why": "Each frequency must sit next to its grade. If they are shifted by a row, every answer will be wrong."
+    },
+    {
+     "do": "Press [[F2]] **CALC**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+       ],
+       [
+        "1",
+        "4",
+        "2",
+        "3",
+        "4",
+        "5",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       7
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **SET** to see the settings.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :1",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "ask": "**1Var Freq** says $1$. If we leave it like that, what will the calculator do?",
+     "options": [
+      "Count each value in List 1 only once, and ignore the frequencies",
+      "Use the frequencies in List 2 anyway",
+      "Give an error"
+     ],
+     "answer": 0,
+     "why": "With Freq $= 1$ the calculator ignores List 2: it would think each value appears once. We have to tell it that the frequencies are in **List 2**."
+    },
+    {
+     "do": "Press [[▼]] to highlight **1Var Freq**.",
+     "scroll": 1,
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :1",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "1",
+       "LIST"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **LIST**, type `2` and press [[EXE]].",
+     "keys": [
+      "F2",
+      "2",
+      "EXE"
+     ],
+     "hint": "LIST is on [[F2]] at the bottom of the screen. Then the number of the list: 2.",
+     "entry": {
+      "line": 1,
+      "prefix": "1Var Freq  :",
+      "add": [
+       "List",
+       null,
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :List2",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "1",
+       "LIST"
+      ]
+     }
+    },
+    {
+     "do": "Now it reads **1Var Freq: List2**. Press [[EXIT]] to go back.",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+       ],
+       [
+        "1",
+        "4",
+        "2",
+        "3",
+        "4",
+        "5",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       7
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =4.2",
+       "Σx  =84",
+       "Σx² =412",
+       "σx  =1.720465053",
+       "sx  =1.7651599",
+       "n   =20"
+      ]
+     }
+    },
+    {
+     "ask": "Check **n** first. What should it be?",
+     "options": [
+      "$20$, the number of students",
+      "$7$, the number of grades",
+      "$84$"
+     ],
+     "answer": 0,
+     "why": "$n = 20$: the calculator used the frequencies. If it says $7$, Freq is still $1$."
+    },
+    {
+     "ask": "The mean grade?",
+     "options": [
+      "$\\bar{x} = 4.2$",
+      "$\\Sigma x = 84$",
+      "$4$"
+     ],
+     "answer": 0,
+     "why": "Mean $= \\dfrac{\\Sigma x}{n} = \\dfrac{84}{20} = 4.2$."
+    },
+    {
+     "do": "Press [[▼]] to scroll down.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see minX, Med, maxX and Mod.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=1",
+       "Q1  =2.5",
+       "Med =4.5",
+       "Q3  =6",
+       "maxX=7",
+       "Mod =6"
+      ]
+     }
+    },
+    {
+     "ask": "(b) The **modal** grade?",
+     "options": [
+      "$6$",
+      "$5$, the biggest frequency",
+      "$7$, the best grade"
+     ],
+     "answer": 0,
+     "why": "The mode is the **grade** with the biggest frequency: grade $6$ ($5$ students). Not the frequency $5$ itself!"
+    },
+    {
+     "ask": "(c) The median grade?",
+     "options": [
+      "Med $= 4.5$",
+      "Q1 $= 2.5$",
+      "$4$"
+     ],
+     "answer": 0,
+     "why": "With $20$ students the median is halfway between the 10th and 11th grades in order: $4$ and $5$, so $4.5$."
+    },
+    {
+     "ask": "And the range?",
+     "options": [
+      "maxX $-$ minX $= 7 - 1 = 6$",
+      "$5 - 1 = 4$ (frequencies)",
+      "$20$"
+     ],
+     "answer": 0,
+     "why": "Use the grades, not the frequencies: largest grade $-$ smallest grade."
+    }
+   ],
+   "result": "Modal grade $6$, median $4.5$, mean $4.2$, range $6$. Leave **1Var Freq: List2** while you use frequency tables; set it back to $1$ for a plain list of numbers."
+  },
+  {
+   "id": "ex9",
+   "title": "Question 9: dental fillings",
+   "tool": "STAT, 1Var Freq: List2",
+   "task": "Number of fillings $0, 1, 2, 3, 4, 5$ with frequency $4, 3, 8, q, 4, 1$, for $25$ children. (a) Find $q$. (b) Find (i) the mean and (ii) the median number of fillings. The lists are empty.",
+   "start": {
+    "type": "list",
+    "cols": [
+     []
+    ],
+    "cur": [
+     0,
+     0
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "ask": "Which is the variable and which is the frequency?",
+     "options": [
+      "Variable: number of fillings. Frequency: number of children",
+      "Variable: number of children. Frequency: number of fillings",
+      "Both are the variable"
+     ],
+     "answer": 0,
+     "why": "We measured the number of fillings of each child; the frequency counts the children."
+    },
+    {
+     "ask": "(a) There are $25$ children. What is $q$?",
+     "options": [
+      "$25 - (4 + 3 + 8 + 4 + 1) = 5$",
+      "$25 \\div 6$",
+      "$3$"
+     ],
+     "answer": 0,
+     "why": "The frequencies add up to the number of children: $20 + q = 25$, so $q = 5$."
+    },
+    {
+     "do": "Type them into **List 1 (fillings)**, pressing [[EXE]] after each one: `0` [[EXE]] `1` [[EXE]] `2` [[EXE]] `3` [[EXE]] `4` [[EXE]].",
+     "keys": [
+      "0",
+      "EXE",
+      "1",
+      "EXE",
+      "2",
+      "EXE",
+      "3",
+      "EXE",
+      "4",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+       ]
+      ],
+      "cur": [
+       0,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `5` [[EXE]].",
+     "keys": [
+      "5",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ]
+      ],
+      "cur": [
+       0,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Move across to **List 2** with [[▶]].",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Go up to the top of List 2: press [[▲]] 6 times.",
+     "keys": [
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP"
+     ],
+     "hint": "The frequency of the first value must go in row 1, next to it.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ]
+      ],
+      "cur": [
+       1,
+       0
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Type them into **List 2 (frequencies, with q = 5)**, pressing [[EXE]] after each one: `4` [[EXE]] `3` [[EXE]] `8` [[EXE]] `5` [[EXE]] `4` [[EXE]].",
+     "keys": [
+      "4",
+      "EXE",
+      "3",
+      "EXE",
+      "8",
+      "EXE",
+      "5",
+      "EXE",
+      "4",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "4",
+        "3",
+        "8",
+        "5",
+        "4"
+       ]
+      ],
+      "cur": [
+       1,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `1` [[EXE]].",
+     "keys": [
+      "1",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "4",
+        "3",
+        "8",
+        "5",
+        "4",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "4",
+        "3",
+        "8",
+        "5",
+        "4",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **SET**.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :List2",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "ask": "The calculator remembers the last setting. Is it right for this table?",
+     "options": [
+      "Yes: XList is List1 (the values) and Freq is List2 (the frequencies)",
+      "No: Freq must be $1$",
+      "No: XList must be List2"
+     ],
+     "answer": 0,
+     "why": "The values are in List 1 and the frequencies in List 2, so it is right. Always check it: the calculator keeps whatever was set last."
+    },
+    {
+     "do": "Press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "4",
+        "3",
+        "8",
+        "5",
+        "4",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =2.2",
+       "Σx  =55",
+       "Σx² =169",
+       "σx  =1.385640646",
+       "sx  =1.414213562",
+       "n   =25"
+      ]
+     }
+    },
+    {
+     "ask": "$n$ and the mean?",
+     "options": [
+      "$n = 25$, mean $= 2.2$",
+      "$n = 6$, mean $= 2.5$",
+      "$n = 25$, mean $= 55$"
+     ],
+     "answer": 0,
+     "why": "$n$ matches the $25$ children, and $\\bar{x} = \\dfrac{55}{25} = 2.2$."
+    },
+    {
+     "do": "Press [[▼]] to scroll down.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see minX, Med, maxX and Mod.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=0",
+       "Q1  =1",
+       "Med =2",
+       "Q3  =3",
+       "maxX=5",
+       "Mod =2"
+      ]
+     }
+    },
+    {
+     "ask": "(ii) The median?",
+     "options": [
+      "$2$",
+      "$8$",
+      "$2.5$"
+     ],
+     "answer": 0,
+     "why": "With $25$ children the median is the 13th: $4 + 3 = 7$ children have $0$ or $1$ filling, so the 8th to the 15th have $2$. The median is $2$."
+    }
+   ],
+   "result": "(a) $q = 5$, (b) (i) mean $2.2$, (ii) median $2$."
+  },
+  {
+   "id": "ex10",
+   "title": "Question 10: goals (practice)",
+   "tool": "STAT, 1Var Freq: List2",
+   "task": "Number of goals $0, 1, 2, 3, 4, 5$ in $16, 22, 19, 17, 1, 5$ matches ($80$ matches). Find (a) the mean and (b) the median number of goals, and the mode. The lists are empty.",
+   "start": {
+    "type": "list",
+    "cols": [
+     []
+    ],
+    "cur": [
+     0,
+     0
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "do": "Type them into **List 1 (goals)**, pressing [[EXE]] after each one: `0` [[EXE]] `1` [[EXE]] `2` [[EXE]] `3` [[EXE]] `4` [[EXE]].",
+     "keys": [
+      "0",
+      "EXE",
+      "1",
+      "EXE",
+      "2",
+      "EXE",
+      "3",
+      "EXE",
+      "4",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+       ]
+      ],
+      "cur": [
+       0,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `5` [[EXE]].",
+     "keys": [
+      "5",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ]
+      ],
+      "cur": [
+       0,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Move across to **List 2** with [[▶]].",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Go up to the top of List 2: press [[▲]] 6 times.",
+     "keys": [
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP"
+     ],
+     "hint": "The frequency of the first value must go in row 1, next to it.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ]
+      ],
+      "cur": [
+       1,
+       0
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Type them into **List 2 (matches)**, pressing [[EXE]] after each one: `16` [[EXE]] `22` [[EXE]] `19` [[EXE]] `17` [[EXE]] `1` [[EXE]].",
+     "keys": [
+      "1",
+      "6",
+      "EXE",
+      "2",
+      "2",
+      "EXE",
+      "1",
+      "9",
+      "EXE",
+      "1",
+      "7",
+      "EXE",
+      "1",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "16",
+        "22",
+        "19",
+        "17",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `5` [[EXE]].",
+     "keys": [
+      "5",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "16",
+        "22",
+        "19",
+        "17",
+        "1",
+        "5"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "16",
+        "22",
+        "19",
+        "17",
+        "1",
+        "5"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **SET**.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :List2",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "ask": "The calculator remembers the last setting. Is it right for this table?",
+     "options": [
+      "Yes: XList is List1 (the values) and Freq is List2 (the frequencies)",
+      "No: Freq must be $1$",
+      "No: XList must be List2"
+     ],
+     "answer": 0,
+     "why": "The values are in List 1 and the frequencies in List 2, so it is right. Always check it: the calculator keeps whatever was set last."
+    },
+    {
+     "do": "Press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "16",
+        "22",
+        "19",
+        "17",
+        "1",
+        "5"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =1.75",
+       "Σx  =140",
+       "Σx² =392",
+       "σx  =1.355544171",
+       "sx  =1.364096585",
+       "n   =80"
+      ]
+     }
+    },
+    {
+     "ask": "Check $n$ and read the mean.",
+     "options": [
+      "$n = 80$, mean $= 1.75$",
+      "$n = 6$, mean $= 2.5$",
+      "$n = 80$, mean $= 140$"
+     ],
+     "answer": 0,
+     "why": "$n = 80$ matches. $\\Sigma x = 140$ goals in total, so the mean is $\\dfrac{140}{80} = 1.75$."
+    },
+    {
+     "do": "Press [[▼]] to scroll down.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see minX, Med, maxX and Mod.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=0",
+       "Q1  =1",
+       "Med =2",
+       "Q3  =3",
+       "maxX=5",
+       "Mod =1"
+      ]
+     }
+    },
+    {
+     "ask": "(b) Median and mode?",
+     "options": [
+      "Median $2$, mode $1$",
+      "Median $2$, mode $22$",
+      "Median $19$, mode $1$"
+     ],
+     "answer": 0,
+     "why": "Med $= 2$. The mode is the number of **goals** with the most matches: $1$ goal ($22$ matches). $22$ is a frequency, not a mode."
+    }
+   ],
+   "result": "(a) mean $1.75$, (b) median $2$, mode $1$."
+  }
+ ]
+}

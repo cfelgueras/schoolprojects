@@ -1,0 +1,856 @@
+{
+ "topic": "grouped",
+ "eyebrow": "Y9 Statistics · Section 3",
+ "heading": "Grouped data",
+ "calculator": "Casio fx-9860GII / GIII",
+ "lessons": [
+  {
+   "id": "ex16",
+   "title": "Question 16: emails",
+   "tool": "midpoints → STAT",
+   "task": "Emails sent last week by 30 students, grouped: $0$–$9$: $6$, $10$–$19$: $9$, $20$–$29$: $7$, $30$–$39$: $5$, $40$–$49$: $2$, $50$–$59$: $1$. (c) Find the modal class. (f) Estimate the mean number of emails. The lists are empty and **1Var Freq** is $1$.",
+   "start": {
+    "type": "list",
+    "cols": [
+     []
+    ],
+    "cur": [
+     0,
+     0
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "ask": "We know that $6$ students sent between $0$ and $9$ emails, but not exactly how many each. Which **one number** best represents the class $0$–$9$?",
+     "options": [
+      "$4.5$, the middle of the class",
+      "$0$–$9$: type the whole interval",
+      "$9$, the biggest",
+      "$6$, the frequency"
+     ],
+     "answer": 0,
+     "why": "We use the **midpoint**: the number in the middle of the class. Some students sent fewer, some more, so the middle is the best guess for all of them."
+    },
+    {
+     "ask": "Can you type \"$10$–$19$\" into one cell of a list?",
+     "options": [
+      "No: each cell holds one number",
+      "Yes, with the minus key",
+      "Yes, with a comma"
+     ],
+     "answer": 0,
+     "why": "A cell holds one number. \"$10 - 19$\" would be read as the subtraction $-9$! That is another reason to use midpoints."
+    },
+    {
+     "ask": "How do you find the midpoint of $20$–$29$?",
+     "options": [
+      "$\\dfrac{20 + 29}{2} = 24.5$",
+      "$29 - 20 = 9$",
+      "$\\dfrac{20 + 30}{2} = 25$"
+     ],
+     "answer": 0,
+     "why": "Add the two ends of the class and divide by $2$."
+    },
+    {
+     "ask": "So what goes in **List 1**?",
+     "options": [
+      "The midpoints $4.5, 14.5, 24.5, 34.5, 44.5, 54.5$",
+      "The lower ends $0, 10, 20, 30, 40, 50$",
+      "The frequencies $6, 9, 7, 5, 2, 1$"
+     ],
+     "answer": 0,
+     "why": "List 1: midpoints. List 2: frequencies, as in a frequency table."
+    },
+    {
+     "do": "Type them into **List 1 (the midpoints)**, pressing [[EXE]] after each one: `4.5` [[EXE]] `14.5` [[EXE]] `24.5` [[EXE]] `34.5` [[EXE]] `44.5` [[EXE]].",
+     "keys": [
+      "4",
+      "DOT",
+      "5",
+      "EXE",
+      "1",
+      "4",
+      "DOT",
+      "5",
+      "EXE",
+      "2",
+      "4",
+      "DOT",
+      "5",
+      "EXE",
+      "3",
+      "4",
+      "DOT",
+      "5",
+      "EXE",
+      "4",
+      "4",
+      "DOT",
+      "5",
+      "EXE"
+     ],
+     "hint": "Use [[.]] for the decimal point: `4` [[.]] `5`.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4.5",
+        "14.5",
+        "24.5",
+        "34.5",
+        "44.5"
+       ]
+      ],
+      "cur": [
+       0,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `54.5` [[EXE]].",
+     "keys": [
+      "5",
+      "4",
+      "DOT",
+      "5",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4.5",
+        "14.5",
+        "24.5",
+        "34.5",
+        "44.5",
+        "54.5"
+       ]
+      ],
+      "cur": [
+       0,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Move across to **List 2** with [[▶]].",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4.5",
+        "14.5",
+        "24.5",
+        "34.5",
+        "44.5",
+        "54.5"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Go up to the top of List 2: press [[▲]] 6 times.",
+     "keys": [
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP"
+     ],
+     "hint": "The frequency of the first value must go in row 1, next to it.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4.5",
+        "14.5",
+        "24.5",
+        "34.5",
+        "44.5",
+        "54.5"
+       ]
+      ],
+      "cur": [
+       1,
+       0
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Type them into **List 2 (the frequencies)**, pressing [[EXE]] after each one: `6` [[EXE]] `9` [[EXE]] `7` [[EXE]] `5` [[EXE]] `2` [[EXE]].",
+     "keys": [
+      "6",
+      "EXE",
+      "9",
+      "EXE",
+      "7",
+      "EXE",
+      "5",
+      "EXE",
+      "2",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4.5",
+        "14.5",
+        "24.5",
+        "34.5",
+        "44.5",
+        "54.5"
+       ],
+       [
+        "6",
+        "9",
+        "7",
+        "5",
+        "2"
+       ]
+      ],
+      "cur": [
+       1,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `1` [[EXE]].",
+     "keys": [
+      "1",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4.5",
+        "14.5",
+        "24.5",
+        "34.5",
+        "44.5",
+        "54.5"
+       ],
+       [
+        "6",
+        "9",
+        "7",
+        "5",
+        "2",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4.5",
+        "14.5",
+        "24.5",
+        "34.5",
+        "44.5",
+        "54.5"
+       ],
+       [
+        "6",
+        "9",
+        "7",
+        "5",
+        "2",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **SET** to see the settings.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :1",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "do": "Press [[▼]] to highlight **1Var Freq**.",
+     "scroll": 1,
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :1",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "1",
+       "LIST"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **LIST**, type `2` and press [[EXE]].",
+     "keys": [
+      "F2",
+      "2",
+      "EXE"
+     ],
+     "hint": "LIST is on [[F2]] at the bottom of the screen. Then the number of the list: 2.",
+     "entry": {
+      "line": 1,
+      "prefix": "1Var Freq  :",
+      "add": [
+       "List",
+       null,
+       null
+      ]
+     },
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :List2",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 1,
+      "fkeys": [
+       "1",
+       "LIST"
+      ]
+     }
+    },
+    {
+     "do": "Now it reads **1Var Freq: List2**. Press [[EXIT]] to go back.",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "4.5",
+        "14.5",
+        "24.5",
+        "34.5",
+        "44.5",
+        "54.5"
+       ],
+       [
+        "6",
+        "9",
+        "7",
+        "5",
+        "2",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       6
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =21.5",
+       "Σx  =645",
+       "Σx² =19097.5",
+       "σx  =13.20353488",
+       "sx  =13.42925268",
+       "n   =30"
+      ]
+     }
+    },
+    {
+     "ask": "Check $n$. Then: what is the estimated mean?",
+     "options": [
+      "$n = 30$, mean $\\approx 21.5$ emails",
+      "$n = 6$, mean $= 29.5$",
+      "$n = 30$, mean $= 645$"
+     ],
+     "answer": 0,
+     "why": "$n = 30$ students. $\\bar{x} = \\dfrac{645}{30} = 21.5$ emails."
+    },
+    {
+     "ask": "Why does the question say **estimate** the mean?",
+     "options": [
+      "We used the midpoints, not the real numbers of emails",
+      "The calculator rounds the answer",
+      "Because $n$ is small"
+     ],
+     "answer": 0,
+     "why": "The real numbers of emails could be anywhere in each class. The midpoints give a good estimate, not the exact mean."
+    },
+    {
+     "ask": "(c) The **modal class**?",
+     "options": [
+      "$10$–$19$: it has the biggest frequency, $9$",
+      "$9$",
+      "$14.5$"
+     ],
+     "answer": 0,
+     "why": "With grouped data we give the **class** with the biggest frequency, not a single number."
+    }
+   ],
+   "result": "(c) modal class $10$–$19$, (f) estimated mean $= \\dfrac{645}{30} = 21.5$ emails. Working: $\\dfrac{4.5 \\times 6 + 14.5 \\times 9 + 24.5 \\times 7 + 34.5 \\times 5 + 44.5 \\times 2 + 54.5 \\times 1}{30}$."
+  },
+  {
+   "id": "time",
+   "title": "Times to school (continuous)",
+   "tool": "midpoints → STAT",
+   "task": "Time $t$ in minutes to get to school for 30 students: $0 \\le t < 10$: $4$, $10 \\le t < 20$: $11$, $20 \\le t < 30$: $8$, $30 \\le t < 40$: $5$, $40 \\le t < 50$: $2$. Estimate the mean time and find the modal class. The lists are empty and Freq is still List2.",
+   "start": {
+    "type": "list",
+    "cols": [
+     []
+    ],
+    "cur": [
+     0,
+     0
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "ask": "What is the midpoint of $0 \\le t < 10$?",
+     "options": [
+      "$5$",
+      "$4.5$",
+      "$10$"
+     ],
+     "answer": 0,
+     "why": "Time is **continuous**: it can be $9.8$ minutes. So the class goes all the way from $0$ to $10$ and its middle is $\\dfrac{0 + 10}{2} = 5$. (In Question 16 the classes $0$–$9$ were whole numbers, so the middle was $4.5$.)"
+    },
+    {
+     "ask": "Then List 1 holds…",
+     "options": [
+      "$5, 15, 25, 35, 45$",
+      "$0, 10, 20, 30, 40$",
+      "$4, 11, 8, 5, 2$"
+     ],
+     "answer": 0,
+     "why": "The midpoints of the five classes."
+    },
+    {
+     "do": "Type them into **List 1 (midpoints)**, pressing [[EXE]] after each one: `5` [[EXE]] `15` [[EXE]] `25` [[EXE]] `35` [[EXE]] `45` [[EXE]].",
+     "keys": [
+      "5",
+      "EXE",
+      "1",
+      "5",
+      "EXE",
+      "2",
+      "5",
+      "EXE",
+      "3",
+      "5",
+      "EXE",
+      "4",
+      "5",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "5",
+        "15",
+        "25",
+        "35",
+        "45"
+       ]
+      ],
+      "cur": [
+       0,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Move across to **List 2** with [[▶]].",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "5",
+        "15",
+        "25",
+        "35",
+        "45"
+       ]
+      ],
+      "cur": [
+       1,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Go up to the top of List 2: press [[▲]] 5 times.",
+     "keys": [
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP"
+     ],
+     "hint": "The frequency of the first value must go in row 1, next to it.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "5",
+        "15",
+        "25",
+        "35",
+        "45"
+       ]
+      ],
+      "cur": [
+       1,
+       0
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Type them into **List 2 (frequencies)**, pressing [[EXE]] after each one: `4` [[EXE]] `11` [[EXE]] `8` [[EXE]] `5` [[EXE]] `2` [[EXE]].",
+     "keys": [
+      "4",
+      "EXE",
+      "1",
+      "1",
+      "EXE",
+      "8",
+      "EXE",
+      "5",
+      "EXE",
+      "2",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "5",
+        "15",
+        "25",
+        "35",
+        "45"
+       ],
+       [
+        "4",
+        "11",
+        "8",
+        "5",
+        "2"
+       ]
+      ],
+      "cur": [
+       1,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "5",
+        "15",
+        "25",
+        "35",
+        "45"
+       ],
+       [
+        "4",
+        "11",
+        "8",
+        "5",
+        "2"
+       ]
+      ],
+      "cur": [
+       1,
+       5
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **SET**.",
+     "keys": [
+      "F6"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1Var XList :List1",
+       "1Var Freq  :List2",
+       "2Var XList :List1",
+       "2Var YList :List2",
+       "2Var Freq  :1"
+      ],
+      "hl": 0
+     }
+    },
+    {
+     "ask": "The calculator remembers the last setting. Is it right for this table?",
+     "options": [
+      "Yes: XList is List1 (the values) and Freq is List2 (the frequencies)",
+      "No: Freq must be $1$",
+      "No: XList must be List2"
+     ],
+     "answer": 0,
+     "why": "The values are in List 1 and the frequencies in List 2, so it is right. Always check it: the calculator keeps whatever was set last."
+    },
+    {
+     "do": "Press [[EXIT]].",
+     "keys": [
+      "EXIT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "5",
+        "15",
+        "25",
+        "35",
+        "45"
+       ],
+       [
+        "4",
+        "11",
+        "8",
+        "5",
+        "2"
+       ]
+      ],
+      "cur": [
+       1,
+       5
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =21.66666667",
+       "Σx  =650",
+       "Σx² =17750",
+       "σx  =11.05541597",
+       "sx  =11.24441113",
+       "n   =30"
+      ]
+     }
+    },
+    {
+     "ask": "The estimated mean?",
+     "options": [
+      "$\\approx 21.7$ minutes ($21.66666667$)",
+      "$25$ minutes",
+      "$650$ minutes"
+     ],
+     "answer": 0,
+     "why": "$\\bar{x} = \\dfrac{650}{30} \\approx 21.7$ minutes (3 s.f.)."
+    },
+    {
+     "ask": "The modal class?",
+     "options": [
+      "$10 \\le t < 20$",
+      "$11$",
+      "$15$"
+     ],
+     "answer": 0,
+     "why": "The class with the biggest frequency ($11$ students)."
+    }
+   ],
+   "result": "Estimated mean $\\approx 21.7$ minutes; modal class $10 \\le t < 20$."
+  }
+ ]
+}

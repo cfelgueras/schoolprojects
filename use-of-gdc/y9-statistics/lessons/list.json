@@ -5,25 +5,16 @@
  "calculator": "Casio fx-9860GII / GIII",
  "lessons": [
   {
-   "id": "enter",
-   "title": "Mean, median, mode and range",
-   "tool": "STAT → CALC → 1VAR",
-   "task": "These are the marks of 10 students in a quiz: $4,\\ 8,\\ 6,\\ 5,\\ 8,\\ 3,\\ 9,\\ 8,\\ 2,\\ 7$. Find the **mean**, **median**, **mode** and **range** with the calculator.",
+   "id": "clear",
+   "title": "Before you start: clear old data",
+   "tool": "STAT → ▷ → DEL-A",
+   "task": "The lists still have numbers from last time. Delete them before you type new data.",
+   "unverified": true,
    "start": {
     "type": "text",
     "lines": []
    },
    "steps": [
-    {
-     "ask": "How many values are there?",
-     "options": [
-      "$10$",
-      "$9$, because $8$ is repeated",
-      "$7$"
-     ],
-     "answer": 0,
-     "why": "Count every value, even the repeated ones: there are $10$ marks. You will check this number on the calculator later."
-    },
     {
      "do": "Press [[MENU]] to open the main menu.",
      "keys": [
@@ -38,6 +29,249 @@
      "do": "Highlight **STAT** with the arrow keys and press [[EXE]].",
      "select": "STAT",
      "hint": "STAT is the second icon of the first row.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "3",
+        "7",
+        "1",
+        "9"
+       ],
+       [
+        "2",
+        "2",
+        "5",
+        "1"
+       ]
+      ],
+      "cur": [
+       0,
+       0
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "ask": "Someone used the calculator before you: List 1 and List 2 have numbers in them. Why delete them?",
+     "options": [
+      "The old numbers would be counted with the new ones",
+      "The calculator works faster",
+      "It doesn't matter"
+     ],
+     "answer": 0,
+     "why": "The calculator uses **every** number in the list. Old numbers mixed with yours give wrong answers."
+    },
+    {
+     "do": "Press [[F6]] **▷** to see more options.",
+     "keys": [
+      "F6"
+     ],
+     "hint": "▷ on [[F6]] means \"more\": it shows a second row of options.",
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "3",
+        "7",
+        "1",
+        "9"
+       ],
+       [
+        "2",
+        "2",
+        "5",
+        "1"
+       ]
+      ],
+      "cur": [
+       0,
+       0
+      ],
+      "fkeys": [
+       "TOOL",
+       "EDIT",
+       "DEL",
+       "DEL-A",
+       "INS",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F4]] **DEL-A** (delete all).",
+     "keys": [
+      "F4"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "",
+       "",
+       "Delete All Data?"
+      ],
+      "fkeys": [
+       "Yes",
+       "",
+       "",
+       "",
+       "",
+       "No"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **Yes**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [],
+       [
+        "2",
+        "2",
+        "5",
+        "1"
+       ]
+      ],
+      "cur": [
+       0,
+       0
+      ],
+      "fkeys": [
+       "TOOL",
+       "EDIT",
+       "DEL",
+       "DEL-A",
+       "INS",
+       "▷"
+      ]
+     }
+    },
+    {
+     "ask": "List 1 is empty now. What about List 2?",
+     "options": [
+      "It still has old numbers: delete it too",
+      "It was deleted too",
+      "Leave it, we only use List 1"
+     ],
+     "answer": 0,
+     "why": "DEL-A only deletes the list the cursor is on. Later we will use List 2 for frequencies, so clear it as well."
+    },
+    {
+     "do": "Move to **List 2** with [[▶]].",
+     "keys": [
+      "RIGHT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [],
+       [
+        "2",
+        "2",
+        "5",
+        "1"
+       ]
+      ],
+      "cur": [
+       1,
+       0
+      ],
+      "fkeys": [
+       "TOOL",
+       "EDIT",
+       "DEL",
+       "DEL-A",
+       "INS",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F4]] **DEL-A**.",
+     "keys": [
+      "F4"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "",
+       "",
+       "Delete All Data?"
+      ],
+      "fkeys": [
+       "Yes",
+       "",
+       "",
+       "",
+       "",
+       "No"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **Yes**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       []
+      ],
+      "cur": [
+       1,
+       0
+      ],
+      "fkeys": [
+       "TOOL",
+       "EDIT",
+       "DEL",
+       "DEL-A",
+       "INS",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[◀]] to go back to List 1.",
+     "keys": [
+      "LEFT"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       []
+      ],
+      "cur": [
+       0,
+       0
+      ],
+      "fkeys": [
+       "TOOL",
+       "EDIT",
+       "DEL",
+       "DEL-A",
+       "INS",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F6]] **▷** to see the first options again.",
+     "keys": [
+      "F6"
+     ],
      "screen": {
       "type": "list",
       "cols": [
@@ -56,41 +290,79 @@
        "▷"
       ]
      }
+    }
+   ],
+   "result": "Both lists are empty. Do this every time you start a new question."
+  },
+  {
+   "id": "ex1",
+   "title": "Question 1: mean, mode, median, range",
+   "tool": "STAT → CALC → 1VAR",
+   "task": "For the set $\\{8, 4, 2, 10, 2, 5, 9, 12, 2, 6\\}$ find (a) the **mean**, (b) the **mode**, (c) the **median**, (d) the **range**. The lists are empty.",
+   "start": {
+    "type": "list",
+    "cols": [
+     []
+    ],
+    "cur": [
+     0,
+     0
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "ask": "How many numbers are in the set?",
+     "options": [
+      "$10$",
+      "$8$, because $2$ is repeated",
+      "$12$, the biggest number"
+     ],
+     "answer": 0,
+     "why": "Count every number, even the repeated ones: $10$. Remember it: you will check it on the calculator."
     },
     {
-     "ask": "The mark $8$ appears three times. How many times do you type it?",
+     "ask": "$2$ appears three times. How many times do you type it?",
      "options": [
-      "$3$ times, once for each student",
+      "$3$ times",
       "Once: the calculator knows it repeats",
       "It doesn't matter"
      ],
      "answer": 0,
-     "why": "Every value goes in the list, so the calculator can count it. If you type $8$ only once, the mean and the mode come out wrong."
+     "why": "Every number goes in the list. If you type $2$ only once, the mean, the mode and the median all change."
     },
     {
-     "do": "Type the first five marks into List 1, pressing [[EXE]] after each one: `4` [[EXE]] `8` [[EXE]] `6` [[EXE]] `5` [[EXE]] `8` [[EXE]].",
+     "do": "Type them into **List 1**, pressing [[EXE]] after each one: `8` [[EXE]] `4` [[EXE]] `2` [[EXE]] `10` [[EXE]] `2` [[EXE]].",
      "keys": [
+      "8",
+      "EXE",
       "4",
       "EXE",
-      "8",
+      "2",
       "EXE",
-      "6",
+      "1",
+      "0",
       "EXE",
-      "5",
-      "EXE",
-      "8",
+      "2",
       "EXE"
      ],
-     "hint": "Each number appears at the bottom of the screen while you type it, and goes into the list when you press [[EXE]].",
+     "hint": "Each number appears at the bottom of the screen while you type it, and goes into the list when you press [[EXE]]. The order doesn't matter.",
      "screen": {
       "type": "list",
       "cols": [
        [
-        "4",
         "8",
-        "6",
-        "5",
-        "8"
+        "4",
+        "2",
+        "10",
+        "2"
        ]
       ],
       "cur": [
@@ -108,33 +380,34 @@
      }
     },
     {
-     "do": "Now the other five: `3` [[EXE]] `9` [[EXE]] `8` [[EXE]] `2` [[EXE]] `7` [[EXE]].",
+     "do": "Keep going: `5` [[EXE]] `9` [[EXE]] `12` [[EXE]] `2` [[EXE]] `6` [[EXE]].",
      "keys": [
-      "3",
+      "5",
       "EXE",
       "9",
       "EXE",
-      "8",
+      "1",
+      "2",
       "EXE",
       "2",
       "EXE",
-      "7",
+      "6",
       "EXE"
      ],
      "screen": {
       "type": "list",
       "cols": [
        [
+        "8",
         "4",
-        "8",
-        "6",
-        "5",
-        "8",
-        "3",
-        "9",
-        "8",
         "2",
-        "7"
+        "10",
+        "2",
+        "5",
+        "9",
+        "12",
+        "2",
+        "6"
        ]
       ],
       "cur": [
@@ -160,16 +433,16 @@
       "type": "list",
       "cols": [
        [
+        "8",
         "4",
-        "8",
-        "6",
-        "5",
-        "8",
-        "3",
-        "9",
-        "8",
         "2",
-        "7"
+        "10",
+        "2",
+        "5",
+        "9",
+        "12",
+        "2",
+        "6"
        ]
       ],
       "cur": [
@@ -204,17 +477,17 @@
      }
     },
     {
-     "ask": "Look at **1Var Freq**. It says $1$. What does that mean?",
+     "ask": "**1Var XList: List1** and **1Var Freq: 1**. What do they mean?",
      "options": [
-      "Each value in the list counts once",
-      "There is only $1$ value",
-      "The answer will be rounded to $1$ decimal place"
+      "The numbers are in List 1 and each one counts once",
+      "There is only $1$ number",
+      "The answers are rounded to $1$ decimal place"
      ],
      "answer": 0,
-     "why": "Freq $= 1$ means every number in List 1 counts once. That is right for a list of numbers. (In frequency tables we will change it.)"
+     "why": "XList tells the calculator where the numbers are (List 1). Freq $= 1$: each number counts once. That is right for a list of numbers."
     },
     {
-     "do": "The settings are right. Press [[EXIT]] to go back.",
+     "do": "The settings are right. Press [[EXIT]].",
      "keys": [
       "EXIT"
      ],
@@ -222,16 +495,16 @@
       "type": "list",
       "cols": [
        [
+        "8",
         "4",
-        "8",
-        "6",
-        "5",
-        "8",
-        "3",
-        "9",
-        "8",
         "2",
-        "7"
+        "10",
+        "2",
+        "5",
+        "9",
+        "12",
+        "2",
+        "6"
        ]
       ],
       "cur": [
@@ -249,7 +522,7 @@
      }
     },
     {
-     "do": "Press [[F1]] **1VAR** (one-variable statistics).",
+     "do": "Press [[F1]] **1VAR**.",
      "keys": [
       "F1"
      ],
@@ -259,35 +532,35 @@
        "1-Variable",
        "x̄   =6",
        "Σx  =60",
-       "Σx² =412",
-       "σx  =2.28035085",
-       "sx  =2.40370085",
+       "Σx² =478",
+       "σx  =3.435112807",
+       "sx  =3.62092683",
        "n   =10"
       ]
      }
     },
     {
-     "ask": "First check **n**. What should it be?",
+     "ask": "Check **n** first. What should it be?",
      "options": [
-      "$10$, the number of marks",
-      "$58$",
-      "$8$"
+      "$10$",
+      "$60$",
+      "$6$"
      ],
      "answer": 0,
-     "why": "$n$ is how many values the calculator used. It must match your count: $10$. If not, a value is missing or typed twice."
+     "why": "$n$ is how many numbers the calculator used. It must be the $10$ you counted. If not, a number is missing or typed twice: go back and fix the list."
     },
     {
-     "ask": "Which line is the **mean**?",
+     "ask": "(a) Which line is the **mean**?",
      "options": [
       "$\\bar{x} = 6$",
       "$\\Sigma x = 60$",
-      "$\\sigma x = 2.2804\\ldots$"
+      "$n = 10$"
      ],
      "answer": 0,
-     "why": "$\\bar{x}$ (x-bar) is the mean. $\\Sigma x$ is the total of all the marks: mean $= \\dfrac{\\Sigma x}{n} = \\dfrac{60}{10} = 6$. You don't need $\\sigma x$ or $sx$ in Year 9."
+     "why": "$\\bar{x}$ (\"x bar\") is the mean. $\\Sigma x$ is the total: mean $= \\dfrac{\\text{total}}{n} = \\dfrac{60}{10} = 6$. You don't need $\\Sigma x^2$, $\\sigma x$ or $sx$ this year."
     },
     {
-     "do": "Press [[▼]] to scroll down to the rest of the results.",
+     "do": "Press [[▼]] to scroll down.",
      "keys": [
       "DOWN"
      ],
@@ -297,46 +570,548 @@
       "lines": [
        "1-Variable",
        "minX=2",
-       "Q1  =4",
-       "Med =6.5",
-       "Q3  =8",
-       "maxX=9",
-       "Mod =8"
+       "Q1  =2",
+       "Med =5.5",
+       "Q3  =9",
+       "maxX=12",
+       "Mod =2"
       ]
      }
     },
     {
-     "ask": "Which line is the **median**?",
+     "ask": "(b) What is the **mode**?",
      "options": [
-      "Med $= 6.5$",
-      "Q1 $= 4$",
-      "Mod $= 8$"
-     ],
-     "answer": 0,
-     "why": "Med is the median, the middle value when the marks are in order: $2, 3, 4, 5, \\mathbf{6}, \\mathbf{7}, 8, 8, 8, 9$. With $10$ values it is halfway between $6$ and $7$: $6.5$."
-    },
-    {
-     "ask": "What is the **mode**?",
-     "options": [
-      "$8$",
+      "$2$",
       "$3$, because it appears $3$ times",
-      "$9$, the biggest"
+      "$12$, the biggest"
      ],
      "answer": 0,
-     "why": "Mod is the mode: the value that appears most often. $8$ appears $3$ times. (The mode is the value, $8$, not how many times it appears.)"
+     "why": "Mod is the mode: the number that appears most often. $2$ appears $3$ times. The mode is the **number** ($2$), not how many times it appears."
     },
     {
-     "ask": "The calculator doesn't show the range. How do you find it?",
+     "ask": "(c) Which line is the **median**?",
      "options": [
-      "maxX $-$ minX $= 9 - 2 = 7$",
-      "It is Q3 $-$ Q1",
-      "It is $n = 10$"
+      "Med $= 5.5$",
+      "Q1 $= 2$",
+      "Q3 $= 9$"
      ],
      "answer": 0,
-     "why": "Range $=$ largest $-$ smallest. The calculator gives both: maxX and minX."
+     "why": "Med is the median, the middle number when they are in order: $2, 2, 2, 4, \\mathbf{5}, \\mathbf{6}, 8, 9, 10, 12$. With $10$ numbers there are two in the middle, so it is halfway between $5$ and $6$: $5.5$."
+    },
+    {
+     "ask": "(d) The calculator doesn't show the range. How do you find it?",
+     "options": [
+      "maxX $-$ minX $= 12 - 2 = 10$",
+      "Q3 $-$ Q1",
+      "It is $n$"
+     ],
+     "answer": 0,
+     "why": "Range $=$ largest $-$ smallest. maxX is the largest and minX the smallest."
     }
    ],
-   "result": "Mean $= 6$, median $= 6.5$, mode $= 8$, range $= 7$. Always check $n$ first."
+   "result": "(a) mean $= 6$, (b) mode $= 2$, (c) median $= 5.5$, (d) range $= 12 - 2 = 10$."
+  },
+  {
+   "id": "ex5",
+   "title": "Question 5: find T, then check",
+   "tool": "by hand, then STAT",
+   "task": "Temperatures in °C for eight days: $7, 4, 5, 4, 8, T, 14, 4$. The mean is $7$ °C. (a) Find $T$. (b) Write down the mode. (c) Find the median. Then **check with the GDC**. The lists are empty.",
+   "start": {
+    "type": "list",
+    "cols": [
+     []
+    ],
+    "cur": [
+     0,
+     0
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "ask": "The mean of the $8$ temperatures is $7$. What is their **total**?",
+     "options": [
+      "$8 \\times 7 = 56$",
+      "$7 + 8 = 15$",
+      "$7$"
+     ],
+     "answer": 0,
+     "why": "Mean $= \\dfrac{\\text{total}}{8}$, so total $=$ mean $\\times 8 = 56$."
+    },
+    {
+     "ask": "The seven numbers we know add up to $7 + 4 + 5 + 4 + 8 + 14 + 4 = 46$. So $T$ is…",
+     "options": [
+      "$56 - 46 = 10$",
+      "$46 \\div 7$",
+      "$56 + 46$"
+     ],
+     "answer": 0,
+     "why": "The total must be $56$: $T = 56 - 46 = 10$."
+    },
+    {
+     "ask": "Now check it: which numbers do you type into List 1?",
+     "options": [
+      "$7, 4, 5, 4, 8, 10, 14, 4$",
+      "$7, 4, 5, 4, 8, 14, 4$",
+      "$7, 4, 5, 4, 8, T, 14, 4$"
+     ],
+     "answer": 0,
+     "why": "Type all eight, with $T = 10$ in its place. The calculator can't use a letter."
+    },
+    {
+     "do": "Type them into **List 1**, pressing [[EXE]] after each one: `7` [[EXE]] `4` [[EXE]] `5` [[EXE]] `4` [[EXE]] `8` [[EXE]].",
+     "keys": [
+      "7",
+      "EXE",
+      "4",
+      "EXE",
+      "5",
+      "EXE",
+      "4",
+      "EXE",
+      "8",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "7",
+        "4",
+        "5",
+        "4",
+        "8"
+       ]
+      ],
+      "cur": [
+       0,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `10` [[EXE]] `14` [[EXE]] `4` [[EXE]].",
+     "keys": [
+      "1",
+      "0",
+      "EXE",
+      "1",
+      "4",
+      "EXE",
+      "4",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "7",
+        "4",
+        "5",
+        "4",
+        "8",
+        "10",
+        "14",
+        "4"
+       ]
+      ],
+      "cur": [
+       0,
+       8
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC**. (Freq should still be $1$: check with [[F6]] SET if you are not sure.)",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "7",
+        "4",
+        "5",
+        "4",
+        "8",
+        "10",
+        "14",
+        "4"
+       ]
+      ],
+      "cur": [
+       0,
+       8
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =7",
+       "Σx  =56",
+       "Σx² =482",
+       "σx  =3.354101966",
+       "sx  =3.585685828",
+       "n   =8"
+      ]
+     }
+    },
+    {
+     "ask": "Is $T = 10$ right?",
+     "options": [
+      "Yes: $\\bar{x} = 7$ and $n = 8$",
+      "No: $\\Sigma x$ should be $7$",
+      "We can't tell"
+     ],
+     "answer": 0,
+     "why": "The calculator gives a mean of $7$ with $8$ values, as the question says. If the mean were not $7$, $T$ would be wrong."
+    },
+    {
+     "do": "Press [[▼]] to scroll down.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see minX, Med, maxX and Mod.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=4",
+       "Q1  =4",
+       "Med =6",
+       "Q3  =9",
+       "maxX=14",
+       "Mod =4"
+      ]
+     }
+    },
+    {
+     "ask": "(b) and (c): the mode and the median?",
+     "options": [
+      "Mode $4$, median $6$",
+      "Mode $3$, median $6$",
+      "Mode $4$, median $5$"
+     ],
+     "answer": 0,
+     "why": "Mod $= 4$ ($4$ appears $3$ times). In order: $4, 4, 4, \\mathbf{5}, \\mathbf{7}, 8, 10, 14$: the median is halfway between $5$ and $7$, so $6$."
+    }
+   ],
+   "result": "(a) $T = 10$, (b) mode $= 4$, (c) median $= 6$."
+  },
+  {
+   "id": "ex7",
+   "title": "Question 7: weights (practice)",
+   "tool": "STAT → CALC → 1VAR",
+   "task": "Weights in kg of 12 students: $63, 76, 99, 65, 63, 51, 52, 95, 63, 71, 65, 83$. (a) State the mode. (b) Calculate the mean. Extended: one student leaves and the mean of the other 11 becomes $70$ kg. (c) Find the weight of that student. (d) Find the range. The lists are empty.",
+   "start": {
+    "type": "list",
+    "cols": [
+     []
+    ],
+    "cur": [
+     0,
+     0
+    ],
+    "fkeys": [
+     "GRPH",
+     "CALC",
+     "TEST",
+     "INTR",
+     "DIST",
+     "▷"
+    ]
+   },
+   "steps": [
+    {
+     "do": "Type them into **List 1**, pressing [[EXE]] after each one: `63` [[EXE]] `76` [[EXE]] `99` [[EXE]] `65` [[EXE]] `63` [[EXE]].",
+     "keys": [
+      "6",
+      "3",
+      "EXE",
+      "7",
+      "6",
+      "EXE",
+      "9",
+      "9",
+      "EXE",
+      "6",
+      "5",
+      "EXE",
+      "6",
+      "3",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "63",
+        "76",
+        "99",
+        "65",
+        "63"
+       ]
+      ],
+      "cur": [
+       0,
+       5
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `51` [[EXE]] `52` [[EXE]] `95` [[EXE]] `63` [[EXE]] `71` [[EXE]].",
+     "keys": [
+      "5",
+      "1",
+      "EXE",
+      "5",
+      "2",
+      "EXE",
+      "9",
+      "5",
+      "EXE",
+      "6",
+      "3",
+      "EXE",
+      "7",
+      "1",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "63",
+        "76",
+        "99",
+        "65",
+        "63",
+        "51",
+        "52",
+        "95",
+        "63",
+        "71"
+       ]
+      ],
+      "cur": [
+       0,
+       10
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Keep going: `65` [[EXE]] `83` [[EXE]].",
+     "keys": [
+      "6",
+      "5",
+      "EXE",
+      "8",
+      "3",
+      "EXE"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "63",
+        "76",
+        "99",
+        "65",
+        "63",
+        "51",
+        "52",
+        "95",
+        "63",
+        "71",
+        "65",
+        "83"
+       ]
+      ],
+      "cur": [
+       0,
+       12
+      ],
+      "fkeys": [
+       "GRPH",
+       "CALC",
+       "TEST",
+       "INTR",
+       "DIST",
+       "▷"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F2]] **CALC**.",
+     "keys": [
+      "F2"
+     ],
+     "screen": {
+      "type": "list",
+      "cols": [
+       [
+        "63",
+        "76",
+        "99",
+        "65",
+        "63",
+        "51",
+        "52",
+        "95",
+        "63",
+        "71",
+        "65",
+        "83"
+       ]
+      ],
+      "cur": [
+       0,
+       12
+      ],
+      "fkeys": [
+       "1VAR",
+       "2VAR",
+       "REG",
+       "",
+       "",
+       "SET"
+      ]
+     }
+    },
+    {
+     "do": "Press [[F1]] **1VAR**.",
+     "keys": [
+      "F1"
+     ],
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "x̄   =70.5",
+       "Σx  =846",
+       "Σx² =62194",
+       "σx  =14.58023777",
+       "sx  =15.22856168",
+       "n   =12"
+      ]
+     }
+    },
+    {
+     "ask": "$n = 12$ and the mean?",
+     "options": [
+      "$\\bar{x} = 70.5$ kg",
+      "$\\bar{x} = 846$ kg",
+      "$\\bar{x} = 12$ kg"
+     ],
+     "answer": 0,
+     "why": "$\\bar{x} = 70.5$. $\\Sigma x = 846$ is the total weight."
+    },
+    {
+     "do": "Press [[▼]] to scroll down.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see minX, Med, maxX and Mod.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=51",
+       "Q1  =63",
+       "Med =65",
+       "Q3  =79.5",
+       "maxX=99",
+       "Mod =63"
+      ]
+     }
+    },
+    {
+     "ask": "(a) The mode?",
+     "options": [
+      "$63$ kg",
+      "$3$",
+      "$65$ kg"
+     ],
+     "answer": 0,
+     "why": "$63$ appears $3$ times, more than any other weight."
+    },
+    {
+     "ask": "(c) After one student leaves, the total of the 11 is $11 \\times 70 = 770$. The student who left weighs…",
+     "options": [
+      "$846 - 770 = 76$ kg",
+      "$70.5 - 70 = 0.5$ kg",
+      "$770 \\div 11 = 70$ kg"
+     ],
+     "answer": 0,
+     "why": "Total before $-$ total after $=$ the weight of the student who left: $846 - 770 = 76$ kg. $\\Sigma x$ on the calculator gives you the $846$."
+    },
+    {
+     "ask": "(d) The range?",
+     "options": [
+      "$99 - 51 = 48$ kg",
+      "$83 - 63 = 20$ kg",
+      "$12$"
+     ],
+     "answer": 0,
+     "why": "maxX $-$ minX $= 99 - 51 = 48$ kg."
+    }
+   ],
+   "result": "(a) $63$ kg, (b) $70.5$ kg, (c) $76$ kg, (d) $48$ kg."
   }
  ]
 }
