@@ -605,6 +605,34 @@
      ],
      "answer": 0,
      "why": "Use the grades, not the frequencies: largest grade $-$ smallest grade."
+    },
+    {
+     "do": "Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "Q3  =6",
+       "maxX=7",
+       "Mod =6",
+       "Mod:n=1",
+       "Mod:F=5"
+      ]
+     }
+    },
+    {
+     "ask": "Mod:n $= 1$ and Mod:F $= 5$. What do they tell you?",
+     "options": [
+      "There is one mode, and it appears $5$ times",
+      "There are $5$ modes",
+      "The mode is $5$"
+     ],
+     "answer": 0,
+     "why": "**Mod:n** is the **number of modes**: $1$ here. **Mod:F** is the **frequency of the mode**: how many times the grade 6 appears. If Mod:n were $2$, there would be two modes and you would write both."
     }
    ],
    "result": "Modal grade $6$, median $4.5$, mean $4.2$, range $6$. Leave **1Var Freq: List2** while you use frequency tables; set it back to $1$ for a plain list of numbers."
@@ -1040,6 +1068,34 @@
      ],
      "answer": 0,
      "why": "With $25$ children the median is the 13th: $4 + 3 = 7$ children have $0$ or $1$ filling, so the 8th to the 15th have $2$. The median is $2$."
+    },
+    {
+     "do": "Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "Q3  =3",
+       "maxX=5",
+       "Mod =2",
+       "Mod:n=1",
+       "Mod:F=8"
+      ]
+     }
+    },
+    {
+     "ask": "Mod:n $= 1$ and Mod:F $= 8$. What do they tell you?",
+     "options": [
+      "There is one mode, and it appears $8$ times",
+      "There are $8$ modes",
+      "The mode is $8$"
+     ],
+     "answer": 0,
+     "why": "**Mod:n** is the **number of modes**: $1$ here. **Mod:F** is the **frequency of the mode**: how many times the number of fillings 2 appears. If Mod:n were $2$, there would be two modes and you would write both."
     }
    ],
    "result": "(a) $q = 5$, (b) (i) mean $2.2$, (ii) median $2$."
@@ -1459,6 +1515,34 @@
      ],
      "answer": 0,
      "why": "Med $= 2$. The mode is the number of **goals** with the most matches: $1$ goal ($22$ matches). $22$ is a frequency, not a mode."
+    },
+    {
+     "do": "Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "Q3  =3",
+       "maxX=5",
+       "Mod =1",
+       "Mod:n=1",
+       "Mod:F=22"
+      ]
+     }
+    },
+    {
+     "ask": "Mod:n $= 1$ and Mod:F $= 22$. What do they tell you?",
+     "options": [
+      "There is one mode, and it appears $22$ times",
+      "There are $22$ modes",
+      "The mode is $22$"
+     ],
+     "answer": 0,
+     "why": "**Mod:n** is the **number of modes**: $1$ here. **Mod:F** is the **frequency of the mode**: how many times the number of goals 1 appears. If Mod:n were $2$, there would be two modes and you would write both."
     }
    ],
    "result": "(a) mean $1.75$, (b) median $2$, mode $1$."

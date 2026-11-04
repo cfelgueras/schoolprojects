@@ -109,7 +109,7 @@ def median(v):
 
 
 def one_var(values, freqs=None):
-    """Mean, Σx, Σx², σx, sx, n, minX, Q1, Med, Q3, maxX, Mod as the calculator gives them.
+    """Mean, Σx, Σx², σx, sx, n, minX, Q1, Med, Q3, maxX, Mod, Mod:n, Mod:F as the calculator gives them.
     Quartiles: median of each half, leaving out the middle value when n is odd (the fx-9860GII method)."""
     freqs = freqs or [1] * len(values)
     data = sorted(x for x, f in zip(values, freqs) for _ in range(f))
@@ -121,9 +121,11 @@ def one_var(values, freqs=None):
     counts = {}
     for x in data: counts[x] = counts.get(x, 0) + 1
     top = max(counts.values())
-    mode = min(x for x, c in counts.items() if c == top)
+    modes = [x for x, c in counts.items() if c == top]
+    mode = min(modes)
     return {"mean": mean, "sx": sx, "sx2": sx2, "sigma": var ** 0.5, "s": (var * n / (n - 1)) ** 0.5, "n": n,
-            "min": data[0], "q1": median(lo), "med": median(data), "q3": median(hi), "max": data[-1], "mod": mode}
+            "min": data[0], "q1": median(lo), "med": median(data), "q3": median(hi), "max": data[-1], "mod": mode,
+            "modn": len(modes), "modf": top}
 
 
 def screen1(r):
@@ -134,6 +136,31 @@ def screen1(r):
 def screen2(r):
     return {"type": "text", "lines": ["1-Variable", "minX=" + g(r["min"]), "Q1  =" + g(r["q1"]), "Med =" + g(r["med"]),
                                       "Q3  =" + g(r["q3"]), "maxX=" + g(r["max"]), "Mod =" + g(r["mod"])]}
+
+
+def screen3(r):
+    """The end of the 1-Variable results: how many modes there are (Mod:n) and how often the mode appears (Mod:F)."""
+    return {"type": "text", "lines": ["1-Variable", "Q3  =" + g(r["q3"]), "maxX=" + g(r["max"]), "Mod =" + g(r["mod"]),
+                                      "Mod:n=" + g(r["modn"]), "Mod:F=" + g(r["modf"])]}
+
+
+def mode_info(r, what="value", grouped=None):
+    """Scroll to Mod:n and Mod:F and ask what they mean. grouped = the modal class, for grouped data."""
+    one = r["modn"] == 1
+    steps = [keys("Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.", "v", screen3(r),
+                  hint="Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.")]
+    if grouped:
+        steps.append(ask("Mod $= %s$, Mod:n $= %s$, Mod:F $= %s$. What do they tell you?" % (g(r["mod"]), g(r["modn"]), g(r["modf"])),
+                         ["The class with midpoint $%s$ is the modal class (%s) and it has frequency $%s$" % (g(r["mod"]), grouped, g(r["modf"])),
+                          "The mode is exactly $%s$" % g(r["mod"]), "There are $%s$ modes" % g(r["modf"])],
+                         "With grouped data, Mod is the **midpoint** of the modal class. Mod:n $= 1$: there is one modal class. Mod:F $= %s$: its frequency." % g(r["modf"])))
+    else:
+        steps.append(ask("Mod:n $= %s$ and Mod:F $= %s$. What do they tell you?" % (g(r["modn"]), g(r["modf"])),
+                         ["There is %s mode, and it appears $%s$ times" % ("one" if one else g(r["modn"]), g(r["modf"])),
+                          "There are $%s$ modes" % g(r["modf"]), "The mode is $%s$" % g(r["modf"])],
+                         "**Mod:n** is the **number of modes**: $%s$ here. **Mod:F** is the **frequency of the mode**: how many times the %s %s appears. "
+                         "If Mod:n were $2$, there would be two modes and you would write both." % (g(r["modn"]), what, g(r["mod"]))))
+    return steps
 
 
 def typing(values, start=0):
@@ -235,7 +262,7 @@ clear = lesson("clear", "Before you start: clear old data", "STAT → ▷ → DE
                    keys("Press [[F1]] **Yes**.", "F1", lists([], [], cur=(1, 0), fkeys=LIST2_F)),
                    keys("Press [[◀]] to go back to List 1.", "<", lists([], [], fkeys=LIST2_F)),
                    keys("Press [[F6]] **▷** to see the first options again.", "F6", lists([], [])),
-               ], "Both lists are empty. Do this every time you start a new question.", unverified=True)
+               ], "Both lists are empty. Do this every time you start a new question.")
 
 D1 = [8, 4, 2, 10, 2, 5, 9, 12, 2, 6]
 R1, one1, two1 = results(D1)
@@ -264,6 +291,7 @@ ex1 = lesson("ex1", "Question 1: mean, mode, median, range", "STAT → CALC → 
                      "Med is the median, the middle number when they are in order: $2, 2, 2, 4, \\mathbf{5}, \\mathbf{6}, 8, 9, 10, 12$. With $10$ numbers there are two in the middle, so it is halfway between $5$ and $6$: $5.5$."),
                  ask("(d) The calculator doesn't show the range. How do you find it?", ["maxX $-$ minX $= " + g(R1["max"]) + " - " + g(R1["min"]) + " = " + g(R1["max"] - R1["min"]) + "$", "Q3 $-$ Q1", "It is $n$"],
                      "Range $=$ largest $-$ smallest. maxX is the largest and minX the smallest."),
+             ] + mode_info(R1, "number") + [
              ], "(a) mean $= 6$, (b) mode $= 2$, (c) median $= 5.5$, (d) range $= 12 - 2 = 10$.")
 
 D5 = [7, 4, 5, 4, 8, 10, 14, 4]
@@ -285,6 +313,7 @@ ex5 = lesson("ex5", "Question 5: find T, then check", "by hand, then STAT",
                  two5,
                  ask("(b) and (c): the mode and the median?", ["Mode $4$, median $6$", "Mode $3$, median $6$", "Mode $4$, median $5$"],
                      "Mod $= 4$ ($4$ appears $3$ times). In order: $4, 4, 4, \\mathbf{5}, \\mathbf{7}, 8, 10, 14$: the median is halfway between $5$ and $7$, so $6$."),
+             ] + mode_info(R5, "temperature") + [
              ], "(a) $T = 10$, (b) mode $= 4$, (c) median $= 6$.")
 
 D7 = [63, 76, 99, 65, 63, 51, 52, 95, 63, 71, 65, 83]
@@ -300,6 +329,7 @@ ex7 = lesson("ex7", "Question 7: weights (practice)", "STAT → CALC → 1VAR",
                  ask("(c) After one student leaves, the total of the 11 is $11 \\times 70 = 770$. The student who left weighs…", ["$846 - 770 = 76$ kg", "$70.5 - 70 = 0.5$ kg", "$770 \\div 11 = 70$ kg"],
                      "Total before $-$ total after $=$ the weight of the student who left: $846 - 770 = 76$ kg. $\\Sigma x$ on the calculator gives you the $846$."),
                  ask("(d) The range?", ["$99 - 51 = 48$ kg", "$83 - 63 = 20$ kg", "$12$"], "maxX $-$ minX $= 99 - 51 = 48$ kg."),
+             ] + mode_info(R7, "weight") + [
              ], "(a) $63$ kg, (b) $70.5$ kg, (c) $76$ kg, (d) $48$ kg.")
 
 save("list", "Y9 Statistics · Section 1", "A list of numbers", [clear, ex1, ex5, ex7])
@@ -342,6 +372,7 @@ ex8 = lesson("ex8", "Question 8: grades", "STAT, 1Var Freq: List2",
                      "With $20$ students the median is halfway between the 10th and 11th grades in order: $4$ and $5$, so $4.5$."),
                  ask("And the range?", ["maxX $-$ minX $= 7 - 1 = 6$", "$5 - 1 = 4$ (frequencies)", "$20$"],
                      "Use the grades, not the frequencies: largest grade $-$ smallest grade."),
+             ] + mode_info(R8, "grade") + [
              ], "Modal grade $6$, median $4.5$, mean $4.2$, range $6$. Leave **1Var Freq: List2** while you use frequency tables; set it back to $1$ for a plain list of numbers.")
 
 V9, F9 = [0, 1, 2, 3, 4, 5], [4, 3, 8, 5, 4, 1]
@@ -358,6 +389,7 @@ ex9 = lesson("ex9", "Question 9: dental fillings", "STAT, 1Var Freq: List2",
                  ask("$n$ and the mean?", ["$n = 25$, mean $= 2.2$", "$n = 6$, mean $= 2.5$", "$n = 25$, mean $= 55$"], "$n$ matches the $25$ children, and $\\bar{x} = \\dfrac{55}{25} = 2.2$."),
                  two9,
                  ask("(ii) The median?", ["$2$", "$8$", "$2.5$"], "With $25$ children the median is the 13th: $4 + 3 = 7$ children have $0$ or $1$ filling, so the 8th to the 15th have $2$. The median is $2$."),
+             ] + mode_info(R9, "number of fillings") + [
              ], "(a) $q = 5$, (b) (i) mean $2.2$, (ii) median $2$.")
 
 V10, F10 = [0, 1, 2, 3, 4, 5], [16, 22, 19, 17, 1, 5]
@@ -370,6 +402,7 @@ ex10 = lesson("ex10", "Question 10: goals (practice)", "STAT, 1Var Freq: List2",
                   two10,
                   ask("(b) Median and mode?", ["Median $2$, mode $1$", "Median $2$, mode $22$", "Median $19$, mode $1$"],
                       "Med $= 2$. The mode is the number of **goals** with the most matches: $1$ goal ($22$ matches). $22$ is a frequency, not a mode."),
+              ] + mode_info(R10, "number of goals") + [
               ], "(a) mean $1.75$, (b) median $2$, mode $1$.")
 
 save("frequency", "Y9 Statistics · Section 2", "Frequency tables", [ex8, ex9, ex10])
@@ -398,7 +431,9 @@ ex16 = lesson("ex16", "Question 16: emails", "midpoints → STAT",
                       "$n = 30$ students. $\\bar{x} = \\dfrac{" + g(R16["sx"]) + "}{30} = " + g(R16["mean"]) + "$ emails."),
                   ask("Why does the question say **estimate** the mean?", ["We used the midpoints, not the real numbers of emails", "The calculator rounds the answer", "Because $n$ is small"],
                       "The real numbers of emails could be anywhere in each class. The midpoints give a good estimate, not the exact mean."),
-                  ask("(c) The **modal class**?", ["$10$–$19$: it has the biggest frequency, $9$", "$9$", "$14.5$"],
+                  two16,
+              ] + mode_info(R16, grouped="$10$–$19$") + [
+                  ask("(c) So the **modal class** is…", ["$10$–$19$", "$9$", "$14.5$"],
                       "With grouped data we give the **class** with the biggest frequency, not a single number."),
               ], "(c) modal class $10$–$19$, (f) estimated mean $= \\dfrac{645}{30} = 21.5$ emails. Working: $\\dfrac{4.5 \\times 6 + 14.5 \\times 9 + 24.5 \\times 7 + 34.5 \\times 5 + 44.5 \\times 2 + 54.5 \\times 1}{30}$.")
 
@@ -414,6 +449,8 @@ extime = lesson("time", "Times to school (continuous)", "midpoints → STAT",
                     oneT,
                     ask("The estimated mean?", ["$\\approx 21.7$ minutes ($" + g(RT["mean"]) + "$)", "$25$ minutes", "$650$ minutes"],
                         "$\\bar{x} = \\dfrac{650}{30} \\approx 21.7$ minutes (3 s.f.)."),
+                    twoT,
+                ] + mode_info(RT, grouped="$10 \\le t < 20$") + [
                     ask("The modal class?", ["$10 \\le t < 20$", "$11$", "$15$"], "The class with the biggest frequency ($11$ students)."),
                 ], "Estimated mean $\\approx 21.7$ minutes; modal class $10 \\le t < 20$.")
 

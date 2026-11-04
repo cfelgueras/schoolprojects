@@ -9,7 +9,6 @@
    "title": "Before you start: clear old data",
    "tool": "STAT → ▷ → DEL-A",
    "task": "The lists still have numbers from last time. Delete them before you type new data.",
-   "unverified": true,
    "start": {
     "type": "text",
     "lines": []
@@ -607,6 +606,34 @@
      ],
      "answer": 0,
      "why": "Range $=$ largest $-$ smallest. maxX is the largest and minX the smallest."
+    },
+    {
+     "do": "Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "Q3  =9",
+       "maxX=12",
+       "Mod =2",
+       "Mod:n=1",
+       "Mod:F=3"
+      ]
+     }
+    },
+    {
+     "ask": "Mod:n $= 1$ and Mod:F $= 3$. What do they tell you?",
+     "options": [
+      "There is one mode, and it appears $3$ times",
+      "There are $3$ modes",
+      "The mode is $3$"
+     ],
+     "answer": 0,
+     "why": "**Mod:n** is the **number of modes**: $1$ here. **Mod:F** is the **frequency of the mode**: how many times the number 2 appears. If Mod:n were $2$, there would be two modes and you would write both."
     }
    ],
    "result": "(a) mean $= 6$, (b) mode $= 2$, (c) median $= 5.5$, (d) range $= 12 - 2 = 10$."
@@ -833,6 +860,34 @@
      ],
      "answer": 0,
      "why": "Mod $= 4$ ($4$ appears $3$ times). In order: $4, 4, 4, \\mathbf{5}, \\mathbf{7}, 8, 10, 14$: the median is halfway between $5$ and $7$, so $6$."
+    },
+    {
+     "do": "Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "Q3  =9",
+       "maxX=14",
+       "Mod =4",
+       "Mod:n=1",
+       "Mod:F=3"
+      ]
+     }
+    },
+    {
+     "ask": "Mod:n $= 1$ and Mod:F $= 3$. What do they tell you?",
+     "options": [
+      "There is one mode, and it appears $3$ times",
+      "There are $3$ modes",
+      "The mode is $3$"
+     ],
+     "answer": 0,
+     "why": "**Mod:n** is the **number of modes**: $1$ here. **Mod:F** is the **frequency of the mode**: how many times the temperature 4 appears. If Mod:n were $2$, there would be two modes and you would write both."
     }
    ],
    "result": "(a) $T = 10$, (b) mode $= 4$, (c) median $= 6$."
@@ -1109,6 +1164,34 @@
      ],
      "answer": 0,
      "why": "maxX $-$ minX $= 99 - 51 = 48$ kg."
+    },
+    {
+     "do": "Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "Q3  =79.5",
+       "maxX=99",
+       "Mod =63",
+       "Mod:n=1",
+       "Mod:F=3"
+      ]
+     }
+    },
+    {
+     "ask": "Mod:n $= 1$ and Mod:F $= 3$. What do they tell you?",
+     "options": [
+      "There is one mode, and it appears $3$ times",
+      "There are $3$ modes",
+      "The mode is $3$"
+     ],
+     "answer": 0,
+     "why": "**Mod:n** is the **number of modes**: $1$ here. **Mod:F** is the **frequency of the mode**: how many times the weight 63 appears. If Mod:n were $2$, there would be two modes and you would write both."
     }
    ],
    "result": "(a) $63$ kg, (b) $70.5$ kg, (c) $76$ kg, (d) $48$ kg."

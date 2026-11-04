@@ -499,9 +499,56 @@
      "why": "The real numbers of emails could be anywhere in each class. The midpoints give a good estimate, not the exact mean."
     },
     {
-     "ask": "(c) The **modal class**?",
+     "do": "Press [[▼]] to scroll down.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see minX, Med, maxX and Mod.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=4.5",
+       "Q1  =14.5",
+       "Med =19.5",
+       "Q3  =34.5",
+       "maxX=54.5",
+       "Mod =14.5"
+      ]
+     }
+    },
+    {
+     "do": "Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "Q3  =34.5",
+       "maxX=54.5",
+       "Mod =14.5",
+       "Mod:n=1",
+       "Mod:F=9"
+      ]
+     }
+    },
+    {
+     "ask": "Mod $= 14.5$, Mod:n $= 1$, Mod:F $= 9$. What do they tell you?",
      "options": [
-      "$10$–$19$: it has the biggest frequency, $9$",
+      "The class with midpoint $14.5$ is the modal class ($10$–$19$) and it has frequency $9$",
+      "The mode is exactly $14.5$",
+      "There are $9$ modes"
+     ],
+     "answer": 0,
+     "why": "With grouped data, Mod is the **midpoint** of the modal class. Mod:n $= 1$: there is one modal class. Mod:F $= 9$: its frequency."
+    },
+    {
+     "ask": "(c) So the **modal class** is…",
+     "options": [
+      "$10$–$19$",
       "$9$",
       "$14.5$"
      ],
@@ -838,6 +885,53 @@
      ],
      "answer": 0,
      "why": "$\\bar{x} = \\dfrac{650}{30} \\approx 21.7$ minutes (3 s.f.)."
+    },
+    {
+     "do": "Press [[▼]] to scroll down.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "On your calculator, keep pressing ▼ until you see minX, Med, maxX and Mod.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "minX=5",
+       "Q1  =15",
+       "Med =20",
+       "Q3  =25",
+       "maxX=45",
+       "Mod =15"
+      ]
+     }
+    },
+    {
+     "do": "Press [[▼]] again to reach the end of the list: **Mod:n** and **Mod:F**.",
+     "keys": [
+      "DOWN"
+     ],
+     "hint": "Keep pressing ▼ until you see Mod:n and Mod:F at the bottom.",
+     "screen": {
+      "type": "text",
+      "lines": [
+       "1-Variable",
+       "Q3  =25",
+       "maxX=45",
+       "Mod =15",
+       "Mod:n=1",
+       "Mod:F=11"
+      ]
+     }
+    },
+    {
+     "ask": "Mod $= 15$, Mod:n $= 1$, Mod:F $= 11$. What do they tell you?",
+     "options": [
+      "The class with midpoint $15$ is the modal class ($10 \\le t < 20$) and it has frequency $11$",
+      "The mode is exactly $15$",
+      "There are $11$ modes"
+     ],
+     "answer": 0,
+     "why": "With grouped data, Mod is the **midpoint** of the modal class. Mod:n $= 1$: there is one modal class. Mod:F $= 11$: its frequency."
     },
     {
      "ask": "The modal class?",
