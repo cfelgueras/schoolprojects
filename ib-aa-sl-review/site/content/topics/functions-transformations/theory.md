@@ -96,7 +96,10 @@ $$f(x) = \dfrac{1}{x}, \quad x \neq 0$$
 :::formula memorize Asymptotes of $f(x) = \dfrac{ax + b}{cx + d}$
 - Vertical asymptote: $x = -\dfrac{d}{c}$ (where the denominator is $0$).
 - Horizontal asymptote: $y = \dfrac{a}{c}$ (ratio of the $x$-coefficients).
-- $x$-intercept: $x = -\dfrac{b}{a}$. $\ y$-intercept: $y = \dfrac{b}{d}$.
+- **$y$-intercept** (where the graph crosses the $y$-axis): replace $x$ by $0$ and work out $y$:  
+  $y = \dfrac{a(0) + b}{c(0) + d} = \dfrac{b}{d}$, so the point is $\left(0,\ \dfrac{b}{d}\right)$.
+- **$x$-intercept** (where the graph crosses the $x$-axis): replace $y$ by $0$ and rearrange to find $x$:  
+  $0 = \dfrac{ax + b}{cx + d} \Rightarrow 0 = ax + b$ (multiply both sides by $cx + d$) $\Rightarrow x = -\dfrac{b}{a}$, so the point is $\left(-\dfrac{b}{a},\ 0\right)$.
 :::
 
 **Limit notation (informal).** $\displaystyle\lim_{x \to \infty} f(x) = L$ means "as $x$ gets very large, $f(x)$ gets closer and closer to $L$". So $y = L$ is a horizontal asymptote. Example: $\displaystyle\lim_{x \to \infty} \dfrac{1}{x} = 0$.
@@ -117,8 +120,8 @@ $$f(x) = \dfrac{1}{x}, \quad x \neq 0$$
 +++
 
 - Vertical asymptote: $x = 3$. Horizontal asymptote: $y = \dfrac{2}{1} = 2$.
-- $x$-intercept: $2x + 1 = 0 \Rightarrow \left(-\dfrac{1}{2},\ 0\right)$.
-- $y$-intercept: $f(0) = \dfrac{1}{-3}$, so $\left(0,\ -\dfrac{1}{3}\right)$.
+- $x$-intercept: put $y = 0$: $0 = \dfrac{2x + 1}{x - 3} \Rightarrow 0 = 2x + 1 \Rightarrow x = -\dfrac{1}{2}$, so $\left(-\dfrac{1}{2},\ 0\right)$.
+- $y$-intercept: put $x = 0$: $y = \dfrac{2(0) + 1}{0 - 3} = -\dfrac{1}{3}$, so $\left(0,\ -\dfrac{1}{3}\right)$.
 :::
 
 ## 5. Transformations of graphs
