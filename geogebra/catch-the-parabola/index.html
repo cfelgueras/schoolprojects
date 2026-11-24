@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Catch the Parabola</title>
+  <meta name="description" content="Video: put a photo in GeoGebra Classic with the right scale, mark points and fit a quadratic with FitPoly.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300478e'/%3E%3Cpath d='M4 4L28 28M28 4L4 28' stroke='%23ddaf71' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #00478e;
+      --gold: #ddaf71;
+      --ink: #1b2430;
+      --muted: #5b6573;
+      --bg: #f6f4ef;
+      --card: #ffffff;
+      --line: #e3ded3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --navy: #7fb2ec;
+        --ink: #e9edf2;
+        --muted: #a3adba;
+        --bg: #11161d;
+        --card: #1a212b;
+        --line: #2b3542;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Nunito Sans", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+    .bar { height: 6px; background: linear-gradient(90deg, #00478e 0 70%, #ddaf71 70%); }
+    header { padding: 56px 0 28px; }
+    .eyebrow { margin: 0 0 6px; color: var(--muted); font-weight: 700; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+    .back { color: var(--navy); text-decoration: none; }
+    h1 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; }
+    h1 em { color: var(--navy); font-weight: 400; }
+    .lead { margin: 12px 0 0; color: var(--muted); max-width: 52ch; }
+    .projects { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); padding-bottom: 56px; }
+    .card {
+      display: flex; flex-direction: column; gap: 8px;
+      padding: 22px; border: 1px solid var(--line); border-top: 4px solid var(--navy);
+      border-radius: 10px; background: var(--card); color: inherit; text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, .08); }
+    .card:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    .tag { color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .card h2 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.3rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .go { margin-top: auto; padding-top: 8px; color: var(--navy); font-weight: 800; }
+    footer { border-top: 1px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: .85rem; }
+    main.wrap { padding-bottom: 56px; }
+    .player { margin: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #000; }
+    .player video { display: block; width: 100%; height: auto; }
+    .cols { display: grid; gap: 24px; margin-top: 28px; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .cols { grid-template-columns: 1fr 1fr; } }
+    h2 { margin: 0 0 10px; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.3rem; }
+    .chapters { list-style: none; margin: 0; padding: 0; }
+    .chapters button {
+      display: flex; gap: 12px; width: 100%; padding: 8px 10px; border: 0; border-radius: 8px;
+      background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+    }
+    .chapters button:hover, .chapters button.on { background: var(--card); box-shadow: inset 3px 0 0 var(--navy); }
+    .chapters button:focus-visible { outline: 3px solid var(--gold); }
+    .chapters time { min-width: 3.2em; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .box { padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+    .box + .box { margin-top: 16px; }
+    .box ul { margin: 0; padding-left: 1.2em; }
+    .box li + li { margin-top: 8px; }
+    code { padding: 1px 5px; border-radius: 4px; background: var(--bg); font-size: .92em; }
+    .box a { color: var(--navy); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="bar" aria-hidden="true"></div>
+  <header class="wrap">
+    <p class="eyebrow"><a class="back" href="../">← GeoGebra</a> · Year 10 · Quadratics</p>
+    <h1>Catch the <em>Parabola</em></h1>
+    <p class="lead">How to put the free throw photo in GeoGebra Classic with the right scale, mark the balls, and find a quadratic model with FitPoly.</p>
+  </header>
+
+  <main class="wrap">
+    <figure class="player">
+      <video id="video" controls preload="metadata" playsinline poster="poster.jpg">
+        <source src="catch-the-parabola.mp4" type="video/mp4">
+      </video>
+    </figure>
+
+    <div class="cols">
+      <section>
+        <h2>Chapters</h2>
+        <ol class="chapters">
+        <li><button type="button" data-t="12"><time>0:12</time><span>Open GeoGebra Classic</span></button></li>
+        <li><button type="button" data-t="40"><time>0:40</time><span>Insert the photo</span></button></li>
+        <li><button type="button" data-t="67"><time>1:07</time><span>Give the photo the right scale</span></button></li>
+        <li><button type="button" data-t="107"><time>1:47</time><span>Make the photo a background image</span></button></li>
+        <li><button type="button" data-t="122"><time>2:02</time><span>Choose the scale of the axes</span></button></li>
+        <li><button type="button" data-t="153"><time>2:33</time><span>Switch off point capturing</span></button></li>
+        <li><button type="button" data-t="172"><time>2:52</time><span>Mark the centre of each ball</span></button></li>
+        <li><button type="button" data-t="214"><time>3:34</time><span>Your table of values</span></button></li>
+        <li><button type="button" data-t="230"><time>3:50</time><span>Fit a quadratic with FitPoly</span></button></li>
+        <li><button type="button" data-t="273"><time>4:33</time><span>Compare with your own model</span></button></li>
+        <li><button type="button" data-t="297"><time>4:57</time><span>Use your model</span></button></li>
+        <li><button type="button" data-t="346"><time>5:46</time><span>Tip: start from a table of values</span></button></li>
+        </ol>
+      </section>
+      <section>
+        <div class="box">
+          <h2>The free throw photo</h2>
+          <ul>
+            <li>Corner 1 (bottom-left): <code>A = (-1.45, -0.48)</code></li>
+            <li>Corner 2 (bottom-right): <code>B = (6.29, -0.48)</code></li>
+            <li>Then 1 unit = 1 metre. <a href="free-throw.png" download>Download the photo</a></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h2>If something goes wrong</h2>
+          <ul>
+            <li>Your points jump onto the grid lines? Style bar → Point Capturing → <strong>Off</strong>.</li>
+            <li>You cannot click on the Input bar? Wait until the grey tool tip at the bottom left disappears.</li>
+            <li>Your points start at C: A and B are the corners of the photo. Do not call your list L.</li>
+            <li>You cannot see a list of points? Click the circle next to it in the Algebra view.</li>
+            <li>A point in the wrong place? Undo ↶, or drag it with the Move tool.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">Created by Camila Felgueras.</footer>
+  <script>
+    const video = document.getElementById("video");
+    const buttons = [...document.querySelectorAll(".chapters button")];
+    buttons.forEach((b) => b.addEventListener("click", () => {
+      video.currentTime = Number(b.dataset.t);
+      video.play();
+    }));
+    // highlight the chapter that is playing
+    video.addEventListener("timeupdate", () => {
+      let current = null;
+      buttons.forEach((b) => { if (video.currentTime >= Number(b.dataset.t)) current = b; });
+      buttons.forEach((b) => b.classList.toggle("on", b === current));
+    });
+  </script>
+</body>
+</html>
