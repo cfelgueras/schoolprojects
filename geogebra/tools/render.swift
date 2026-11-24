@@ -29,7 +29,7 @@ let fps = 30.0
 let writer = try! AVAssetWriter(outputURL: tmp, fileType: .mov)
 let input = AVAssetWriterInput(mediaType: .video, outputSettings: [
   AVVideoCodecKey: AVVideoCodecType.h264, AVVideoWidthKey: W, AVVideoHeightKey: H,
-  AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 3_000_000, AVVideoMaxKeyFrameIntervalKey: 150,
+  AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 3_000_000, AVVideoMaxKeyFrameIntervalKey: 150, AVVideoAllowFrameReorderingKey: false,
     AVVideoProfileLevelKey: AVVideoProfileLevelH264HighAutoLevel]])
 let adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: [
   kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32ARGB, kCVPixelBufferWidthKey as String: W, kCVPixelBufferHeightKey as String: H])
@@ -135,9 +135,12 @@ func draw(_ f: Frame, _ t: Double) -> CVPixelBuffer {
 }
 
 var t = 0.0
+var lastAt = -1.0
 func append(_ pb: CVPixelBuffer, _ at: Double) {
   while !input.isReadyForMoreMediaData { usleep(1000) }
-  adaptor.append(pb, withPresentationTime: CMTime(value: CMTimeValue((at * 600).rounded()), timescale: 600))
+  let ok = adaptor.append(pb, withPresentationTime: CMTime(value: CMTimeValue((at * 600).rounded()), timescale: 600))
+  if !ok { print("append failed at", at, writer.error as Any); exit(1) }
+  lastAt = at
 }
 var lastPB: CVPixelBuffer?
 for f in man.frames {
@@ -154,6 +157,7 @@ for f in man.frames {
 }
 append(lastPB!, t)
 input.markAsFinished()
+writer.endSession(atSourceTime: CMTime(value: CMTimeValue((t * 600).rounded()), timescale: 600))
 let sem = DispatchSemaphore(value: 0)
 writer.finishWriting { sem.signal() }; sem.wait()
 
@@ -164,8 +168,11 @@ try! vt.insertTimeRange(CMTimeRange(start: .zero, duration: video.duration), of:
 let at = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)!
 for c in man.audio {
   let a = AVURLAsset(url: URL(fileURLWithPath: c.file))
-  try! at.insertTimeRange(CMTimeRange(start: .zero, duration: a.duration), of: a.tracks(withMediaType: .audio)[0],
-    at: CMTime(seconds: c.start, preferredTimescale: 600))
+  // inserting past the end of the track would close the gap, so fill the silence first
+  var start = CMTime(seconds: c.start, preferredTimescale: 600)
+  let end = at.timeRange.end
+  if start > end { at.insertEmptyTimeRange(CMTimeRange(start: end, end: start)) } else { start = end }
+  try! at.insertTimeRange(CMTimeRange(start: .zero, duration: a.duration), of: a.tracks(withMediaType: .audio)[0], at: start)
 }
 let ex = AVAssetExportSession(asset: comp, presetName: AVAssetExportPresetPassthrough)!
 ex.outputURL = out; ex.outputFileType = .mp4; ex.shouldOptimizeForNetworkUse = true

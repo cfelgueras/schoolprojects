@@ -1,5 +1,5 @@
 # encoding: utf-8
-# Run from this folder: safaridriver -p 4444 &, then  ruby record.rb  and  swiftc -O render.swift -o render && ./render manifest.json catch-the-parabola.mp4
+# Run from this folder: safaridriver -p 4444 &, then  EDGE_TTS=/path/to/edge-tts ruby record.rb  and  swiftc -O render.swift -o render && ./render manifest.json catch-the-parabola.mp4
 # Drives GeoGebra Classic (geogebra.org/classic) step by step, saves screenshots and the narration,
 # and writes manifest.json for ./render.
 require_relative 'wd'
@@ -8,13 +8,14 @@ require 'json'
 
 OUT = 'rec'   # frames and voice clips (not committed)
 FileUtils.rm_rf(OUT); FileUtils.mkdir_p("#{OUT}/f"); FileUtils.mkdir_p("#{OUT}/a")
-VOICE = 'Samantha'; RATE = 158
+# neural voice through edge-tts (pip install edge-tts); set EDGE_TTS to its path
+TTS = ENV.fetch('EDGE_TTS', 'edge-tts'); VOICE = 'en-US-AvaNeural'; RATE = '-6%'
 
 $w = WD.new
 at_exit { $w.quit rescue nil }
 $w.size(1470, 779)
 $w.load_ggb
-$frames = []; $audio = []; $cur = [735, 380]; $chap = nil; $cap = nil; $n = 0; $t = 0.0; $steps = 0
+$frames = []; $audio = []; $script = []; $cur = [735, 380]; $chap = nil; $cap = nil; $n = 0; $t = 0.0; $steps = 0
 W = $w
 
 def snap(dur, o = {})
@@ -55,10 +56,12 @@ def hold(d = 0.6, o = {}) snap(d, o) end
 
 def speak(text)
   $steps += 1
-  aiff = "#{OUT}/a/#{$steps}.aiff"; m4a = "#{OUT}/a/#{$steps}.m4a"
-  system('say', '-v', VOICE, '-r', RATE.to_s, '-o', aiff, text) or raise 'say failed'
-  system('afconvert', '-f', 'm4af', '-d', 'aac@44100', '-b', '96000', aiff, m4a) or raise 'afconvert failed'
-  File.delete(aiff)
+  mp3 = "#{OUT}/a/#{$steps}.mp3"; m4a = "#{OUT}/a/#{$steps}.m4a"
+  3.times { break if system(TTS, '--voice', VOICE, "--rate=#{RATE}", '--text', text, '--write-media', mp3, out: File::NULL, err: File::NULL); sleep 2 }
+  raise "edge-tts failed: #{text}" unless File.size?(mp3)
+  system('afconvert', '-f', 'm4af', '-d', 'aac@44100', '-b', '96000', mp3, m4a) or raise 'afconvert failed'
+  File.delete(mp3)
+  $script << text
   dur = `afinfo #{m4a}`[/estimated duration: ([\d.]+)/, 1].to_f
   [m4a, dur]
 end
@@ -72,9 +75,9 @@ def step(say, cap)
   hold(0.4) if $frames.size == first
   text = say.respond_to?(:call) ? say.call : say
   m4a, dur = speak(text)
-  start = $t + 0.3
+  start = $t + 0.15
   total = $frames[first..].sum { |f| f[:dur] }
-  need = dur + 0.3 + 0.7
+  need = dur + 0.15 + 0.45
   $frames[-1][:dur] += need - total if total < need
   $audio << { file: m4a, start: start }
   $t += $frames[first..].sum { |f| f[:dur] }
@@ -114,24 +117,24 @@ def input_pos
 end
 # Spoken form of GeoGebra numbers and equations
 def spoken(s)
-  s.gsub('−', '-').gsub(/\s*=\s*/, ' equals ').gsub('x²', 'x squared ').gsub(/(\d)x/, '\1 x')
+  s.gsub('−', '-').gsub(/\b([a-z])\(x\)/, '\\1 of x').gsub(/\s*=\s*/, ' equals ').gsub('x²', 'x squared ').gsub(/(\d)x/, '\1 x')
    .gsub(/\s-\s?/, ' minus ').gsub(/^-|\(-|, -/) { |m| m.sub('-', 'minus ') }.gsub('+', ' plus ').gsub(/\s+/, ' ').strip
 end
 
 # ---------------------------------------------------------------- the video
 card('Catch the Parabola', 'GeoGebra Classic · step by step',
-     'Catch the Parabola. In this video you will learn how to put the free throw photo in GeoGebra with the right scale, ' \
-     'mark the balls, and find a quadratic model with Fit Poly.')
+     'Hi! In this video, you\'ll learn how to put the free throw photo into GeoGebra with the right scale, ' \
+     'mark the position of the ball, and find a quadratic model using Fit Poly. Let\'s get started!')
 
 chapter '1 · Open GeoGebra Classic'
-step('Go to geogebra dot org slash classic. When it opens, you may see a keyboard and a list of apps. You do not need them.',
+step('First, go to geogebra dot org, slash classic. When it opens, you might see a keyboard and a list of apps. You won\'t need them for this.',
      'Open  geogebra.org/classic') { hold(1.0) }
-step('Close the keyboard with the cross on the right.', 'Close the keyboard  ✕') do
+step('So, let\'s close the keyboard with the cross on the right.', 'Close the keyboard  ✕') do
   click(*center_of('.closeTabbedKeyboardButton'))
 end
-step('On the left you have the Algebra view. Everything you create appears here, with its coordinates or its equation.',
+step('On the left, you have the Algebra view. Everything you create will show up here, with its coordinates or its equation.',
      'The Algebra view is on the left') { move(190, 300, ring: [2, 55, 384, 668]); hold(0.8, ring: [2, 55, 384, 668]) }
-step('If you cannot see the Algebra view, open the menu, choose View, and make sure Algebra is ticked.',
+step('If you can\'t see it, just open the menu, go to View, and make sure Algebra is ticked.',
      'Menu ☰  →  View  →  ✔ Algebra') do
   click(1438, 26)
   click(*at('View'))
@@ -141,62 +144,62 @@ step('If you cannot see the Algebra view, open the menu, choose View, and make s
 end
 
 chapter '2 · Insert the photo'
-step('Click on the tool that shows a equals 2. A list of tools opens.', 'Click the tool  “a = 2”') { click(430, 26) }
+step('Now let\'s insert the photo. Click on the tool that shows a equals 2, and a list of tools opens.', 'Click the tool  “a = 2”') { click(430, 26) }
 step('Choose Image.', 'Choose  Image') { click(*at('Image')) }
-step('Now click anywhere on the Graphics view. A window opens.', 'Click on the Graphics view') { click(900, 300, :real, wait: 1.5) }
+step('Then click anywhere on the graphics, and a window opens.', 'Click on the Graphics view') { click(900, 300, :real, wait: 1.5) }
 step('Click Browse, and choose the photo you downloaded from Google Classroom.', 'Browse  →  choose the photo') do
   click(*at('Browse'), -> { W.upload('../catch-the-parabola/free-throw.png') }, wait: 3.0)
 end
-step('The photo appears with two blue points, A and B, at its bottom corners. They are also listed in the Algebra view.',
+step('There it is! Notice the two blue points, A and B, at the bottom corners. You can also see them in the Algebra view.',
      'The bottom corners of the photo are the points A and B') do
   move(200, 110, ring: [2, 55, 384, 92]); hold(1.2, ring: [2, 55, 384, 92])
 end
 
 chapter '3 · Give the photo the right scale'
-step('Now we move the corners, so that one unit on the axes is one metre in the photo. Use the coordinates of the two corners given under the photo.',
+step('Next, we\'ll give the photo the right scale, so that one unit on the axes is one metre in real life. To do this, we move the corners to the coordinates given under the photo.',
      'Corner 1 (bottom-left) = (−1.45, −0.48)      Corner 2 (bottom-right) = (6.29, −0.48)') { hold(1.0) }
-step('Click on Input, and type: A equals, bracket, minus 1.45, comma, minus 0.48. Then press Enter.',
+step('Click on Input, and type: A equals, open bracket, minus 1.45, comma, minus 0.48. Then press Enter.',
      'Type   A = (-1.45, -0.48)   and press Enter') do
   click(*input_pos, :real)
   type('A=(-1.45,-0.48)'); enter
 end
-step('Do the same with B: B equals, bracket, 6.29, comma, minus 0.48. Enter.',
+step('Now do the same for B: B equals 6.29, comma, minus 0.48. And Enter.',
      'Type   B = (6.29, -0.48)   and press Enter') do
   type('B=(6.29,-0.48)'); enter
 end
-step('The photo moves. Now the floor is on the x-axis, and the y-axis goes through the ball in the player\'s hands. One unit is one metre.',
+step('Great! The floor is now on the x-axis, and the y-axis goes right through the ball in the player\'s hands. One unit is one metre.',
      'Now 1 unit = 1 metre') { move(1000, 330); hold(1.0) }
 
 chapter '4 · Make the photo a background image'
-step('Right-click on the photo, and choose Settings.', 'Right-click the photo  →  Settings') do
+step('Now let\'s make the photo a background image. Right-click on the photo, and choose Settings.', 'Right-click the photo  →  Settings') do
   click(1000, 300, :right, wait: 1.0)
   click(*at('Settings'), wait: 1.5)
 end
-step('In the Basic tab, tick Background Image. Now the photo stays still, and you can put points on top of it.',
+step('In the Basic tab, tick Background Image. This way, the photo stays still, and you can click on top of it.',
      'Basic  →  ✔ Background Image') do
   x, y = at('Background Image')
   click(x - 90, y, wait: 1.0)
   raise 'background not set' unless js("return ggbApplet.getXML('pic1').includes('inBackground val=\"true\"')")
 end
-step('Close the settings with the cross.', 'Close the settings  ✕') { click(*center_of('.closeBtn'), wait: 1.2) }
+step('Then close the settings with the cross.', 'Close the settings  ✕') { click(*center_of('.closeBtn'), wait: 1.2) }
 
 chapter '5 · Choose the scale of the axes'
-step('The photo is still small. Choose which part of the axes you want to see. In the Input bar, type Zoom In, and in brackets: x min, y min, x max, y max.',
+step('The photo is still quite small, so let\'s choose which part of the axes we want to see. In the Input bar, type Zoom In, and in brackets: x min, y min, x max, and y max.',
      'ZoomIn( xMin, yMin, xMax, yMax )') { click(*input_pos, :real) }
-step('For this photo: minus 2, minus 1, 8, 6. Then press Enter.', 'Type   ZoomIn(-2, -1, 8, 6)   and press Enter') do
+step('For this photo, that\'s minus 2, minus 1, 8, and 6. Then press Enter.', 'Type   ZoomIn(-2, -1, 8, 6)   and press Enter') do
   type('ZoomIn(-2,-1,8,6)'); enter(after: 1.0)
 end
-step('Now x goes from about minus 2 to 8, and y from minus 1 to 6. If the balls look a little stretched, do not worry: the coordinates are still correct.',
+step('Much better! Now x goes from about minus 2 to 8, and y from minus 1 to 6. If the balls look a little stretched, don\'t worry. The coordinates are still correct.',
      'x from −2 to 8,   y from −1 to 6') { move(900, 420); hold(1.0) }
 
 chapter '6 · Switch off point capturing'
-step('Before you mark the balls, switch off point capturing. If you do not, GeoGebra moves your points onto the grid, and the coordinates are wrong. Click the style bar button, at the top right of the graphics.',
+step('Before we mark the balls, there\'s one important thing: switch off point capturing. Otherwise, GeoGebra moves your points onto the grid, and the coordinates will be wrong. Click the style bar button, at the top right of the graphics.',
      'Click the style bar button  (top right of the graphics)') do
   click(1400, 650, :real, wait: 0.6)
   click(1449, 74, :real, wait: 1.0)
   click(1449, 74, :real, wait: 1.0) unless capture_btn
 end
-step('Click the magnet button, Point Capturing, and choose Off.', 'Point Capturing  →  Off') do
+step('Then click the magnet button, Point Capturing, and choose Off.', 'Point Capturing  →  Off') do
   click(*capture_btn, :real, wait: 1.0)
   click(*at('Off'), :real, wait: 0.8)
 end
@@ -211,21 +214,21 @@ def screen(x, y)
 end
 
 chapter '7 · Mark the centre of each ball'
-step('Click on the Point tool. A list opens: choose Point.', 'Point tool  →  Point') do
+step('Now click on the Point tool. A list opens, so choose Point.', 'Point tool  →  Point') do
   click(70, 26, :real, wait: 0.8)
   item = (at('Point', 0) rescue nil)
   click(*item, :real, wait: 0.6) if item && item[1] > 50
   raise 'point tool not selected' unless js('return ggbApplet.getMode()') == 1
 end
-step('Click exactly on the centre of the first ball, the one in the player\'s hands. GeoGebra calls this point C, because A and B are the corners of the photo.',
+step('Click exactly on the centre of the first ball, the one in the player\'s hands. GeoGebra calls it C, because A and B are already the corners of the photo.',
      'Click the centre of the first ball  →  point C') { click(*screen(*BALLS[0]), :real, wait: 0.8) }
-step('Now click on the centre of every ball, from left to right. There are 12 balls, so the last point is N.',
+step('Now click on the centre of every ball, from left to right. There are twelve balls, so your last point will be N.',
      'Click the centre of every ball, from left to right  (C to N)') do
   BALLS[1..].each { |b| click(*screen(*b), :real, wait: 0.5, mv: 0.35, after: 0.25) }
 end
-step('If a point is in the wrong place, press Undo, or use the Move tool to drag it.',
+step('If a point ends up in the wrong place, just press Undo, or drag it with the Move tool.',
      'Wrong point?  Undo ↶  or drag it with the Move tool') { move(1307, 29, ring: [1290, 10, 36, 38]); hold(0.6, ring: [1290, 10, 36, 38]) }
-step('When you finish, click on the Move tool and choose Move, so you do not create extra points by mistake.',
+step('When you\'re done, click on the Move tool and choose Move, so you don\'t create extra points by mistake.',
      'Move tool  →  Move') do
   click(24, 26, :real, wait: 0.8)
   item = (at('Move', 0) rescue nil)
@@ -234,27 +237,27 @@ step('When you finish, click on the Move tool and choose Move, so you do not cre
 end
 
 chapter '8 · Your table of values'
-step('Look at the Algebra view. Each point shows its x and y coordinates in metres, rounded to 2 decimal places. This is your table of values. Copy it into your report.',
+step('Now look at the Algebra view. Each point shows its x and y coordinates in metres, rounded to two decimal places. This is your table of values, so copy it into your report.',
      'Algebra view = your table of values (x, y)') do
   scroll_algebra(0); sleep 0.3
   move(200, 400, ring: [2, 55, 384, 668]); hold(1.5, ring: [2, 55, 384, 668])
 end
-step('Scroll down to see all the points.', 'Scroll down to see all the points') do
+step('Scroll down to see all of them.', 'Scroll down to see all the points') do
   [150, 300, 450, 'end'].each { |s| scroll_algebra(s); sleep 0.25; hold(0.35) }
 end
 
 chapter '9 · Fit a quadratic with FitPoly'
-step('Now make a list of your points. In the Input bar, type: balls equals, curly bracket, C, D, E, and so on, up to N. Do not call the list L, because L is already the name of a point.',
+step('Next, make a list with your points. In the Input bar, type: balls equals, curly bracket, C, D, E, and so on, all the way to N. Don\'t call the list L, because there\'s already a point called L.',
      'Type   balls = {C, D, E, F, G, H, I, J, K, L, M, N}   and press Enter') do
   click(*input_pos, :real)
   type('balls={C,D,E,F,G,H,I,J,K,L,M,N}', per: 0.07); enter
 end
-step('Then type Fit Poly, bracket, balls, comma, 2. The 2 means degree 2: a quadratic. Press Enter.',
+step('Then type Fit Poly, open bracket, balls, comma, 2. The 2 means degree two, so a quadratic. Press Enter.',
      'Type   FitPoly(balls, 2)   and press Enter') do
   type('FitPoly(balls,2)'); enter(after: 1.2)
 end
 fx = nil
-step(-> { "GeoGebra draws the parabola on top of the photo, and the Algebra view shows its equation: #{spoken(fx)}. Write your model with the coefficients to 2 significant figures." },
+step(-> { "And there's the parabola, right on top of the photo! The Algebra view shows its equation: #{spoken(fx)}. Remember to write your coefficients to two significant figures." },
      -> { "Your model:   #{fx}" }.call.then { |c| c }) do
   fx = val('f'); raise 'no f' if fx.to_s.empty?
   $cap = "Your model:   #{fx}"
@@ -263,31 +266,31 @@ step(-> { "GeoGebra draws the parabola on top of the photo, and the Algebra view
 end
 
 chapter '10 · Compare with your own model'
-step('To compare with your model from Method 1, type it in the Input bar too. For example: g of x equals minus 0.42, times, x minus 2.4 in brackets, squared, plus 4.36.',
+step('To compare it with your model from Method 1, type that one in the Input bar too. For example: g of x equals minus 0.42, times x minus 2.4 squared, plus 4.36.',
      'Type   g(x) = -0.42(x - 2.4)^2 + 4.36   and press Enter') do
   click(*input_pos, :real)
   type('g(x)=-0.42(x-2.4)^2'); W.keys(""); type('+4.36'); enter(after: 1.0)
 end
-step('Now you can see both curves on top of the photo. Which one fits the balls better? Why might they be a little different?',
+step('Now you can see both curves on top of the photo. Which one fits the balls better? And why might they be a little different?',
      'Which model fits better?') { move(950, 250); hold(1.5) }
 
 chapter '11 · Use your model'
 ans = {}
-step(-> { "To find the height of the ball at a horizontal distance, type f, and the distance in brackets. For example, f of 4.26 gives #{ans[:h]} metres." },
+step(-> { "Now let's use the model. To find the height of the ball at a certain distance, type f, and the distance in brackets. For example, f of 4.26 gives #{ans[:h]} metres." },
      'Type   f(4.26)   and press Enter') do
   click(*input_pos, :real)
   type('f(4.26)'); enter
   n = js("return ggbApplet.getAllObjectNames().filter(n=>ggbApplet.getObjectType(n)=='numeric').pop()")
   ans[:h] = js('return ggbApplet.getValue(arguments[0]).toFixed(2)', n)
 end
-step(-> { "To find where the ball would hit the floor, type Roots, bracket, f. The roots are #{ans[:r].join(' and ')}. Only the positive one makes sense here." },
+step(-> { "To find where the ball would hit the floor, type Roots, open bracket, f. The roots are #{ans[:r].join(' and ')}, and only the positive one makes sense here." },
      'Type   Roots(f)   and press Enter') do
   before = js('return ggbApplet.getAllObjectNames()')
   type('Roots(f)'); enter(after: 1.0)
   pts = js('return ggbApplet.getAllObjectNames()') - before
   ans[:r] = pts.map { |p| js('return ggbApplet.getXcoord(arguments[0]).toFixed(2)', p) }.sort_by(&:to_f)
 end
-step(-> { "To find where the ball is at a height of 3.5 metres, type Intersect, bracket, f, comma, y equals 3.5. The ball is at that height when x is #{ans[:i].join(' and when x is ')}." },
+step(-> { "To find where the ball is at a height of three and a half metres, type Intersect, f, comma, y equals 3.5. The ball reaches that height when x is #{ans[:i].join(', and again when x is ')}." },
      'Type   Intersect(f, y = 3.5)   and press Enter') do
   before = js('return ggbApplet.getAllObjectNames()')
   type('Intersect(f,y=3.5)'); enter(after: 1.0)
@@ -295,7 +298,7 @@ step(-> { "To find where the ball is at a height of 3.5 metres, type Intersect, 
   ans[:i] = pts.select { |p| js('return ggbApplet.getObjectType(arguments[0])', p) == 'point' }
                .map { |p| js('return ggbApplet.getXcoord(arguments[0]).toFixed(2)', p) }.sort_by(&:to_f)
 end
-step(-> { "And Extremum, bracket, f, gives the vertex: the highest point of the path, at #{ans[:v][1]} metres." },
+step(-> { "And Extremum of f gives you the vertex: the highest point of the path, at #{ans[:v][1]} metres." },
      'Type   Extremum(f)   and press Enter') do
   before = js('return ggbApplet.getAllObjectNames()')
   type('Extremum(f)'); enter(after: 1.5)
@@ -304,12 +307,12 @@ step(-> { "And Extremum, bracket, f, gives the vertex: the highest point of the 
 end
 
 chapter 'Tip · Start from a table of values'
-step('Tip: if you already have a table of values, you can type the points directly, as a list. Use curly brackets, and put each point in round brackets: x, comma, y. Here is a table for a water jet.',
+step('One last tip. If you already have a table of values, you can type the points directly as a list. Use curly brackets, and put each point in round brackets: x, comma, y. Here\'s a table for a water jet.',
      'Type   pts = {(0, 0), (1, 2.4), (2, 3.6), (3, 3.6), (4, 2.4), (5, 0)}   and press Enter') do
   click(*input_pos, :real)
   type('pts={(0,0),(1,2.4),(2,3.6),(3,3.6),(4,2.4),(5,0)}', per: 0.06); enter(after: 1.0)
 end
-step('If you cannot see the points on the graph, click on the circle next to the list in the Algebra view.',
+step('If you can\'t see the points on the graph, click on the circle next to the list in the Algebra view.',
      'Click the circle next to  pts  to show the points') do
   y = js("const e=[...document.querySelectorAll('*')].filter(e=>e.children.length==0&&/^pts/.test(e.textContent.trim())).pop(); const r=e.getBoundingClientRect(); return r.y+r.height/2")
   click(26, y, :real, wait: 0.8)
@@ -317,7 +320,7 @@ step('If you cannot see the points on the graph, click on the circle next to the
     js("ggbApplet.setVisible('pts', true)"); sleep 0.5; hold(0.3)
   end
 end
-step('Then use Fit Poly with this list in the same way: Fit Poly, bracket, pts, comma, 2.',
+step('Then use Fit Poly with this list, just like before.',
      'Type   FitPoly(pts, 2)   and press Enter') do
   click(*input_pos, :real)
   type('FitPoly(pts,2)'); enter(after: 1.5)
@@ -325,7 +328,8 @@ step('Then use Fit Poly with this list in the same way: Fit Poly, bracket, pts, 
 end
 
 card('Now it’s your turn!', 'Save your work:  Menu ☰  →  File  →  Save',
-     'Now it is your turn. Remember to save your work: open the menu, choose File, and Save. Good luck!')
+     'And that\'s it! Now it\'s your turn. Don\'t forget to save your work: open the menu, choose File, and then Save. Good luck!')
 
+File.write('script.txt', $script.join("\n\n"))
 File.write('manifest.json', JSON.pretty_generate({ frames: $frames, audio: $audio, css: [1470, 727] }))
 puts "frames #{$frames.size}, #{$t.round(1)} s"
