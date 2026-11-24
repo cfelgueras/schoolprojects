@@ -81,7 +81,7 @@ end
 # ---------- typing in time with the voice
 # Each typed token (A, =, (, -1.45, …) is matched with the word that dictates it, and the typing frames are
 # shown when that word is spoken. Tokens nobody says, like ) or the letters in "and so on", are spread in between.
-SAYS = { '=' => %w[equals], '(' => %w[bracket open], '{' => %w[curly], ',' => %w[comma], '^' => %w[squared], '+' => %w[plus] }
+SAYS = { '=' => %w[equals], '(' => %w[bracket brackets open], '{' => %w[curly], ',' => %w[comma], '^' => %w[squared], '+' => %w[plus] }
 def spoken_as?(token, word)
   w = word.downcase.sub(/[.,!?:;]+$/, '')
   return SAYS[token].include?(w) if SAYS[token]
@@ -261,9 +261,12 @@ step('Then close the settings with the cross.', 'Close the settings  ✕') { cli
 
 chapter '5 · Choose the scale of the axes'
 step('The photo is still quite small, so let\'s choose which part of the axes we want to see. In the Input bar, type Zoom In, and in brackets: x min, y min, x max, and y max.',
-     'ZoomIn( xMin, yMin, xMax, yMax )') { click(*input_pos, :real) }
+     'ZoomIn( xMin, yMin, xMax, yMax )') do
+  click(*input_pos, :real)
+  type('ZoomIn(')
+end
 step('For this photo, that\'s minus 2, minus 1, 8, and 6. Then press Enter.', 'Type   ZoomIn(-2, -1, 8, 6)   and press Enter') do
-  type('ZoomIn(-2,-1,8,6)'); enter(after: 1.0)
+  type('-2,-1,8,6)'); enter(after: 1.0)
 end
 step('Much better! Now x goes from about minus 2 to 8, and y from minus 1 to 6. If the balls look a little stretched, don\'t worry. The coordinates are still correct.',
      'x from −2 to 8,   y from −1 to 6') { move(900, 420); hold(1.0) }
