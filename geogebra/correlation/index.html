@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Correlation</title>
+  <meta name="description" content="Video: enter a table of values in GeoGebra Classic, draw a scatter graph, and find the regression line and r.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300478e'/%3E%3Cpath d='M4 4L28 28M28 4L4 28' stroke='%23ddaf71' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #00478e;
+      --gold: #ddaf71;
+      --ink: #1b2430;
+      --muted: #5b6573;
+      --bg: #f6f4ef;
+      --card: #ffffff;
+      --line: #e3ded3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --navy: #7fb2ec;
+        --ink: #e9edf2;
+        --muted: #a3adba;
+        --bg: #11161d;
+        --card: #1a212b;
+        --line: #2b3542;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Nunito Sans", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+    .bar { height: 6px; background: linear-gradient(90deg, #00478e 0 70%, #ddaf71 70%); }
+    header { padding: 56px 0 28px; }
+    .eyebrow { margin: 0 0 6px; color: var(--muted); font-weight: 700; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+    .back { color: var(--navy); text-decoration: none; }
+    h1 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; }
+    h1 em { color: var(--navy); font-weight: 400; }
+    .lead { margin: 12px 0 0; color: var(--muted); max-width: 52ch; }
+    .projects { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); padding-bottom: 56px; }
+    .card {
+      display: flex; flex-direction: column; gap: 8px;
+      padding: 22px; border: 1px solid var(--line); border-top: 4px solid var(--navy);
+      border-radius: 10px; background: var(--card); color: inherit; text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, .08); }
+    .card:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    .tag { color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .card h2 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.3rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .go { margin-top: auto; padding-top: 8px; color: var(--navy); font-weight: 800; }
+    footer { border-top: 1px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: .85rem; }
+    main.wrap { padding-bottom: 56px; }
+    .player { margin: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #000; }
+    .player video { display: block; width: 100%; height: auto; }
+    .cols { display: grid; gap: 24px; margin-top: 28px; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .cols { grid-template-columns: 1fr 1fr; } }
+    h2 { margin: 0 0 10px; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.3rem; }
+    .chapters { list-style: none; margin: 0; padding: 0; }
+    .chapters button {
+      display: flex; gap: 12px; width: 100%; padding: 8px 10px; border: 0; border-radius: 8px;
+      background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+    }
+    .chapters button:hover, .chapters button.on { background: var(--card); box-shadow: inset 3px 0 0 var(--navy); }
+    .chapters button:focus-visible { outline: 3px solid var(--gold); }
+    .chapters time { min-width: 3.2em; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .box { padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+    .box + .box { margin-top: 16px; }
+    .box ul { margin: 0; padding-left: 1.2em; }
+    .box li + li { margin-top: 8px; }
+    code { padding: 1px 5px; border-radius: 4px; background: var(--bg); font-size: .92em; }
+    .box a { color: var(--navy); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="bar" aria-hidden="true"></div>
+  <header class="wrap">
+    <p class="eyebrow"><a class="back" href="../">← GeoGebra</a> · Year 10 · Statistics</p>
+    <h1><em>Correlation</em></h1>
+    <p class="lead">Project 2, “Is It True?”: how to enter a table of values in GeoGebra Classic, draw a scatter graph, and find the regression line, r and the mean point.</p>
+  </header>
+
+  <main class="wrap">
+    <figure class="player">
+      <video id="video" controls preload="metadata" playsinline poster="poster.jpg">
+        <source src="correlation.mp4" type="video/mp4">
+      </video>
+    </figure>
+
+    <div class="cols">
+      <section>
+        <h2>Chapters</h2>
+        <ol class="chapters">
+        <li><button type="button" data-t="16"><time>0:16</time><span>Open GeoGebra Classic</span></button></li>
+        <li><button type="button" data-t="23"><time>0:23</time><span>Round to 3 significant figures</span></button></li>
+        <li><button type="button" data-t="39"><time>0:39</time><span>Enter the table of values</span></button></li>
+        <li><button type="button" data-t="85"><time>1:25</time><span>Draw the scatter graph</span></button></li>
+        <li><button type="button" data-t="111"><time>1:51</time><span>Choose the scale of the axes</span></button></li>
+        <li><button type="button" data-t="142"><time>2:22</time><span>The regression line</span></button></li>
+        <li><button type="button" data-t="164"><time>2:44</time><span>The correlation coefficient r</span></button></li>
+        <li><button type="button" data-t="184"><time>3:04</time><span>The mean point</span></button></li>
+        <li><button type="button" data-t="207"><time>3:27</time><span>Estimates</span></button></li>
+        </ol>
+      </section>
+      <section>
+        <div class="box">
+          <h2>The commands</h2>
+          <ul>
+            <li>Scatter graph: select the table → right-click → Create → List of points</li>
+            <li>Scale: <code>ZoomIn(xMin, yMin, xMax, yMax)</code></li>
+            <li>Regression line: <code>FitLine(l1)</code></li>
+            <li>r: <code>r = CorrelationCoefficient(l1)</code></li>
+            <li>Mean point: <code>Z = (Mean(x(l1)), Mean(y(l1)))</code></li>
+            <li>Estimate: <code>f(3)</code></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h2>If something goes wrong</h2>
+          <ul>
+            <li>You cannot see the points? They are outside the graph: use <code>ZoomIn</code> with ranges that include your data.</li>
+            <li><code>l1</code> is a lowercase L and the number 1.</li>
+            <li>Do not call the mean point M: the points of your table are already called A to T.</li>
+            <li>Your table shows 5.50 instead of 5.5? That is the rounding to 3 significant figures; the value is the same.</li>
+            <li>A wrong number in the table changes everything: check it before you draw the graph.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">Created by Camila Felgueras.</footer>
+  <script>
+    const video = document.getElementById("video");
+    const buttons = [...document.querySelectorAll(".chapters button")];
+    buttons.forEach((b) => b.addEventListener("click", () => {
+      video.currentTime = Number(b.dataset.t);
+      video.play();
+    }));
+    // highlight the chapter that is playing
+    video.addEventListener("timeupdate", () => {
+      let current = null;
+      buttons.forEach((b) => { if (video.currentTime >= Number(b.dataset.t)) current = b; });
+      buttons.forEach((b) => b.classList.toggle("on", b === current));
+    });
+  </script>
+</body>
+</html>

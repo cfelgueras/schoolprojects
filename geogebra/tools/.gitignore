@@ -1,5 +1,3 @@
-rec/
+rec-*/
 render
-manifest.json
-script.txt
 *.mp4

@@ -65,3 +65,13 @@ class WD
     r[nth]
   end
 end
+
+class WD
+  # press at (x1, y1), move in small steps and release at (x2, y2): selects a range of cells
+  def drag(x1, y1, x2, y2, steps = 8)
+    a = [{ type: 'pointerMove', duration: 0, x: x1.round, y: y1.round, origin: 'viewport' }, { type: 'pointerDown', button: 0 }]
+    (1..steps).each { |i| a << { type: 'pointerMove', duration: 40, x: (x1 + (x2 - x1) * i / steps.to_f).round, y: (y1 + (y2 - y1) * i / steps.to_f).round, origin: 'viewport' } }
+    a << { type: 'pointerUp', button: 0 }
+    s(:post, '/actions', { actions: [{ type: 'pointer', id: 'm', parameters: { pointerType: 'mouse' }, actions: a }] }); s(:delete, '/actions')
+  end
+end
